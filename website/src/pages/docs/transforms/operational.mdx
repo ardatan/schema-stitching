@@ -1,0 +1,80 @@
+# Operational
+
+It may be sometimes useful to add additional transforms to manually change an operation request or result when using `delegateToSchema`. Common use cases may be moving selections around or to wrap them. The following built-in transforms may be useful in those cases.
+
+- `WrapFields('ParentType', ['scope'], ['ScopeType'], ['field1', 'field2', ...])` wraps a collection of fields on a parent type in one or more wrapping scopes with given namespaces and object types.
+- `ExtractField({ from: Array<string>, to: Array<string> })` move selection at `from` path to `to` path.
+- `WrapQuery(path: Array<string>, wrapper: QueryWrapper, extractor: (result: any) => any)` wrap a selection at `path` using function `wrapper`. Apply `extractor` at the same path to get the result. This is used to get a result nested inside another result.
+
+```js
+const { WrapQuery } = require('@graphql-tools/wrap')
+
+const schema = wrapSchema({
+  // ...
+  transforms: [
+    // Wrap document takes a subtree as an AST node
+    new WrapQuery(
+      // path at which to apply wrapping and extracting
+      ['userById'],
+      (subtree: SelectionSetNode) => ({
+        // we create a wrapping AST Field
+        kind: Kind.FIELD,
+        name: {
+          kind: Kind.NAME,
+          // that field is `address`
+          value: 'address'
+        },
+        // Inside the field selection
+        selectionSet: subtree
+      }),
+      // how to process the data result at path
+      result => result?.address
+    )
+  ]
+})
+```
+
+`WrapQuery` can also be used to expand multiple top-level query fields
+
+```ts
+import { WrapQuery } from '@graphql-tools/wrap'
+import { SelectionSetNode } from 'graphql'
+
+const schema = wrapSchema({
+  // ...
+  transforms: [
+    // Wrap document takes a subtree as an AST node
+    new WrapQuery(
+      // path at which to apply wrapping and extracting
+      ['userById'],
+      (subtree: SelectionSetNode) => {
+        const newSelectionSet = {
+          kind: Kind.SELECTION_SET,
+          selections: subtree.selections.map(selection => {
+            // just append fragments, not interesting for this
+            // test
+            if (selection.kind === Kind.INLINE_FRAGMENT || selection.kind === Kind.FRAGMENT_SPREAD) {
+              return selection
+            }
+            // prepend `address` to name and camelCase
+            const oldFieldName = selection.name.value
+            return {
+              kind: Kind.FIELD,
+              name: {
+                kind: Kind.NAME,
+                value: 'address' + oldFieldName.charAt(0).toUpperCase() + oldFieldName.slice(1)
+              }
+            }
+          })
+        }
+        return newSelectionSet
+      },
+      // how to process the data result at path
+      result => ({
+        streetAddress: result.addressStreetAddress,
+        zip: result.addressZip
+      })
+    )
+  ]
+})
+```

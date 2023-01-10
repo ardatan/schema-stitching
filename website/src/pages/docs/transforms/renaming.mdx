@@ -1,0 +1,37 @@
+# Renaming
+
+Renaming transforms are constructed with a renamer function that returns a string. The transform executes the renamer on each schema element within its scope and applies the revised names to gateway schema elements. If a renamer returns `undefined`, the name will be left unchanged. Additional options may control whether built-in types and scalars are renamed, see linked API docs.
+
+- [`RenameTypes`](/docs/api/classes/wrap_src.renametypes): renames all element types.
+- [`RenameRootTypes`](/docs/api/classes/wrap_src.renameroottypes): renames the root Query, Mutation, and Subscription types.
+- [`RenameRootFields`](/docs/api/classes/wrap_src.renamerootfields): renames fields on the root Query, Mutation, and Subscription objects.
+- [`RenameObjectFields`](/docs/api/classes/wrap_src.renameobjectfields): renames fields of Object types.
+- [`RenameObjectFieldArguments`](/docs/api/classes/wrap_src.renameobjectfieldarguments): renames field arguments of Object types.
+- [`RenameInterfaceFields`](/docs/api/classes/wrap_src.renameinterfacefields): renames fields of Interface types.
+- [`RenameInputObjectFields`](/docs/api/classes/wrap_src.renameinputobjectfields): renames input fields of InputObject types.
+
+```js
+const {
+  wrapSchema,
+  RenameTypes,
+  RenameRootTypes,
+  RenameRootFields,
+  RenameObjectFields,
+  RenameObjectFieldArguments,
+  RenameInterfaceFields,
+  RenameInputObjectFields
+} = require('@graphql-tools/wrap')
+
+const schema = wrapSchema({
+  schema: originalSchema,
+  transforms: [
+    new RenameTypes(name => `New${name}`),
+    new RenameRootTypes(name => `New${name}`),
+    new RenameRootFields((operationName, fieldName, fieldConfig) => `new_${fieldName}`),
+    new RenameObjectFields((typeName, fieldName, fieldConfig) => `new_${fieldName}`),
+    new RenameObjectFieldArguments((typeName, fieldName, argName) => `new_${argName}`),
+    new RenameInterfaceFields((typeName, fieldName, fieldConfig) => `new_${fieldName}`),
+    new RenameInputObjectFields((typeName, fieldName, inputFieldConfig) => `new_${fieldName}`)
+  ]
+})
+```

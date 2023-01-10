@@ -1,0 +1,198 @@
+# Overview of Approaches
+
+There are many ways of stitching different GraphQL services based on the way of configuring the services.
+It can be either on the gateway or service level.
+
+## Schema Extensions (gateway-level configuration)
+
+In this approach, you merge different subschemas and extend the unified schema by adding additional fields delegating to the other subschemas;
+
+```graphql filename="author-service.graphql"
+type Query {
+  author(id: ID!): Author
+}
+
+type Author {
+  id: ID!
+  name: String!
+}
+```
+
+And the book service;
+
+```graphql filename="book-service.graphql"
+type Query {
+  book(id: ID!): Book
+}
+
+type Book {
+  id: ID!
+  title: String!
+  authorId: ID!
+}
+```
+
+Then in the gateway, you can extend `Book` type with a new field called `author` that delegates to the author service;
+
+```graphql
+extend type Book {
+  author: Author!
+}
+```
+
+```ts
+export const resolvers = {
+  Book: {
+    selectionSet: /* GraphQL */ `
+      {
+        authorId
+      }
+    `,
+    resolve: ({ authorId }) =>
+      delegateToSchema({
+        schema: authorSubschema,
+        fieldName: 'author',
+        args: {
+          id: authorId
+        }
+      })
+  }
+}
+```
+
+> Learn more about [Schema Extensions](/docs/approaches/schema-extensions)
+
+## Programmatic Type Merging (gateway-level configuration)
+
+Type Merging is another approach in Schema Stitching that allows you merge different type definitions from different services referring to the same entity.
+This is useful if you have different standalone GraphQL APIs and you need to configure those in the gateway level
+
+```graphql filename="author-service.graphql"
+type Query {
+  author(id: ID!): Author
+}
+
+type Author {
+  id: ID!
+  name: String!
+}
+```
+
+```graphql filename="book-service.graphql"
+type Query {
+  book(id: ID!): Book
+  authorWithBooks(id: ID!): Author
+}
+
+type Book {
+  id: ID!
+  title: String!
+  author: Author!
+}
+
+type Author {
+  id: ID!
+  books: [Book]
+}
+```
+
+You can see there are two different `Author` types sharing the same entity;
+
+```ts
+const gatewaySchema = stitchSchemas({
+  subschemas: [
+    {
+      schema: authorSchema,
+      merge: {
+        Author: {
+          fieldName: 'author',
+          selectionSet: '{ id }',
+          args: originalObject => ({ id: originalObject.id })
+        }
+      }
+    },
+    {
+      schema: bookSchema,
+      merge: {
+        Author: {
+          fieldName: 'authorWithBooks',
+          selectionSet: '{ id }',
+          args: originalObject => ({ id: originalObject.id })
+        }
+      }
+    }
+  ]
+})
+```
+
+Then when you make the following request;
+
+```graphql
+{
+  author(id: 1) {
+    # From Author Service
+    id
+    name # From Author Service
+    books {
+      # From Book Service
+      id
+      title
+    }
+  }
+  book(id: 2) {
+    # From Book Service
+    id
+    title # From Book Service
+    author {
+      # From Book Service
+      id
+      name # From Author Service
+    }
+  }
+}
+```
+
+> Learn more about [programmatic type merging](/docs/approaches/type-merging)
+
+## Directives-based Type Merging (service level configuration)
+
+If you want to avoid configuring the services in the gateway but in the services level, you can use directives-based approach which is similar to Apollo Federation.
+
+Schema Stitching allows you to use stitching directives or Apollo Federation specification to implement your services.
+
+This is the only one can be considered as an alternative to Apollo Federation because Apollo Federation implements a type merging gateway based on directives instead of programmatic API or schema extensions.
+
+Stitching Directives are more flexible compared to Apollo Federation so you can still follow the regular GraphQL resolver signature instead of non-standard ones like `__resolveEntity` etc.
+
+The following example is identical to the one above;
+
+```graphql filename="author-service.graphql"
+type Query {
+  author(id: ID!): Author @merge
+}
+
+type Author {
+  id: ID!
+  name: String!
+}
+```
+
+```graphql filename="book-service.graphql"
+type Query {
+  book(id: ID!): Book @merge
+  authorWithBooks(id: ID!): Author @merge
+}
+
+type Book @key(selectionSet: "{ id }") {
+  id: ID!
+  title: String!
+  author: Author
+}
+
+type Author @key(selectionSet: "{ id }") {
+  id: ID!
+  books: [Book]
+}
+```
+
+> Learn more about [stitching directives](/docs/approaches/stitching-directives)
