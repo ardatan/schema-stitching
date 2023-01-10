@@ -1,0 +1,181 @@
+# Grooming
+
+These transforms eliminate unwanted or unnecessary elements from a schema.
+
+## Pruning
+
+`PruneSchema` eliminates unreachable elements from the schema. This is generally useful to include _after_ a filter transform so that orphaned types and values are eliminated from the schema.
+
+```ts
+class PruneSchema(options: PruneSchemaOptions) implements Transform
+
+interface PruneSchemaOptions {
+  /**
+   * Return true to skip pruning this type. This check will run first before any other options.
+   * This can be helpful for schemas that support type extensions like Apollo Federation.
+   */
+  skipPruning?: PruneSchemaFilter;
+
+  /**
+   * Set to `true` to skip pruning object types or interfaces with no no fields
+   */
+  skipEmptyCompositeTypePruning?: boolean;
+  /**
+   * Set to `true` to skip pruning interfaces that are not implemented by any
+   * other types
+   */
+  skipUnimplementedInterfacesPruning?: boolean;
+  /**
+   * Set to `true` to skip pruning empty unions
+   */
+  skipEmptyUnionPruning?: boolean;
+  /**
+   * Set to `true` to skip pruning unused types
+   */
+  skipUnusedTypesPruning?: boolean;
+}
+
+type PruneSchemaFilter = (type: GraphQLNamedType) => boolean;
+```
+
+Usage is pretty simple;
+
+```ts
+import { PruneSchema } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema: buildSchema(`
+    type Query {
+      foo: String
+    }
+
+    # This type will be removed after
+    type Bar {
+      id: ID!
+    }
+  `),
+  transforms: [new PruneSchema({})]
+}
+```
+
+## Remove deprecations of the fields
+
+You can remove deprecation annotations of the fields from the schema based a string or regex describing a deprecation to remove from the gateway schema. Fields matching this deprecation will be un-deprecated. Useful for normalizing [computed fields](/docs/approaches/type-merging#computed-fields) that are activated by the gateway wrapper.
+
+```ts
+import { RemoveObjectFieldDeprecations } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema: buildSchema(/* GraphQL */ `
+    type Test {
+      id: ID!
+      first: String! @deprecated(reason: "do not remove")
+      second: String! @deprecated(reason: "remove this")
+    }
+  `),
+  transforms: [new RemoveObjectFieldDeprecations('remove this')]
+}
+```
+
+Then it will become the following;
+
+```graphql
+type Test {
+  id: ID!
+  first: String! @deprecated(reason: "do not remove")
+  second: String!
+}
+```
+
+## Remove fields by deprecation
+
+You can remove object fields whose deprecation reason matches the provided string or regex.
+
+```ts
+import { RemoveObjectFieldsWithDeprecation } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema: buildSchema(/* GraphQL */ `
+    type Test {
+      id: ID!
+      first: String! @deprecated(reason: "do not remove")
+      second: String! @deprecated(reason: "remove this")
+    }
+  `),
+  transforms: [new RemoveObjectFieldsWithDeprecation('remove this')]
+}
+```
+
+The it will become the following;
+
+```graphql
+type Test {
+  id: ID!
+  first: String! @deprecated(reason: "do not remove")
+}
+```
+
+## Remove directives of the fields
+
+You can remove object field directives that match a directive name and optional argument criteria.
+
+```ts
+import { RemoveObjectFieldDirectives } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema: buildSchema(/* GraphQL */ `
+    directive @alpha(arg: String) on FIELD_DEFINITION
+    directive @bravo(arg: String) on FIELD_DEFINITION
+
+    type Test {
+      id: ID! @bravo(arg: "remove this")
+      first: String! @alpha(arg: "do not remove")
+      second: String! @alpha(arg: "remove this")
+      third: String @alpha(arg: "remove this")
+    }
+  `),
+  transforms: [new RemoveObjectFieldDirectives('alpha')]
+}
+```
+
+Then it will become the following;
+
+```graphql
+type Test {
+  id: ID! @bravo(arg: "remove this")
+  first: String!
+  second: String!
+  third: String
+}
+```
+
+## Remove fields by directive
+
+You can remove object fields with a schema directive matching a given name and optional argument criteria.
+
+```ts
+import { RemoveObjectFieldsWithDirective } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema: buildSchema(/* GraphQL */ `
+    directive @alpha(arg: String) on FIELD_DEFINITION
+    directive @bravo(arg: String) on FIELD_DEFINITION
+
+    type Test {
+      id: ID! @bravo(arg: "remove this")
+      first: String! @alpha(arg: "do not remove")
+      second: String! @alpha(arg: "remove this")
+      third: String @alpha(arg: "remove this")
+    }
+  `),
+  transforms: [new RemoveObjectFieldsWithDirective('alpha')]
+}
+```
+
+Then it will become the following;
+
+```graphql
+type Test {
+  id: ID! @bravo(arg: "remove this")
+}
+```

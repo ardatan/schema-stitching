@@ -1,0 +1,19 @@
+# Error Handling
+
+Whether you're [merging types](/docs/approaches/type-merging), using [schema extensions](/docs/approaches/schema-extensions), or simply combining schemas, any errors returned by a subschema will flow through the stitching process and report at their mapped output positions. It's fairly seamless to provide quality errors from a stitched schema by following some basic guidelines:
+
+1. **Report errors!** Having a subschema return `null` without an error for missing or failed records is a poor development experience, to begin with. This omission will compound should an unexpected value produce a misleading failure in gateway stitching. Reporting [proper GraphQL errors](https://spec.graphql.org/June2018/#sec-Errors) will contextualize failures in subschemas, and by extension, within the stitched schema.
+
+1. **Map errors to array positions**. When returning arrays of records (a common pattern while [batch loading](/docs/approaches/type-merging#batching)), make sure to return errors for specific array positions rather than erroring out the entire array. For example, an array should be resolved as:
+
+```js
+posts() {
+  return [
+    { id: '1', ... },
+    new NotFoundError(),
+    { id: '3', ... }
+  ];
+}
+```
+
+1. **Assure valid error paths**. The [GraphQL errors spec](https://spec.graphql.org/June2018/#sec-Errors) prescribes a `path` attribute mapping an error to its corresponding document position. Stitching uses these paths to remap subschema errors into the combined result. While GraphQL libraries should automatically configure this `path` for you, the accuracy [may vary by programming language](https://github.com/rmosolgo/graphql-ruby/issues/3193).

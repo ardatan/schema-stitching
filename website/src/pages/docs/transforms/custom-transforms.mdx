@@ -1,0 +1,73 @@
+## Custom Transforms
+
+Custom transforms are fairly straightforward to write. They are simply objects with up to three methods:
+
+- `transformSchema`: receives the original subschema and applies modifications to it, returning a modified wrapper (proxy) schema. This method runs once while initially wrapping the subschema.
+- `transformRequest`: receives each request made to the wrapped schema. The shape of a request matches the wrapper schema and must be returned in a shape that matches the original subschema.
+- `transformResult`: receives each result returned from the original subschema. The shape of the result matches the original subschema and must be returned in a shape that matches the wrapper schema.
+
+The complete transform object API is as follows:
+
+```ts
+export interface Transform<T = Record<string, any>> {
+  transformSchema?: SchemaTransform
+  transformRequest?: RequestTransform<T>
+  transformResult?: ResultTransform<T>
+}
+
+export type SchemaTransform = (
+  originalWrappingSchema: GraphQLSchema,
+  subschemaConfig: SubschemaConfig,
+  transformedSchema?: GraphQLSchema
+) => GraphQLSchema
+
+export type RequestTransform<T = Record<string, any>> = (
+  originalRequest: Request,
+  delegationContext: DelegationContext,
+  transformationContext: T
+) => Request
+
+export type ResultTransform<T = Record<string, any>> = (
+  originalResult: ExecutionResult,
+  delegationContext: DelegationContext,
+  transformationContext: T
+) => ExecutionResult
+
+type Request = {
+  document: DocumentNode
+  variables: Record<string, any>
+  extensions?: Record<string, any>
+}
+```
+
+A simple transform that removes types, fields, and arguments prefixed by an underscore might look like this:
+
+```js
+import { stitchSchemas } from '@graphql-tools/stitch'
+import { filterSchema, pruneSchema } from '@graphql-tools/utils'
+
+class RemovePrivateElementsTransform {
+  transformSchema(originalWrappingSchema) {
+    const isPublicName = name => !name.startsWith('_')
+
+    return pruneSchema(
+      filterSchema({
+        schema: originalWrappingSchema,
+        typeFilter: typeName => isPublicName(typeName),
+        rootFieldFilter: (operationName, fieldName) => isPublicName(fieldName),
+        fieldFilter: (typeName, fieldName) => isPublicName(fieldName),
+        argumentFilter: (typeName, fieldName, argName) => isPublicName(argName)
+      })
+    )
+  }
+
+  // no need for operational transforms
+}
+
+const subschema = {
+  schema: myRemoteSchema,
+  transforms: [new RemovePrivateElementsTransform()]
+}
+
+const gatewaySchema = stitchSchemas({ subschemas: [subschema] })
+```

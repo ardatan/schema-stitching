@@ -1,0 +1,75 @@
+# Duplicate Types
+
+Stitching has two strategies for handling types duplicated across subschemas: an automatic merge strategy (default), and an older manual resolution strategy. You may select between these strategies using the `mergeTypes` option.
+
+## Automatic Merge
+
+Types with the same name are automatically merged by default in GraphQL Tools v7. That means objects, interfaces, and input objects with the same name will consolidate their fields across subschemas, and unions/enums will consolidate all of their members. The combined gateway schema will then smartly delegate portions of a request to the proper origin subschema(s). See [type merging guide](/docs/approaches/type-merging/) for a comprehensive overview.
+
+Automatic merging will only encounter conflicts on type descriptions and fields. By default, the final definition of a type or field found in the subschemas array is used, or a specific definition may be [marked as canonical](/docs/approaches/type-merging#canonical-definitions) to prioritize it. You may customize all selection logic using `typeMergingOptions`; the following example prefers the _first_ definition of each conflicting element found in the subschemas array:
+
+```js
+import { stitchSchemas } from '@graphql-tools/stitch'
+
+const gatewaySchema = stitchSchemas({
+  subschemas: [
+    // ...
+  ],
+  mergeTypes: true, // << default in v7
+  typeMergingOptions: {
+    // select a preferred type candidate to provide definitions:
+    typeCandidateMerger: candidates => candidate[0],
+    // and/or itemize the selection of other specific definitions:
+    typeDescriptionsMerger: candidates => candidate[0].type.description,
+    fieldConfigMerger: candidates => candidate[0].fieldConfig,
+    inputFieldConfigMerger: candidates => candidate[0].inputFieldConfig,
+    enumValueConfigMerger: candidates => candidate[0].enumValueConfig
+  }
+})
+```
+
+### Merge Validations
+
+The automatic merge strategy also validates the integrity of merged schemas. Validations may be set to `error`, `warn`, or `off` for the entire schema or scoped for specific types and fields:
+
+```js
+import { stitchSchemas } from '@graphql-tools/stitch'
+
+const gatewaySchema = stitchSchemas({
+  subschemas: [
+    // ...
+  ],
+  typeMergingOptions: {
+    validationSettings: {
+      validationLevel: 'error',
+      strictNullComparison: false, // << gateway "String" may proxy subschema "String!"
+      proxiableScalars: {
+        ID: ['String'] // << gateway "ID" may proxy subschema "String"
+      }
+    },
+    validationScopes: {
+      // scope to specific element paths
+      'User.id': {
+        validationLevel: 'warn',
+        strictNullComparison: true
+      }
+    }
+  }
+})
+```
+
+## Manual Resolution
+
+By setting `mergeTypes: false`, only the final description and fields for a type found in the subschemas array will be used, and automated query planning will be disabled. You may manually resolve differences between conflicting types with an `onTypeConflict` handler:
+
+```js
+import { stitchSchemas } from '@graphql-tools/stitch'
+
+const gatewaySchema = stitchSchemas({
+  subschemas: [
+    // ...
+  ],
+  mergeTypes: false,
+  onTypeConflict: (left, right, info) => (info.left.schema.version >= info.right.schema.version ? left : right)
+})
+```

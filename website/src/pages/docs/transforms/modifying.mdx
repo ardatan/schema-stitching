@@ -1,0 +1,47 @@
+# Modifying
+
+Modifying transforms allow element names and their definitions to be modified or omitted. They may filter, rename, and make other freeform modifications all at once. These transforms accept element transformer functions that may return one of several outcomes:
+
+1. A modified version of the element config.
+1. An array with a modified field name and new element config.
+1. `null` to omit the element from the schema.
+1. `undefined` to leave the element unchanged.
+
+Available transforms include:
+
+- `TransformRootFields`: redefines fields on the root Query, Mutation, and Subscription objects.
+- `TransformObjectFields`: redefines fields of Object types.
+- `TransformInterfaceFields`: redefines fields of Interface types.
+- `TransformCompositeFields`: redefines composite fields.
+- `TransformInputObjectFields`: redefines fields of InputObject types.
+- `TransformEnumValues`: redefines values of Enum types.
+
+```js
+import {
+  TransformRootFields,
+  TransformObjectFields,
+  TransformInterfaceFields,
+  TransformCompositeFields,
+  TransformInputObjectFields,
+  TransformEnumValues
+} from '@graphql-tools/wrap'
+import { stitchSchemas } from '@graphql-tools/stitch'
+
+const subschema = {
+  schema: originalSchema,
+  transforms: [
+    new TransformRootFields((operationName, fieldName, fieldConfig) => fieldConfig),
+    new TransformObjectFields((typeName, fieldName, fieldConfig) => [`new_${fieldName}`, fieldConfig]),
+    new TransformInterfaceFields((typeName, fieldName, fieldConfig) => null),
+    new TransformCompositeFields((typeName, fieldName, fieldConfig) => undefined),
+    new TransformInputObjectFields((typeName, fieldName, inputFieldConfig) => [`new_${fieldName}`, inputFieldConfig]),
+    new TransformEnumValues((typeName, enumValue, enumValueConfig) => [`NEW_${enumValue}`, enumValueConfig])
+  ]
+}
+
+const gateway = stitchSchemas({
+  subschemas: [subschema]
+})
+```
+
+These transforms accept an optional second node transformer function. When specified, the node transformer is called upon any element of the given kind in a request; transforming the result is possible by wrapping the element's resolver with the element transformer function (first argument).

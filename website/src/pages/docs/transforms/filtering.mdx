@@ -1,0 +1,121 @@
+# Filtering
+
+Filter transforms are constructed with a filter function that returns a boolean. The transform executes the filter on each schema element within its scope and rejects elements that do not pass the filter.
+
+## Filtering Types
+
+You can filter any named element types based on the given filter function;
+
+```ts
+class FilterTypes(filterTypeFn: FilterTypeFn) implements Transform
+
+type FilterTypeFn = (type: GraphQLNamedType) => boolean
+```
+
+The following transform definition removes all types ending with `_Secret` from the schema;
+
+```ts
+import { FilterTypes } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema,
+  executor,
+  transforms: [new FilterType(namedType => !namedType.endsWith('_Secret'))]
+}
+```
+
+## Filtering Root Fields
+
+You can filter the fields of the root types such as Query, Mutation, and Subscription based on the given filter function;
+
+```ts
+class FilterRootFields(filterRootFieldFn: FilterRootFieldFn) implements Transform
+
+type FilterRootFieldFn = (operation: 'Query' | 'Mutation' | 'Subscription', fieldName: string, fieldConfig: GraphQLFieldConfig<any, any>) => boolean
+```
+
+The following transform definition removes all fields starting with `_secret` from the schema;
+
+```ts
+import { FilterRootFields } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema,
+  executor,
+  transforms: [new FilterRootFields((operation, fieldName, fieldConfig) => !fieldName.startsWith('_secret'))]
+}
+```
+
+## Filtering Object, Interface or Input Object Fields
+
+You can filter the fields of object types based on the given filter function;
+
+```ts
+class FilterObjectFields(filterObjectFieldFn: FilterObjectInterfaceFieldFn) implements Transform
+class FilterInterfaceFields(filterInterfaceFieldFn: FilterObjectInterfaceFieldFn) implements Transform
+
+type FilterObjectInterfaceFieldFn = (typeName: string, fieldName: string, fieldConfig: GraphQLFieldConfig<any, any>) => boolean
+```
+
+```ts
+class FilterInputObjectFields(filterInputObjectFieldFn: FilterInputObjectFieldFn) implements Transform
+
+type FilterInputObjectFieldFn = (typeName: string, fieldName: string, fieldConfig: GraphQLInputFieldConfig) => boolean
+```
+
+The following transform definition removes all interface fields starting with `_secret` from the schema;
+
+```ts
+import { FilterInterfaceFields } from '@graphql-tools/wrap'
+
+const subschema = {
+  schema,
+  executor,
+  transforms: [new FilterInterfaceFields((typeName, fieldName, fieldConfig) => !fieldName.startsWith('_secret'))]
+}
+```
+
+## Filtering Object Field Directives
+
+You can filter the directives of object fields based on the given filter function;
+
+```ts
+class FilterObjectFieldDirectives(filterObjectFieldDirectiveFn: FilterObjectFieldDirectiveFn) implements Transform
+
+type FilterObjectFieldDirectiveFn = (directiveName: string, directiveValue: any) => boolean
+```
+
+The following transform definition removes all directives unless the directive name is `keep` and the directive argument `arg` is not `1`;
+
+```ts
+import { FilterObjectFieldDirectives } from '@graphql-tools/wrap'
+
+const schema = buildSchema(/* GraphQL */ `
+  directive @remove on FIELD_DEFINITION
+  directive @keep(arg: Int) on FIELD_DEFINITION
+  type Query {
+    alpha: String @remove
+    bravo: String @keep
+    charlie: String @keep(arg: 1)
+    delta: String @keep(arg: 2)
+  }
+`)
+
+const subschema = {
+  schema,
+  transforms: [
+    new FilterObjectFieldDirectives((dirName: string, dirValue: any) => dirName === 'keep' && dirValue.arg !== 1)
+  ]
+}
+```
+
+So the resulting schema will be;
+
+```graphql
+type Query {
+  alpha: String
+  bravo: String @keep
+  charlie: String
+  delta: String @keep(arg: 2)
+}
+```
