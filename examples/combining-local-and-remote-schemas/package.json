@@ -1,0 +1,28 @@
+{
+  "name": "combining-local-and-remote-schemas",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start-products": "ts-node-dev src/services/products/index.ts",
+    "start-storefronts": "ts-node-dev src/services/storefronts/index.ts",
+    "start-gateway": "ts-node-dev src/index.ts",
+    "start": "concurrently \"yarn:start-*\""
+  },
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "@types/wait-on": "^5.3.1",
+    "@graphql-tools/schema": "^9.0.12",
+    "@graphql-tools/stitch": "^8.7.34",
+    "@graphql-tools/wrap": "^9.2.23",
+    "@graphql-tools/utils": "^9.1.3",
+    "@whatwg-node/fetch": "^0.6.1",
+    "concurrently": "^5.3.0",
+    "graphql-yoga": "^3.3.0",
+    "graphql": "^16.6.0",
+    "wait-on": "^5.2.1",
+    "typescript": "^4.9.4",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  }
+}
