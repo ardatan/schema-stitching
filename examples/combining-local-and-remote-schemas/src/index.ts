@@ -1,6 +1,6 @@
 import waitOn from 'wait-on';
 import { createYoga } from 'graphql-yoga';
-import { introspectSchema, RenameTypes, RenameRootFields } from '@graphql-tools/wrap';
+import { schemaFromExecutor, RenameTypes, RenameRootFields } from '@graphql-tools/wrap';
 import { Executor } from '@graphql-tools/utils';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { buildSchema, parse } from 'graphql';
@@ -22,7 +22,7 @@ async function makeGatewaySchema() {
         // 1. Introspect a remote schema. Simple, but there are caveats:
         // - Remote server must enable introspection.
         // - Custom directives are not included in introspection.
-        schema: await introspectSchema(productsExec, adminContext),
+        schema: await schemaFromExecutor(productsExec, adminContext),
         executor: productsExec,
       },
       {
@@ -39,7 +39,7 @@ async function makeGatewaySchema() {
         // and the naming in this third-party API conflicts with our schemas.
         // In this case, transforms may be used to integrate the third-party schema
         // with remapped names (and/or numerous other transformations).
-        schema: await introspectSchema(rainforestApiExec, adminContext),
+        schema: await schemaFromExecutor(rainforestApiExec, adminContext),
         executor: rainforestApiExec,
         transforms: [
           new RenameTypes(name => `Rainforest${name}`),

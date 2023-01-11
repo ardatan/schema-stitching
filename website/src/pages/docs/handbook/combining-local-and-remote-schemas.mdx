@@ -54,7 +54,7 @@ query {
 
 The results of this query are live-proxied from the underlying subschemas by the stitched gateway:
 
-- `product` comes from the remote Products server. This service is added into the stitched schema using introspection, i.e.: `introspectSchema` from the `@graphql-tools/wrap` package. Introspection is a tidy way to incorporate remote schemas, but be careful: not all GraphQL servers enable introspection, and those that do will not include custom directives.
+- `product` comes from the remote Products server. This service is added into the stitched schema using introspection, i.e.: `schemaFromExecutor` from the `@graphql-tools/wrap` package. Introspection is a tidy way to incorporate remote schemas, but be careful: not all GraphQL servers enable introspection, and those that do will not include custom directives.
 
 - `rainforestProduct` also comes from the remote Products server, although here we're pretending it's a third-party API (say, a product database named after a rainforest...). To avoid naming conflicts between our own Products schema and the Rainforest API schema, transforms are used to prefix the names of all types and fields that come from the Rainforest API.
 

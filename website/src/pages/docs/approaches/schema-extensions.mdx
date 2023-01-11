@@ -153,6 +153,8 @@ export const postsSubschema = { schema: postSchema }
 export const usersSubschema = { schema: userSchema }
 ```
 
+> `postsSubschema` and `usersSubschema` are subschema config objects described in [Configuring Subschemas](/docs/getting-started/remote-subschemas/configuring-subschemas). Typically local subschemas are already executable (via embedded resolvers) and thus do not need to supply an executor.
+
 We may want to navigate from a particular user to their posts, or from a post to its user. This is possible within our service architecture by connecting an existing key of each object to a corresponding root query:
 
 - `Post.userId -> userById(id)` gets a Post's user.

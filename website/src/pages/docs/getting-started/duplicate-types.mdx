@@ -58,6 +58,8 @@ const gatewaySchema = stitchSchemas({
 })
 ```
 
+> Note that schema coordinates in `validationScopes` defined in the [Schema Coordinates RFC](https://github.com/graphql/graphql-wg/blob/main/rfcs/SchemaCoordinates.md)
+
 ## Manual Resolution
 
 By setting `mergeTypes: false`, only the final description and fields for a type found in the subschemas array will be used, and automated query planning will be disabled. You may manually resolve differences between conflicting types with an `onTypeConflict` handler:
