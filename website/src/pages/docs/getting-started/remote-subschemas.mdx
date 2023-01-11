@@ -32,7 +32,7 @@ Also note that these subschema config objects may need to be referenced again in
 To include a remote schema in the combined gateway, you must provide at least the `schema` and `executor` subschema config options.
 
 ```js
-import { introspectSchema } from '@graphql-tools/wrap'
+import { schemaFromExecutor } from '@graphql-tools/wrap'
 import { buildHTTPExecutor } from '@graphql-tools/executor-http'
 
 const remoteExecutor = buildHTTPExecutor({
@@ -40,7 +40,7 @@ const remoteExecutor = buildHTTPExecutor({
 })
 
 export const postsSubschema = {
-  schema: await introspectSchema(remoteExecutor),
+  schema: await schemaFromExecutor(remoteExecutor),
   executor: remoteExecutor
 }
 ```
@@ -52,9 +52,11 @@ export const postsSubschema = {
 
 You can use ready-to-use executors from GraphQL Tools or write your own.
 
+> Executors are not responsible of validating the requests. By default, the validation is expected to be done on the gateway level based on the gateway request, because the remote APIs should already do the validation. However, if you still want to validate the request on the subschema level, you can use the `validateRequest` option of the subschema configuration objects.
+
 ### HTTP Executor (`@graphql-tools/executor-http`)
 
-This package allows you to create an executor for your HTTP service.
+This package allows you to create an executor for your HTTP service with the following features;
 
 - [GraphQL over HTTP protocol](https://graphql.github.io/graphql-over-http/) for queries and mutations
 - [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) as a response type for subscriptions just like [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions#quick-start-with-simple-server-sent-events-sse) implementing it
@@ -138,11 +140,11 @@ function buildCombinedExecutor() {
     endpoint: 'http://localhost:4001/graphql'
   })
   const wsExecutor = buildGraphQLWSExecutor('ws://localhost:4001/graphql')
-  return request => {
-    if (request.operationType === 'subscription') {
-      return wsExecutor(request)
+  return executorRequest => {
+    if (executorRequest.operationType === 'subscription') {
+      return wsExecutor(executorRequest)
     }
-    return httpExecutor(request)
+    return httpExecutor(executorRequest)
   }
 }
 ```
@@ -152,7 +154,7 @@ function buildCombinedExecutor() {
 You can use an executor with any fetching algorithm that takes an `ExecutorRequest` and returns `ExecutionResult`. An executor is a function capable of retrieving GraphQL results. It is the same way that a GraphQL Client handles fetching data and is used by several `graphql-tools` features to do introspection or fetch results during execution.
 
 ```ts
-type AsyncExecutor = (request: ExecutorRequest) => Promise<ExecutionResult>
+type Executor = (executorRequest: ExecutorRequest) => Promise<ExecutionResult | AsyncIterable<ExecutionResult>> | ExecutionResult
 
 type ExecutorRequest = {
   document: DocumentNode
@@ -171,14 +173,15 @@ import { fetch } from '@whatwg-node/fetch'
 import { print } from 'graphql'
 import { AsyncExecutor } from '@graphql-tools/utils'
 
-const executor: AsyncExecutor = async ({ document, variables }) => {
+const executor: AsyncExecutor = async ({ document, variables, operationName, extensions }) => {
   const query = print(document)
   const fetchResult = await fetch('http://example.com/graphql', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
-    body: JSON.stringify({ query, variables })
+    body: JSON.stringify({ query, variables, operationName, extensions })
   })
   return fetchResult.json()
 }
@@ -192,7 +195,7 @@ With this executor query and mutation operations will be executed over HTTP (usi
 
 ```ts
 import { fetch } from '@whatwg-node/fetch'
-import { print, getOperationAST, OperationTypeNode } from 'graphql'
+import { print } from 'graphql'
 import { observableToAsyncIterable, AsyncExecutor } from '@graphql-tools/utils'
 import { createClient } from 'graphql-ws'
 
@@ -208,7 +211,8 @@ const httpExecutor: AsyncExecutor = async ({ document, variables, operationName,
   const fetchResult = await fetch(HTTP_GRAPHQL_ENDPOINT, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: JSON.stringify({ query, variables, operationName, extensions })
   })
@@ -244,31 +248,29 @@ const wsExecutor: AsyncExecutor = async ({ document, variables, operationName, e
     })
   })
 
-const executor: AsyncExecutor = async args => {
-  // get the operation node of from the document that should be executed
-  const operation = getOperationAST(args.document, args.operationName)
+const executor: AsyncExecutor = async executorRequest => {
   // subscription operations should be handled by the wsExecutor
-  if (operation?.operation === OperationTypeNode.SUBSCRIPTION) {
-    return wsExecutor(args)
+  if (executorRequest.operationType === 'subscription') {
+    return wsExecutor(executorRequest)
   }
   // all other operations should be handles by the httpExecutor
-  return httpExecutor(args)
+  return httpExecutor(executorRequest)
 }
 ```
 
 ## Introspecting Schemas using Executors
 
 If you don't have the schema definitions as a URL or a local file, you can introspect the endpoint to fetch the schema.
-After creating an executor, you can use `introspectSchema` to fetch the schema.
+After creating an executor, you can use `schemaFromExecutor` to fetch the schema.
 
 ```ts
-import { introspectSchema } from '@graphql-tools/wrap'
+import { schemaFromExecutor } from '@graphql-tools/wrap'
 import { buildHTTPExecutor } from '@graphql-tools/executor-http'
 
 const executor = buildHTTPExecutor({
   endpoint: 'http://localhost:4001/graphql'
 })
-const schema = await introspectSchema(executor)
+const schema = await schemaFromExecutor(executor)
 
 const subschema = {
   schema,
