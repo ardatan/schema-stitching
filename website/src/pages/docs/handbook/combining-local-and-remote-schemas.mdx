@@ -81,20 +81,14 @@ createYoga({
 2. Add this authorization from context into the executor that builds subschema requests:
 
 ```js
-function makeRemoteExecutor(url) {
-  return async ({ document, variables, context }) => {
-    const query = typeof document === 'string' ? document : print(document)
-    const fetchResult = await fetch(url, {
-      method: 'POST',
-      headers: {
-        Authorization: context.authHeader,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ query, variables })
-    })
-    return fetchResult.json()
+buildHTTPExecutor({
+  endpoint: 'http://localhost:4001/graphql',
+  headers({ context }) {
+    return {
+      Authorization: context.authHeader
+    }
   }
-}
+})
 ```
 
 Also note that this example passes an `adminContext` into all introspection/SDL queries used to fetch remote subschemas. These requests are performed on behalf of the _gateway application_, not any specific user request. Therefore, this administrative context should provide app-to-app credentials on behalf of the gateway.

@@ -1,6 +1,6 @@
-import { makeExecutableSchema } from '@graphql-tools/schema';
+import { createSchema } from 'graphql-yoga';
 
-export const localSchema = makeExecutableSchema({
+export const localSchema = createSchema({
   typeDefs: /* GraphQL */ `
     type Query {
       errorCodes: [String!]!

@@ -10,7 +10,11 @@ Whether you're [merging types](/docs/approaches/type-merging), using [schema ext
 posts() {
   return [
     { id: '1', ... },
-    new NotFoundError(),
+    new GraphQLError('Record not found', {
+      extensions: {
+        code: 'NOT_FOUND',
+      },
+    }),
     { id: '3', ... }
   ];
 }

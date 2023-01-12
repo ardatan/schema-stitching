@@ -1,0 +1,97 @@
+# Mutations &amp; subscriptions
+
+This example explores stitching mutation and subscription services into a combined gateway schema, as discussed in [stitching remote schemas](/docs/getting-started/remote-subschemas) documentation.
+
+**This example demonstrates:**
+
+- Adding a remote mutation service.
+- Adding a remote subscription service.
+- Adding a subscription proxy.
+
+## Sandbox
+
+<iframe
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/mutations-and-subscriptions?fontsize=14&hidenavigation=1&theme=dark"
+  className="mt-6 w-full h-[500px] rounded-md"
+  title="mutations-and-subscriptions"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+/>
+
+> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/mutations-and-subscriptions).
+
+The following services are available for interactive queries:
+
+- **Stitched gateway:** http://localhost:4000/graphql
+- _Posts subservice_: http://localhost:4001/graphql
+- _Users subservice_: http://localhost:4002/graphql
+
+## Summary
+
+This example incorporates queries, mutations, subscriptions, and previews how a type can be merged across services.
+
+### Queries
+
+Run the following query to see all posts that have been created; the results will be empty to start with:
+
+```graphql
+query {
+  posts {
+    id
+    message
+    user {
+      username
+      email
+    }
+  }
+}
+```
+
+All gateway query operations proxy a remote service using the `executor` function in subschema config.
+
+### Mutations
+
+Mutations are virtually identical to queries, but with the expressed intent of modifying data on a remote server. They use a different GraphQL operation name ("mutation") to assure that they're not intermixed with queries. Try opening a new tab in the GraphQL Playground UI and running the following mutation:
+
+```graphql
+mutation {
+  createPost(message: "hello world") {
+    id
+    message
+    user {
+      username
+      email
+    }
+  }
+}
+```
+
+Rerunning the query above, you'll see there are now posts. This mutation creates in-memory records in the Posts service (the records will be reset each time the server restarts). The results of a mutation are resolved just like any other typed object, so may resolve all of the same data as a query&mdash;including a randomly assigned a `User` association that comes from the Users service (the process for which is discussed in [chapter three](#)).
+
+Like queries, all gateway mutation operations proxy a remote service using the `executor` function in subschema config.
+
+### Subscriptions
+
+Subscriptions pull live GraphQL updates over an open HTTP connection. Try opening another tab in the GraphiQL UI and running the following subscription:
+
+```graphql
+subscription {
+  newPost {
+    id
+    message
+    user {
+      id
+      username
+      email
+    }
+  }
+}
+```
+
+Nothing happens aside from a load spinner appearing&mdash;however you have an open socket connection that is waiting to recieve data. Now try running the above mutation a few more times and then check back in on your subscription. The subscription will receive a live push of data each time a mutation publishes an update. Again, the results of a subscription are resolved just like any other typed object, so may resolve all of the same data as a query&mdash;including data merged from across services.
+
+### Few notes about the subscriptions setup
+
+- You can check [Executors](/docs/getting-started/remote-subschemas#executors) section to learn more about how to configure your executor to support your subscription setup, because Schema Stitching doesn't care if you use WebSockets, Server-Sent Events, or any other transport mechanism.
+- This example uses GraphQL Yoga's [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) approach for subscriptions which doesn't need any extra configuration with the http executor since SSE also uses HTTP.
+- You can see [GraphQL Yoga's Subscriptions](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions) documentation to learn more about how it handles subscriptions.

@@ -1,4 +1,5 @@
 {
-    "index": "Table of Contents",
-    "combining-local-and-remote-schemas": "Combining local and remote schemas"
+  "index": "Table of Contents",
+  "combining-local-and-remote-schemas": "Combining local and remote schemas",
+  "mutations-and-subscriptions": "Mutations & subscriptions"
 }
