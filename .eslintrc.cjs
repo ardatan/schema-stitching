@@ -22,6 +22,7 @@ module.exports = {
     'no-dupe-class-members': 'off',
     'dot-notation': 'off',
     'no-use-before-define': 'off',
+    'import/extensions': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-namespace': 'off',
@@ -72,7 +73,7 @@ module.exports = {
       // We don't check tests because they don't get compiled into the packages.
       files: ['**/*.ts'],
       excludedFiles: ['**/{test,tests,testing}/**/*.{ts,js}', '*.{spec,test}.{ts,js}'],
-      rules: { 'import/extensions': ['error', 'ignorePackages'] },
+      rules: { 'import/extensions': 'off' },
     },
   ],
   ignorePatterns: ['dist', 'node_modules', 'website', 'scripts'],

@@ -154,7 +154,9 @@ function buildCombinedExecutor() {
 You can use an executor with any fetching algorithm that takes an `ExecutorRequest` and returns `ExecutionResult`. An executor is a function capable of retrieving GraphQL results. It is the same way that a GraphQL Client handles fetching data and is used by several `graphql-tools` features to do introspection or fetch results during execution.
 
 ```ts
-type Executor = (executorRequest: ExecutorRequest) => Promise<ExecutionResult | AsyncIterable<ExecutionResult>> | ExecutionResult
+type Executor = (
+  executorRequest: ExecutorRequest
+) => Promise<ExecutionResult | AsyncIterable<ExecutionResult>> | ExecutionResult
 
 type ExecutorRequest = {
   document: DocumentNode
@@ -179,7 +181,7 @@ const executor: AsyncExecutor = async ({ document, variables, operationName, ext
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json'
     },
     body: JSON.stringify({ query, variables, operationName, extensions })
   })
@@ -212,7 +214,7 @@ const httpExecutor: AsyncExecutor = async ({ document, variables, operationName,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json'
     },
     body: JSON.stringify({ query, variables, operationName, extensions })
   })

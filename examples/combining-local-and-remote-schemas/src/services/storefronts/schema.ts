@@ -1,22 +1,36 @@
-import { makeExecutableSchema } from "@graphql-tools/schema";
-import { readFileSync } from "fs";
-import { join } from "path";
-import { NotFoundError } from "../../lib/NotFoundError";
-
-const typeDefs = readFileSync(join(__dirname, 'schema.graphql'), 'utf8');
+import { GraphQLError } from 'graphql';
+import { createSchema } from 'graphql-yoga';
 
 // data fixtures
 const storefronts = [
-    { id: '1', name: 'The Product Store' },
-    { id: '2', name: 'eShoppe' },
+  { id: '1', name: 'The Product Store' },
+  { id: '2', name: 'eShoppe' },
 ];
 
-export const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers: {
-        Query: {
-            storefront: (root, { id }) => storefronts.find(s => s.id === id) || new NotFoundError(),
-            _sdl: () => typeDefs,
-        }
-    }
+const typeDefs = /* GraphQL */ `
+  type Storefront {
+    id: ID!
+    name: String!
+  }
+
+  type Query {
+    storefront(id: ID!): Storefront
+    _sdl: String!
+  }
+`;
+
+export const schema = createSchema({
+  typeDefs,
+  resolvers: {
+    Query: {
+      storefront: (root, { id }) =>
+        storefronts.find(s => s.id === id) ||
+        new GraphQLError('Record not found', {
+          extensions: {
+            code: 'NOT_FOUND',
+          },
+        }),
+      _sdl: () => typeDefs,
+    },
+  },
 });

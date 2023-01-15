@@ -1,11 +1,11 @@
 {
-  "name": "combining-local-and-remote-schemas",
+  "name": "mutations-and-subscriptions",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start-products": "ts-node-dev src/services/products/index.ts",
-    "start-storefronts": "ts-node-dev src/services/storefronts/index.ts",
+    "start-posts": "ts-node-dev src/services/posts/index.ts",
+    "start-users": "ts-node-dev src/services/users/index.ts",
     "start-gateway": "ts-node-dev src/index.ts",
     "start": "concurrently \"yarn:start-*\""
   },
@@ -15,8 +15,6 @@
     "@graphql-tools/executor-http": "^0.1.0",
     "@graphql-tools/stitch": "^8.7.35",
     "@graphql-tools/wrap": "^9.3.0",
-    "@graphql-tools/utils": "^9.1.4",
-    "@whatwg-node/fetch": "^0.6.1",
     "concurrently": "^7.0.0",
     "graphql-yoga": "^3.3.0",
     "graphql": "^16.6.0",
