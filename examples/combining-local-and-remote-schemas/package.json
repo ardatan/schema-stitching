@@ -16,7 +16,6 @@
     "@graphql-tools/stitch": "^8.7.35",
     "@graphql-tools/wrap": "^9.3.0",
     "@graphql-tools/utils": "^9.1.4",
-    "@whatwg-node/fetch": "^0.6.1",
     "concurrently": "^7.0.0",
     "graphql-yoga": "^3.3.0",
     "graphql": "^16.6.0",
