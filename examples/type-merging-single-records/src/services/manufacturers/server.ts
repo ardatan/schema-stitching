@@ -4,14 +4,14 @@ import { createServer } from 'node:http';
 
 // data fixtures
 const manufacturers = [
-    { id: '1', name: 'Apple' },
-    { id: '2', name: 'Macmillan' },
+  { id: '1', name: 'Apple' },
+  { id: '2', name: 'Macmillan' },
 ];
 
 export const manufacturerServer = createServer(
-    createYoga({
-        schema: createSchema({
-            typeDefs: /* GraphQL */ `
+  createYoga({
+    schema: createSchema({
+      typeDefs: /* GraphQL */ `
         type Manufacturer {
           id: ID!
           name: String!
@@ -21,15 +21,17 @@ export const manufacturerServer = createServer(
           manufacturer(id: ID!): Manufacturer
         }
       `,
-            resolvers: {
-                Query: {
-                    manufacturer: (root, { id }) => manufacturers.find(m => m.id === id) || new GraphQLError('Record not found', {
-                        extensions: {
-                            code: 'NOT_FOUND'
-                        }
-                    }),
-                }
-            }
-        }),
-    })
-)
+      resolvers: {
+        Query: {
+          manufacturer: (root, { id }) =>
+            manufacturers.find(m => m.id === id) ||
+            new GraphQLError('Record not found', {
+              extensions: {
+                code: 'NOT_FOUND',
+              },
+            }),
+        },
+      },
+    }),
+  })
+);
