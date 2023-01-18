@@ -4,5 +4,6 @@
   "mutations-and-subscriptions": "Mutations & subscriptions",
   "type-merging-single-records": "Single-record type merging",
   "type-merging-arrays": "Array-batched type merging",
-  "type-merging-multiple-keys": "Type merging with multiple keys"
+  "type-merging-multiple-keys": "Type merging with multiple keys",
+  "type-merging-nullables": "Nullable merges"
 }
