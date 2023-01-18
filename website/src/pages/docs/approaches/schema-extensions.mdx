@@ -275,7 +275,7 @@ Resolvers use the `delegateToSchema` function to forward parts of queries (or ev
 
 By default, `delegateToSchema` assumes that the delegated operation will return the same GraphQL type as the resolved field (ex: a `User` field would delegate to a `User` query). If this is not the case, then you should manually provide a `returnType` option citing the expected GraphQL return type, and transform the result accordingly in the resolver.
 
-## Batch Delegation
+## Batch Delegation (Array Batching)
 
 The drawback of performing individual `delegateToSchema` calls is that they can be fairly inefficient. Say we request `Post.user` from an array of ten posts&mdash;that would delegate ten individual `userById` queries while resolving each user! To improve this, we can instead delegate in _batches_, where many instances of a field resolver are consolidated into one delegation.
 
