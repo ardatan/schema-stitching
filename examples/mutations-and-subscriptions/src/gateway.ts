@@ -43,6 +43,7 @@ export const gatewayApp = createYoga({
   schema: makeGatewaySchema(),
   maskedErrors: false,
   graphiql: {
+    title: 'Mutations & subscriptions',
     defaultQuery: /* GraphQL */ `
       query Posts {
         posts {

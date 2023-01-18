@@ -101,6 +101,7 @@ export const gatewayApp = createYoga({
   }),
   maskedErrors: false,
   graphiql: {
+    title: 'Combining local and remote schemas',
     defaultQuery: /* GraphQL */ `
       query FullExample {
         product(upc: "1") {
