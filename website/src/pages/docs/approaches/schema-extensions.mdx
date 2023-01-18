@@ -426,7 +426,7 @@ forwardArgsToSelectionSet('{ id postIds }', { postIds: ['pageNumber'] })
 
 ## Extending Transformed Schemas
 
-[Transformed schemas](/docs/approaches/combining-schemas#adding-transforms) are nuanced because they involve two versions of the same schema: the original schema, and the transformed gateway schema. When extending a transformed schema, we extend the gateway schema but delegate to the original schema. For example:
+[Transformed schemas](/docs/getting-started/dding-transforms) are nuanced because they involve two versions of the same schema: the original schema, and the transformed gateway schema. When extending a transformed schema, we extend the gateway schema but delegate to the original schema. For example:
 
 ```js
 import { makeExecutableSchema } from '@graphql-tools/schema'

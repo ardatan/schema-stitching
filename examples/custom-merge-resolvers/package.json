@@ -1,5 +1,5 @@
 {
-  "name": "type-merging-nullables",
+  "name": "custom-merge-resolvers",
   "version": "0.0.0",
   "private": "true",
   "license": "MIT",
@@ -7,7 +7,10 @@
     "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
+    "@graphql-tools/batch-delegate": "^8.4.15",
+    "@graphql-tools/delegate": "^9.0.22",
     "@graphql-tools/stitch": "^8.7.35",
+    "dataloader": "^2.1.0",
     "graphql-yoga": "^3.3.0",
     "graphql": "^16.6.0",
     "ts-node": "^10.9.1",

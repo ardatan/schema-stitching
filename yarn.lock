@@ -1297,7 +1297,7 @@
   dependencies:
     giscus "^1.2.6"
 
-"@graphql-tools/batch-delegate@8.4.15":
+"@graphql-tools/batch-delegate@8.4.15", "@graphql-tools/batch-delegate@^8.4.15":
   version "8.4.15"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-8.4.15.tgz#f49d2eca95e97b031b7f4c18d29a1242c9c4112a"
   integrity sha512-KIpizNQsPFOE4pG4Zs3jRRJTfcrRB4Sp2al3X6tygMXpdNEvbHrJzZN5NfCzb6hs5QCpH9nzbtt8q4QmFkDmBw==
@@ -1317,7 +1317,7 @@
     tslib "^2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/delegate@9.0.22":
+"@graphql-tools/delegate@9.0.22", "@graphql-tools/delegate@^9.0.22":
   version "9.0.22"
   resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-9.0.22.tgz#12f27ef76c5add456fa8797a496bb7dc82071771"
   integrity sha512-dWJGMN8V7KORtbI8eDAjHYTWiMyis/md27M6pPhrlYVlcsDk3U0jbNdgkswBBUEBvqumPRCv8pVOxKcLS4caKA==
@@ -3668,7 +3668,7 @@ dagre-d3-es@7.0.6:
     d3 "^7.7.0"
     lodash-es "^4.17.21"
 
-dataloader@2.1.0:
+dataloader@2.1.0, dataloader@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-2.1.0.tgz#c69c538235e85e7ac6c6c444bae8ecabf5de9df7"
   integrity sha512-qTcEYLen3r7ojZNgVUaRggOI+KM7jrKxXeSHhogh/TWxYMeONEMqY+hmkobiYQozsGIyg9OYVzO4ZIfoB4I0pQ==
