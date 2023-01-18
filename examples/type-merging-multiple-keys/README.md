@@ -1,0 +1,3 @@
+# Type merging with multiple keys
+
+[See the details about this example on the website](https://the-guild.dev/graphql/stitching/docs/handbook/type-merging-multiple-keys)
