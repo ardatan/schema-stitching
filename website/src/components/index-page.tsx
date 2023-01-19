@@ -1,13 +1,13 @@
 import { ReactElement, ReactNode } from 'react';
 import { Anchor, IFeatureListProps } from '@theguild/components';
-import { FiGithub } from 'react-icons/fi'
-import clsx from 'clsx'
+import { FiGithub } from 'react-icons/fi';
+import clsx from 'clsx';
 
 const classes = {
   button:
     'inline-block bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 text-gray-600 px-6 py-3 rounded-lg font-medium shadow-sm',
   link: 'text-primary-500',
-}
+};
 
 export function IndexPage(): ReactElement {
   return (
@@ -24,17 +24,11 @@ export function IndexPage(): ReactElement {
             <Anchor className={classes.button} href="/docs">
               Documentation
             </Anchor>
-            <Anchor
-              className={clsx(classes.button, 'hidden lg:block')}
-              href="/handbook"
-            >
+            <Anchor className={clsx(classes.button, 'hidden lg:block')} href="/handbook">
               Handbook
             </Anchor>
             <Anchor
-              className={clsx(
-                classes.button,
-                'flex flex-row gap-2 items-center',
-              )}
+              className={clsx(classes.button, 'flex flex-row gap-2 items-center')}
               href="https://github.com/ardatan/schema-stitching"
             >
               <FiGithub /> GitHub
@@ -45,7 +39,6 @@ export function IndexPage(): ReactElement {
     </>
   );
 }
-
 
 function FeatureWrapper({ children }: { children: ReactNode }): ReactElement {
   return (
@@ -60,5 +53,5 @@ function FeatureWrapper({ children }: { children: ReactNode }): ReactElement {
     >
       {children}
     </div>
-  )
+  );
 }
