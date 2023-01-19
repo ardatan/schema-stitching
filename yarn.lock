@@ -1344,6 +1344,20 @@
     tslib "^2.4.0"
     value-or-promise "1.0.12"
 
+"@graphql-tools/executor-http@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-0.1.1.tgz#9c4a43811d36d1be2319fd241d5538e2fac45bce"
+  integrity sha512-bFE6StI7CJEIYGRkAnTYxutSV4OtC1c4MQU3nStOYZZO7KmzIgEQZ4ygPSPrRb+jtRsMCBEqPqlYOD4Rq02aMw==
+  dependencies:
+    "@graphql-tools/utils" "9.1.4"
+    "@repeaterjs/repeater" "3.0.4"
+    "@whatwg-node/fetch" "0.6.2"
+    dset "3.1.2"
+    extract-files "^11.0.0"
+    meros "1.2.1"
+    tslib "^2.4.0"
+    value-or-promise "1.0.12"
+
 "@graphql-tools/executor@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@graphql-tools/executor/-/executor-0.0.11.tgz#a95823478e8edba05e55fd8ed43aceff7bd04022"
@@ -1398,6 +1412,29 @@
     tslib "^2.4.0"
     value-or-promise "^1.0.11"
 
+"@graphql-tools/stitch@^8.7.36":
+  version "8.7.36"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-8.7.36.tgz#2a4771cadd72c24aab3e2c76f0e49ceb71d35604"
+  integrity sha512-XRukKVOyf7z9hT1034SR2XN7XsyHVvDjl6OBxt4fo7L+3EtKQl2iUCbKPTSzPCIK+CCERDQ2/J8Kp+RYIJYT/g==
+  dependencies:
+    "@graphql-tools/batch-delegate" "8.4.15"
+    "@graphql-tools/delegate" "9.0.22"
+    "@graphql-tools/merge" "8.3.15"
+    "@graphql-tools/schema" "9.0.13"
+    "@graphql-tools/utils" "9.1.4"
+    "@graphql-tools/wrap" "9.3.1"
+    tslib "^2.4.0"
+    value-or-promise "^1.0.11"
+
+"@graphql-tools/stitching-directives@^2.3.25":
+  version "2.3.25"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-2.3.25.tgz#dde170483092479057af9057b16a790e0176f291"
+  integrity sha512-8Rz3lJIrSHOGZkYTTDW2nWN6QahwqFHjC+3LStGr+NLvti+kzvMna9Fo7+gdmPX6HAKsaidyhMty8NCdow+RHg==
+  dependencies:
+    "@graphql-tools/delegate" "9.0.22"
+    "@graphql-tools/utils" "9.1.4"
+    tslib "^2.4.0"
+
 "@graphql-tools/utils@9.1.3":
   version "9.1.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.1.3.tgz#861f87057b313726136fa6ddfbd2380eae906599"
@@ -1423,7 +1460,7 @@
     tslib "^2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/wrap@^9.3.1":
+"@graphql-tools/wrap@9.3.1", "@graphql-tools/wrap@^9.3.1":
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-9.3.1.tgz#d0718d87080e7a54655d629a78b08c9d39f314ea"
   integrity sha512-uzY1HKc7qMErWL3ybv8bFG3hI1rTJPVYQ8WeJkCF/r/+aHEkUj0Bo2PYZrZTX1UIr3Tb4P5GyhqYBgZOXraZjw==
@@ -2578,6 +2615,21 @@
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.6.1.tgz#802a3e71ade25c04211efc2f1520a25a8829924f"
   integrity sha512-sG39WLvcJxGZ+gDstnLSXR2IcnuvIOB51KxCFo0mEhFW0q2u8fZgolr0HPkL+zXwOJsnmT+9V3IRcqLnTXdqVQ==
+  dependencies:
+    "@peculiar/webcrypto" "^1.4.0"
+    abort-controller "^3.0.0"
+    busboy "^1.6.0"
+    form-data-encoder "^1.7.1"
+    formdata-node "^4.3.1"
+    node-fetch "^2.6.7"
+    undici "^5.12.0"
+    urlpattern-polyfill "^6.0.2"
+    web-streams-polyfill "^3.2.0"
+
+"@whatwg-node/fetch@0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.6.2.tgz#fe4837505f6fc91bcfd6e12cdcec66f4aecfeecc"
+  integrity sha512-fCUycF1W+bI6XzwJFnbdDuxIldfKM3w8+AzVCLGlucm0D+AQ8ZMm2j84hdcIhfV6ZdE4Y1HFVrHosAxdDZ+nPw==
   dependencies:
     "@peculiar/webcrypto" "^1.4.0"
     abort-controller "^3.0.0"
