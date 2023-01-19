@@ -85,8 +85,9 @@ The function of these directives are:
 
 You may use the `stitchingDirectives` helper to build your own type definitions and validator with custom names. For example, the configuration below creates the resources for `@myKey`, `@myMerge`, and `@myComputed` directives:
 
-```js
-const { stitchingDirectives } = require('@graphql-tools/stitching-directives')
+```ts
+import { stitchingDirectives } from '@graphql-tools/stitching-directives'
+
 const { allStitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives({
   keyDirectiveName: 'myKey',
   mergeDirectiveName: 'myMerge',
@@ -102,9 +103,10 @@ To setup stitching directives, you'll need to install their definitions into eac
 
 When setting up a subservice, you'll need to do three things:
 
-```js
-const { makeExecutableSchema } = require('@graphql-tools/schema')
-const { stitchingDirectives } = require('@graphql-tools/stitching-directives')
+```ts
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { stitchingDirectives } from '@graphql-tools/stitching-directives'
+
 const { allStitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives()
 
 // 1. Include directive type definitions...
@@ -140,14 +142,14 @@ module.exports = stitchingDirectivesValidator(schema)
 When setting up the stitched gateway, you'll need to do two things:
 
 ```js
-const { stitchSchemas } = require('@graphql-tools/stitch')
-const { stitchingDirectivesTransformer } = require('@graphql-tools/stitching-directives')()
-const { print, buildSchema } = require('graphql')
-const { fetch } = require('@whatwg-node/fetch')
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { stitchingDirectivesTransformer } '@graphql-tools/stitching-directives';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { parse } from 'graphql';
 
 async function createGatewaySchema() {
-  const usersExec = createRemoteExecutor('http://localhost:4001/graphql')
-  const postsExec = createRemoteExecutor('http://localhost:4002/graphql')
+  const usersExec = buildHTTPExecutor({ endpoint: 'http://localhost:4001/graphql' })
+  const postsExec = buildHTTPExecutor({ endpoint: 'http://localhost:4002/graphql' })
 
   return stitchSchemas({
     // 1. Include directives transformer...
@@ -165,21 +167,9 @@ async function createGatewaySchema() {
   })
 }
 
-function createRemoteExecutor(url) {
-  return async ({ document, variables }) => {
-    const query = typeof document === 'string' ? document : print(document)
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query, variables })
-    })
-    return response.json()
-  }
-}
-
 async function fetchRemoteSchema(executor) {
   // 2. Fetch schemas from their raw SDL queries...
-  const result = await executor({ document: '{ _sdl }' })
+  const result = await executor({ document: parse('{ _sdl }') })
   return buildSchema(result.data._sdl)
 }
 ```

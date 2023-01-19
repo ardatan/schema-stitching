@@ -92,7 +92,9 @@ In this implementation, _any_ ID submitted to the `_users` query will be treated
 query {
   _users(ids: ["DOES_NOT_EXIST"]) {
     id
-    reviews { body }
+    reviews {
+      body
+    }
   }
 }
 
@@ -117,7 +119,7 @@ type Product {
 **query resolver:**
 
 ```js
-_products: (root, { upcs }) => upcs.map(upc => reviews.find(r => r.productUpc === upc) ? ({ upc }) : null)
+_products: (root, { upcs }) => upcs.map(upc => (reviews.find(r => r.productUpc === upc) ? { upc } : null))
 ```
 
 In this implementation, only product UPCs that match a review in the database are treated as valid records. Unknown records simply return null without errors, for example:
@@ -126,7 +128,9 @@ In this implementation, only product UPCs that match a review in the database ar
 query {
   _products(upcs: ["DOES_NOT_EXIST"]) {
     upc
-    reviews { body }
+    reviews {
+      body
+    }
   }
 }
 

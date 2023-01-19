@@ -6,5 +6,7 @@
   "type-merging-arrays": "Array-batched type merging",
   "type-merging-multiple-keys": "Type merging with multiple keys",
   "type-merging-nullables": "Nullable merges",
-  "custom-merge-resolvers": "Custom merge resolvers"
+  "custom-merge-resolvers": "Custom merge resolvers",
+  "type-merging-interfaces": "Cross-service interfaces",
+  "computed-fields": "Computed fields"
 }

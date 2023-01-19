@@ -100,9 +100,9 @@ merge: {
   Product: {
     // ...
     valuesFromResults: (results, keys) => {
-      const valuesByKey = Object.create(null);
-      for (const val of results) valuesByKey[val.id] = val;
-      return keys.map(key => valuesByKey[key] || null);
+      const valuesByKey = Object.create(null)
+      for (const val of results) valuesByKey[val.id] = val
+      return keys.map(key => valuesByKey[key] || null)
     }
   }
 }
@@ -139,21 +139,23 @@ function createInventoryResolver(options) {
       // Wrap the merged type selection in an "items" scope.
       selectionSet: {
         kind: Kind.SELECTION_SET,
-        selections: [{
-          kind: Kind.FIELD,
-          name: {
-            kind: Kind.NAME,
-            value: 'items',
-          },
-          selectionSet
-        }]
+        selections: [
+          {
+            kind: Kind.FIELD,
+            name: {
+              kind: Kind.NAME,
+              value: 'items'
+            },
+            selectionSet
+          }
+        ]
       },
 
       // Unpack the "items" scope from results.
-      valuesFromResults: (result, keys) => result.items,
-    });
-  };
-};
+      valuesFromResults: (result, keys) => result.items
+    })
+  }
+}
 ```
 
 This resolver is very similar to stitching's default merge resolver in that it calls `batchDelegateToSchema` with information about how to query for the merged type. However, instead of passing the type's field selections directly through to delegation, the selections get wrapped in an `items` namespace to match the query. Then, `valuesFromResults` is used to extract the resulting items array as the final result.
@@ -180,14 +182,14 @@ type Query {
 In this situation, we need to send aggregated keys as arguments to a nested document path. This is unfortunately at odds with `batchDelegateToSchema`, because it only handles aggregating keys for root document paths. Pairing a call to the lower-level `delegateToSchema` with our own [DataLoader](https://www.npmjs.com/package/dataloader) wrapper can work around this, see `services/pricing/resolve.js`. An abridged summary:
 
 ```js
-const cache = new WeakMap();
+const cache = new WeakMap()
 
 module.exports = function createPricingResolver(options) {
   return (obj, context, info, subschemaConfig, selectionSet, key) => {
-    let loader = cache.get(selectionSet);
+    let loader = cache.get(selectionSet)
 
     if (loader == null) {
-      loader = new DataLoader(async (keys) => {
+      loader = new DataLoader(async keys => {
         const result = await delegateToSchema({
           // ...options...
 
@@ -195,42 +197,46 @@ module.exports = function createPricingResolver(options) {
           // and include aggregated keys as sub-field arguments
           selectionSet: {
             kind: Kind.SELECTION_SET,
-            selections: [{
-              kind: Kind.FIELD,
-              name: {
-                kind: Kind.NAME,
-                value: 'products',
-              },
-              arguments: [{
-                kind: Kind.ARGUMENT,
+            selections: [
+              {
+                kind: Kind.FIELD,
                 name: {
                   kind: Kind.NAME,
-                  value: 'ids',
+                  value: 'products'
                 },
-                value: {
-                  kind: Kind.LIST,
-                  values: keys.map(key => ({
-                    kind: Kind.STRING,
-                    value: String(key),
-                    block: false,
-                  }))
-                }
-              }],
-              selectionSet
-            }]
-          },
-        });
+                arguments: [
+                  {
+                    kind: Kind.ARGUMENT,
+                    name: {
+                      kind: Kind.NAME,
+                      value: 'ids'
+                    },
+                    value: {
+                      kind: Kind.LIST,
+                      values: keys.map(key => ({
+                        kind: Kind.STRING,
+                        value: String(key),
+                        block: false
+                      }))
+                    }
+                  }
+                ],
+                selectionSet
+              }
+            ]
+          }
+        })
 
         // return the deeply-nested path that provided data
-        return result.products;
-      });
+        return result.products
+      })
 
-      cache.set(selectionSet, loader);
+      cache.set(selectionSet, loader)
     }
 
-    return loader.load(key);
-  };
-};
+    return loader.load(key)
+  }
+}
 ```
 
 Here we're basically doing a simplified version of what `batchDelegateToSchema` does under the hood: DataLoader instances are cached in a weak map, keyed by unique field selection. Each time a DataLoader fires, it builds a selection for the extended document path and writes its aggregated keys into the low-level field, then delegates the compiled selection to the subschema directly.

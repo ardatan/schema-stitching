@@ -36,61 +36,65 @@ export const pricingSchema = createSchema({
 const cache = new WeakMap();
 
 export function createPricingResolver(): MergedTypeResolver {
-    return (obj, context, info, subschemaConfig, selectionSet, key) => {
-        let loader = cache.get(selectionSet);
+  return (obj, context, info, subschemaConfig, selectionSet, key) => {
+    let loader = cache.get(selectionSet);
 
-        if (loader == null) {
-            loader = new DataLoader(async (keys) => {
-                const result = await delegateToSchema({
-                    schema: subschemaConfig,
-                    context,
-                    info,
-                    operation: OperationTypeNode.QUERY,
-                    fieldName: 'pricing',
-                    args: () => ({}),
+    if (loader == null) {
+      loader = new DataLoader(async keys => {
+        const result = await delegateToSchema({
+          schema: subschemaConfig,
+          context,
+          info,
+          operation: OperationTypeNode.QUERY,
+          fieldName: 'pricing',
+          args: () => ({}),
 
-                    // read return type of root target from intended schema
-                    returnType: info.schema.getQueryType().toConfig().fields['pricing'].type,
+          // read return type of root target from intended schema
+          returnType: info.schema.getQueryType().toConfig().fields['pricing'].type,
 
-                    // Wrap merged type selection set in a query path selection
-                    selectionSet: {
-                        kind: Kind.SELECTION_SET,
-                        selections: [{
-                            kind: Kind.FIELD,
-                            name: {
-                                kind: Kind.NAME,
-                                value: 'products',
-                            },
-                            arguments: [{
-                                kind: Kind.ARGUMENT,
-                                name: {
-                                    kind: Kind.NAME,
-                                    value: 'ids',
-                                },
-                                value: {
-                                    kind: Kind.LIST,
-                                    values: keys.map(key => ({
-                                        kind: Kind.STRING,
-                                        value: String(key),
-                                        block: false,
-                                    }))
-                                }
-                            }],
-                            selectionSet
-                        }]
+          // Wrap merged type selection set in a query path selection
+          selectionSet: {
+            kind: Kind.SELECTION_SET,
+            selections: [
+              {
+                kind: Kind.FIELD,
+                name: {
+                  kind: Kind.NAME,
+                  value: 'products',
+                },
+                arguments: [
+                  {
+                    kind: Kind.ARGUMENT,
+                    name: {
+                      kind: Kind.NAME,
+                      value: 'ids',
                     },
+                    value: {
+                      kind: Kind.LIST,
+                      values: keys.map(key => ({
+                        kind: Kind.STRING,
+                        value: String(key),
+                        block: false,
+                      })),
+                    },
+                  },
+                ],
+                selectionSet,
+              },
+            ],
+          },
 
-                    // DO NOT run type merging again after this round of delegation
-                    // omitting this from a merged type resolver causes infinite recursion
-                    skipTypeMerging: true,
-                });
+          // DO NOT run type merging again after this round of delegation
+          // omitting this from a merged type resolver causes infinite recursion
+          skipTypeMerging: true,
+        });
 
-                return result.products;
-            });
+        return result.products;
+      });
 
-            cache.set(selectionSet, loader);
-        }
+      cache.set(selectionSet, loader);
+    }
 
-        return loader.load(key);
-    };
+    return loader.load(key);
+  };
 }

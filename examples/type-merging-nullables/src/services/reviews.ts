@@ -59,7 +59,8 @@ export const reviewsSchema = createSchema({
       // type Product {
       //   reviews: [Review]
       // }
-      _products: (_root, { upcs }) => upcs.map((upc: string) => (reviews.find(r => r.productUpc === upc) ? { upc } : null)),
+      _products: (_root, { upcs }) =>
+        upcs.map((upc: string) => (reviews.find(r => r.productUpc === upc) ? { upc } : null)),
     },
     Review: {
       product: review => ({ upc: review.productUpc }),

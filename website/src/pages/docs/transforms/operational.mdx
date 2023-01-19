@@ -6,8 +6,8 @@ It may be sometimes useful to add additional transforms to manually change an op
 - `ExtractField({ from: Array<string>, to: Array<string> })` move selection at `from` path to `to` path.
 - `WrapQuery(path: Array<string>, wrapper: QueryWrapper, extractor: (result: any) => any)` wrap a selection at `path` using function `wrapper`. Apply `extractor` at the same path to get the result. This is used to get a result nested inside another result.
 
-```js
-const { WrapQuery } = require('@graphql-tools/wrap')
+```ts
+import { WrapQuery } from '@graphql-tools/wrap'
 
 const schema = wrapSchema({
   // ...
