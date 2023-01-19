@@ -119,15 +119,14 @@ This package allows you to create an executor for the service that supports [Gra
 WebSockets are usually used for subscriptions or permanent connection for queries and mutations in case of a heavy traffic.
 
 ```ts
-import { buildGraphQLWSExecutor } from '@graphql-tools/executor-graphql-ws';
+import { buildGraphQLWSExecutor } from '@graphql-tools/executor-graphql-ws'
 
-const executor = buildGraphQLWSExecutor(
-    'ws://localhost:4001/graphql',
-    undefined,
-    connectionParams: {
-        myToken: 'my-token-for-auth'
-    }
-)
+const executor = buildGraphQLWSExecutor({
+  endpoint: 'ws://localhost:4001/graphql',
+  connectionParams: {
+    myToken: 'my-token-for-auth'
+  }
+})
 ```
 
 #### Combining WS and HTTP executors to use WS only for subscriptions
@@ -141,7 +140,9 @@ function buildCombinedExecutor() {
   const httpExecutor = buildHTTPExecutor({
     endpoint: 'http://localhost:4001/graphql'
   })
-  const wsExecutor = buildGraphQLWSExecutor('ws://localhost:4001/graphql')
+  const wsExecutor = buildGraphQLWSExecutor({
+    endpoint: 'ws://localhost:4001/graphql'
+  })
   return executorRequest => {
     if (executorRequest.operationType === 'subscription') {
       return wsExecutor(executorRequest)
