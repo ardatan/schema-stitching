@@ -9,5 +9,6 @@
   "custom-merge-resolvers": "Custom merge resolvers",
   "type-merging-interfaces": "Cross-service interfaces",
   "computed-fields": "Computed fields",
-  "stitching-directives-sdl": "Stitching directives SDL"
+  "stitching-directives-sdl": "Stitching directives SDL",
+  "appendices": "Appendices"
 }
