@@ -1330,21 +1330,7 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-http@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-0.1.0.tgz#8071343f4d893d9ffc91c0c675230317282f310f"
-  integrity sha512-HUas+3EIqbw/reNH3NaO8/5Cc61ZxsoIArES55kR6Nq8lS8VWiEpnuXLXBq2THYemmthVdK3eDCKTJLmUFuKdA==
-  dependencies:
-    "@graphql-tools/utils" "9.1.4"
-    "@repeaterjs/repeater" "3.0.4"
-    "@whatwg-node/fetch" "0.6.1"
-    dset "3.1.2"
-    extract-files "^11.0.0"
-    meros "1.2.1"
-    tslib "^2.4.0"
-    value-or-promise "1.0.12"
-
-"@graphql-tools/executor-http@^0.1.1":
+"@graphql-tools/executor-http@^0.1.0", "@graphql-tools/executor-http@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-0.1.1.tgz#9c4a43811d36d1be2319fd241d5538e2fac45bce"
   integrity sha512-bFE6StI7CJEIYGRkAnTYxutSV4OtC1c4MQU3nStOYZZO7KmzIgEQZ4ygPSPrRb+jtRsMCBEqPqlYOD4Rq02aMw==
@@ -1398,21 +1384,7 @@
     tslib "^2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/stitch@^8.7.35":
-  version "8.7.35"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-8.7.35.tgz#5b0ee7a5d82918be766e0500bf2418f64b87c25d"
-  integrity sha512-djuBs0CukCok/h9OYUP5P4voziusCd6RaZ72rxSJjeRbX72JT48CkPxRkAI7VjrxnfOwZSylA3V2xd4G8SgAew==
-  dependencies:
-    "@graphql-tools/batch-delegate" "8.4.15"
-    "@graphql-tools/delegate" "9.0.22"
-    "@graphql-tools/merge" "8.3.15"
-    "@graphql-tools/schema" "9.0.13"
-    "@graphql-tools/utils" "9.1.4"
-    "@graphql-tools/wrap" "9.3.0"
-    tslib "^2.4.0"
-    value-or-promise "^1.0.11"
-
-"@graphql-tools/stitch@^8.7.36":
+"@graphql-tools/stitch@^8.7.35", "@graphql-tools/stitch@^8.7.36":
   version "8.7.36"
   resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-8.7.36.tgz#2a4771cadd72c24aab3e2c76f0e49ceb71d35604"
   integrity sha512-XRukKVOyf7z9hT1034SR2XN7XsyHVvDjl6OBxt4fo7L+3EtKQl2iUCbKPTSzPCIK+CCERDQ2/J8Kp+RYIJYT/g==
@@ -1449,18 +1421,7 @@
   dependencies:
     tslib "^2.4.0"
 
-"@graphql-tools/wrap@9.3.0", "@graphql-tools/wrap@^9.3.0":
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-9.3.0.tgz#6dbafdef0b7eb34e0efa9698159a425106cae04e"
-  integrity sha512-QOEg04kzFJ1WrlA2t/qjw85C20qPDJwIU/d+bDgDd1+cjTQcVrEt9bq9NilZZg9m9AAgZbeyDwut0oQvNMCGhw==
-  dependencies:
-    "@graphql-tools/delegate" "9.0.22"
-    "@graphql-tools/schema" "9.0.13"
-    "@graphql-tools/utils" "9.1.4"
-    tslib "^2.4.0"
-    value-or-promise "1.0.12"
-
-"@graphql-tools/wrap@9.3.1", "@graphql-tools/wrap@^9.3.1":
+"@graphql-tools/wrap@9.3.1", "@graphql-tools/wrap@^9.3.0", "@graphql-tools/wrap@^9.3.1":
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-9.3.1.tgz#d0718d87080e7a54655d629a78b08c9d39f314ea"
   integrity sha512-uzY1HKc7qMErWL3ybv8bFG3hI1rTJPVYQ8WeJkCF/r/+aHEkUj0Bo2PYZrZTX1UIr3Tb4P5GyhqYBgZOXraZjw==
@@ -2400,10 +2361,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@29.2.5":
-  version "29.2.5"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.2.5.tgz#c27f41a9d6253f288d1910d3c5f09484a56b73c0"
-  integrity sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==
+"@types/jest@29.2.6":
+  version "29.2.6"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.2.6.tgz#1d43c8e533463d0437edef30b2d45d5aa3d95b0a"
+  integrity sha512-XEUC/Tgw3uMh6Ho8GkUtQ2lPhY5Fmgyp3TdlkTJs1W9VgNxs+Ow/x3Elh8lHQKqCbZL0AubQuqWjHVT033Hhrw==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
@@ -2460,10 +2421,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react@18.0.26", "@types/react@>=16":
-  version "18.0.26"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.26.tgz#8ad59fc01fef8eaf5c74f4ea392621749f0b7917"
-  integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
+"@types/react@18.0.27", "@types/react@>=16":
+  version "18.0.27"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.27.tgz#d9425abe187a00f8a5ec182b010d4fd9da703b71"
+  integrity sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
