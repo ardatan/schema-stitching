@@ -85,10 +85,14 @@ query {
 
 The Products executor is setup to log all of its operations, so you can watch what's being requested in the gateway terminal window. Find these lines in the root `index.js` file and try adjusting the `batch` setting:
 
-```js
-schema: await introspectSchema(productsExec),
-executor: makeRemoteExecutor('http://localhost:4002/graphql', { log: true }),
-batch: true, // << try turning this on and off
+```ts
+{
+  schema: await schemaFromExecutor(productsExec),
+  executor: buildHTTPExecutor({
+    url: 'http://localhost:4002/graphql',
+  }),
+  batch: true, // << try turning this on and off
+}
 ```
 
 With `batch: false`, the above query logs the following:
