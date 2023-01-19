@@ -26,25 +26,24 @@ const users = [
 ];
 
 export const accountsServer = createServer(
-    createYoga({
-        schema:
-            stitchingDirectivesValidator(
-                createSchema({
-                    typeDefs,
-                    resolvers: {
-                        Query: {
-                            me: () => users[0],
-                            user: (_root, { id }) =>
-                                users.find(user => user.id === id) ||
-                                new GraphQLError('Record not found', {
-                                    extensions: {
-                                        code: 'NOT_FOUND',
-                                    },
-                                }),
-                            _sdl: () => typeDefs,
-                        },
-                    },
-                })
-            )
-    })
+  createYoga({
+    schema: stitchingDirectivesValidator(
+      createSchema({
+        typeDefs,
+        resolvers: {
+          Query: {
+            me: () => users[0],
+            user: (_root, { id }) =>
+              users.find(user => user.id === id) ||
+              new GraphQLError('Record not found', {
+                extensions: {
+                  code: 'NOT_FOUND',
+                },
+              }),
+            _sdl: () => typeDefs,
+          },
+        },
+      })
+    ),
+  })
 );

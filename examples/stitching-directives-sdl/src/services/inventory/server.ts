@@ -6,9 +6,9 @@ import { createServer } from 'http';
 const { stitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives();
 
 const inventories = [
-    { upc: '1', unitsInStock: 3 },
-    { upc: '2', unitsInStock: 0 },
-    { upc: '3', unitsInStock: 5 },
+  { upc: '1', unitsInStock: 3 },
+  { upc: '2', unitsInStock: 0 },
+  { upc: '3', unitsInStock: 5 },
 ];
 
 const typeDefs = /* GraphQL */ `
@@ -33,30 +33,35 @@ const typeDefs = /* GraphQL */ `
 
 export const inventoryServer = createServer(
   createYoga({
-      schema: stitchingDirectivesValidator(createSchema({
+    schema: stitchingDirectivesValidator(
+      createSchema({
         typeDefs,
         resolvers: {
-            Product: {
-                inStock: (product) => product.unitsInStock > 0,
-                shippingEstimate(product) {
-                    // free for expensive items, otherwise estimate based on weight
-                    return product.price > 1000 ? 0 : Math.round(product.weight * 0.5);
-                }
+          Product: {
+            inStock: product => product.unitsInStock > 0,
+            shippingEstimate(product) {
+              // free for expensive items, otherwise estimate based on weight
+              return product.price > 1000 ? 0 : Math.round(product.weight * 0.5);
             },
-            Query: {
-                mostStockedProduct: () => inventories.reduce((acc, i) => acc.unitsInStock >= i.unitsInStock ? acc : i, inventories[0]),
-                _products: (_root, { keys }) => keys.map(key => {
-                    const inventory = inventories.find(i => i.upc === key.upc);
-                    return inventory ? { ...key, ...inventory } :
-                        new GraphQLError('Record not found', {
-                            extensions: {
-                                code: 'NOT_FOUND',
-                            },
-                        });
-                }),
-                _sdl: () => typeDefs,
-            },
-        }
-    })),
+          },
+          Query: {
+            mostStockedProduct: () =>
+              inventories.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventories[0]),
+            _products: (_root, { keys }) =>
+              keys.map(key => {
+                const inventory = inventories.find(i => i.upc === key.upc);
+                return inventory
+                  ? { ...key, ...inventory }
+                  : new GraphQLError('Record not found', {
+                      extensions: {
+                        code: 'NOT_FOUND',
+                      },
+                    });
+              }),
+            _sdl: () => typeDefs,
+          },
+        },
+      })
+    ),
   })
 );

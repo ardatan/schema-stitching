@@ -105,11 +105,14 @@ type Product {
 }
 
 type Query {
-  products(upcs: [ID!]!, order: String): [Product]! @merge(
-    keyField: "upc"
-    keyArg: "upcs"
-    additionalArgs: """ order: "price" """
-  )
+  products(upcs: [ID!]!, order: String): [Product]!
+    @merge(
+      keyField: "upc"
+      keyArg: "upcs"
+      additionalArgs: """
+      order: "price"
+      """
+    )
 }
 ```
 
@@ -165,7 +168,7 @@ merge: {
 The `_Key` scalar is an object with a `__typename` and all _utilized_ selectionSet fields on the type. For example, when the computed `shippingEstimate` field is requested, the resulting object keys look like:
 
 ```js
-[
+;[
   { upc: '1', price: 899, weight: 100, __typename: 'Product' },
   { upc: '2', price: 1299, weight: 1000, __typename: 'Product' }
 ]
@@ -174,7 +177,7 @@ The `_Key` scalar is an object with a `__typename` and all _utilized_ selectionS
 However, when `shippingEstimate` is NOT requested, the generated object keys will only contain fields from the base selectionSet:
 
 ```js
-[
+;[
   { upc: '1', __typename: 'Product' },
   { upc: '2', __typename: 'Product' }
 ]
@@ -215,10 +218,7 @@ merge: {
 In this case, the generated object keys will contain nothing but utilized selectionSet fields that are whitelisted by the input type:
 
 ```js
-[
-  { id: '1' },
-  { id: '2' }
-]
+;[{ id: '1' }, { id: '2' }]
 ```
 
 ### Nested inputs

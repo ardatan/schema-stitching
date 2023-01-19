@@ -57,19 +57,19 @@ query {
     metadata {
       __typename
       name
-      ...on GeoLocation {
+      ... on GeoLocation {
         name
         lat
         lon
       }
-      ...on SportsTeam {
+      ... on SportsTeam {
         location {
           name
           lat
           lon
         }
       }
-      ...on TelevisionSeries {
+      ... on TelevisionSeries {
         season
       }
     }
@@ -157,16 +157,18 @@ type Product {
 _index.js:_
 
 ```js
-import { stitchSchemas } from '@graphql-tools/stitch';
-import { RemoveObjectFieldDeprecations } from '@graphql-tools/wrap';
-import { metadataSchema } from './services/metadata';
+import { stitchSchemas } from '@graphql-tools/stitch'
+import { RemoveObjectFieldDeprecations } from '@graphql-tools/wrap'
+import { metadataSchema } from './services/metadata'
 
 stitchSchemas({
-  subschemas: [{
-    schema: metadataSchema,
-    transforms: [new RemoveObjectFieldDeprecations('gateway access only')],
-  }]
-});
+  subschemas: [
+    {
+      schema: metadataSchema,
+      transforms: [new RemoveObjectFieldDeprecations('gateway access only')]
+    }
+  ]
+})
 ```
 
 The `RemoveObjectFieldDeprecations` transform will un-deprecate these fields within the gateway schema. The subservice-level deprecations at least offer some insight as to why certain fields don't work when accessed directly.

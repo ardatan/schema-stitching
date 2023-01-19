@@ -41,21 +41,26 @@ const products = [
 
 export const productsServer = createServer(
   createYoga({
-    schema: stitchingDirectivesValidator(createSchema({
-      typeDefs,
-      resolvers: {
-        Query: {
-          topProducts: (_root, args) => products.slice(0, args.first),
-          products: (_root, { upcs }) =>
-                  upcs.map(upc => products.find(product => product.upc === upc) ||
-                      new GraphQLError('Record not found', {
-                          extensions: {
-                              code: 'NOT_FOUND',
-                          },
-                      })),
-          _sdl: () => typeDefs,
+    schema: stitchingDirectivesValidator(
+      createSchema({
+        typeDefs,
+        resolvers: {
+          Query: {
+            topProducts: (_root, args) => products.slice(0, args.first),
+            products: (_root, { upcs }) =>
+              upcs.map(
+                upc =>
+                  products.find(product => product.upc === upc) ||
+                  new GraphQLError('Record not found', {
+                    extensions: {
+                      code: 'NOT_FOUND',
+                    },
+                  })
+              ),
+            _sdl: () => typeDefs,
+          },
         },
-      },
-    })),
+      })
+    ),
   })
 );
