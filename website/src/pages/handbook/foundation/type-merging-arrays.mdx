@@ -2,7 +2,7 @@
 
 This example explores the core techniques for merging typed objects using array queries, covering most of the topics discussed in [batched merging documentation](/docs/approaches/type-merging#batching).
 
-This example focuses on [array batching](/docs/handbook/appendices/batching-arrays-and-queries#what-is-array-batching)&mdash;meaning that all records accessed during a round of delegation are batched together and loaded as an array. This technique greatly reduces the execution overhead of [single-record merges](../02-single-record-type-merging), and can be further optimized by enabling [query batching](/docs/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). This array-batched strategy is prefereable to single-record merges and should be used whenever possible.
+This example focuses on [array batching](/handbook/appendices/batching-arrays-and-queries#what-is-array-batching)&mdash;meaning that all records accessed during a round of delegation are batched together and loaded as an array. This technique greatly reduces the execution overhead of [single-record merges](../02-single-record-type-merging), and can be further optimized by enabling [query batching](/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). This array-batched strategy is prefereable to single-record merges and should be used whenever possible.
 
 **This example demonstrates:**
 
@@ -13,8 +13,8 @@ This example focuses on [array batching](/docs/handbook/appendices/batching-arra
 
 **Related examples:**
 
-- See [single-record type merging](/docs/handbook/type-merging-single-records) for additional information on basic merge patterns.
-- See [stitching directives SDL](/docs/handbook/stitching-directives-sdl) to write this merge configuration as schema directives.
+- See [single-record type merging](/handbook/type-merging-single-records) for additional information on basic merge patterns.
+- See [stitching directives SDL](/handbook/stitching-directives-sdl) to write this merge configuration as schema directives.
 
 ## Sandbox
 

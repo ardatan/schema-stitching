@@ -10,5 +10,9 @@
   "docs": {
     "title": "Docs",
     "type": "page"
+  },
+  "handbook": {
+    "title": "Handbook",
+    "type": "page"
   }
 }

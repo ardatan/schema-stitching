@@ -4,7 +4,7 @@ Stitching directives (`@graphql-tools/stitching-directives`) may be used to conf
 
 ## Overview
 
-Using SDL directives, a subservice may express its complete schema _and type merging configuration_ in a single document. See related [handbook example](/docs/handbook/stitching-directives-sdl) for a working demonstration.
+Using SDL directives, a subservice may express its complete schema _and type merging configuration_ in a single document. See related [handbook example](/handbook/foundation/stitching-directives-sdl) for a working demonstration.
 
 ```graphql filename="Users schema"
 type User {
@@ -97,7 +97,7 @@ const { allStitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchi
 
 ## Schema Setup
 
-To setup stitching directives, you'll need to install their definitions into each subschema, and then add a transformer to the stitched gateway that reads them. See related [handbook example](/docs/handbook/stitching-directives-sdl) for a complete demonstration.
+To setup stitching directives, you'll need to install their definitions into each subschema, and then add a transformer to the stitched gateway that reads them. See related [handbook example](/handbook/foundation/stitching-directives-sdl) for a complete demonstration.
 
 ### Subservice Setup
 
@@ -375,9 +375,9 @@ type Query {
 
 ## Versioning & Release
 
-Once subschemas and their merge configurations are defined as annotated SDLs, new versions of these documents can be pushed to the gateway to trigger a ["hot" reload](/docs/handbook/hot-schema-reloading)&mdash;or, a reload of the gateway schema without restarting its server.
+Once subschemas and their merge configurations are defined as annotated SDLs, new versions of these documents can be pushed to the gateway to trigger a ["hot" reload](/handbook/architecture/hot-schema-reloading)&mdash;or, a reload of the gateway schema without restarting its server.
 
-However, pushing untested SDLs directly to the gateway is risky due to the potential for incompatible subschema versions to be mixed. Therefore, a formal versioning, testing, and release strategy is necessary for long-term stability. See the [handbook's versioning example](/docs/handbook/versioning-schema-releases) that demonstrates turning a basic Git repo into a schema registry that manages versioning and release.
+However, pushing untested SDLs directly to the gateway is risky due to the potential for incompatible subschema versions to be mixed. Therefore, a formal versioning, testing, and release strategy is necessary for long-term stability. See the [handbook's versioning example](/handbook/architecture/versioning-schema-releases) that demonstrates turning a basic Git repo into a schema registry that manages versioning and release.
 
 **The general process for zero-downtime rollouts is:**
 
