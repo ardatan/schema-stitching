@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hot schema reloading should add/remove endpoints correctly: addResult 1`] = `
+{
+  "data": {
+    "addEndpoint": {
+      "endpoint": {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    inStock: Boolean
+  }
+
+  type Query {
+    mostStockedProduct: Product
+    _products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4002/graphql",
+      },
+      "success": true,
+    },
+  },
+}
+`;
+
+exports[`Hot schema reloading should add/remove endpoints correctly: addedEndpointsResult 1`] = `
+{
+  "data": {
+    "endpoints": [
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    name: String!
+    price: Int!
+    weight: Int!
+  }
+
+  type Query {
+    topProducts(first: Int = 2): [Product]!
+    products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4001/graphql",
+      },
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    inStock: Boolean
+  }
+
+  type Query {
+    mostStockedProduct: Product
+    _products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4002/graphql",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Hot schema reloading should add/remove endpoints correctly: removeResult 1`] = `
+{
+  "data": {
+    "removeEndpoint": {
+      "success": true,
+    },
+  },
+}
+`;
+
+exports[`Hot schema reloading should add/remove endpoints correctly: removedEndpointsResult 1`] = `
+{
+  "data": {
+    "endpoints": [
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    name: String!
+    price: Int!
+    weight: Int!
+  }
+
+  type Query {
+    topProducts(first: Int = 2): [Product]!
+    products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4001/graphql",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Hot schema reloading should reload schemas correctly: addResult 1`] = `
+{
+  "data": {
+    "addEndpoint": {
+      "endpoint": {
+        "sdl": "
+                    type Query {
+                        """
+                        Count: 0
+                        """
+                        foo: String!
+                        _sdl: String!
+                    }
+                ",
+        "url": "http://localhost:4003/graphql",
+      },
+      "success": true,
+    },
+  },
+}
+`;
+
+exports[`Hot schema reloading should reload schemas correctly: endpointsResult 1`] = `
+{
+  "data": {
+    "endpoints": [
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    name: String!
+    price: Int!
+    weight: Int!
+  }
+
+  type Query {
+    topProducts(first: Int = 2): [Product]!
+    products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4001/graphql",
+      },
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    inStock: Boolean
+  }
+
+  type Query {
+    mostStockedProduct: Product
+    _products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4002/graphql",
+      },
+      {
+        "sdl": "
+                    type Query {
+                        """
+                        Count: 1
+                        """
+                        foo: String!
+                        _sdl: String!
+                    }
+                ",
+        "url": "http://localhost:4003/graphql",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Hot schema reloading should reload schemas correctly: reloadEndpointsResult 1`] = `
+{
+  "data": {
+    "reloadAllEndpoints": {
+      "success": true,
+    },
+  },
+}
+`;

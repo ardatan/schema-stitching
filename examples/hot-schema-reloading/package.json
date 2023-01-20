@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start-inventory": "ts-node-dev src/services/inventory.ts",
-    "start-products": "ts-node-dev src/services/products.ts",
+    "start-inventory": "ts-node-dev src/services/inventory/index.ts",
+    "start-products": "ts-node-dev src/services/products/index.ts",
     "start-gateway": "ts-node-dev src/index.ts",
     "start": "concurrently \"yarn:start-*\""
   },
