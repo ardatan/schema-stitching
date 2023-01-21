@@ -1,4 +1,4 @@
-import { startServer } from "./gateway";
+import { startServer } from './gateway';
 
 startServer().catch(e => {
   console.error(e);

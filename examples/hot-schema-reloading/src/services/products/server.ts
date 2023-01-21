@@ -21,33 +21,33 @@ const typeDefs = /* GraphQL */ `
   }
 `;
 const products = [
-    { upc: '1', name: 'Table', price: 899, weight: 100 },
-    { upc: '2', name: 'Couch', price: 1299, weight: 1000 },
-    { upc: '3', name: 'Chair', price: 54, weight: 50 },
+  { upc: '1', name: 'Table', price: 899, weight: 100 },
+  { upc: '2', name: 'Couch', price: 1299, weight: 1000 },
+  { upc: '3', name: 'Chair', price: 54, weight: 50 },
 ];
 
 export const productsServer = createServer(
-    createYoga({
-        schema: stitchingDirectivesValidator(
-            createSchema({
-                typeDefs,
-                resolvers: {
-                    Query: {
-                        topProducts: (_root, args) => products.slice(0, args.first),
-                        products: (_root, { upcs }) =>
-                            upcs.map(
-                                (upc: string) =>
-                                    products.find(product => product.upc === upc) ||
-                                    new GraphQLError('Record not found', {
-                                        extensions: {
-                                            code: 'NOT_FOUND',
-                                        },
-                                    })
-                            ),
-                        _sdl: () => typeDefs,
+  createYoga({
+    schema: stitchingDirectivesValidator(
+      createSchema({
+        typeDefs,
+        resolvers: {
+          Query: {
+            topProducts: (_root, args) => products.slice(0, args.first),
+            products: (_root, { upcs }) =>
+              upcs.map(
+                (upc: string) =>
+                  products.find(product => product.upc === upc) ||
+                  new GraphQLError('Record not found', {
+                    extensions: {
+                      code: 'NOT_FOUND',
                     },
-                },
-            })
-        ),
-    })
-)
+                  })
+              ),
+            _sdl: () => typeDefs,
+          },
+        },
+      })
+    ),
+  })
+);

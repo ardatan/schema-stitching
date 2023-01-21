@@ -20,37 +20,37 @@ const typeDefs = /* GraphQL */ `
 `;
 
 const inventory = [
-    { upc: '1', unitsInStock: 3 },
-    { upc: '2', unitsInStock: 0 },
-    { upc: '3', unitsInStock: 5 },
+  { upc: '1', unitsInStock: 3 },
+  { upc: '2', unitsInStock: 0 },
+  { upc: '3', unitsInStock: 5 },
 ];
 
 export const inventoryServer = createServer(
-    createYoga({
-        schema: stitchingDirectivesValidator(
-            createSchema({
-                typeDefs,
-                resolvers: {
-                    Product: {
-                        inStock: product => product.unitsInStock > 0,
+  createYoga({
+    schema: stitchingDirectivesValidator(
+      createSchema({
+        typeDefs,
+        resolvers: {
+          Product: {
+            inStock: product => product.unitsInStock > 0,
+          },
+          Query: {
+            mostStockedProduct: () =>
+              inventory.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventory[0]),
+            _products: (_root, { upcs }) =>
+              upcs.map(
+                (upc: string) =>
+                  inventory.find(i => i.upc === upc) ||
+                  new GraphQLError('Record not found', {
+                    extensions: {
+                      code: 'NOT_FOUND',
                     },
-                    Query: {
-                        mostStockedProduct: () =>
-                            inventory.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventory[0]),
-                        _products: (_root, { upcs }) =>
-                            upcs.map(
-                                (upc: string) =>
-                                    inventory.find(i => i.upc === upc) ||
-                                    new GraphQLError('Record not found', {
-                                        extensions: {
-                                            code: 'NOT_FOUND',
-                                        },
-                                    })
-                            ),
-                        _sdl: () => typeDefs,
-                    },
-                },
-            })
-        ),
-    })
-)
+                  })
+              ),
+            _sdl: () => typeDefs,
+          },
+        },
+      })
+    ),
+  })
+);
