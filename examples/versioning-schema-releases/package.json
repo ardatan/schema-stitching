@@ -1,0 +1,27 @@
+{
+  "name": "versioning-schema-releases",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start-service-gateway": "ts-node-dev src/index.ts",
+    "start-service-inventory": "ts-node-dev src/services/inventory.ts",
+    "start-service-products": "ts-node-dev services/products.ts",
+    "start-development": "concurrently \"yarn:start-service-*\"",
+    "start-production": "cross-env NODE_ENV=production ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@graphql-tools/executor-http": "^0.1.1",
+    "@graphql-tools/stitch": "^8.7.36",
+    "@graphql-tools/stitching-directives": "^2.3.25",
+    "@graphql-tools/utils": "^9.1.4",
+    "@whatwg-node/fetch": "^0.6.2",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.6.0",
+    "graphql-yoga": "^3.3.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  }
+}
