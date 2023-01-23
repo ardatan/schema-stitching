@@ -20,12 +20,12 @@ So the connection between the gateway and the service not only exists during the
 When you start the gateway, it starts WebSockets connections for each service through WebSockets executor;
 
 ```ts
-  const productsExec = buildGraphQLWSExecutor({
-    url: 'ws://localhost:4001/graphql',
-    lazy: true,
-    lazyCloseTimeout: 10_000,
-    onClient,
-  });
+const productsExec = buildGraphQLWSExecutor({
+  url: 'ws://localhost:4001/graphql',
+  lazy: true,
+  lazyCloseTimeout: 10_000,
+  onClient
+})
 ```
 
 And after that it keeps that open for the next 10 seconds defined with `lazyCloseTimeout`. You can keep them open forever by removing that parameter and setting `lazy` to `false` but we prefer to allow the upstream services rest if the gateway is not busy in a certain time.
