@@ -1330,7 +1330,34 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-http@^0.1.0", "@graphql-tools/executor-http@^0.1.1":
+"@graphql-tools/executor-graphql-ws@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.7.tgz#5e7b0e6d02d3b64727bfb37c0f2c1e13badcb829"
+  integrity sha512-C6EExKoukn4vu3BbvlqsqtC91F4pTLPDZvRceYjpFzTCQSGFSjfrxQGP/haGlemXVRpIDxBy7wpXoQlsF8UmFA==
+  dependencies:
+    "@graphql-tools/utils" "9.1.4"
+    "@repeaterjs/repeater" "3.0.4"
+    "@types/ws" "^8.0.0"
+    graphql-ws "5.11.2"
+    isomorphic-ws "5.0.0"
+    tslib "^2.4.0"
+    ws "8.12.0"
+
+"@graphql-tools/executor-http@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-0.1.0.tgz#8071343f4d893d9ffc91c0c675230317282f310f"
+  integrity sha512-HUas+3EIqbw/reNH3NaO8/5Cc61ZxsoIArES55kR6Nq8lS8VWiEpnuXLXBq2THYemmthVdK3eDCKTJLmUFuKdA==
+  dependencies:
+    "@graphql-tools/utils" "9.1.4"
+    "@repeaterjs/repeater" "3.0.4"
+    "@whatwg-node/fetch" "0.6.1"
+    dset "3.1.2"
+    extract-files "^11.0.0"
+    meros "1.2.1"
+    tslib "^2.4.0"
+    value-or-promise "1.0.12"
+
+"@graphql-tools/executor-http@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-0.1.1.tgz#9c4a43811d36d1be2319fd241d5538e2fac45bce"
   integrity sha512-bFE6StI7CJEIYGRkAnTYxutSV4OtC1c4MQU3nStOYZZO7KmzIgEQZ4ygPSPrRb+jtRsMCBEqPqlYOD4Rq02aMw==
@@ -2469,6 +2496,13 @@
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@types/wait-on/-/wait-on-5.3.1.tgz#bc5520d1d8b90b9caab1bef23315685ded73320d"
   integrity sha512-2FFOKCF/YydrMUaqg+fkk49qf0e5rDgwt6aQsMzFQzbS419h2gNOXyiwp/o2yYy27bi/C1z+HgfncryjGzlvgQ==
+  dependencies:
+    "@types/node" "*"
+
+"@types/ws@^8.0.0", "@types/ws@^8.5.4":
+  version "8.5.4"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.4.tgz#bb10e36116d6e570dd943735f86c933c1587b8a5"
+  integrity sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==
   dependencies:
     "@types/node" "*"
 
@@ -4725,6 +4759,11 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
+graphql-ws@5.11.2, graphql-ws@^5.11.2:
+  version "5.11.2"
+  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.11.2.tgz#d5e0acae8b4d4a4cf7be410a24135cfcefd7ddc0"
+  integrity sha512-4EiZ3/UXYcjm+xFGP544/yW1+DVI8ZpKASFbzrV5EDTFWJp0ZvLl4Dy2fSZAzz9imKp5pZMIcjB0x/H69Pv/6w==
+
 graphql-yoga@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-3.3.0.tgz#4d29c2916c8b165b5c3d3f6570b6c34328b2daf8"
@@ -5226,6 +5265,11 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
+
+isomorphic-ws@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-5.0.0.tgz#e5529148912ecb9b451b46ed44d53dae1ce04bbf"
+  integrity sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==
 
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
   version "3.2.0"
@@ -8849,6 +8893,11 @@ write-file-atomic@^4.0.1:
   dependencies:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.7"
+
+ws@8.12.0, ws@^8.12.0:
+  version "8.12.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.12.0.tgz#485074cc392689da78e1828a9ff23585e06cddd8"
+  integrity sha512-kU62emKIdKVeEIOIKVegvqpXMSTAMLJozpHZaJNDYqBjzlSYXQGviYwN1osDLJ9av68qHd4a2oSjd7yD4pacig==
 
 ws@^7.3.1:
   version "7.5.9"
