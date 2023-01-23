@@ -7,9 +7,13 @@ describe('Persistent connection', () => {
   const connectionSet = new Set<Socket>();
   beforeAll(async () => {
     productsServer.on('connection', connection => {
+      // Gateway should only open 1 connection to each service
+      expect(connectionSet.size).toBeLessThanOrEqual(2);
       connectionSet.add(connection);
     });
     inventoryServer.on('connection', connection => {
+      // Gateway should only open 1 connection to each service
+      expect(connectionSet.size).toBeLessThanOrEqual(2);
       connectionSet.add(connection);
     });
     await new Promise<void>(resolve => productsServer.listen(4001, resolve));
