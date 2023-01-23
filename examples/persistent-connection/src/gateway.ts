@@ -16,12 +16,14 @@ async function makeGatewaySchema() {
   const { stitchingDirectivesTransformer } = stitchingDirectives();
   const productsExec = buildGraphQLWSExecutor({
     url: 'ws://localhost:4001/graphql',
-    lazy: false,
+    lazy: true,
+    lazyCloseTimeout: 10_000,
     onClient,
   });
   const inventoryExec = buildGraphQLWSExecutor({
     url: 'ws://localhost:4002/graphql',
-    lazy: false,
+    lazy: true,
+    lazyCloseTimeout: 10_000,
     onClient,
   });
 
