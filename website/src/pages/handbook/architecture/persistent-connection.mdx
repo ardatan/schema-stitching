@@ -1,0 +1,33 @@
+# Persistent connection via WebSockets
+
+This example demonstrates how to use [GraphQL over WebSocket Protocol](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) to establish a persistent connection between services and a gateway.
+So the connection between the gateway and the service not only exists during the request-response cycle, but also during the entire lifetime of the gateway.
+
+## Sandbox
+
+<iframe
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/persistent-connection?fontsize=14&hidenavigation=1&theme=dark"
+  className="mt-6 w-full h-[500px] rounded-md"
+  title="persistent-connection"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+/>
+
+> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/persistent-connection).
+
+## Summary
+
+When you start the gateway, it starts WebSockets connections for each service through WebSockets executor;
+
+```ts
+  const productsExec = buildGraphQLWSExecutor({
+    url: 'ws://localhost:4001/graphql',
+    lazy: true,
+    lazyCloseTimeout: 10_000,
+    onClient,
+  });
+```
+
+And after that it keeps that open for the next 10 seconds defined with `lazyCloseTimeout`. You can keep them open forever by removing that parameter and setting `lazy` to `false` but we prefer to allow the upstream services rest if the gateway is not busy in a certain time.
+
+The main point is to avoid the overhead of establishing a new connection for each request. This shows WebSockets protocol is not only useful for subscriptions but also for regular queries and mutations if you have a high traffic in your gateway.
