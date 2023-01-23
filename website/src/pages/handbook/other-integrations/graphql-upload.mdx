@@ -35,12 +35,12 @@ Visit the [stitched gateway](http://localhost:4000/graphql) and try running the 
         readFile(name: "yoga.png") {
           name
           type
-          resized(width: 720, height: 405)
+          resizedBase64(width: 720, height: 405)
         }
       }
 ```
 
-In this example query, `readFile` of **Upload Files** subservice is called to read the file from the disk and `resized` of **Resize Images** subservice is called to resize the image.
+In this example query, `readFile` of **Upload Files** subservice is called to read the file from the disk and `resizedBase64` of **Resize Images** subservice is called to resize the image.
 In our additional resolver we take `base64` representation of the file from the **Upload Files** subservice and pass it to the **Resize Images** subservice like below;
 
 > Created `file` object is passed to **Resize Images** as a file upload under the hood;
@@ -90,5 +90,5 @@ curl localhost:4000/graphql \
   -F 0=@graphql-upload/file.txt
 
 # output
-# {"data":{"uploadFile":{"filename":"file.txt","mimetype":"text/plain","text":"hello upload\n"}}}
+# {"data":{"uploadFile":{"filename":"file.txt","mimetype":"text/plain","text":"test file but not image\n"}}}
 ```

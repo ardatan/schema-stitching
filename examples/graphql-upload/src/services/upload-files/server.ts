@@ -50,10 +50,7 @@ export const uploadFilesServer = createServer(
             const stream = createWriteStream(join(FILES_DIR, file.name));
             const nodeReadable = Readable.from(file.stream());
             nodeReadable.pipe(stream);
-            return {
-              name: file.name,
-              file,
-            };
+            return file;
           },
         },
       },
