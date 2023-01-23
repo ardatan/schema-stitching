@@ -38,16 +38,16 @@ export function makeRegistrySchema(registry: SchemaRegistry): GraphQLSchema {
         remoteServices: () => registry.services,
       },
       Mutation: {
-        async createSchemaReleaseBranch(root, { name, message }) {
+        async createSchemaReleaseBranch(_root, { name, message }) {
           return registry.createReleaseBranch(name, message);
         },
-        async updateSchemaReleaseBranch(root, { name, message }) {
+        async updateSchemaReleaseBranch(_root, { name, message }) {
           return registry.updateReleaseBranch(name, message);
         },
-        async createOrUpdateSchemaReleaseBranch(root, { name, message }) {
+        async createOrUpdateSchemaReleaseBranch(_root, { name, message }) {
           return registry.createOrUpdateReleaseBranch(name, message);
         },
-        async mergeSchemaReleaseBranch(root, { name, message }) {
+        async mergeSchemaReleaseBranch(_root, { name, message }) {
           return registry.mergeReleaseBranch(name, message);
         },
       },

@@ -39,7 +39,7 @@ createServer(
               inventory.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventory[0]),
             _products: (_root, { upcs }) =>
               upcs.map(
-                upc =>
+                (upc: string) =>
                   inventory.find(i => i.upc === upc) ||
                   new GraphQLError('Record not found', {
                     extensions: {

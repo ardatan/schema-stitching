@@ -37,7 +37,7 @@ createServer(
             topProducts: (_root, args) => products.slice(0, args.first),
             products: (_root, { upcs }) =>
               upcs.map(
-                upc =>
+                (upc: string) =>
                   products.find(product => product.upc === upc) ||
                   new GraphQLError('Record not found', {
                     extensions: {

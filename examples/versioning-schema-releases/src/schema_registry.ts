@@ -1,5 +1,5 @@
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { GraphQLSchema, parse } from 'graphql';
+import { GraphQLError, GraphQLSchema, parse } from 'graphql';
 import { isAsyncIterable } from 'graphql-yoga';
 import { GitHubClient, RepoConfig } from './github_client';
 
@@ -91,7 +91,7 @@ export class SchemaRegistry {
   services: SchemaRegistryService[];
   buildSchema: SchemaRegistrySchemaBuilder;
   registryPath: string;
-  intervalId: NodeJS.Timeout | null;
+  intervalId: NodeJS.Timeout | null = null;
 
   constructor(config: SchemaRegistryOptions) {
     this.env = config.env;
@@ -108,7 +108,7 @@ export class SchemaRegistry {
     const branch = await this.client.createBranch(branchName);
     const tree = await this.client.createTree(branch.object.sha, await this.treeFiles());
     const commit = await this.client.createCommit(branch.object.sha, tree.sha, message);
-    const head = await this.client.updateBranchHead(branchName, commit.sha);
+    await this.client.updateBranchHead(branchName, commit.sha);
     const pr = await this.client.createPullRequest(branchName);
     return {
       name: branchName,
@@ -122,7 +122,7 @@ export class SchemaRegistry {
     const branch = await this.client.getBranch(branchName);
     const tree = await this.client.createTree(branch.object.sha, await this.treeFiles());
     const commit = await this.client.createCommit(branch.object.sha, tree.sha, message);
-    const head = await this.client.updateBranchHead(branchName, commit.sha);
+    await this.client.updateBranchHead(branchName, commit.sha);
     let pr = await this.client.getPullRequest(branchName);
     pr = pr || (await this.client.createPullRequest(branchName));
     return {
@@ -139,8 +139,8 @@ export class SchemaRegistry {
     try {
       branch = await this.client.getBranch(branchName);
       message = message || 'update release candidate';
-    } catch (err) {
-      if (err.status !== 404) throw err;
+    } catch (err: unknown) {
+      if (err instanceof GraphQLError && err.extensions.http?.status !== 404) throw err;
       branch = await this.client.createBranch(branchName);
       message = message || 'create release candidate';
       created = true;
@@ -171,7 +171,7 @@ export class SchemaRegistry {
     await this.reload();
     return this.services.map(({ name, sdl }) => ({
       path: `${this.registryPath}/${name}.graphql`,
-      content: `# url: ${this.endpoints.find(e => e.name === name).url.production}\n${sdl}`,
+      content: `# url: ${this.endpoints.find(e => e.name === name)?.url.production}\n${sdl}`,
       mode: '100644',
       type: 'blob',
     }));
@@ -215,7 +215,8 @@ export class SchemaRegistry {
     this.remoteVersion = data.repository.object.oid;
     console.log(`VERSION UPDATE: ${this.remoteVersion}`);
 
-    return data.repository.object.entries.map(entry => ({
+    // TODO: Add typings here
+    return data.repository.object.entries.map((entry: any) => ({
       name: entry.name.replace(/\.graphql$/, ''),
       sdl: entry.object.text.replace(urlPattern, ''),
       url: entry.object.text.match(urlPattern)[1],
