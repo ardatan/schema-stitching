@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Public and private APIs private API should allow to query internal fields: private-internal 1`] = `
+{
+  "data": {
+    "_users": [
+      {
+        "__typename": "User",
+      },
+    ],
+  },
+}
+`;
+
+exports[`Public and private APIs public API should not allow to query internal fields: public-internal 1`] = `
+{
+  "errors": [
+    {
+      "locations": [
+        {
+          "column": 25,
+          "line": 3,
+        },
+      ],
+      "message": "Cannot query field "_sdl" on type "Query".",
+    },
+  ],
+}
+`;
