@@ -1,0 +1,27 @@
+{
+  "name": "federation-services",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start-products": "ts-node-dev src/services/products/index.ts",
+    "start-reviews": "ts-node-dev src/services/reviews/index.ts",
+    "start-users": "ts-node-dev src/services/users/index.ts",
+    "start-gateway": "ts-node-dev src/index.ts",
+    "start": "concurrently \"yarn:start-*\""
+  },
+  "dependencies": {
+    "@apollo/subgraph": "^2.2.3",
+    "@graphql-tools/executor-http": "^0.1.1",
+    "@graphql-tools/stitch": "^8.7.36",
+    "graphql": "^16.6.0",
+    "@graphql-tools/utils": "^9.1.4",
+    "@graphql-tools/stitching-directives": "^2.3.25",
+    "wait-on": "^7.0.1",
+    "graphql-yoga": "^3.3.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4",
+    "concurrently": "^7.6.0"
+  }
+}

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Federation services should work: users 1`] = `
+{
+  "data": {
+    "user": {
+      "recentPurchases": [
+        {
+          "name": "iPhone",
+          "upc": "1",
+        },
+        {
+          "name": "iOS Survival Guide",
+          "upc": "4",
+        },
+      ],
+      "reviews": [
+        {
+          "author": {
+            "id": "1",
+            "username": "hanshotfirst",
+          },
+          "body": "Love it!",
+          "product": {
+            "acceptsNewReviews": true,
+            "name": "iPhone",
+            "upc": "1",
+          },
+        },
+        {
+          "author": {
+            "id": "1",
+            "username": "hanshotfirst",
+          },
+          "body": "Too expensive.",
+          "product": {
+            "acceptsNewReviews": false,
+            "name": "Super Baking Cookbook",
+            "upc": "2",
+          },
+        },
+      ],
+      "username": "hanshotfirst",
+    },
+  },
+}
+`;
