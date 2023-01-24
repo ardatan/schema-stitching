@@ -38,30 +38,36 @@ describe('GraphQL Upload', () => {
   });
   it('should forward file uploads correctly', async () => {
     const formData = new gatewayApp.fetchAPI.FormData();
-    formData.append('operations', JSON.stringify({
+    formData.append(
+      'operations',
+      JSON.stringify({
         query: /* GraphQL */ `
-            mutation($file: File!) {
-                uploadFile(file: $file) {
-                    name
-                    type
-                    text
-                }
+          mutation ($file: File!) {
+            uploadFile(file: $file) {
+              name
+              type
+              text
             }
+          }
         `,
         variables: {
-            file: null,
+          file: null,
         },
-    }));
-    formData.append('map', JSON.stringify({
+      })
+    );
+    formData.append(
+      'map',
+      JSON.stringify({
         0: ['variables.file'],
-    }));
+      })
+    );
     const file = new gatewayApp.fetchAPI.File(['test file but not image'], 'file.txt', { type: 'text/plain' });
     formData.append('0', file);
     const response = await gatewayApp.fetch('/graphql', {
-        method: 'POST',
-        body: formData,
+      method: 'POST',
+      body: formData,
     });
     const result = await response.json();
     expect(result).toMatchSnapshot('uploadFile');
-  })
+  });
 });
