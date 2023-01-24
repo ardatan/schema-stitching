@@ -45,7 +45,7 @@ async function makeGatewaySchema() {
             info
           ) {
             if (!type.startsWith('image/')) {
-                throw new GraphQLError('File is not an image');
+              throw new GraphQLError('File is not an image');
             }
             const buffer = Buffer.from(base64, 'base64');
             const file = new File([buffer], name, { type });

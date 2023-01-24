@@ -23,21 +23,21 @@ This example has two independent services that are stitched together into a sing
 The following services are available for interactive queries:
 
 - **Stitched gateway:** http://localhost:4000/graphql
-- Upload Files subservice_: http://localhost:4001/graphql
-- Resize Images subservice_: http://localhost:4002/graphql
+- Upload Files subservice\_: http://localhost:4001/graphql
+- Resize Images subservice\_: http://localhost:4002/graphql
 
 ## Summary
 
 Visit the [stitched gateway](http://localhost:4000/graphql) and try running the following query:
 
 ```graphql
-      query {
-        readFile(name: "yoga.png") {
-          name
-          type
-          resizedBase64(width: 720, height: 405)
-        }
-      }
+query {
+  readFile(name: "yoga.png") {
+    name
+    type
+    resizedBase64(width: 720, height: 405)
+  }
+}
 ```
 
 In this example query, `readFile` of **Upload Files** subservice is called to read the file from the disk and `resizedBase64` of **Resize Images** subservice is called to resize the image.
