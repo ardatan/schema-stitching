@@ -12,7 +12,7 @@ export default defineConfig({
       <Giscus
         // ensure giscus is reloaded when client side route is changed
         key={route}
-        repo="the-guild-org/stitching-website"
+        repo="ardatan/schema-stitching"
         repoId="MDEwOlJlcG9zaXRvcnk1NDQzMjE2OA=="
         category="Docs Discussions"
         categoryId="DIC_kwDOAz6RqM4CSDSV"
