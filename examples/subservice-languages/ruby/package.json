@@ -17,7 +17,7 @@
     "@graphql-tools/utils": "^9.1.4",
     "@types/node": "^18.11.18",
     "concurrently": "^7.6.0",
-    "graphql": "^15.4.0",
+    "graphql": "^16.6.0",
     "graphql-yoga": "^3.3.0",
     "ts-node-dev": "^2.0.0",
     "ts-node": "^10.9.1",
