@@ -8,22 +8,22 @@ import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 export function buildSubschemaConfigs(): Record<string, SubschemaConfig> {
-    return Object.entries(config.services).reduce((memo, [name, settings]) => {
-        const sdl = readFileSync(join(__dirname, `./remote_schemas/${name}.graphql`), 'utf-8');
-        memo[name] = {
-            schema: buildSchema(sdl),
-            executor: buildHTTPExecutor({ endpoint: settings.url }),
-            batch: true,
-        };
-        return memo;
-    }, {});
+  return Object.entries(config.services).reduce((memo, [name, settings]) => {
+    const sdl = readFileSync(join(__dirname, `./remote_schemas/${name}.graphql`), 'utf-8');
+    memo[name] = {
+      schema: buildSchema(sdl),
+      executor: buildHTTPExecutor({ endpoint: settings.url }),
+      batch: true,
+    };
+    return memo;
+  }, {});
 }
 
 export function buildGatewaySchema(subschemasByName: Record<string, SubschemaConfig>) {
-    const { stitchingDirectivesTransformer } = stitchingDirectives();
+  const { stitchingDirectivesTransformer } = stitchingDirectives();
 
-    return stitchSchemas({
-        subschemaConfigTransforms: [stitchingDirectivesTransformer],
-        subschemas: Object.values(subschemasByName),
-    });
+  return stitchSchemas({
+    subschemaConfigTransforms: [stitchingDirectivesTransformer],
+    subschemas: Object.values(subschemasByName),
+  });
 }

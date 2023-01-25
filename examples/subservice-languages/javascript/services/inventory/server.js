@@ -1,9 +1,9 @@
-import { createYoga } from "graphql-yoga";
-import { createServer } from "http";
-import { stitchingDirectives } from "@graphql-tools/stitching-directives";
-import { printSchemaWithDirectives } from "@graphql-tools/utils";
-import { scalarType, objectType, nonNull, list, queryType, makeSchema } from "nexus";
-import { GraphQLSchema } from "graphql";
+import { createYoga } from 'graphql-yoga';
+import { createServer } from 'http';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { printSchemaWithDirectives } from '@graphql-tools/utils';
+import { scalarType, objectType, nonNull, list, queryType, makeSchema } from 'nexus';
+import { GraphQLSchema } from 'graphql';
 
 const { allStitchingDirectives, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -101,7 +101,7 @@ const extendedSchema = new GraphQLSchema({
 // but this would skip a layer of validation.
 
 export const inventoryServer = createServer(
-    createYoga({
-        schema: stitchingDirectivesValidator(extendedSchema),
-    })
-)
+  createYoga({
+    schema: stitchingDirectivesValidator(extendedSchema),
+  })
+);

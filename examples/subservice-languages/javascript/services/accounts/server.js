@@ -78,6 +78,8 @@ const accountsSchema = new GraphQLSchema({
   directives: [...specifiedDirectives, ...allStitchingDirectives],
 });
 
-export const accountsServer = createServer(createYoga({
-    schema: stitchingDirectivesValidator(accountsSchema)
-}))
+export const accountsServer = createServer(
+  createYoga({
+    schema: stitchingDirectivesValidator(accountsSchema),
+  })
+);
