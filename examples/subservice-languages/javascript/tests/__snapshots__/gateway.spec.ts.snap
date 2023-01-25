@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JavaScript Code-First Schemas should work: test-query 1`] = `
+{
+  "data": {
+    "products": [
+      {
+        "inStock": true,
+        "name": "Table",
+        "price": 899,
+        "reviews": [
+          {
+            "author": {
+              "name": "Ada Lovelace",
+              "totalReviews": 2,
+              "username": "@ada",
+            },
+            "body": "Love it!",
+            "id": "1",
+            "product": {
+              "name": "Table",
+              "price": 899,
+            },
+          },
+          {
+            "author": {
+              "name": "Alan Turing",
+              "totalReviews": 2,
+              "username": "@complete",
+            },
+            "body": "Prefer something else.",
+            "id": "4",
+            "product": {
+              "name": "Table",
+              "price": 899,
+            },
+          },
+        ],
+        "shippingEstimate": 50,
+        "weight": 100,
+      },
+      {
+        "inStock": false,
+        "name": "Couch",
+        "price": 1299,
+        "reviews": [
+          {
+            "author": {
+              "name": "Ada Lovelace",
+              "totalReviews": 2,
+              "username": "@ada",
+            },
+            "body": "Too expensive.",
+            "id": "2",
+            "product": {
+              "name": "Couch",
+              "price": 1299,
+            },
+          },
+        ],
+        "shippingEstimate": 0,
+        "weight": 1000,
+      },
+    ],
+  },
+}
+`;
