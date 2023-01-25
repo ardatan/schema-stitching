@@ -18,7 +18,7 @@ exports[`Public and private APIs public API should not allow to query internal f
     {
       "locations": [
         {
-          "column": 25,
+          "column": 13,
           "line": 3,
         },
       ],
