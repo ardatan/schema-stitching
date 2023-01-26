@@ -7,6 +7,7 @@
     "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
+    "@types/node": "^18.11.18",
     "@graphql-tools/batch-delegate": "^8.4.15",
     "@graphql-tools/delegate": "^9.0.22",
     "@graphql-tools/stitch": "^8.7.35",

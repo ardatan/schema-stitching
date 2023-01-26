@@ -1,8 +1,8 @@
-import { gatewapApp } from '../src';
+import { gatewayApp } from '../src/gateway';
 
 describe('Custom merge resolvers', () => {
   it('should work', async () => {
-    const response = await gatewapApp.fetch('/graphql', {
+    const response = await gatewayApp.fetch('/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
