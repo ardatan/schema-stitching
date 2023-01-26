@@ -13,9 +13,9 @@ export default defineConfig({
         // ensure giscus is reloaded when client side route is changed
         key={route}
         repo="ardatan/schema-stitching"
-        repoId="MDEwOlJlcG9zaXRvcnk1NDQzMjE2OA=="
-        category="Docs Discussions"
-        categoryId="DIC_kwDOAz6RqM4CSDSV"
+        repoId="R_kgDOIvpJ-Q"
+        category="Documentation"
+        categoryId="DIC_kwDOIvpJ-c4CT0ET"
         mapping="pathname"
         theme={resolvedTheme}
       />
