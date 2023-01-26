@@ -20,25 +20,27 @@ Stitching is capable of handling this service pattern using the `entryPoints` pr
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/type-merging-multiple-keys?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/type-merging-multiple-keys?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="type-merging-multiple-keys"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-multiple-keys).
 
 The following service is available for interactive queries:
 
-- **Stitched gateway:** http://localhost:4000/graphql
+- **Stitched gateway:** listening on 4000/graphql
 
-For simplicity, all subservices in this example are run locally by the gateway server. You could easily break out any subservice into a standalone remote server following the [combining local and remote schemas](/handbook/combining-local-and-remote-schemas) example.
+For simplicity, all subservices in this example are run locally by the gateway server. You could easily break out any subservice into a standalone remote server following the [combining local and remote schemas](/handbook/foundation/combining-local-and-remote-schemas) example.
 
 ## Summary
 
-Visit the [stitched gateway](http://localhost:4000/graphql) and try running the following query that fetches data from all services following each possible service traversal path:
+Visit the stitched gateway and try running the following query that fetches data from all services following each possible service traversal path:
 
 ```graphql
 query {

@@ -12,31 +12,33 @@ Using single-record queries means that every record accessed requires a _dedicat
 
 **Related examples:**
 
-- See [array-batched type merging](/handbook/type-merging-arrays) to improve the performance of these basic patterns.
-- See [stitching directives SDL](/handbook/stitching-directives-sdl) to write this merge configuration as schema directives.
+- See [array-batched type merging](/handbook/foundation/type-merging-arrays) to improve the performance of these basic patterns.
+- See [stitching directives SDL](/handbook/foundation/stitching-directives-sdl) to write this merge configuration as schema directives.
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/type-merging-single-records?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/type-merging-single-records?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="type-merging-single-records"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-single-records).
 
 The following services are available for interactive queries:
 
-- **Stitched gateway:** http://localhost:4000/graphql
-- _Manufacturers subservice_: http://localhost:4001/graphql
-- _Products subservice_: http://localhost:4002/graphql
-- _Storefronts subservice_: http://localhost:4003/graphql
+- **Stitched gateway:** listening on 4000/graphql
+- _Manufacturers subservice_: listening on 4001/graphql
+- _Products subservice_: listening on 4002/graphql
+- _Storefronts subservice_: listening on 4003/graphql
 
 ## Summary
 
-Visit the [stitched gateway](http://localhost:4000/graphql) and try running the following query:
+Visit the stitched gateway and try running the following query:
 
 ```graphql
 query {
@@ -151,4 +153,4 @@ query ($graphqlTools0__v0_upc: ID!, $graphqlTools1__v0_upc: ID!, $graphqlTools2_
 
 Now we're sending a **single request** that resolves all three single-record queries at once, courtesy of [batched execution](/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). There are very few reasons NOT to enable this free batching optimization (it will be enabled by default in the future).
 
-Batch execution is superb for optimizing the exchange with the subservices. However, there are still overhead processing costs on the gateway for delegating each record individually, so batch execution alone is not a perfect solution. The best optimization strategy is to pair batch execution with delegating [arrays of records](/handbook/type-merging-arrays) at a time.
+Batch execution is superb for optimizing the exchange with the subservices. However, there are still overhead processing costs on the gateway for delegating each record individually, so batch execution alone is not a perfect solution. The best optimization strategy is to pair batch execution with delegating [arrays of records](/handbook/foundation/type-merging-arrays) at a time.

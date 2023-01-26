@@ -9,20 +9,22 @@ This example demonstrates filtering unwanted elements from the public schema, an
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/public-and-private-apis?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/public-and-private-apis?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="public-and-private-apis"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/public-and-private-apis).
 
 The following services are available for interactive queries:
 
-- **Public (filtered) gateway:** http://localhost:4000/public/graphql
-- **Private (unfiltered) gateway:** http://localhost:4000/private/graphql
+- **Public (filtered) gateway:** listening on 4000/public/graphql
+- **Private (unfiltered) gateway:** listening on 4000/private/graphql
 
 For simplicity, all subservices in this example are run locally by the gateway server. You could easily break out any subservice into a standalone remote server following the [combining local and remote schemas](../combining-local-and-remote-schemas) example.
 

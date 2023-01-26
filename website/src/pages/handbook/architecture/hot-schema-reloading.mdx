@@ -15,25 +15,27 @@ This example demonstrates reloading the combined gateway schema without restarti
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/hot-schema-reloading?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/hot-schema-reloading?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="hot-schema-reloading"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/hot-schema-reloading).
 
 The following services are available for interactive queries:
 
-- **Stitched gateway:** http://localhost:4000/graphql
-- _Inventory subservice_: http://localhost:4001/graphql
-- _Products subservice_: http://localhost:4002/graphql
+- **Stitched gateway:** listening on 4000/graphql
+- _Inventory subservice_: listening on 4001/graphql
+- _Products subservice_: listening on 4002/graphql
 
 ## Summary
 
-Visit the [stitched gateway](http://localhost:4000/graphql) and try running the following query:
+Visit the stitched gateway and try running the following query:
 
 ```graphql
 query {
@@ -54,7 +56,7 @@ mutation {
 }
 ```
 
-Refresh [gateway GraphiQL](http://localhost:4000/graphql) and see how the available types and root fields automatically adjust after the Reviews service has been removed from the gateway.
+Refresh gateway GraphiQL and see how the available types and root fields automatically adjust after the Reviews service has been removed from the gateway.
 
 Then, try the following mutation:
 
@@ -70,7 +72,7 @@ mutation {
 }
 ```
 
-Refresh [gateway GraphiQL](http://localhost:4000/graphql) and see how the available types and root fields have been restored.
+Refresh gateway GraphiQL and see how the available types and root fields have been restored.
 
 ### Without polling
 
@@ -101,4 +103,4 @@ yarn start-service-products
 yarn start-gateway
 ```
 
-Now try stopping the Products service by exiting its program (`CTRL+C`). Refresh [gateway GraphiQL](http://localhost:4000/graphql) and notice that the schema has responded to the change automatically.
+Now try stopping the Products service by exiting its program (`CTRL+C`). Refresh gateway GraphiQL and notice that the schema has responded to the change automatically.

@@ -10,25 +10,27 @@ This example has two independent services that are stitched together into a sing
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/graphql-upload?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/graphql-upload?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="graphql-upload"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/graphql-upload).
 
 The following services are available for interactive queries:
 
-- **Stitched gateway:** http://localhost:4000/graphql
-- Upload Files subservice\_: http://localhost:4001/graphql
-- Resize Images subservice\_: http://localhost:4002/graphql
+- **Stitched gateway:** listening on 4000/graphql
+- Upload Files subservice\_: listening on 4001/graphql
+- Resize Images subservice\_: listening on 4002/graphql
 
 ## Summary
 
-Visit the [stitched gateway](http://localhost:4000/graphql) and try running the following query:
+Visit the stitched gateway and try running the following query:
 
 ```graphql
 query {

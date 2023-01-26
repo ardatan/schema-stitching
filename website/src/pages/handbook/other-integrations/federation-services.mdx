@@ -13,22 +13,24 @@ Stitching is less opinionated than Federation, and is made considerably simpler 
 
 ## Sandbox
 
+_⬇️ Click ☰ to see the files_
+
 <iframe
-  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/federation-services?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/federation-services?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
   className="mt-6 w-full h-[500px] rounded-md"
   title="federation-services"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
 > You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/federation-services).
 
 The following services are available for interactive queries:
 
-- **Stitched gateway:** http://localhost:4000/graphql
-- _Products subservice_: http://localhost:4001/graphql
-- _Reviews subservice_: http://localhost:4002/graphql
-- _Users subservice_: http://localhost:4003/graphql
+- **Stitched gateway:** listening on 4000/graphql
+- _Products subservice_: listening on 4001/graphql
+- _Reviews subservice_: listening on 4002/graphql
+- _Users subservice_: listening on 4003/graphql
 
 This example is based on the [Federation intro example](https://www.apollographql.com/docs/federation/#concern-based-separation).
 
