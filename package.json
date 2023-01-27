@@ -29,7 +29,7 @@
     "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
     "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --ignore-path .prettierignore --check .",
-    "postinstall": "husky install && yarn workspace subservice-languages-ruby postinstall",
+    "postinstall": "husky install",
     "test": "jest --runInBand"
   },
   "devDependencies": {

@@ -48,6 +48,9 @@ jobs:
         with:
           nodeVersion: 18
 
+      - name: Install Ruby Dependencies
+        run: yarn workspace subservice-languages-ruby postinstall
+
       - name: Cache Jest
         uses: actions/cache@v3
         with:
