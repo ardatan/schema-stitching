@@ -39,17 +39,11 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: Setup env
         uses: the-guild-org/shared-config/setup@main
         with:
           nodeVersion: 18
-
-      - name: Install Ruby Dependencies
-        run: yarn workspace subservice-languages-ruby postinstall
 
       - name: Cache Jest
         uses: actions/cache@v3
@@ -58,5 +52,6 @@ jobs:
           key: ${{ runner.os }}-jest-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-jest-
+
       - name: Test
         run: yarn test --ci
