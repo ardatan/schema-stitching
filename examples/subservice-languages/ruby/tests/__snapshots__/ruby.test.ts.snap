@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ruby subservices should work: result 1`] = `
+{
+  "data": {
+    "users": [
+      {
+        "id": "1",
+        "name": "Ada Lovelace",
+        "reviews": [
+          {
+            "body": "Love it!",
+            "product": {
+              "name": "Table",
+            },
+          },
+          {
+            "body": "Too expensive.",
+            "product": {
+              "name": "Couch",
+            },
+          },
+        ],
+        "username": "@ada",
+      },
+      {
+        "id": "2",
+        "name": "Alan Turing",
+        "reviews": [
+          {
+            "body": "Could be better.",
+            "product": {
+              "name": "Chair",
+            },
+          },
+          {
+            "body": "Prefer something else.",
+            "product": {
+              "name": "Table",
+            },
+          },
+        ],
+        "username": "@complete",
+      },
+    ],
+  },
+}
+`;

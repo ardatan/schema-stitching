@@ -30,7 +30,7 @@
     "prettier": "prettier --ignore-path .prettierignore --write --list-different .",
     "prettier:check": "prettier --ignore-path .prettierignore --check .",
     "postinstall": "husky install",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand --forceExit"
   },
   "devDependencies": {
     "@babel/core": "7.20.12",

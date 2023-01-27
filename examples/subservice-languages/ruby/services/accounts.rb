@@ -1,28 +1,44 @@
 # frozen_string_literal: true
+require_relative '../lib/base_schema'
+require_relative '../lib/graphql_server'
 
-require 'webrick'
-require 'rack'
-require 'json'
+USERS = [
+  {
+    id: '1',
+    name: 'Ada Lovelace',
+    username: '@ada',
+  },
+  {
+    id: '2',
+    name: 'Alan Turing',
+    username: '@complete',
+  },
+].freeze
 
-class GraphQLServer
-  def self.run(schema, options = {})
-    Rack::Handler::WEBrick.run(GraphQLServer.new(schema), options)
+class User < BaseObject
+  add_directive :key, { selectionSet: '{ id }' }
+  field :id, ID, null: false
+  field :name, String, null: true
+  field :username, String, null: true
+end
+
+class Query < BaseObject
+  field :users, [User, null: true], null: false, directives: { merge: { keyField: 'id' } } do
+    argument :ids, [ID], required: true
+  end
+  field :_sdl, String, null: false
+
+  def users(ids:)
+    USERS.select { |u| ids.include?(u[:id]) }
   end
 
-  attr_reader :schema
-
-  def initialize(schema)
-    @schema = schema
-  end
-
-  def call(env)
-    req = Rack::Request.new(env)
-    req_vars = JSON.parse(req.body.read)
-    result = schema.execute(
-      req_vars['query'],
-      operation_name: req_vars['operationName'],
-      variables: req_vars['variables'] || {},
-    )
-    ['200', { 'Content-Type' => 'application/json' }, [JSON.dump(result.to_h)]]
+  def _sdl
+    AccountSchema.print_schema_with_directives
   end
 end
+
+class AccountSchema < BaseSchema
+  query(Query)
+end
+
+GraphQLServer.run(AccountSchema, Port: 4001)
