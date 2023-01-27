@@ -10,7 +10,8 @@
     "start-service-products": "nodemon --watch services/products/**/*.ts --exec ts-node-esm services/products/index.ts",
     "start-service-reviews": "nodemon -e js,graphql services/reviews/index.js",
     "start-service-gateway": "nodemon -e js,graphql index.js",
-    "start-services": "concurrently \"yarn:start-service-*\""
+    "start-services": "concurrently \"yarn:start-service-*\"",
+    "start": "concurrently \"yarn:start-gateway\" \"yarn:start-services\""
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^0.1.1",
