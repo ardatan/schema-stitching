@@ -558,7 +558,7 @@ A field-level `selectionSet` specifies field dependencies while the `computed` s
   enable [query batching](#batching) to consolidate requests whenever possible.
 </Callout>
 
-The main disadvantage of computed fields is that they cannot be resolved independently from the stitched gateway. Tolerance for this subservice inconsistency is largely dependent on your own service architecture. An imperfect solution is to deprecate all computed fields within a subschema, and then normalize their behavior in the gateway schema with a [`RemoveObjectFieldDeprecations`](/docs/transforms/grooming) transform. See related [handbook example](/handbook/foundation/computed-fields).
+The main disadvantage of computed fields is that they cannot be resolved independently from the stitched gateway. Tolerance for this subservice inconsistency is largely dependent on your own service architecture. An imperfect solution is to deprecate all computed fields within a subschema, and then normalize their behavior in the gateway schema with a [`RemoveObjectFieldDeprecations`](/docs/transforms/cleanup) transform. See related [handbook example](/handbook/foundation/computed-fields).
 
 ## Canonical Definitions
 

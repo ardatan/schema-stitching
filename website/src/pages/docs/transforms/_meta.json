@@ -3,7 +3,7 @@
   "filtering": "Filtering",
   "renaming": "Renaming",
   "modifying": "Modifying",
-  "grooming": "Grooming",
+  "cleanup": "Cleanup",
   "operational": "Operational",
   "custom-transforms": "Custom Transforms"
 }
