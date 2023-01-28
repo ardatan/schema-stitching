@@ -1,32 +1,32 @@
 {
   "name": "graphql-upload",
   "version": "0.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
-    "start-upload-files": "ts-node-dev src/services/upload-files/index.ts",
-    "start-resize-images": "ts-node-dev src/services/resize-images/index.ts",
+    "start": "concurrently \"yarn:start-*\"",
     "start-gateway": "ts-node-dev src/index.ts",
-    "start": "concurrently \"yarn:start-*\""
+    "start-resize-images": "ts-node-dev src/services/resize-images/index.ts",
+    "start-upload-files": "ts-node-dev src/services/upload-files/index.ts"
   },
   "dependencies": {
-    "@types/node": "^18.11.18",
-    "@types/wait-on": "^5.3.1",
-    "@types/mime-types": "^2.1.1",
-    "@types/sharp": "^0.31.1",
+    "@graphql-tools/delegate": "^9.0.22",
     "@graphql-tools/executor-http": "^0.1.0",
     "@graphql-tools/stitch": "^8.7.35",
     "@graphql-tools/wrap": "^9.3.0",
-    "@graphql-tools/delegate": "^9.0.22",
+    "@types/mime-types": "^2.1.1",
+    "@types/node": "^18.11.18",
+    "@types/sharp": "^0.31.1",
+    "@types/wait-on": "^5.3.1",
     "@whatwg-node/fetch": "^0.6.2",
     "concurrently": "^7.0.0",
-    "graphql-yoga": "^3.3.0",
     "graphql": "^16.6.0",
+    "graphql-yoga": "^3.3.0",
     "mime-types": "^2.1.35",
-    "wait-on": "^7.0.0",
     "sharp": "^0.31.3",
-    "typescript": "^4.9.4",
     "ts-node": "^10.9.1",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4",
+    "wait-on": "^7.0.0"
   }
 }

@@ -1,17 +1,24 @@
 {
   "name": "schema-stitching",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardatan/schema-stitching.git"
+  },
+  "homepage": "https://github.com/ardatan/schema-stitching#readme",
+  "bugs": {
+    "url": "https://github.com/ardatan/schema-stitching/issues"
+  },
   "author": {
     "name": "Arda TANRIKULU",
     "email": "ardatanrikulu@gmail.com"
   },
-  "bugs": {
-    "url": "https://github.com/ardatan/schema-stitching/issues"
-  },
-  "homepage": "https://github.com/ardatan/schema-stitching#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ardatan/schema-stitching.git"
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "website",
+      "examples/*",
+      "examples/subservice-languages/*"
+    ]
   },
   "keywords": [
     "GraphQL",
@@ -25,11 +32,11 @@
     "Microservices"
   ],
   "scripts": {
-    "lint": "eslint --ext .ts .",
     "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
+    "lint": "eslint --ext .ts .",
+    "postinstall": "husky install",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
-    "postinstall": "husky install",
     "test": "jest --runInBand --forceExit"
   },
   "devDependencies": {
@@ -59,6 +66,10 @@
     "prettier": "2.8.3",
     "typescript": "4.9.4"
   },
+  "resolutions": {
+    "esbuild": "^0.17.0",
+    "graphql": "16.6.0"
+  },
   "lint-staged": {
     "examples/**/src/**/*.{ts,tsx}": [
       "eslint --fix"
@@ -66,17 +77,6 @@
     "**/*.{ts,tsx,graphql,yml,md,mdx,json}": [
       "prettier --write"
     ]
-  },
-  "workspaces": {
-    "packages": [
-      "website",
-      "examples/*",
-      "examples/subservice-languages/*"
-    ]
-  },
-  "resolutions": {
-    "graphql": "16.6.0",
-    "esbuild": "^0.17.0"
   },
   "yarn": {
     "args": [
