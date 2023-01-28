@@ -27,9 +27,8 @@
   "scripts": {
     "lint": "eslint --ext .ts .",
     "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
-    "prettier": "prettier --ignore-path .prettierignore --cache --write --list-different .",
-    "lint:prettier": "prettier --cache --check .",
-    "prettier:check": "prettier --ignore-path .prettierignore --check .",
+    "prettier": "prettier --cache --write --list-different .",
+    "prettier:check": "prettier --cache --check .",
     "postinstall": "husky install",
     "test": "jest --runInBand --forceExit"
   },
