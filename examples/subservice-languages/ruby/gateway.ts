@@ -1,10 +1,10 @@
 import { buildSchema, parse } from 'graphql';
-import { Executor } from '@graphql-tools/utils';
 import { createYoga, isAsyncIterable } from 'graphql-yoga';
+import waitOn from 'wait-on';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import waitOn from 'wait-on';
+import { Executor } from '@graphql-tools/utils';
 
 const SDL_QUERY = parse(/* GraphQL */ `
   query {

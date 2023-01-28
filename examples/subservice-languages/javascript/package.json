@@ -1,17 +1,17 @@
 {
   "name": "subservice-languages-javascript",
   "version": "0.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "type": "module",
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
+    "start": "concurrently \"yarn:start-gateway\" \"yarn:start-services\"",
     "start-service-accounts": "nodemon -e js,graphql services/accounts/index.js",
+    "start-service-gateway": "nodemon -e js,graphql index.js",
     "start-service-inventory": "nodemon -e js,graphql services/inventory/index.js",
     "start-service-products": "nodemon --watch services/products/**/*.ts --exec ts-node-esm services/products/index.ts",
     "start-service-reviews": "nodemon -e js,graphql services/reviews/index.js",
-    "start-service-gateway": "nodemon -e js,graphql index.js",
-    "start-services": "concurrently \"yarn:start-service-*\"",
-    "start": "concurrently \"yarn:start-gateway\" \"yarn:start-services\""
+    "start-services": "concurrently \"yarn:start-service-*\""
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^0.1.1",
