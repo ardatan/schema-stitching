@@ -1,12 +1,18 @@
 # GraphQL Upload
 
-This example has two independent services that are stitched together into a single gateway schema. It uses [`Schema Extensions`](/docs/approaches/schema-extensions) to add some local type definitions and resolvers.
+This example has two independent services that are stitched together into a single gateway schema.
+It uses [`Schema Extensions`](/docs/approaches/schema-extensions) to add some local type definitions
+and resolvers.
 
 **This example demonstrates:**
 
-- Adding a remote service that takes a file upload and saves on the disk. It shows how to forwards file uploads to the services through the gateway
-- Adding a remote service that takes an image as a file upload and resizes it by using [sharp](https://www.npmjs.com/package/sharp) and returns a base64 string representation of the resized image.
-- It uses [File Upload recipe of GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs/features/file-uploads)
+- Adding a remote service that takes a file upload and saves on the disk. It shows how to forwards
+  file uploads to the services through the gateway
+- Adding a remote service that takes an image as a file upload and resizes it by using
+  [sharp](https://www.npmjs.com/package/sharp) and returns a base64 string representation of the
+  resized image.
+- It uses
+  [File Upload recipe of GraphQL Yoga](https://the-guild.dev/graphql/yoga-server/docs/features/file-uploads)
 
 ## Sandbox
 
@@ -20,7 +26,8 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/graphql-upload).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/graphql-upload).
 
 The following services are available for interactive queries:
 
@@ -42,8 +49,10 @@ query {
 }
 ```
 
-In this example query, `readFile` of **Upload Files** subservice is called to read the file from the disk and `resizedBase64` of **Resize Images** subservice is called to resize the image.
-In our additional resolver we take `base64` representation of the file from the **Upload Files** subservice and pass it to the **Resize Images** subservice like below;
+In this example query, `readFile` of **Upload Files** subservice is called to read the file from the
+disk and `resizedBase64` of **Resize Images** subservice is called to resize the image. In our
+additional resolver we take `base64` representation of the file from the **Upload Files** subservice
+and pass it to the **Resize Images** subservice like below;
 
 > Created `file` object is passed to **Resize Images** as a file upload under the hood;
 
@@ -83,7 +92,8 @@ In our additional resolver we take `base64` representation of the file from the 
 
 ## Upload a File from the gateway
 
-Run the following command from the terminal to upload the file `file.txt`. To learn more, visit [graphql-multipart-request-spec](https://github.com/jaydenseric/graphql-multipart-request-spec)
+Run the following command from the terminal to upload the file `file.txt`. To learn more, visit
+[graphql-multipart-request-spec](https://github.com/jaydenseric/graphql-multipart-request-spec)
 
 ```bash
 curl localhost:4000/graphql \

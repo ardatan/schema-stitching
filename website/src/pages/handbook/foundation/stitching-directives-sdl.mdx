@@ -1,10 +1,16 @@
 # Stitching directives SDL
 
-This example demonstrates the use of stitching directives to configure type merging via subschema SDLs. Shifting this configuration out of the gateway makes subschemas autonomous, and allows them to push their own configuration up to the gateway&mdash;enabling more sophisticated schema releases.
+This example demonstrates the use of stitching directives to configure type merging via subschema
+SDLs. Shifting this configuration out of the gateway makes subschemas autonomous, and allows them to
+push their own configuration up to the gateway&mdash;enabling more sophisticated schema releases.
 
-The `@graphql-tools/stitching-directives` package provides importable directives that can be used to annotate types and fields within subschemas, a validator to ensure the directives are used appropriately, and a configuration transformer that can be used on the gateway to convert the subschema directives into explicit configuration setting.
+The `@graphql-tools/stitching-directives` package provides importable directives that can be used to
+annotate types and fields within subschemas, a validator to ensure the directives are used
+appropriately, and a configuration transformer that can be used on the gateway to convert the
+subschema directives into explicit configuration setting.
 
-Note: the service setup in this example is based on the [official demonstration repository](https://github.com/apollographql/federation-demo) for
+Note: the service setup in this example is based on the
+[official demonstration repository](https://github.com/apollographql/federation-demo) for
 [Apollo Federation](https://www.apollographql.com/docs/federation/).
 
 **This example demonstrates:**
@@ -26,7 +32,8 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/stitching-directives-sdl).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/stitching-directives-sdl).
 
 The following services are available for interactive queries:
 
@@ -65,11 +72,15 @@ query {
 }
 ```
 
-Neat, it works! All those merges were configured through schema SDL annotations. Let's review the patterns used in this example and compare them to their static configuration counterparts. Keep in mind: SDL directives are always just annotations for the static configuration that's been discussed throughout previous chapters.
+Neat, it works! All those merges were configured through schema SDL annotations. Let's review the
+patterns used in this example and compare them to their static configuration counterparts. Keep in
+mind: SDL directives are always just annotations for the static configuration that's been discussed
+throughout previous chapters.
 
 ### Single picked key
 
-Open the Accounts schema and see the expression of a [single-record merge query](../type-merging-single-records):
+Open the Accounts schema and see the expression of a
+[single-record merge query](../type-merging-single-records):
 
 ```graphql
 type User {
@@ -95,11 +106,13 @@ merge: {
 }
 ```
 
-Here the `@merge(keyField: "id")` directive marks a merger query, and specifies that the `id` field acts as a selectionSet to be fetched with the original object and picked as the query argument.
+Here the `@merge(keyField: "id")` directive marks a merger query, and specifies that the `id` field
+acts as a selectionSet to be fetched with the original object and picked as the query argument.
 
 ### Picked keys with additional arguments
 
-Next, open the Products schema and see the expression of an [array-batched merge query](../type-merging-arrays):
+Next, open the Products schema and see the expression of an
+[array-batched merge query](../type-merging-arrays):
 
 ```graphql
 type Product {
@@ -131,11 +144,16 @@ merge: {
 }
 ```
 
-Again, the `@merge(keyField: "upc")` directive marks a merger array query, and specifies that the `upc` field acts as a selectionSet to be fetched with each original object and picked into the query argument array. The `keyArg` argument specifies which query argument receives the array of keys, and `additionalArgs` specifies static values to provide for other arguments.
+Again, the `@merge(keyField: "upc")` directive marks a merger array query, and specifies that the
+`upc` field acts as a selectionSet to be fetched with each original object and picked into the query
+argument array. The `keyArg` argument specifies which query argument receives the array of keys, and
+`additionalArgs` specifies static values to provide for other arguments.
 
 ### Object keys
 
-Now open the Inventory schema and see the expression of an object key, denoted by a generic scalar (here called `_Key`). In the absence of `keyField`, a generated key assumes the shape of a typed object like those sent to [federation services](../federation-services):
+Now open the Inventory schema and see the expression of an object key, denoted by a generic scalar
+(here called `_Key`). In the absence of `keyField`, a generated key assumes the shape of a typed
+object like those sent to [federation services](../federation-services):
 
 ```graphql
 type Product @key(selectionSet: "{ upc }") {
@@ -167,7 +185,9 @@ merge: {
 }
 ```
 
-The `_Key` scalar is an object with a `__typename` and all _utilized_ selectionSet fields on the type. For example, when the computed `shippingEstimate` field is requested, the resulting object keys look like:
+The `_Key` scalar is an object with a `__typename` and all _utilized_ selectionSet fields on the
+type. For example, when the computed `shippingEstimate` field is requested, the resulting object
+keys look like:
 
 ```js
 ;[
@@ -176,7 +196,8 @@ The `_Key` scalar is an object with a `__typename` and all _utilized_ selectionS
 ]
 ```
 
-However, when `shippingEstimate` is NOT requested, the generated object keys will only contain fields from the base selectionSet:
+However, when `shippingEstimate` is NOT requested, the generated object keys will only contain
+fields from the base selectionSet:
 
 ```js
 ;[
@@ -187,7 +208,8 @@ However, when `shippingEstimate` is NOT requested, the generated object keys wil
 
 ### Typed inputs
 
-Similar to the [object keys](#object-keys) discussed above, an input object type may be used to constrain the specific fields included on a object key:
+Similar to the [object keys](#object-keys) discussed above, an input object type may be used to
+constrain the specific fields included on a object key:
 
 ```graphql
 type User @key(selectionSet: "{ id }") {
@@ -217,15 +239,17 @@ merge: {
 }
 ```
 
-In this case, the generated object keys will contain nothing but utilized selectionSet fields that are whitelisted by the input type:
+In this case, the generated object keys will contain nothing but utilized selectionSet fields that
+are whitelisted by the input type:
 
-```js
-;[{ id: '1' }, { id: '2' }]
+```json
+[{ id: '1' }, { id: '2' }]
 ```
 
 ### Nested inputs
 
-A more advanced form of [typed input keys](#typed-inputs), this pattern uses the `keyArg` parameter to specify an input path at which to format the stitching query arguments:
+A more advanced form of [typed input keys](#typed-inputs), this pattern uses the `keyArg` parameter
+to specify an input path at which to format the stitching query arguments:
 
 ```graphql
 type Product @key(selectionSet: "{ upc }") {
@@ -247,7 +271,10 @@ type Query {
 
 ### Canonical definitions
 
-Open the documentation sidebar of GraphiQL for the gateway schema, and have a look at the `Product` type definition. While this type is defined in three different ways by three different services, you'll see that element descriptions from the Products subschema are favored in the combined gateway schema because it is marked as `@canonical`:
+Open the documentation sidebar of GraphiQL for the gateway schema, and have a look at the `Product`
+type definition. While this type is defined in three different ways by three different services,
+you'll see that element descriptions from the Products subschema are favored in the combined gateway
+schema because it is marked as `@canonical`:
 
 ```graphql
 "Represents a Product available for resale."
@@ -256,8 +283,15 @@ type Product @canonical {
 }
 ```
 
-Types marked as canonical will provide a preferred definition of the type and its fields to the combined gateway schema. That means we can write clean descriptions for a type and its fields in one service, and expect those definitions to be used in the combined gateway schema. Specific fields may also be marked as canonical to override a canonical type definition. Fields that are unique to a given subservice have no competing definitions, and are therefore canonical by default.
+Types marked as canonical will provide a preferred definition of the type and its fields to the
+combined gateway schema. That means we can write clean descriptions for a type and its fields in one
+service, and expect those definitions to be used in the combined gateway schema. Specific fields may
+also be marked as canonical to override a canonical type definition. Fields that are unique to a
+given subservice have no competing definitions, and are therefore canonical by default.
 
 ### For demonstration only!
 
-This example uses several needlessly complex key patterns for the sake of demonstration. For simplicity, it's generally best to use the basic picked key patterns whenever possible. Sending object keys is generally only necessary when implementing computed fields or communicating with federation services.
+This example uses several needlessly complex key patterns for the sake of demonstration. For
+simplicity, it's generally best to use the basic picked key patterns whenever possible. Sending
+object keys is generally only necessary when implementing computed fields or communicating with
+federation services.
