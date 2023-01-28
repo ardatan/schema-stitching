@@ -1,5 +1,5 @@
-import { stitchSchemas } from '@graphql-tools/stitch';
 import { createYoga } from 'graphql-yoga';
+import { stitchSchemas } from '@graphql-tools/stitch';
 import { catalogSchema } from './services/catalog';
 import { reviewsSchema } from './services/reviews';
 import { vendorsSchema } from './services/vendors';

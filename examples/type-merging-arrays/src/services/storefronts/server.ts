@@ -1,6 +1,6 @@
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
 
 // data fixtures
 const storefronts = [
@@ -41,5 +41,5 @@ export const storefrontsServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

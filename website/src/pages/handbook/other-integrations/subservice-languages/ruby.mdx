@@ -1,14 +1,17 @@
 # Ruby subservices
 
-This example demonstrates Ruby subservices within a stitched schema. Their GraphQL implementations use:
+This example demonstrates Ruby subservices within a stitched schema. Their GraphQL implementations
+use:
 
 - [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) for GraphQL execution.
-- [graphql-ruby-schema-directives](https://github.com/gmac/graphql-ruby-schema-directives) for class-based schema directives.
+- [graphql-ruby-schema-directives](https://github.com/gmac/graphql-ruby-schema-directives) for
+  class-based schema directives.
 - `GraphQL::Schema.from_definition` for parsing SDL strings into executable schemas.
 
 ## Local setup
 
-Clone the [GitHub repo](https://github.com/ardatan/schema-stitching/tree/master/examples/subservice-languages/ruby).
+Clone the
+[GitHub repo](https://github.com/ardatan/schema-stitching/tree/master/examples/subservice-languages/ruby).
 
 ```shell
 cd examples/subservice-languages/ruby
@@ -27,7 +30,6 @@ yarn start-gateway
 The following services are available for interactive queries:
 
 - **Stitched gateway:** http://localhost:4000/graphql
-
 
 ## Summary
 
@@ -49,9 +51,14 @@ query {
 }
 ```
 
-Unique to this example is that the subservices are Ruby applications. Their GraphQL implementations use [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) paired with [graphql-ruby-schema-directives](https://github.com/gmac/graphql-ruby-schema-directives) to generate schema stitching SDLs.
+Unique to this example is that the subservices are Ruby applications. Their GraphQL implementations
+use [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) paired with
+[graphql-ruby-schema-directives](https://github.com/gmac/graphql-ruby-schema-directives) to generate
+schema stitching SDLs.
 
-This example demonstrates both schemas built with a code-first approach (as Ruby classes), and by parsing a type definitions string into a schema. Either approach works fine for providing an annotated SDL to schema stitching.
+This example demonstrates both schemas built with a code-first approach (as Ruby classes), and by
+parsing a type definitions string into a schema. Either approach works fine for providing an
+annotated SDL to schema stitching.
 
 ### Class-based schemas
 
@@ -83,7 +90,8 @@ class Query < BaseObject
 end
 ```
 
-The `GraphQL::SchemaDirectives` gem provides API extensions for applying custom schema directives to types and fields.
+The `GraphQL::SchemaDirectives` gem provides API extensions for applying custom schema directives to
+types and fields.
 
 ### Schemas from type definitions
 
@@ -107,4 +115,5 @@ type_defs = %(
 schema = GraphQL::SchemaDirectives.from_definition(type_defs, default_resolve: ...)
 ```
 
-You'll need to build your own default resolver for this approach. It's more of a self-service effort, although you remain in control of the complete resolution process.
+You'll need to build your own default resolver for this approach. It's more of a self-service
+effort, although you remain in control of the complete resolution process.

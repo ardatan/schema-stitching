@@ -2,7 +2,9 @@
 
 ## What is Array Batching?
 
-It's quite common for stitching to fetch supporting data for each record in an array. Given `[1, 2, 5]` as an array of record IDs, we _could_ query a subschema for each of those records individually:
+It's quite common for stitching to fetch supporting data for each record in an array. Given
+`[1, 2, 5]` as an array of record IDs, we _could_ query a subschema for each of those records
+individually:
 
 ```graphql
 # product(id: Int!): Product
@@ -24,7 +26,9 @@ query {
 }
 ```
 
-However, this is pretty inefficient (yes, this is absolutely an N+1 query). Each query must be delegated, resolved, and call the database individually. This would be significantly more efficient to resolve all of these records at once using an array service:
+However, this is pretty inefficient (yes, this is absolutely an N+1 query). Each query must be
+delegated, resolved, and call the database individually. This would be significantly more efficient
+to resolve all of these records at once using an array service:
 
 ```graphql
 # products(ids: [Int!]!): [Product]!
@@ -36,11 +40,15 @@ query {
 }
 ```
 
-That, in a nutshell, is array batching. Rather than performing a delegation for each record in a list, we'll perform one delegation _total_ on behalf of the entire list.
+That, in a nutshell, is array batching. Rather than performing a delegation for each record in a
+list, we'll perform one delegation _total_ on behalf of the entire list.
 
 ## What is Query Batching?
 
-Batch execution, also known as "query batching", is a high-level strategy for combining all queries performed during an execution cycle into one GraphQL operation sent to a subschema. This will combine both array-batched and single-record queries performed across GraphQL types into one operation that executes all at once.
+Batch execution, also known as "query batching", is a high-level strategy for combining all queries
+performed during an execution cycle into one GraphQL operation sent to a subschema. This will
+combine both array-batched and single-record queries performed across GraphQL types into one
+operation that executes all at once.
 
 For example, given the following queries generated during an execution cycle:
 
@@ -86,14 +94,31 @@ query {
 }
 ```
 
-A batching executor keeps track of the root aliases used for each operation in the batched set, and handles unpacking the results into their original requests.
+A batching executor keeps track of the root aliases used for each operation in the batched set, and
+handles unpacking the results into their original requests.
 
-This aggregate of queries has many advantages: it consolidates network requests sent to remote servers, and apps with synchronous execution have the opportunity to batch behaviors within the single executable operation. GraphQL Tools' [batch-execute](https://github.com/ardatan/graphql-tools/tree/master/packages/batch-execute) package handles all the logistics of remapping batched field aliases and any resulting errors. An alternative implementation of execution batching [uses arrays](https://www.apollographql.com/blog/apollo-client/performance/batching-client-graphql-queries/#5853) to send multiple operations at once, though it only works with GraphQL servers setup to accept arrays and trusts that the server enables multiplexing.
+This aggregate of queries has many advantages: it consolidates network requests sent to remote
+servers, and apps with synchronous execution have the opportunity to batch behaviors within the
+single executable operation. GraphQL Tools'
+[batch-execute](https://github.com/ardatan/graphql-tools/tree/master/packages/batch-execute) package
+handles all the logistics of remapping batched field aliases and any resulting errors. An
+alternative implementation of execution batching
+[uses arrays](https://www.apollographql.com/blog/apollo-client/performance/batching-client-graphql-queries/#5853)
+to send multiple operations at once, though it only works with GraphQL servers setup to accept
+arrays and trusts that the server enables multiplexing.
 
 ## Why use both?
 
-It's easy to assume that query batching eliminates the need for array batching. However, there is distinct value in using both in tandem together.
+It's easy to assume that query batching eliminates the need for array batching. However, there is
+distinct value in using both in tandem together.
 
-- **Array batching** optimizes _gateway execution performance_. Each time the gateway schema delegates (or, proxies) down to a subschema, there are associated overhead costs. The delegation process must filter the request selection to match the subschema, remap abstract types, etc. Given an array of 10 records to fetch, it's far better to perform this delegation process once for the set rather than repeating it for each record.
+- **Array batching** optimizes _gateway execution performance_. Each time the gateway schema
+  delegates (or, proxies) down to a subschema, there are associated overhead costs. The delegation
+  process must filter the request selection to match the subschema, remap abstract types, etc. Given
+  an array of 10 records to fetch, it's far better to perform this delegation process once for the
+  set rather than repeating it for each record.
 
-- **Query batching** optimizes _networking and subservice performance_. Once delegations have been initiated (and ideally as few as possible using array batching), query batching will consolidate all delegations into a single operation sent to the subschema. This optimizes networking with the subschema, and allows most applications to better streamline their processing of the request.
+- **Query batching** optimizes _networking and subservice performance_. Once delegations have been
+  initiated (and ideally as few as possible using array batching), query batching will consolidate
+  all delegations into a single operation sent to the subschema. This optimizes networking with the
+  subschema, and allows most applications to better streamline their processing of the request.

@@ -1,20 +1,31 @@
 # Array-batched type merging
 
-This example explores the core techniques for merging typed objects using array queries, covering most of the topics discussed in [batched merging documentation](/docs/approaches/type-merging#batching).
+This example explores the core techniques for merging typed objects using array queries, covering
+most of the topics discussed in
+[batched merging documentation](/docs/approaches/type-merging#batching).
 
-This example focuses on [array batching](/handbook/appendices/batching-arrays-and-queries#what-is-array-batching)&mdash;meaning that all records accessed during a round of delegation are batched together and loaded as an array. This technique greatly reduces the execution overhead of [single-record merges](../02-single-record-type-merging), and can be further optimized by enabling [query batching](/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). This array-batched strategy is prefereable to single-record merges and should be used whenever possible.
+This example focuses on
+[array batching](/handbook/appendices/batching-arrays-and-queries#what-is-array-batching)&mdash;meaning
+that all records accessed during a round of delegation are batched together and loaded as an array.
+This technique greatly reduces the execution overhead of
+[single-record merges](../02-single-record-type-merging), and can be further optimized by enabling
+[query batching](/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). This
+array-batched strategy is prefereable to single-record merges and should be used whenever possible.
 
 **This example demonstrates:**
 
 - [One-way type merging](/docs/approaches/type-merging#basic-example) using array queries.
-- [Multi-directional type merging](/docs/approaches/type-merging#unidirectional-merges) using array queries.
+- [Multi-directional type merging](/docs/approaches/type-merging#unidirectional-merges) using array
+  queries.
 - Handling array errors.
 - Nullability & error remapping.
 
 **Related examples:**
 
-- See [single-record type merging](/handbook/foundation/type-merging-single-records) for additional information on basic merge patterns.
-- See [stitching directives SDL](/handbook/foundation/stitching-directives-sdl) to write this merge configuration as schema directives.
+- See [single-record type merging](/handbook/foundation/type-merging-single-records) for additional
+  information on basic merge patterns.
+- See [stitching directives SDL](/handbook/foundation/stitching-directives-sdl) to write this merge
+  configuration as schema directives.
 
 ## Sandbox
 
@@ -28,7 +39,8 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-arrays).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-arrays).
 
 The following services are available for interactive queries:
 
@@ -69,7 +81,9 @@ If you study the results of this query, the final composition traverses across t
       - `Manufacturer.products` (Products schema)
       - `Manufacturer.name` (Manufacturers schema)
 
-That means the gateway performed three rounds of resolution for each service's data (`Services -> Products -> Manufacturers`). With the array-batching technique, the gateway only performs a single delegation per round, regardless of the number of records in the round.
+That means the gateway performed three rounds of resolution for each service's data
+(`Services -> Products -> Manufacturers`). With the array-batching technique, the gateway only
+performs a single delegation per round, regardless of the number of records in the round.
 
 ## Error handling
 
@@ -81,11 +95,13 @@ manufacturers(root, { ids }) {
 }
 ```
 
-It is extremely important that errors get _mapped_ into the result set, rather than being thrown (which corrupts the entire result set).
+It is extremely important that errors get _mapped_ into the result set, rather than being thrown
+(which corrupts the entire result set).
 
 ## Nullability + mapped errors
 
-Also run a query for the Product with UPC `"6"`, and you'll see an interesting feature of error handling:
+Also run a query for the Product with UPC `"6"`, and you'll see an interesting feature of error
+handling:
 
 ```graphql
 query {
@@ -99,7 +115,9 @@ query {
 }
 ```
 
-For the purposes of this example, this product intentionally specifies an invalid manufacturer reference. You'll see that the original error from the underlying subservice has flowed through the stitching process and is mapped to its final document position in the stitched schema:
+For the purposes of this example, this product intentionally specifies an invalid manufacturer
+reference. You'll see that the original error from the underlying subservice has flowed through the
+stitching process and is mapped to its final document position in the stitched schema:
 
 ```json
 {
@@ -125,4 +143,9 @@ For the purposes of this example, this product intentionally specifies an invali
 }
 ```
 
-Note that for this process to work, the `Product.manufacturer` reference must be [nullable](https://graphql.org/learn/schema/#lists-and-non-null), otherwise you'll get a GraphQL nullability-mismatch error when the manufacturer returns an error. For this reason, **it's generally best-practice to make all stitched associations nullable** on the assumption that the record association _could_ fail, at which time it's better to see the subschema failure than a top-level GraphQL nullability error.
+Note that for this process to work, the `Product.manufacturer` reference must be
+[nullable](https://graphql.org/learn/schema/#lists-and-non-null), otherwise you'll get a GraphQL
+nullability-mismatch error when the manufacturer returns an error. For this reason, **it's generally
+best-practice to make all stitched associations nullable** on the assumption that the record
+association _could_ fail, at which time it's better to see the subschema failure than a top-level
+GraphQL nullability error.

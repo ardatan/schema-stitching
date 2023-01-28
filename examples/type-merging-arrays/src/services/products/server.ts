@@ -1,6 +1,6 @@
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
 
 // data fixtures
 const products = [
@@ -54,7 +54,7 @@ export const productsServer = createServer(
                   extensions: {
                     code: 'NOT_FOUND',
                   },
-                })
+                }),
             );
           },
           _manufacturers(root, { ids }) {
@@ -69,5 +69,5 @@ export const productsServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

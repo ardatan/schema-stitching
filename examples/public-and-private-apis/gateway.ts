@@ -1,8 +1,8 @@
+import { createYoga } from 'graphql-yoga';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import { pruneSchema, filterSchema } from '@graphql-tools/utils';
+import { filterSchema, pruneSchema } from '@graphql-tools/utils';
 import { createRouter } from '@whatwg-node/router';
-import { createYoga } from 'graphql-yoga';
 import { accountsSchema } from './services/accounts';
 import { productsSchema } from './services/products';
 import { reviewsSchema } from './services/reviews';
@@ -26,7 +26,7 @@ const publicSchema = pruneSchema(
     rootFieldFilter: (type, fieldName) => !fieldName.startsWith('_'),
     fieldFilter: (type, fieldName) => !fieldName.startsWith('_'),
     argumentFilter: (typeName, fieldName, argName) => !argName.startsWith('_'),
-  })
+  }),
 );
 
 // Serve the public and private schema versions at different locations.
@@ -43,7 +43,7 @@ gatewayApp.all(
     graphiql: {
       title: 'Private API',
     },
-  })
+  }),
 );
 
 gatewayApp.all(
@@ -55,5 +55,5 @@ gatewayApp.all(
     graphiql: {
       title: 'Public API',
     },
-  })
+  }),
 );

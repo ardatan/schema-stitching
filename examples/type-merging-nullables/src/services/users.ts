@@ -28,7 +28,7 @@ export const usersSchema = createSchema({
               extensions: {
                 code: 'NOT_FOUND',
               },
-            })
+            }),
         ),
     },
   },

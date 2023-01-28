@@ -1,10 +1,10 @@
+import { buildSchema, parse } from 'graphql';
+import { Client } from 'graphql-ws';
+import { createYoga, isAsyncIterable } from 'graphql-yoga';
 import { buildGraphQLWSExecutor } from '@graphql-tools/executor-graphql-ws';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import type { Executor } from '@graphql-tools/utils';
-import { parse, buildSchema } from 'graphql';
-import { Client } from 'graphql-ws';
-import { createYoga, isAsyncIterable } from 'graphql-yoga';
 
 export const clients: Client[] = [];
 

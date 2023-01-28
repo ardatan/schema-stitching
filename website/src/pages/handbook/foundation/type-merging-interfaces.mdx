@@ -1,6 +1,8 @@
 # Cross-service interfaces
 
-This example explores setting up a GraphQL interface that spans across service boundaries, as described in the [merged interfaces documentation](/docs/approaches/type-merging#merged-interfaces). This is an easily overlooked feature made possible by the flexibility of type merging.
+This example explores setting up a GraphQL interface that spans across service boundaries, as
+described in the [merged interfaces documentation](/docs/approaches/type-merging#merged-interfaces).
+This is an easily overlooked feature made possible by the flexibility of type merging.
 
 **This example demonstrates:**
 
@@ -18,13 +20,16 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-interfaces).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-interfaces).
 
 The following service is available for interactive queries:
 
 - **Stitched gateway:** listening on 4000/graphql
 
-For simplicity, all subservices in this example are run locally by the gateway server. You could easily break out any subservice into a standalone remote server following the [combining local and remote schemas](../combining-local-and-remote-schemas) example.
+For simplicity, all subservices in this example are run locally by the gateway server. You could
+easily break out any subservice into a standalone remote server following the
+[combining local and remote schemas](../combining-local-and-remote-schemas) example.
 
 ## Summary
 
@@ -51,7 +56,8 @@ query {
 }
 ```
 
-If you study the results here, `Storefront.productOfferings` field returns the `ProductOffering` interface:
+If you study the results here, `Storefront.productOfferings` field returns the `ProductOffering`
+interface:
 
 ```graphql
 # Products schema
@@ -65,9 +71,11 @@ interface ProductOffering {
 This interface is implemented by two types:
 
 - `Product`: a basic product record from the Products service.
-- `ProductDeal`: a wrapper for a set of products given a special price, managed in the Storefronts service.
+- `ProductDeal`: a wrapper for a set of products given a special price, managed in the Storefronts
+  service.
 
-The oddity here is that the Storefronts service knows `Product` only with an `id` field, therefore Storefronts is not able to implement the full interface, it may only implement a subset of it:
+The oddity here is that the Storefronts service knows `Product` only with an `id` field, therefore
+Storefronts is not able to implement the full interface, it may only implement a subset of it:
 
 ```graphql
 # Storefronts schema
@@ -76,9 +84,12 @@ interface ProductOffering {
 }
 ```
 
-This is where the flexibility of type merging really shines. By virtue of the merge, `ProductDeal` will adopt the full `ProductOffering` interface in the combined gateway schema.
+This is where the flexibility of type merging really shines. By virtue of the merge, `ProductDeal`
+will adopt the full `ProductOffering` interface in the combined gateway schema.
 
-However, that means the gateway schema provides an interface of fields for a type that the underlying subservice does _not_ provide. This difference in interface fields is automatically translated using typed fragments. For example, try the following query:
+However, that means the gateway schema provides an interface of fields for a type that the
+underlying subservice does _not_ provide. This difference in interface fields is automatically
+translated using typed fragments. For example, try the following query:
 
 ```graphql
 query {
@@ -92,7 +103,9 @@ query {
 }
 ```
 
-The above requests the full `ProductOffering` interface from the gateway schema. Comparing this to the query delegated to the Storefronts subservice, you'll see that the interface selections have been expanded into typed fragments that are compatible with the Storefronts schema:
+The above requests the full `ProductOffering` interface from the gateway schema. Comparing this to
+the query delegated to the Storefronts subservice, you'll see that the interface selections have
+been expanded into typed fragments that are compatible with the Storefronts schema:
 
 ```graphql
 query ($graphqlTools0__v0_id: ID!) {

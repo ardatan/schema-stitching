@@ -1,6 +1,7 @@
 # Nullable merges
 
-This example demonstrates using nullable and not-null fields in merged data, as discussed in [null records documentation](/docs/approaches/type-merging#null-records).
+This example demonstrates using nullable and not-null fields in merged data, as discussed in
+[null records documentation](/docs/approaches/type-merging#null-records).
 
 **This example demonstrates:**
 
@@ -19,17 +20,23 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-nullables).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/type-merging-nullables).
 
 The following service is available for interactive queries:
 
 - **Stitched gateway:** listening on 4000/graphql
 
-For simplicity, all subservices in this example are run locally by the gateway server. You could easily break out any subservice into a standalone remote server following the [combining local and remote schemas](../combining-local-and-remote-schemas) example.
+For simplicity, all subservices in this example are run locally by the gateway server. You could
+easily break out any subservice into a standalone remote server following the
+[combining local and remote schemas](../combining-local-and-remote-schemas) example.
 
 ## Summary
 
-This example explores the subtleties of nullable fields and returns within a stitched schema. The primary focus of this example is the Reviews service, where the `User` and `Product` types take slightly different approaches to the nullability of their respective `reviews` association. For context, start the gateway and try running this query:
+This example explores the subtleties of nullable fields and returns within a stitched schema. The
+primary focus of this example is the Reviews service, where the `User` and `Product` types take
+slightly different approaches to the nullability of their respective `reviews` association. For
+context, start the gateway and try running this query:
 
 ```graphql
 query {
@@ -48,7 +55,8 @@ query {
 }
 ```
 
-This query fetches a user and a product, both without any associated reviews. You'll notice they handle this empty association in slightly different ways:
+This query fetches a user and a product, both without any associated reviews. You'll notice they
+handle this empty association in slightly different ways:
 
 ```json
 {
@@ -71,7 +79,8 @@ This query fetches a user and a product, both without any associated reviews. Yo
 
 ### Not-null associations
 
-First go into the Reviews service and compare its `User` type to the implementation of its `_users` query resolver:
+First go into the Reviews service and compare its `User` type to the implementation of its `_users`
+query resolver:
 
 **schema:**
 
@@ -88,7 +97,8 @@ type User {
 _users: (root, { ids }) => ids.map(id => ({ id }))
 ```
 
-In this implementation, _any_ ID submitted to the `_users` query will be treated as a valid record and may resolve a result, for example:
+In this implementation, _any_ ID submitted to the `_users` query will be treated as a valid record
+and may resolve a result, for example:
 
 ```graphql
 query {
@@ -103,11 +113,16 @@ query {
 # --> [{ id: 'DOES_NOT_EXIST', reviews: [] }]
 ```
 
-What's odd here is that the Reviews service is resolving a record for the `"DOES_NOT_EXIST"` ID on the blind assumption that it must exist somewhere else. In effect, the query is parroting all input into a legitimized result. Should it? That's entirely up to your own service architecture. One possible advantage of this pattern is that the not-null `reviews:[Review]!` association works because the service always guarentees a record with valid fields.
+What's odd here is that the Reviews service is resolving a record for the `"DOES_NOT_EXIST"` ID on
+the blind assumption that it must exist somewhere else. In effect, the query is parroting all input
+into a legitimized result. Should it? That's entirely up to your own service architecture. One
+possible advantage of this pattern is that the not-null `reviews:[Review]!` association works
+because the service always guarentees a record with valid fields.
 
 ### Nullable associations
 
-Now go into the Reviews service and compare its `Product` type to the implementation of its `_products` query resolver:
+Now go into the Reviews service and compare its `Product` type to the implementation of its
+`_products` query resolver:
 
 **schema:**
 
@@ -121,10 +136,12 @@ type Product {
 **query resolver:**
 
 ```js
-_products: (root, { upcs }) => upcs.map(upc => (reviews.find(r => r.productUpc === upc) ? { upc } : null))
+_products: (root, { upcs }) =>
+  upcs.map(upc => (reviews.find(r => r.productUpc === upc) ? { upc } : null))
 ```
 
-In this implementation, only product UPCs that match a review in the database are treated as valid records. Unknown records simply return null without errors, for example:
+In this implementation, only product UPCs that match a review in the database are treated as valid
+records. Unknown records simply return null without errors, for example:
 
 ```graphql
 query {
@@ -139,8 +156,14 @@ query {
 # --> [null]
 ```
 
-From a pure service-oriented architecture perspective, this result makes a lot more sense because the Reviews service abstains from opinion on unknown IDs; it neither legitimizes them with a result, nor delegitimizes them with an error. The only caveat for this to work is that the `reviews:[Review]` association must be nullable because a value may not always be returned. The `upc:ID!` field may still be not-null because it is part of the Product type `selectionSet` (in `index.js`), and therefore will always be collected from other services.
+From a pure service-oriented architecture perspective, this result makes a lot more sense because
+the Reviews service abstains from opinion on unknown IDs; it neither legitimizes them with a result,
+nor delegitimizes them with an error. The only caveat for this to work is that the
+`reviews:[Review]` association must be nullable because a value may not always be returned. The
+`upc:ID!` field may still be not-null because it is part of the Product type `selectionSet` (in
+`index.js`), and therefore will always be collected from other services.
 
 ### Which approach is correct?
 
-That depends. What are your requirements, and what makes the most sense? In general, erring on the side of returning null rather than a fabricated record is probably the more "pure" approach.
+That depends. What are your requirements, and what makes the most sense? In general, erring on the
+side of returning null rather than a fabricated record is probably the more "pure" approach.

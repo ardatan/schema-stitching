@@ -1,5 +1,5 @@
-import { createSchema, createYoga } from 'graphql-yoga';
 import { createServer } from 'http';
+import { createSchema, createYoga } from 'graphql-yoga';
 import { startServer, stopServer } from '../src/gateway';
 import { inventoryServer } from '../src/services/inventory/server';
 import { productsServer } from '../src/services/products/server';
@@ -28,7 +28,7 @@ describe('Hot schema reloading', () => {
           },
         });
       },
-    })
+    }),
   );
   beforeEach(async () => {
     await Promise.all([

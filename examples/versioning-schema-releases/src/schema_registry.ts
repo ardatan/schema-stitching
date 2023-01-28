@@ -1,6 +1,6 @@
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { GraphQLError, GraphQLSchema, parse } from 'graphql';
 import { isAsyncIterable } from 'graphql-yoga';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { GitHubClient, RepoConfig } from './github_client';
 
 const FETCH_REGISTRY_VERSION = parse(/* GraphQL */ `
@@ -249,7 +249,7 @@ export class SchemaRegistry {
           sdl: await fetchLocalSDL(url),
           url,
         };
-      })
+      }),
     );
   }
 

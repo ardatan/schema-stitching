@@ -3,7 +3,13 @@ import { createSchema } from 'graphql-yoga';
 
 // data fixtures
 const metadatas = [
-  { id: '1', __typename: 'GeoLocation', name: 'Old Trafford, Greater Manchester, England', lat: 53.4621, lon: 2.2766 },
+  {
+    id: '1',
+    __typename: 'GeoLocation',
+    name: 'Old Trafford, Greater Manchester, England',
+    lat: 53.4621,
+    lon: 2.2766,
+  },
   { id: '2', __typename: 'SportsTeam', name: 'Manchester United', locationId: '1' },
   { id: '3', __typename: 'TelevisionSeries', name: 'Great British Baking Show', season: 7 },
   { id: '4', __typename: 'GeoLocation', name: 'Great Britain', lat: 55.3781, lon: 3.436 },
@@ -75,7 +81,7 @@ export const metadataSchema = createSchema({
                   extensions: {
                     code: 'NOT_FOUND',
                   },
-                })
+                }),
             )
           : null;
       },

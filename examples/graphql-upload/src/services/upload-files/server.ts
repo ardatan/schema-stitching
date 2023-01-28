@@ -1,10 +1,10 @@
-import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
 import { createWriteStream, promises as fsPromises } from 'fs';
+import { createServer } from 'http';
 import { join } from 'path';
-import { lookup as mimeLookup } from 'mime-types';
 import { Readable } from 'stream';
 import { GraphQLSchema } from 'graphql';
+import { createSchema, createYoga } from 'graphql-yoga';
+import { lookup as mimeLookup } from 'mime-types';
 import { File } from '@whatwg-node/fetch';
 
 const FILES_DIR = join(__dirname, 'files');
@@ -55,5 +55,5 @@ export const uploadFilesServer = createServer(
         },
       },
     }) as GraphQLSchema,
-  })
+  }),
 );

@@ -1,5 +1,5 @@
-import { createSchema, createPubSub, createYoga } from 'graphql-yoga';
 import { createServer } from 'http';
+import { createPubSub, createSchema, createYoga } from 'graphql-yoga';
 
 const pubsub = createPubSub();
 const posts = [];
@@ -58,5 +58,5 @@ export const server = createServer(
         },
       },
     }),
-  })
+  }),
 );

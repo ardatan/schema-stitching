@@ -1,14 +1,14 @@
 {
   "name": "versioning-schema-releases",
   "version": "0.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
+    "start-development": "concurrently \"yarn:start-service-*\"",
+    "start-production": "cross-env NODE_ENV=production ts-node src/index.ts",
     "start-service-gateway": "ts-node-dev src/index.ts",
     "start-service-inventory": "ts-node-dev src/services/inventory.ts",
-    "start-service-products": "ts-node-dev services/products.ts",
-    "start-development": "concurrently \"yarn:start-service-*\"",
-    "start-production": "cross-env NODE_ENV=production ts-node src/index.ts"
+    "start-service-products": "ts-node-dev services/products.ts"
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^0.1.1",

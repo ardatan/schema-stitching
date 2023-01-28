@@ -1,11 +1,11 @@
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { SchemaRegistry } from './schema_registry';
-import { buildSchema } from 'graphql';
-import { makeRegistrySchema } from './services/registry';
-import { createYoga } from 'graphql-yoga';
 import { createServer } from 'http';
+import { buildSchema } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { SchemaRegistry } from './schema_registry';
+import { makeRegistrySchema } from './services/registry';
 
 async function main() {
   const ENV = process.env.NODE_ENV || 'development';

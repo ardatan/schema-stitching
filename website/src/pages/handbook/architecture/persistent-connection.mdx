@@ -1,7 +1,10 @@
 # Persistent connection via WebSockets
 
-This example demonstrates how to use [GraphQL over WebSocket Protocol](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md) to establish a persistent connection between services and a gateway.
-So the connection between the gateway and the service not only exists during the request-response cycle, but also during the entire lifetime of the gateway.
+This example demonstrates how to use
+[GraphQL over WebSocket Protocol](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+to establish a persistent connection between services and a gateway. So the connection between the
+gateway and the service not only exists during the request-response cycle, but also during the
+entire lifetime of the gateway.
 
 ## Sandbox
 
@@ -15,11 +18,13 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/persistent-connection).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/persistent-connection).
 
 ## Summary
 
-When you start the gateway, it starts WebSockets connections for each service through WebSockets executor;
+When you start the gateway, it starts WebSockets connections for each service through WebSockets
+executor;
 
 ```ts
 const productsExec = buildGraphQLWSExecutor({
@@ -30,6 +35,10 @@ const productsExec = buildGraphQLWSExecutor({
 })
 ```
 
-And after that it keeps that open for the next 10 seconds defined with `lazyCloseTimeout`. You can keep them open forever by removing that parameter and setting `lazy` to `false` but we prefer to allow the upstream services rest if the gateway is not busy in a certain time.
+And after that it keeps that open for the next 10 seconds defined with `lazyCloseTimeout`. You can
+keep them open forever by removing that parameter and setting `lazy` to `false` but we prefer to
+allow the upstream services rest if the gateway is not busy in a certain time.
 
-The main point is to avoid the overhead of establishing a new connection for each request. This shows WebSockets protocol is not only useful for subscriptions but also for regular queries and mutations if you have a high traffic in your gateway.
+The main point is to avoid the overhead of establishing a new connection for each request. This
+shows WebSockets protocol is not only useful for subscriptions but also for regular queries and
+mutations if you have a high traffic in your gateway.

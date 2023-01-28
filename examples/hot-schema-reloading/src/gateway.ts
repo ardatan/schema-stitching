@@ -1,13 +1,13 @@
+import { createServer, Server } from 'http';
+import { buildSchema, GraphQLSchema } from 'graphql';
 import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
+import { SubschemaConfig } from '@graphql-tools/delegate';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import { SubschemaConfig } from '@graphql-tools/delegate';
-import { buildSchema, GraphQLSchema } from 'graphql';
 import { SchemaLoader } from './SchemaLoader';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { makeEndpointsSchema } from './services/endpoints';
-import { createServer, Server } from 'http';
-import waitOn from 'wait-on';
 
 const { stitchingDirectivesTransformer } = stitchingDirectives();
 
@@ -29,7 +29,7 @@ const loader = new SchemaLoader(
       subschemas,
     });
   },
-  ['http://localhost:4001/graphql', 'http://localhost:4002/graphql']
+  ['http://localhost:4001/graphql', 'http://localhost:4002/graphql'],
 );
 
 const server = createServer(
@@ -39,7 +39,7 @@ const server = createServer(
     graphiql: {
       title: 'Hot schema reloading',
     },
-  })
+  }),
 );
 export async function startServer() {
   await waitOn({ resources: [4001, 4002].map(p => `tcp:${p}`) });

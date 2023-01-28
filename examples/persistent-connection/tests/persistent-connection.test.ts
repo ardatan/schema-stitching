@@ -1,7 +1,7 @@
+import { Socket } from 'net';
 import { clients, gatewayApp } from '../src/gateway';
 import { inventoryServer } from '../src/services/inventory/server';
 import { productsServer } from '../src/services/products/server';
-import { Socket } from 'net';
 
 describe('Persistent connection', () => {
   const connectionSet = new Set<Socket>();

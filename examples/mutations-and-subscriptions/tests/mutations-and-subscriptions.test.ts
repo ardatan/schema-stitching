@@ -1,5 +1,5 @@
-import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { parse } from 'graphql';
+import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { gatewayApp } from '../src/gateway';
 import { server as postsServer } from '../src/services/posts/server';
 import { server as usersServer } from '../src/services/users/server';

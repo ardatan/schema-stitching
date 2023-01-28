@@ -1,9 +1,9 @@
-import { stitchSchemas } from '@graphql-tools/stitch';
 import { buildSchema, parse } from 'graphql';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { createYoga } from 'graphql-yoga';
 import waitOn from 'wait-on';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 const { stitchingDirectivesTransformer } = stitchingDirectives();
 

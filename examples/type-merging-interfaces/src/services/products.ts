@@ -38,7 +38,7 @@ export const productsSchema = createSchema({
               extensions: {
                 code: 'NOT_FOUND',
               },
-            })
+            }),
         ),
     },
   },

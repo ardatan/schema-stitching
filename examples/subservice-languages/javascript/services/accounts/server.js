@@ -1,17 +1,17 @@
+import { createServer } from 'http';
 import {
+  GraphQLError,
+  GraphQLID,
+  GraphQLNonNull,
+  GraphQLObjectType,
   GraphQLScalarType,
   GraphQLSchema,
-  GraphQLObjectType,
-  GraphQLError,
-  GraphQLNonNull,
   GraphQLString,
-  GraphQLID,
   specifiedDirectives,
 } from 'graphql';
+import { createYoga } from 'graphql-yoga';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { printSchemaWithDirectives } from '@graphql-tools/utils';
-import { createServer } from 'http';
-import { createYoga } from 'graphql-yoga';
 
 const { allStitchingDirectives, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -81,5 +81,5 @@ const accountsSchema = new GraphQLSchema({
 export const accountsServer = createServer(
   createYoga({
     schema: stitchingDirectivesValidator(accountsSchema),
-  })
+  }),
 );

@@ -1,7 +1,7 @@
 # Basic Example
 
-In this example, we'll stitch together two very simple schemas representing a system of users and posts.
-You can find more examples and use-cases in the [Handbook](/handbook)
+In this example, we'll stitch together two very simple schemas representing a system of users and
+posts. You can find more examples and use-cases in the [Handbook](/handbook)
 
 ```js
 import { makeExecutableSchema } from '@graphql-tools/schema'
@@ -51,7 +51,9 @@ export const gatewaySchema = stitchSchemas({
 })
 ```
 
-This process builds two GraphQL schemas, places them each into subschema configuration wrappers (discussed below), and then passes the subschemas to `stitchSchemas` to produce one combined schema with the following root fields:
+This process builds two GraphQL schemas, places them each into subschema configuration wrappers
+(discussed below), and then passes the subschemas to `stitchSchemas` to produce one combined schema
+with the following root fields:
 
 ```graphql
 type Query {
@@ -61,4 +63,5 @@ type Query {
 }
 ```
 
-We now have a single gateway schema that allows data from either subschema to be requested in the same query.
+We now have a single gateway schema that allows data from either subschema to be requested in the
+same query.

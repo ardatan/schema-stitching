@@ -1,7 +1,7 @@
-import { GraphQLError, parse } from 'graphql';
-import { buildSubgraphSchema } from '@apollo/subgraph';
-import { createYoga } from 'graphql-yoga';
 import { createServer } from 'http';
+import { GraphQLError, parse } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import { buildSubgraphSchema } from '@apollo/subgraph';
 
 const products = [
   { upc: '1', name: 'iPhone', price: 699.99, unitsInStock: 7 },
@@ -54,7 +54,7 @@ export const productsServer = createServer(
                   extensions: {
                     code: 'NOT_FOUND',
                   },
-                })
+                }),
             );
           },
         },
@@ -69,5 +69,5 @@ export const productsServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

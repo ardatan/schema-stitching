@@ -1,5 +1,5 @@
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { GraphQLSchema, parse } from 'graphql';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { isAsyncIterable } from '@graphql-tools/utils';
 
 interface LoadedEndpoint {
@@ -12,7 +12,10 @@ export class SchemaLoader {
   public loadedEndpoints: LoadedEndpoint[] = [];
   private intervalId: NodeJS.Timeout | null = null;
 
-  constructor(private buildSchema: (endpoints: LoadedEndpoint[]) => GraphQLSchema, public endpoints: string[]) {}
+  constructor(
+    private buildSchema: (endpoints: LoadedEndpoint[]) => GraphQLSchema,
+    public endpoints: string[],
+  ) {}
 
   async reload() {
     const loadedEndpoints: LoadedEndpoint[] = [];
@@ -40,12 +43,14 @@ export class SchemaLoader {
         } catch (err) {
           // drop the schema, or return the last cached version, etc...
         }
-      })
+      }),
     );
 
     this.loadedEndpoints = loadedEndpoints;
     this.schema = this.buildSchema(this.loadedEndpoints);
-    console.log(`gateway reload ${new Date().toLocaleString()}, endpoints: ${this.loadedEndpoints.length}`);
+    console.log(
+      `gateway reload ${new Date().toLocaleString()}, endpoints: ${this.loadedEndpoints.length}`,
+    );
     return this.schema;
   }
 

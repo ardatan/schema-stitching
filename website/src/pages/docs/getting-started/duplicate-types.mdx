@@ -1,12 +1,22 @@
 # Duplicate Types
 
-Stitching has two strategies for handling types duplicated across subschemas: an automatic merge strategy (default), and an older manual resolution strategy. You may select between these strategies using the `mergeTypes` option.
+Stitching has two strategies for handling types duplicated across subschemas: an automatic merge
+strategy (default), and an older manual resolution strategy. You may select between these strategies
+using the `mergeTypes` option.
 
 ## Automatic Merge
 
-Types with the same name are automatically merged by default in GraphQL Tools v7. That means objects, interfaces, and input objects with the same name will consolidate their fields across subschemas, and unions/enums will consolidate all of their members. The combined gateway schema will then smartly delegate portions of a request to the proper origin subschema(s). See [type merging guide](/docs/approaches/type-merging/) for a comprehensive overview.
+Types with the same name are automatically merged by default in GraphQL Tools v7. That means
+objects, interfaces, and input objects with the same name will consolidate their fields across
+subschemas, and unions/enums will consolidate all of their members. The combined gateway schema will
+then smartly delegate portions of a request to the proper origin subschema(s). See
+[type merging guide](/docs/approaches/type-merging/) for a comprehensive overview.
 
-Automatic merging will only encounter conflicts on type descriptions and fields. By default, the final definition of a type or field found in the subschemas array is used, or a specific definition may be [marked as canonical](/docs/approaches/type-merging#canonical-definitions) to prioritize it. You may customize all selection logic using `typeMergingOptions`; the following example prefers the _first_ definition of each conflicting element found in the subschemas array:
+Automatic merging will only encounter conflicts on type descriptions and fields. By default, the
+final definition of a type or field found in the subschemas array is used, or a specific definition
+may be [marked as canonical](/docs/approaches/type-merging#canonical-definitions) to prioritize it.
+You may customize all selection logic using `typeMergingOptions`; the following example prefers the
+_first_ definition of each conflicting element found in the subschemas array:
 
 ```js
 import { stitchSchemas } from '@graphql-tools/stitch'
@@ -30,7 +40,8 @@ const gatewaySchema = stitchSchemas({
 
 ### Merge Validations
 
-The automatic merge strategy also validates the integrity of merged schemas. Validations may be set to `error`, `warn`, or `off` for the entire schema or scoped for specific types and fields:
+The automatic merge strategy also validates the integrity of merged schemas. Validations may be set
+to `error`, `warn`, or `off` for the entire schema or scoped for specific types and fields:
 
 ```js
 import { stitchSchemas } from '@graphql-tools/stitch'
@@ -58,11 +69,14 @@ const gatewaySchema = stitchSchemas({
 })
 ```
 
-> Note that schema coordinates in `validationScopes` defined in the [Schema Coordinates RFC](https://github.com/graphql/graphql-wg/blob/main/rfcs/SchemaCoordinates.md)
+> Note that schema coordinates in `validationScopes` defined in the
+> [Schema Coordinates RFC](https://github.com/graphql/graphql-wg/blob/main/rfcs/SchemaCoordinates.md)
 
 ## Manual Resolution
 
-By setting `mergeTypes: false`, only the final description and fields for a type found in the subschemas array will be used, and automated query planning will be disabled. You may manually resolve differences between conflicting types with an `onTypeConflict` handler:
+By setting `mergeTypes: false`, only the final description and fields for a type found in the
+subschemas array will be used, and automated query planning will be disabled. You may manually
+resolve differences between conflicting types with an `onTypeConflict` handler:
 
 ```js
 import { stitchSchemas } from '@graphql-tools/stitch'
@@ -72,6 +86,7 @@ const gatewaySchema = stitchSchemas({
     // ...
   ],
   mergeTypes: false,
-  onTypeConflict: (left, right, info) => (info.left.schema.version >= info.right.schema.version ? left : right)
+  onTypeConflict: (left, right, info) =>
+    info.left.schema.version >= info.right.schema.version ? left : right
 })
 ```

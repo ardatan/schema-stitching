@@ -1,6 +1,7 @@
 # Mutations &amp; subscriptions
 
-This example explores stitching mutation and subscription services into a combined gateway schema, as discussed in [stitching remote schemas](/docs/getting-started/remote-subschemas) documentation.
+This example explores stitching mutation and subscription services into a combined gateway schema,
+as discussed in [stitching remote schemas](/docs/getting-started/remote-subschemas) documentation.
 
 **This example demonstrates:**
 
@@ -20,7 +21,8 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/mutations-and-subscriptions).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/mutations-and-subscriptions).
 
 The following services are available for interactive queries:
 
@@ -30,11 +32,13 @@ The following services are available for interactive queries:
 
 ## Summary
 
-This example incorporates queries, mutations, subscriptions, and previews how a type can be merged across services.
+This example incorporates queries, mutations, subscriptions, and previews how a type can be merged
+across services.
 
 ### Queries
 
-Run the following query to see all posts that have been created; the results will be empty to start with:
+Run the following query to see all posts that have been created; the results will be empty to start
+with:
 
 ```graphql
 query {
@@ -49,11 +53,15 @@ query {
 }
 ```
 
-All gateway query operations proxy a remote service using the `executor` function in subschema config.
+All gateway query operations proxy a remote service using the `executor` function in subschema
+config.
 
 ### Mutations
 
-Mutations are virtually identical to queries, but with the expressed intent of modifying data on a remote server. They use a different GraphQL operation name ("mutation") to assure that they're not intermixed with queries. Try opening a new tab in the GraphQL Playground UI and running the following mutation:
+Mutations are virtually identical to queries, but with the expressed intent of modifying data on a
+remote server. They use a different GraphQL operation name ("mutation") to assure that they're not
+intermixed with queries. Try opening a new tab in the GraphQL Playground UI and running the
+following mutation:
 
 ```graphql
 mutation {
@@ -68,13 +76,19 @@ mutation {
 }
 ```
 
-Rerunning the query above, you'll see there are now posts. This mutation creates in-memory records in the Posts service (the records will be reset each time the server restarts). The results of a mutation are resolved just like any other typed object, so may resolve all of the same data as a query&mdash;including a randomly assigned a `User` association that comes from the Users service (the process for which is discussed in [chapter three](#)).
+Rerunning the query above, you'll see there are now posts. This mutation creates in-memory records
+in the Posts service (the records will be reset each time the server restarts). The results of a
+mutation are resolved just like any other typed object, so may resolve all of the same data as a
+query&mdash;including a randomly assigned a `User` association that comes from the Users service
+(the process for which is discussed in [chapter three](#)).
 
-Like queries, all gateway mutation operations proxy a remote service using the `executor` function in subschema config.
+Like queries, all gateway mutation operations proxy a remote service using the `executor` function
+in subschema config.
 
 ### Subscriptions
 
-Subscriptions pull live GraphQL updates over an open HTTP connection. Try opening another tab in the GraphiQL UI and running the following subscription:
+Subscriptions pull live GraphQL updates over an open HTTP connection. Try opening another tab in the
+GraphiQL UI and running the following subscription:
 
 ```graphql
 subscription {
@@ -90,10 +104,22 @@ subscription {
 }
 ```
 
-Nothing happens aside from a load spinner appearing&mdash;however you have an open socket connection that is waiting to recieve data. Now try running the above mutation a few more times and then check back in on your subscription. The subscription will receive a live push of data each time a mutation publishes an update. Again, the results of a subscription are resolved just like any other typed object, so may resolve all of the same data as a query&mdash;including data merged from across services.
+Nothing happens aside from a load spinner appearing&mdash;however you have an open socket connection
+that is waiting to recieve data. Now try running the above mutation a few more times and then check
+back in on your subscription. The subscription will receive a live push of data each time a mutation
+publishes an update. Again, the results of a subscription are resolved just like any other typed
+object, so may resolve all of the same data as a query&mdash;including data merged from across
+services.
 
 ### Few notes about the subscriptions setup
 
-- You can check [Executors](/docs/getting-started/remote-subschemas#executors) section to learn more about how to configure your executor to support your subscription setup, because Schema Stitching doesn't care if you use WebSockets, Server-Sent Events, or any other transport mechanism.
-- This example uses GraphQL Yoga's [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) approach for subscriptions which doesn't need any extra configuration with the http executor since SSE also uses HTTP.
-- You can see [GraphQL Yoga's Subscriptions](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions) documentation to learn more about how it handles subscriptions.
+- You can check [Executors](/docs/getting-started/remote-subschemas#executors) section to learn more
+  about how to configure your executor to support your subscription setup, because Schema Stitching
+  doesn't care if you use WebSockets, Server-Sent Events, or any other transport mechanism.
+- This example uses GraphQL Yoga's
+  [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+  approach for subscriptions which doesn't need any extra configuration with the http executor since
+  SSE also uses HTTP.
+- You can see
+  [GraphQL Yoga's Subscriptions](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions)
+  documentation to learn more about how it handles subscriptions.

@@ -1,6 +1,8 @@
 # Hot schema reloading
 
-This example demonstrates reloading the combined gateway schema without restarting its server; a technique commonly known as a "hot" reload. This allows service schemas to be dyanmically added, removed, or updated in response to administrative actions or changes in service health.
+This example demonstrates reloading the combined gateway schema without restarting its server; a
+technique commonly known as a "hot" reload. This allows service schemas to be dyanmically added,
+removed, or updated in response to administrative actions or changes in service health.
 
 **This example demonstrates:**
 
@@ -11,7 +13,8 @@ This example demonstrates reloading the combined gateway schema without restarti
 
 **Related examples:**
 
-- See [versioning schema releases](../versioning-schema-releases) for more ideas on versioning and reloading.
+- See [versioning schema releases](../versioning-schema-releases) for more ideas on versioning and
+  reloading.
 
 ## Sandbox
 
@@ -25,7 +28,8 @@ _⬇️ Click ☰ to see the files_
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-> You can also see the project on GitHub [here](https://github.com/ardatan/schema-stitching/tree/master/examples/hot-schema-reloading).
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/hot-schema-reloading).
 
 The following services are available for interactive queries:
 
@@ -56,7 +60,8 @@ mutation {
 }
 ```
 
-Refresh gateway GraphiQL and see how the available types and root fields automatically adjust after the Reviews service has been removed from the gateway.
+Refresh gateway GraphiQL and see how the available types and root fields automatically adjust after
+the Reviews service has been removed from the gateway.
 
 Then, try the following mutation:
 
@@ -76,7 +81,10 @@ Refresh gateway GraphiQL and see how the available types and root fields have be
 
 ### Without polling
 
-Polling is by no means necessary to trigger gateway schema reloads. An even simpler solution is to setup a dedicated mutation that reloads the gateway schema, and then call it manually or in response to deployment hooks. Try running the `reloadAllEndpoints` mutation in this example to manually trigger a reload:
+Polling is by no means necessary to trigger gateway schema reloads. An even simpler solution is to
+setup a dedicated mutation that reloads the gateway schema, and then call it manually or in response
+to deployment hooks. Try running the `reloadAllEndpoints` mutation in this example to manually
+trigger a reload:
 
 ```graphql
 mutation {
@@ -86,11 +94,13 @@ mutation {
 }
 ```
 
-See [versioning schema releases](../versioning-schema-releases) for a deeper exploration of hot-reloads that fetch from a versioned schema registry.
+See [versioning schema releases](../versioning-schema-releases) for a deeper exploration of
+hot-reloads that fetch from a versioned schema registry.
 
 ### Dropping services
 
-This configuration can also handle dropping services when they go offline. To try it, run each service in thier own terminal window:
+This configuration can also handle dropping services when they go offline. To try it, run each
+service in thier own terminal window:
 
 ```shell
 # first terminal:
@@ -103,4 +113,5 @@ yarn start-service-products
 yarn start-gateway
 ```
 
-Now try stopping the Products service by exiting its program (`CTRL+C`). Refresh gateway GraphiQL and notice that the schema has responded to the change automatically.
+Now try stopping the Products service by exiting its program (`CTRL+C`). Refresh gateway GraphiQL
+and notice that the schema has responded to the change automatically.

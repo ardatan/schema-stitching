@@ -1,6 +1,6 @@
+import { createServer } from 'node:http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'node:http';
 
 // data fixtures
 const manufacturers = [
@@ -33,5 +33,5 @@ export const manufacturerServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

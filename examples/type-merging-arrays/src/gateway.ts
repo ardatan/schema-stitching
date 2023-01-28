@@ -1,9 +1,9 @@
-import waitOn from 'wait-on';
-import { stitchSchemas } from '@graphql-tools/stitch';
-import { schemaFromExecutor } from '@graphql-tools/wrap';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { print } from 'graphql';
 import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { schemaFromExecutor } from '@graphql-tools/wrap';
 
 async function makeGatewaySchema() {
   const manufacturersExec = buildHTTPExecutor({

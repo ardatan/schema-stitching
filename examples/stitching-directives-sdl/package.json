@@ -1,27 +1,27 @@
 {
   "name": "stitching-directives-sdl",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "scripts": {
+    "start": "concurrently \"yarn:start-*\"",
     "start-accounts": "ts-node-dev src/services/accounts/index.ts",
+    "start-gateway": "ts-node-dev src/index.ts",
     "start-inventory": "ts-node-dev src/services/inventory/index.ts",
     "start-products": "ts-node-dev src/services/products/index.ts",
-    "start-reviews": "ts-node-dev src/services/reviews/index.ts",
-    "start-gateway": "ts-node-dev src/index.ts",
-    "start": "concurrently \"yarn:start-*\""
+    "start-reviews": "ts-node-dev src/services/reviews/index.ts"
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^0.1.1",
     "@graphql-tools/stitch": "^8.7.36",
-    "graphql": "^16.6.0",
-    "@graphql-tools/utils": "^9.1.4",
     "@graphql-tools/stitching-directives": "^2.3.25",
-    "wait-on": "^7.0.1",
+    "@graphql-tools/utils": "^9.1.4",
+    "concurrently": "^7.6.0",
+    "graphql": "^16.6.0",
     "graphql-yoga": "^3.3.0",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4",
-    "concurrently": "^7.6.0"
+    "wait-on": "^7.0.1"
   }
 }

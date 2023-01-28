@@ -1,9 +1,9 @@
+import { graphql } from 'graphql';
+import { createSchema } from 'graphql-yoga';
+import { addMocksToSchema, IMocks } from '@graphql-tools/mock';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { IResolvers, printSchemaWithDirectives } from '@graphql-tools/utils';
-import { createSchema } from 'graphql-yoga';
 import { buildGatewaySchema, buildSubschemaConfigs } from '../src/schema_builder';
-import { addMocksToSchema, IMocks } from '@graphql-tools/mock';
-import { graphql } from 'graphql';
 import * as productsFixtures from './mock_services/products';
 import * as reviewsFixtures from './mock_services/reviews';
 import * as usersFixtures from './mock_services/users';
@@ -38,7 +38,7 @@ Object.entries(subschemaConfigs).forEach(([name, subschemaConfig]) => {
     createSchema({
       typeDefs: printSchemaWithDirectives(subschemaConfig.schema),
       resolvers: fixtures.resolvers,
-    })
+    }),
   );
 
   // apply mocks to fill in missing values

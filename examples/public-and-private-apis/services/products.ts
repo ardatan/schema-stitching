@@ -1,6 +1,6 @@
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { GraphQLError } from 'graphql';
 import { createSchema } from 'graphql-yoga';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 const { stitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -44,10 +44,10 @@ export const productsSchema = stitchingDirectivesValidator(
                 extensions: {
                   code: 'NOT_FOUND',
                 },
-              })
+              }),
           ),
         _sdl: () => typeDefs,
       },
     },
-  })
+  }),
 );

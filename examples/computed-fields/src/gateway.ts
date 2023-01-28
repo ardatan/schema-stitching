@@ -1,6 +1,6 @@
+import { createYoga } from 'graphql-yoga';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { RemoveObjectFieldDeprecations } from '@graphql-tools/wrap';
-import { createYoga } from 'graphql-yoga';
 import { metadataSchema } from './services/metadata';
 import { productsSchema } from './services/products';
 

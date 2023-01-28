@@ -1,10 +1,16 @@
 # Operational
 
-It may be sometimes useful to add additional transforms to manually change an operation request or result when using `delegateToSchema`. Common use cases may be moving selections around or to wrap them. The following built-in transforms may be useful in those cases.
+It may be sometimes useful to add additional transforms to manually change an operation request or
+result when using `delegateToSchema`. Common use cases may be moving selections around or to wrap
+them. The following built-in transforms may be useful in those cases.
 
-- `WrapFields('ParentType', ['scope'], ['ScopeType'], ['field1', 'field2', ...])` wraps a collection of fields on a parent type in one or more wrapping scopes with given namespaces and object types.
-- `ExtractField({ from: Array<string>, to: Array<string> })` move selection at `from` path to `to` path.
-- `WrapQuery(path: Array<string>, wrapper: QueryWrapper, extractor: (result: any) => any)` wrap a selection at `path` using function `wrapper`. Apply `extractor` at the same path to get the result. This is used to get a result nested inside another result.
+- `WrapFields('ParentType', ['scope'], ['ScopeType'], ['field1', 'field2', ...])` wraps a collection
+  of fields on a parent type in one or more wrapping scopes with given namespaces and object types.
+- `ExtractField({ from: Array<string>, to: Array<string> })` move selection at `from` path to `to`
+  path.
+- `WrapQuery(path: Array<string>, wrapper: QueryWrapper, extractor: (result: any) => any)` wrap a
+  selection at `path` using function `wrapper`. Apply `extractor` at the same path to get the
+  result. This is used to get a result nested inside another result.
 
 ```ts
 import { WrapQuery } from '@graphql-tools/wrap'
@@ -37,8 +43,8 @@ const schema = wrapSchema({
 `WrapQuery` can also be used to expand multiple top-level query fields
 
 ```ts
-import { WrapQuery } from '@graphql-tools/wrap'
 import { SelectionSetNode } from 'graphql'
+import { WrapQuery } from '@graphql-tools/wrap'
 
 const schema = wrapSchema({
   // ...
@@ -53,7 +59,10 @@ const schema = wrapSchema({
           selections: subtree.selections.map(selection => {
             // just append fragments, not interesting for this
             // test
-            if (selection.kind === Kind.INLINE_FRAGMENT || selection.kind === Kind.FRAGMENT_SPREAD) {
+            if (
+              selection.kind === Kind.INLINE_FRAGMENT ||
+              selection.kind === Kind.FRAGMENT_SPREAD
+            ) {
               return selection
             }
             // prepend `address` to name and camelCase

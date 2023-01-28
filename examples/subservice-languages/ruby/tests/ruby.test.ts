@@ -1,7 +1,7 @@
 import { ChildProcessWithoutNullStreams, execSync, spawn } from 'child_process';
 import { join } from 'path';
-import { gatewayApp } from '../gateway';
 import { killPortProcess } from 'kill-port-process';
+import { gatewayApp } from '../gateway';
 
 describe('Ruby subservices', () => {
   let servicesProcess: ChildProcessWithoutNullStreams;

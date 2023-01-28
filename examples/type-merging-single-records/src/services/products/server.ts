@@ -1,6 +1,6 @@
+import { createServer } from 'node:http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'node:http';
 
 // data fixtures
 const products = [
@@ -41,7 +41,10 @@ export const productsServer = createServer(
                 code: 'NOT_FOUND',
               },
             }),
-          _manufacturer: (root, { id }) => ({ id, products: products.filter(p => p.manufacturerId === id) }),
+          _manufacturer: (root, { id }) => ({
+            id,
+            products: products.filter(p => p.manufacturerId === id),
+          }),
         },
         Product: {
           manufacturer: product => ({ id: product.manufacturerId }),
@@ -51,5 +54,5 @@ export const productsServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

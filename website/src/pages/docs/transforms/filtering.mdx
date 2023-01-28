@@ -1,6 +1,8 @@
 # Filtering
 
-Filter transforms are constructed with a filter function that returns a boolean. The transform executes the filter on each schema element within its scope and rejects elements that do not pass the filter.
+Filter transforms are constructed with a filter function that returns a boolean. The transform
+executes the filter on each schema element within its scope and rejects elements that do not pass
+the filter.
 
 ## Filtering Types
 
@@ -26,7 +28,8 @@ const subschema = {
 
 ## Filtering Root Fields
 
-You can filter the fields of the root types such as Query, Mutation, and Subscription based on the given filter function;
+You can filter the fields of the root types such as Query, Mutation, and Subscription based on the
+given filter function;
 
 ```ts
 class FilterRootFields(filterRootFieldFn: FilterRootFieldFn) implements Transform
@@ -42,7 +45,9 @@ import { FilterRootFields } from '@graphql-tools/wrap'
 const subschema = {
   schema,
   executor,
-  transforms: [new FilterRootFields((operation, fieldName, fieldConfig) => !fieldName.startsWith('_secret'))]
+  transforms: [
+    new FilterRootFields((operation, fieldName, fieldConfig) => !fieldName.startsWith('_secret'))
+  ]
 }
 ```
 
@@ -63,7 +68,8 @@ class FilterInputObjectFields(filterInputObjectFieldFn: FilterInputObjectFieldFn
 type FilterInputObjectFieldFn = (typeName: string, fieldName: string, fieldConfig: GraphQLInputFieldConfig) => boolean
 ```
 
-The following transform definition removes all interface fields starting with `_secret` from the schema;
+The following transform definition removes all interface fields starting with `_secret` from the
+schema;
 
 ```ts
 import { FilterInterfaceFields } from '@graphql-tools/wrap'
@@ -71,7 +77,11 @@ import { FilterInterfaceFields } from '@graphql-tools/wrap'
 const subschema = {
   schema,
   executor,
-  transforms: [new FilterInterfaceFields((typeName, fieldName, fieldConfig) => !fieldName.startsWith('_secret'))]
+  transforms: [
+    new FilterInterfaceFields(
+      (typeName, fieldName, fieldConfig) => !fieldName.startsWith('_secret')
+    )
+  ]
 }
 ```
 
@@ -85,7 +95,8 @@ class FilterObjectFieldDirectives(filterObjectFieldDirectiveFn: FilterObjectFiel
 type FilterObjectFieldDirectiveFn = (directiveName: string, directiveValue: any) => boolean
 ```
 
-The following transform definition removes all directives unless the directive name is `keep` and the directive argument `arg` is not `1`;
+The following transform definition removes all directives unless the directive name is `keep` and
+the directive argument `arg` is not `1`;
 
 ```ts
 import { FilterObjectFieldDirectives } from '@graphql-tools/wrap'
@@ -104,7 +115,9 @@ const schema = buildSchema(/* GraphQL */ `
 const subschema = {
   schema,
   transforms: [
-    new FilterObjectFieldDirectives((dirName: string, dirValue: any) => dirName === 'keep' && dirValue.arg !== 1)
+    new FilterObjectFieldDirectives(
+      (dirName: string, dirValue: any) => dirName === 'keep' && dirValue.arg !== 1
+    )
   ]
 }
 ```
