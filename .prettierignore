@@ -1,3 +1,6 @@
 .husky/_/
 .changeset/*-dependencies.md
-.next/
+.dist/
+.bob/
+website/.next/
+website/out/

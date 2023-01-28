@@ -287,7 +287,8 @@ selection sets are also possible by providing a function that receives a GraphQL
 gateway field) and returns a `SelectionSetNode`.
 
 <Callout>
-  **Note**: As of version 7 of GraphQL-Tools, `fragment` hints are removed in favor of `selectionSet` hints, read more in the migration guide.
+  **Note**: As of version 7 of GraphQL-Tools, `fragment` hints are removed in favor of
+  `selectionSet` hints, read more in the migration guide.
 </Callout>
 
 ### `resolve`
@@ -379,9 +380,9 @@ return type. Since it is a thin wrapper around `DataLoader`, it also makes the f
 on the results:
 
 <Callout>
-  - The Array of values must be the same length as the Array of keys.
+- The Array of values must be the same length as the Array of keys.
 
-  - Each index in the Array of values must correspond to the same index in the Array of keys.
+- Each index in the Array of values must correspond to the same index in the Array of keys.
 
 </Callout>
 
@@ -602,10 +603,11 @@ const stitchedSchema = stitchSchemas({
 A few key points to note here:
 
 <Callout>
-  - All schema extensions and their resolvers exist in the gateway schema and therefore refer to the transformed type name
-  `Post_Post`.
+- All schema extensions and their resolvers exist in the gateway schema and therefore refer to the transformed type name
+`Post_Post`.
 
-  - Delegations refer to the original subschema and therefore may reference fields such as `postsByUserId` that have been removed from the gateway schema.
+- Delegations refer to the original subschema and therefore may reference fields such as
+  `postsByUserId` that have been removed from the gateway schema.
 
 </Callout>
 
