@@ -1,9 +1,9 @@
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { fetch } from '@whatwg-node/fetch';
-import { ExecutionRequest } from '@graphql-tools/utils';
-import { isAsyncIterable } from 'graphql-yoga';
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { ExecutionResult, GraphQLError } from 'graphql';
+import { isAsyncIterable } from 'graphql-yoga';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { ExecutionRequest } from '@graphql-tools/utils';
+import { fetch } from '@whatwg-node/fetch';
 
 async function jsonOrError(res: Response, status: number) {
   if (res.status !== status) {
@@ -60,7 +60,7 @@ export class GitHubClient {
       timeout: 3500,
     });
     this.graphql = async function graphqlHandler<TData = any>(
-      request: ExecutionRequest
+      request: ExecutionRequest,
     ): Promise<ExecutionResult<TData>> {
       const result = await executor(request);
       if (isAsyncIterable(result)) {
@@ -71,10 +71,13 @@ export class GitHubClient {
   }
 
   async getBranch(branchName: string): Promise<{ name: string; object: { sha: string } }> {
-    const res = await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}/git/ref/heads/${branchName}`, {
-      method: 'GET',
-      headers: this.headers,
-    });
+    const res = await fetch(
+      `https://api.github.com/repos/${this.owner}/${this.repo}/git/ref/heads/${branchName}`,
+      {
+        method: 'GET',
+        headers: this.headers,
+      },
+    );
 
     return jsonOrError(res, 200);
   }
@@ -94,14 +97,17 @@ export class GitHubClient {
   }
 
   async updateBranchHead(branchName: string, sha: string, force = false) {
-    const res = await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}/git/refs/heads/${branchName}`, {
-      method: 'PATCH',
-      headers: this.headers,
-      body: JSON.stringify({
-        sha,
-        force,
-      }),
-    });
+    const res = await fetch(
+      `https://api.github.com/repos/${this.owner}/${this.repo}/git/refs/heads/${branchName}`,
+      {
+        method: 'PATCH',
+        headers: this.headers,
+        body: JSON.stringify({
+          sha,
+          force,
+        }),
+      },
+    );
 
     return jsonOrError(res, 200);
   }
@@ -139,7 +145,7 @@ export class GitHubClient {
       {
         method: 'GET',
         headers: this.headers,
-      }
+      },
     );
 
     const json = await jsonOrError(res, 200);
@@ -165,15 +171,18 @@ export class GitHubClient {
     const pr = await this.getPullRequest(branchName);
     if (!pr) throw new Error('Not found');
 
-    const res = await fetch(`https://api.github.com/repos/${this.owner}/${this.repo}/pulls/${pr.number}/merge`, {
-      method: 'PUT',
-      headers: this.headers,
-      body: JSON.stringify({
-        commit_title: `[gateway schema release]: ${branchName}`,
-        commit_message: message || 'merged by schema registry',
-        merge_method: 'squash',
-      }),
-    });
+    const res = await fetch(
+      `https://api.github.com/repos/${this.owner}/${this.repo}/pulls/${pr.number}/merge`,
+      {
+        method: 'PUT',
+        headers: this.headers,
+        body: JSON.stringify({
+          commit_title: `[gateway schema release]: ${branchName}`,
+          commit_message: message || 'merged by schema registry',
+          merge_method: 'squash',
+        }),
+      },
+    );
 
     return jsonOrError(res, 200);
   }

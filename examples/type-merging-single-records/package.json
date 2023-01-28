@@ -1,22 +1,22 @@
 {
   "name": "type-merging-single-records",
   "version": "0.0.0",
-  "private": "true",
   "license": "MIT",
+  "private": "true",
   "scripts": {
+    "start": "concurrently \"yarn:start-*\"",
+    "start-gateway": "ts-node-dev src/index.ts",
     "start-manufacturers": "ts-node-dev services/manufacturers/index.ts",
     "start-products": "ts-node-dev services/products/index.ts",
-    "start-storefronts": "ts-node-dev services/storefronts/index.ts",
-    "start-gateway": "ts-node-dev src/index.ts",
-    "start": "concurrently \"yarn:start-*\""
+    "start-storefronts": "ts-node-dev services/storefronts/index.ts"
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^0.1.0",
     "@graphql-tools/stitch": "^8.7.35",
     "@graphql-tools/wrap": "^9.3.0",
     "concurrently": "^7.6.0",
-    "graphql-yoga": "^3.3.0",
     "graphql": "^16.6.0",
+    "graphql-yoga": "^3.3.0",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.4",

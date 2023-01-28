@@ -1,8 +1,8 @@
+import { createYoga } from 'graphql-yoga';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { productsSchema } from './services/products';
 import { reviewsSchema } from './services/reviews';
 import { usersSchema } from './services/users';
-import { createYoga } from 'graphql-yoga';
 
 function makeGatewaySchema() {
   // For simplicity, all services run locally in this example.

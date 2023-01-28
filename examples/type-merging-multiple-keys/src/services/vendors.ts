@@ -35,7 +35,7 @@ export const vendorsSchema = createSchema({
               extensions: {
                 code: 'NOT_FOUND',
               },
-            })
+            }),
         ),
     },
   },

@@ -1,12 +1,13 @@
-import 'reflect-metadata';
-import { printSchemaWithDirectives } from '@graphql-tools/utils';
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { createServer } from 'http';
 import { GraphQLError, GraphQLResolveInfo, specifiedDirectives } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import 'reflect-metadata';
 import {
   Arg,
   buildSchema,
   Directive,
-  /* Extensions, */ Field,
+  /* Extensions, */
+  Field,
   ID,
   Info,
   Int,
@@ -14,8 +15,8 @@ import {
   Query,
   Resolver,
 } from 'type-graphql';
-import { createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { printSchemaWithDirectives } from '@graphql-tools/utils';
 
 const { allStitchingDirectives, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -61,7 +62,7 @@ class ProductResolver {
           extensions: {
             code: 'NOT_FOUND',
           },
-        })
+        }),
     );
   }
 
@@ -79,5 +80,5 @@ const productsSchema$ = buildSchema({
 export const productsServer = createServer(
   createYoga({
     schema: productsSchema$.then(productsSchema => stitchingDirectivesValidator(productsSchema)),
-  })
+  }),
 );

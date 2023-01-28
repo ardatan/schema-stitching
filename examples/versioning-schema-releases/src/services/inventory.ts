@@ -1,7 +1,7 @@
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 const { stitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -36,7 +36,10 @@ createServer(
           },
           Query: {
             mostStockedProduct: () =>
-              inventory.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventory[0]),
+              inventory.reduce(
+                (acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i),
+                inventory[0],
+              ),
             _products: (_root, { upcs }) =>
               upcs.map(
                 (upc: string) =>
@@ -45,17 +48,17 @@ createServer(
                     extensions: {
                       code: 'NOT_FOUND',
                     },
-                  })
+                  }),
               ),
             _sdl: () => typeDefs,
           },
         },
-      })
+      }),
     ),
     graphiql: {
       title: 'Inventory service',
     },
-  })
+  }),
 ).listen(4001, () => {
   console.log('Inventory service listening on http://localhost:4001/graphql');
 });

@@ -1,9 +1,9 @@
-import { createYoga } from 'graphql-yoga';
 import { createServer } from 'http';
+import { GraphQLSchema } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import { list, makeSchema, nonNull, objectType, queryType, scalarType } from 'nexus';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { printSchemaWithDirectives } from '@graphql-tools/utils';
-import { scalarType, objectType, nonNull, list, queryType, makeSchema } from 'nexus';
-import { GraphQLSchema } from 'graphql';
 
 const { allStitchingDirectives, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -54,7 +54,10 @@ const Query = queryType({
     t.field('mostStockedProduct', {
       type: Product,
       resolve() {
-        return inventories.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventories[0]);
+        return inventories.reduce(
+          (acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i),
+          inventories[0],
+        );
       },
     });
     t.field('_products', {
@@ -103,5 +106,5 @@ const extendedSchema = new GraphQLSchema({
 export const inventoryServer = createServer(
   createYoga({
     schema: stitchingDirectivesValidator(extendedSchema),
-  })
+  }),
 );

@@ -1,7 +1,7 @@
+import { createServer } from 'http';
+import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import { GraphQLError } from 'graphql';
-import { createServer } from 'http';
 
 const { stitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -43,7 +43,7 @@ export const accountsServer = createServer(
             _sdl: () => typeDefs,
           },
         },
-      })
+      }),
     ),
-  })
+  }),
 );

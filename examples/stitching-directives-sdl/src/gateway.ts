@@ -1,10 +1,10 @@
+import { buildSchema, parse } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
-import { buildSchema, parse } from 'graphql';
-import { type Executor, isAsyncIterable } from '@graphql-tools/utils';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import waitOn from 'wait-on';
-import { createYoga } from 'graphql-yoga';
+import { type Executor, isAsyncIterable } from '@graphql-tools/utils';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: [4001, 4002, 4003, 4004].map(p => `tcp:${p}`) });

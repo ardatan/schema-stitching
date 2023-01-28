@@ -1,5 +1,5 @@
-import { createSchema } from 'graphql-yoga';
 import { GraphQLError } from 'graphql';
+import { createSchema } from 'graphql-yoga';
 
 const reviews = [
   { id: '1', productId: '101', body: 'Love it!' },

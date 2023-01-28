@@ -1,5 +1,5 @@
-import { createSchema } from 'graphql-yoga';
 import { GraphQLError } from 'graphql';
+import { createSchema } from 'graphql-yoga';
 
 // data fixtures
 const reviews = [{ id: '1', productUpc: '1', userId: '1', body: 'love it' }];
@@ -39,7 +39,7 @@ export const reviewsSchema = createSchema({
               extensions: {
                 code: 'NOT_FOUND',
               },
-            })
+            }),
         ),
 
       // Users will _always_ return a stub record,

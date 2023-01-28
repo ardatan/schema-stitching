@@ -1,5 +1,5 @@
-import { createSchema } from 'graphql-yoga';
 import { GraphQLError } from 'graphql';
+import { createSchema } from 'graphql-yoga';
 
 const products = [
   { upc: '1', name: 'Table', price: 899, weight: 100 },
@@ -30,7 +30,7 @@ export const catalogSchema = createSchema({
               extensions: {
                 code: 'NOT_FOUND',
               },
-            })
+            }),
         ),
     },
   },

@@ -1,6 +1,6 @@
-import { SchemaRegistry } from '../schema_registry';
-import { createSchema } from 'graphql-yoga';
 import { GraphQLSchema } from 'graphql';
+import { createSchema } from 'graphql-yoga';
+import { SchemaRegistry } from '../schema_registry';
 
 export function makeRegistrySchema(registry: SchemaRegistry): GraphQLSchema {
   return createSchema({
