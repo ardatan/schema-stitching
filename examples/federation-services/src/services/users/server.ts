@@ -1,7 +1,7 @@
 import { createServer } from 'http';
+import { GraphQLError, parse } from 'graphql';
 import { createYoga } from 'graphql-yoga';
 import { buildSubgraphSchema } from '@apollo/subgraph';
-import { GraphQLError, parse } from 'graphql';
 
 const users = [
   { id: '1', username: 'hanshotfirst', email: 'han@solo.me' },
@@ -38,5 +38,5 @@ export const usersServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

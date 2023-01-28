@@ -1,5 +1,5 @@
-import { createYoga } from 'graphql-yoga';
 import { createServer, Server } from 'http';
+import { createYoga } from 'graphql-yoga';
 import { gatewayApp } from '../src/gateway';
 import { schema as productsSchema } from '../src/services/products/schema';
 import { schema as storefrontsSchema } from '../src/services/storefronts/schema';

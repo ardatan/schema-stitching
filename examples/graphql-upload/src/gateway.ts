@@ -1,11 +1,11 @@
-import waitOn from 'wait-on';
-import { createYoga } from 'graphql-yoga';
-import { schemaFromExecutor } from '@graphql-tools/wrap';
-import { stitchSchemas } from '@graphql-tools/stitch';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { delegateToSchema } from '@graphql-tools/delegate';
-import { File } from '@whatwg-node/fetch';
 import { GraphQLError } from 'graphql';
+import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
+import { delegateToSchema } from '@graphql-tools/delegate';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { schemaFromExecutor } from '@graphql-tools/wrap';
+import { File } from '@whatwg-node/fetch';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: ['tcp:4001', 'tcp:4002'] });
@@ -42,7 +42,7 @@ async function makeGatewaySchema() {
             { name, type, base64 }: { name: string; type: string; base64: string },
             { width, height },
             context,
-            info
+            info,
           ) {
             if (!type.startsWith('image/')) {
               throw new GraphQLError('File is not an image');

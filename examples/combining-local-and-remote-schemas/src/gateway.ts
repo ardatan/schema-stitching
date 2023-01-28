@@ -1,11 +1,11 @@
-import waitOn from 'wait-on';
-import { createYoga } from 'graphql-yoga';
-import { schemaFromExecutor, RenameTypes, RenameRootFields } from '@graphql-tools/wrap';
-import { Executor } from '@graphql-tools/utils';
-import { stitchSchemas } from '@graphql-tools/stitch';
 import { buildSchema, parse } from 'graphql';
-import { localSchema } from './services/local/schema';
+import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { Executor } from '@graphql-tools/utils';
+import { RenameRootFields, RenameTypes, schemaFromExecutor } from '@graphql-tools/wrap';
+import { localSchema } from './services/local/schema';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: ['tcp:4001', 'tcp:4002'] });
@@ -52,7 +52,9 @@ async function makeGatewaySchema() {
         executor: rainforestApiExec,
         transforms: [
           new RenameTypes(name => `Rainforest${name}`),
-          new RenameRootFields((op, name) => `rainforest${name.charAt(0).toUpperCase()}${name.slice(1)}`),
+          new RenameRootFields(
+            (op, name) => `rainforest${name.charAt(0).toUpperCase()}${name.slice(1)}`,
+          ),
         ],
       },
       {

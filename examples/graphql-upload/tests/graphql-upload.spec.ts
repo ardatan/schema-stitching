@@ -53,15 +53,17 @@ describe('GraphQL Upload', () => {
         variables: {
           file: null,
         },
-      })
+      }),
     );
     formData.append(
       'map',
       JSON.stringify({
         0: ['variables.file'],
-      })
+      }),
     );
-    const file = new gatewayApp.fetchAPI.File(['test file but not image'], 'file.txt', { type: 'text/plain' });
+    const file = new gatewayApp.fetchAPI.File(['test file but not image'], 'file.txt', {
+      type: 'text/plain',
+    });
     formData.append('0', file);
     const response = await gatewayApp.fetch('/graphql', {
       method: 'POST',

@@ -1,7 +1,7 @@
-import { buildSubgraphSchema } from '@apollo/subgraph';
+import { createServer } from 'http';
 import { parse } from 'graphql';
 import { createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
+import { buildSubgraphSchema } from '@apollo/subgraph';
 
 const reviews = [
   { id: '1', userId: '1', productUpc: '1', body: 'Love it!' },
@@ -48,5 +48,5 @@ export const reviewsServer = createServer(
         },
       },
     }),
-  })
+  }),
 );

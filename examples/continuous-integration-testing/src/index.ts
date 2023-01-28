@@ -1,6 +1,6 @@
 import { createServer } from 'node:http';
 import { createYoga } from 'graphql-yoga';
-import { buildSubschemaConfigs, buildGatewaySchema } from './schema_builder';
+import { buildGatewaySchema, buildSubschemaConfigs } from './schema_builder';
 
 const schema = buildGatewaySchema(buildSubschemaConfigs());
 

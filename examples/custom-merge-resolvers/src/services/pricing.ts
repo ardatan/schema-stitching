@@ -1,7 +1,7 @@
-import { MergedTypeResolver, delegateToSchema } from '@graphql-tools/delegate';
 import DataLoader from 'dataloader';
 import { Kind, OperationTypeNode } from 'graphql';
 import { createSchema } from 'graphql-yoga';
+import { delegateToSchema, MergedTypeResolver } from '@graphql-tools/delegate';
 
 const products = [
   { id: '1', price: 14 },

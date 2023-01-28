@@ -1,6 +1,6 @@
+import { Kind, OperationTypeNode } from 'graphql';
 import { createSchema } from 'graphql-yoga';
 import { batchDelegateToSchema } from '@graphql-tools/batch-delegate';
-import { Kind, OperationTypeNode } from 'graphql';
 import { MergedTypeResolver, MergedTypeResolverOptions } from '@graphql-tools/delegate';
 
 const products = [

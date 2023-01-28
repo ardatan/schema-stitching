@@ -1,8 +1,8 @@
-import { stitchSchemas } from '@graphql-tools/stitch';
 import { createYoga } from 'graphql-yoga';
+import { stitchSchemas } from '@graphql-tools/stitch';
 import { infoSchema } from './services/info';
 import { createInventoryResolver, inventorySchema } from './services/inventory';
-import { pricingSchema, createPricingResolver } from './services/pricing';
+import { createPricingResolver, pricingSchema } from './services/pricing';
 
 function makeGatewaySchema() {
   // For simplicity, all services run locally in this example.

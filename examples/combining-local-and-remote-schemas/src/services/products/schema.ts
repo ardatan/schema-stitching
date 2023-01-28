@@ -1,5 +1,5 @@
-import { createSchema } from 'graphql-yoga';
 import { GraphQLError } from 'graphql';
+import { createSchema } from 'graphql-yoga';
 
 // data fixtures
 const products = [

@@ -1,11 +1,11 @@
-import config from './config.json';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { buildSchema } from 'graphql';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { buildSchema } from 'graphql';
 import { SubschemaConfig } from '@graphql-tools/delegate';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import config from './config.json';
 
 export function buildSubschemaConfigs(): Record<string, SubschemaConfig> {
   return Object.entries(config.services).reduce((memo, [name, settings]) => {
