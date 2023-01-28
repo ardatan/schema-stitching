@@ -1,7 +1,8 @@
-import { WebSocketServer } from 'ws'; // yarn add ws
-import { useServer } from 'graphql-ws/lib/use/ws';
 import { createServer } from 'http';
+// yarn add ws
+import { useServer } from 'graphql-ws/lib/use/ws';
 import { createSchema } from 'graphql-yoga';
+import { WebSocketServer } from 'ws';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 export const inventoryServer = createServer();
@@ -42,8 +43,8 @@ useServer(
             _sdl: () => typeDefs,
           },
         },
-      })
+      }),
     ),
   },
-  wsServer
+  wsServer,
 );

@@ -1,6 +1,6 @@
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
 
 const users = [
   { id: '1', username: 'hanshotfirst', email: 'han@solo.me' },
@@ -34,5 +34,5 @@ export const server = createServer(
         },
       },
     }),
-  })
+  }),
 );

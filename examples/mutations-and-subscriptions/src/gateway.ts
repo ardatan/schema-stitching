@@ -1,8 +1,8 @@
-import { schemaFromExecutor } from '@graphql-tools/wrap';
-import { stitchSchemas } from '@graphql-tools/stitch';
-import waitOn from 'wait-on';
 import { createYoga } from 'graphql-yoga';
+import waitOn from 'wait-on';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { stitchSchemas } from '@graphql-tools/stitch';
+import { schemaFromExecutor } from '@graphql-tools/wrap';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: ['tcp:4001', 'tcp:4002'] });

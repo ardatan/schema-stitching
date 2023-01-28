@@ -1,7 +1,7 @@
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 const { stitchingDirectivesTypeDefs, stitchingDirectivesValidator } = stitchingDirectives();
 
@@ -42,12 +42,12 @@ export const productsServer = createServer(
                     extensions: {
                       code: 'NOT_FOUND',
                     },
-                  })
+                  }),
               ),
             _sdl: () => typeDefs,
           },
         },
-      })
+      }),
     ),
-  })
+  }),
 );

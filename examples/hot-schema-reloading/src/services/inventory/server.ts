@@ -1,7 +1,7 @@
-import { stitchingDirectives } from '@graphql-tools/stitching-directives';
+import { createServer } from 'http';
 import { GraphQLError } from 'graphql';
 import { createSchema, createYoga } from 'graphql-yoga';
-import { createServer } from 'http';
+import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 
 const { stitchingDirectivesValidator, stitchingDirectivesTypeDefs } = stitchingDirectives();
 
@@ -36,7 +36,10 @@ export const inventoryServer = createServer(
           },
           Query: {
             mostStockedProduct: () =>
-              inventory.reduce((acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i), inventory[0]),
+              inventory.reduce(
+                (acc, i) => (acc.unitsInStock >= i.unitsInStock ? acc : i),
+                inventory[0],
+              ),
             _products: (_root, { upcs }) =>
               upcs.map(
                 (upc: string) =>
@@ -45,12 +48,12 @@ export const inventoryServer = createServer(
                     extensions: {
                       code: 'NOT_FOUND',
                     },
-                  })
+                  }),
               ),
             _sdl: () => typeDefs,
           },
         },
-      })
+      }),
     ),
-  })
+  }),
 );
