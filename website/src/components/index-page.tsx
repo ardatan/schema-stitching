@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
-import { Anchor, IFeatureListProps } from '@theguild/components';
-import { FiGithub } from 'react-icons/fi';
 import clsx from 'clsx';
+import { FiGithub } from 'react-icons/fi';
+import { Anchor, IFeatureListProps } from '@theguild/components';
 
 const classes = {
   button:
@@ -18,7 +18,8 @@ export function IndexPage(): ReactElement {
             Schema Stitching
           </h1>
           <p className="max-w-screen-sm mx-auto mt-6 text-2xl text-gray-600 text-center dark:text-gray-400">
-            Automatically stitch multiple schemas together into one larger API in a simple, fast and powerful way.
+            Automatically stitch multiple schemas together into one larger API in a simple, fast and
+            powerful way.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Anchor className={classes.button} href="/docs">

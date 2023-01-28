@@ -1,11 +1,12 @@
 # Overview of Approaches
 
-There are many ways of stitching different GraphQL services based on the way of configuring the services.
-It can be either on the gateway or service level.
+There are many ways of stitching different GraphQL services based on the way of configuring the
+services. It can be either on the gateway or service level.
 
 ## Schema Extensions (gateway-level configuration)
 
-In this approach, you merge different subschemas and extend the unified schema by adding additional fields delegating to the other subschemas;
+In this approach, you merge different subschemas and extend the unified schema by adding additional
+fields delegating to the other subschemas;
 
 ```graphql filename="author-service.graphql"
 type Query {
@@ -32,7 +33,8 @@ type Book {
 }
 ```
 
-Then in the gateway, you can extend `Book` type with a new field called `author` that delegates to the author service;
+Then in the gateway, you can extend `Book` type with a new field called `author` that delegates to
+the author service;
 
 ```graphql
 extend type Book {
@@ -64,8 +66,9 @@ export const resolvers = {
 
 ## Programmatic Type Merging (gateway-level configuration)
 
-Type Merging is another approach in Schema Stitching that allows you merge different type definitions from different services referring to the same entity.
-This is useful if you have different standalone GraphQL APIs and you need to configure those in the gateway level
+Type Merging is another approach in Schema Stitching that allows you merge different type
+definitions from different services referring to the same entity. This is useful if you have
+different standalone GraphQL APIs and you need to configure those in the gateway level
 
 ```graphql filename="author-service.graphql"
 type Query {
@@ -156,13 +159,18 @@ Then when you make the following request;
 
 ## Directives-based Type Merging (service level configuration)
 
-If you want to avoid configuring the services in the gateway but in the services level, you can use directives-based approach which is similar to Apollo Federation.
+If you want to avoid configuring the services in the gateway but in the services level, you can use
+directives-based approach which is similar to Apollo Federation.
 
-Schema Stitching allows you to use stitching directives or Apollo Federation specification to implement your services.
+Schema Stitching allows you to use stitching directives or Apollo Federation specification to
+implement your services.
 
-This is the only one can be considered as an alternative to Apollo Federation because Apollo Federation implements a type merging gateway based on directives instead of programmatic API or schema extensions.
+This is the only one can be considered as an alternative to Apollo Federation because Apollo
+Federation implements a type merging gateway based on directives instead of programmatic API or
+schema extensions.
 
-Stitching Directives are more flexible compared to Apollo Federation so you can still follow the regular GraphQL resolver signature instead of non-standard ones like `__resolveEntity` etc.
+Stitching Directives are more flexible compared to Apollo Federation so you can still follow the
+regular GraphQL resolver signature instead of non-standard ones like `__resolveEntity` etc.
 
 The following example is identical to the one above;
 

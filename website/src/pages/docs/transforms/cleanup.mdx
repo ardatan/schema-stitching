@@ -4,7 +4,8 @@ These transforms eliminate unwanted or unnecessary elements from a schema.
 
 ## Pruning
 
-`PruneSchema` eliminates unreachable elements from the schema. This is generally useful to include _after_ a filter transform so that orphaned types and values are eliminated from the schema.
+`PruneSchema` eliminates unreachable elements from the schema. This is generally useful to include
+_after_ a filter transform so that orphaned types and values are eliminated from the schema.
 
 ```ts
 class PruneSchema(options: PruneSchemaOptions) implements Transform
@@ -60,7 +61,11 @@ const subschema = {
 
 ## Remove deprecations of the fields
 
-You can remove deprecation annotations of the fields from the schema based a string or regex describing a deprecation to remove from the gateway schema. Fields matching this deprecation will be un-deprecated. Useful for normalizing [computed fields](/docs/approaches/type-merging#computed-fields) that are activated by the gateway wrapper.
+You can remove deprecation annotations of the fields from the schema based a string or regex
+describing a deprecation to remove from the gateway schema. Fields matching this deprecation will be
+un-deprecated. Useful for normalizing
+[computed fields](/docs/approaches/type-merging#computed-fields) that are activated by the gateway
+wrapper.
 
 ```ts
 import { RemoveObjectFieldDeprecations } from '@graphql-tools/wrap'
@@ -151,7 +156,8 @@ type Test {
 
 ## Remove fields by directive
 
-You can remove object fields with a schema directive matching a given name and optional argument criteria.
+You can remove object fields with a schema directive matching a given name and optional argument
+criteria.
 
 ```ts
 import { RemoveObjectFieldsWithDirective } from '@graphql-tools/wrap'

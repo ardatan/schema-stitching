@@ -1,6 +1,9 @@
 # Adding Transforms
 
-Another strategy to avoid conflicts while combining schemas is to modify one or more of the subschemas using [transforms](/docs/transforms). Transforming allows a schema to be groomed in such ways as adding namespaces, renaming types, or removing fields (to name a few) prior to stitching it into the combined gateway schema. These transforms should be added directly to subschema config:
+Another strategy to avoid conflicts while combining schemas is to modify one or more of the
+subschemas using [transforms](/docs/transforms). Transforming allows a schema to be groomed in such
+ways as adding namespaces, renaming types, or removing fields (to name a few) prior to stitching it
+into the combined gateway schema. These transforms should be added directly to subschema config:
 
 ```js
 import { FilterRootFields, RenameTypes } from '@graphql-tools/wrap'
@@ -14,6 +17,10 @@ const postsSubschema = {
 }
 ```
 
-In the example above, we transform the `postsSchema` by removing the `postsByUserId` root field and adding a `Post_` prefix to all types in the schema. These modifications will only be present in the combined gateway schema.
+In the example above, we transform the `postsSchema` by removing the `postsByUserId` root field and
+adding a `Post_` prefix to all types in the schema. These modifications will only be present in the
+combined gateway schema.
 
-Note that when [automatically merging types](/docs/getting-started/duplicate-types#automatic-merge), all transforms are applied _prior_ to merging. That means transformed types will merge based on their transformed names within the combined gateway schema.
+Note that when [automatically merging types](/docs/getting-started/duplicate-types#automatic-merge),
+all transforms are applied _prior_ to merging. That means transformed types will merge based on
+their transformed names within the combined gateway schema.

@@ -1,17 +1,23 @@
 # Overview of Transforms
 
-`Transform` is a technique that creates a new transformed non-executable schema together with the new execution pipeline based on the given executor.
-This technique is particularly useful when the original schema cannot be changed, such as with [remote schemas](/docs/remote-subschemas).
+`Transform` is a technique that creates a new transformed non-executable schema together with the
+new execution pipeline based on the given executor. This technique is particularly useful when the
+original schema cannot be changed, such as with [remote schemas](/docs/remote-subschemas).
 
-`Transforms` work by creating a new "gateway" schema that simply delegates all operations to the original subschema using the executor. A series of transforms are applied that may modify the shape of the gateway schema and all proxied operations; these operational transforms may modify an operation prior to delegation, or modify the subschema result prior to its return.
+`Transforms` work by creating a new "gateway" schema that simply delegates all operations to the
+original subschema using the executor. A series of transforms are applied that may modify the shape
+of the gateway schema and all proxied operations; these operational transforms may modify an
+operation prior to delegation, or modify the subschema result prior to its return.
 
-`Transforms` can be used within the subschemas of `stitchSchemas` or [`delegateToSchema`](/docs/approaches/schema-extensions#schema-delegation)
+`Transforms` can be used within the subschemas of `stitchSchemas` or
+[`delegateToSchema`](/docs/approaches/schema-extensions#schema-delegation)
 
 ## Schema Transformation Example with `stitchSchemas`
 
 In Schema Stitching, you can transform the subschema before it is merged into the unified schema.
 
-Let's consider changing the name of a type in a simple schema. In this example, we'd like to replace all instances of type `Widget` with `NewWidget`.
+Let's consider changing the name of a type in a simple schema. In this example, we'd like to replace
+all instances of type `Widget` with `NewWidget`.
 
 ```graphql
 # original subschema
@@ -35,7 +41,9 @@ type Query {
 }
 ```
 
-Upon delegation to the original subschema, we want the `NewWidget` type to be mapped to the underlying `Widget` type. At first glance, it might seem as though most queries will work the same as before:
+Upon delegation to the original subschema, we want the `NewWidget` type to be mapped to the
+underlying `Widget` type. At first glance, it might seem as though most queries will work the same
+as before:
 
 ```graphql
 query {
@@ -46,7 +54,8 @@ query {
 }
 ```
 
-Since the fields of the type have not changed, delegating to the original subschema is relatively easy here. However, the new name begins to matter when fragments and variables are used:
+Since the fields of the type have not changed, delegating to the original subschema is relatively
+easy here. However, the new name begins to matter when fragments and variables are used:
 
 ```graphql
 query {
@@ -59,12 +68,17 @@ query {
 }
 ```
 
-Since the `NewWidget` type does not exist in the original subschema, this fragment will not match anything there and gets filtered out during delegation. This problem is solved by operational transforms:
+Since the `NewWidget` type does not exist in the original subschema, this fragment will not match
+anything there and gets filtered out during delegation. This problem is solved by operational
+transforms:
 
-- **transformRequest**: a function that renames occurrences of `NewWidget -> Widget` before delegating to the original subschema.
-- **transformResult**: a function that conversely renames returned `__typename` fields `Widget -> NewWidget` in the final result.
+- **transformRequest**: a function that renames occurrences of `NewWidget -> Widget` before
+  delegating to the original subschema.
+- **transformResult**: a function that conversely renames returned `__typename` fields
+  `Widget -> NewWidget` in the final result.
 
-Conveniently, this task of renaming types is very common and there's a built-in transform available for it. Using the built-in transform with a call to `stitchSchemas` gets the job done:
+Conveniently, this task of renaming types is very common and there's a built-in transform available
+for it. Using the built-in transform with a call to `stitchSchemas` gets the job done:
 
 ```ts
 import { RenameTypes } from '@graphql-tools/wrap'
@@ -87,10 +101,21 @@ const gateway = stitchSchemas({
 
 ## Subschema Delegation
 
-The `stitchSchemas` method will produce a new schema with all queued `transformSchema` methods applied. Delegating resolvers are automatically generated to map from new schema root fields to old schema root fields. These resolvers should be sufficient for the most common case so you don't have to implement your own.
+The `stitchSchemas` method will produce a new schema with all queued `transformSchema` methods
+applied. Delegating resolvers are automatically generated to map from new schema root fields to old
+schema root fields. These resolvers should be sufficient for the most common case so you don't have
+to implement your own.
 
-Delegating resolvers will apply all operation transforms defined by the wrapper's `Transform` objects. Each provided `transformRequest` function will be applied in reverse order until the request matches the original schema. The `transformResult` functions will be applied in the opposite order until the result matches the final gateway schema.
+Delegating resolvers will apply all operation transforms defined by the wrapper's `Transform`
+objects. Each provided `transformRequest` function will be applied in reverse order until the
+request matches the original schema. The `transformResult` functions will be applied in the opposite
+order until the result matches the final gateway schema.
 
-In advanced cases, transforms may wish to create additional delegating root resolvers (for example, when hoisting a field into a root type). This is also possible. The wrapping schema is actually generated twice -- the first run results in a possibly non-executable version, while the second execution also includes the result of the first one within the `transformedSchema` argument so that an executable version with any new proxying resolvers can be created.
+In advanced cases, transforms may wish to create additional delegating root resolvers (for example,
+when hoisting a field into a root type). This is also possible. The wrapping schema is actually
+generated twice -- the first run results in a possibly non-executable version, while the second
+execution also includes the result of the first one within the `transformedSchema` argument so that
+an executable version with any new proxying resolvers can be created.
 
-Remote schemas can also be wrapped! In fact, this is the primary use case. See documentation regarding [remote schemas](/docs/remote-subschemas) for further details about remote schemas.
+Remote schemas can also be wrapped! In fact, this is the primary use case. See documentation
+regarding [remote schemas](/docs/remote-subschemas) for further details about remote schemas.
