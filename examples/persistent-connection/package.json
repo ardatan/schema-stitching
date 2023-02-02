@@ -8,7 +8,7 @@
     "start-products": "ts-node-dev src/services/products/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/executor-graphql-ws": "^0.0.8",
+    "@graphql-tools/executor-graphql-ws": "^0.0.9",
     "@graphql-tools/stitch": "^8.7.36",
     "@graphql-tools/stitching-directives": "^2.3.25",
     "@graphql-tools/utils": "^9.1.4",
