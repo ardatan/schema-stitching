@@ -1428,15 +1428,15 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-graphql-ws@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.8.tgz#e39d3cedd4266637fb830e34291447317bc15673"
-  integrity sha512-96Eac8M8gg0ABApoVIbsMp1BI9TDhz0uJnMqgEIMODzEx0Y41VsLl0aG2PXQuZQvFfowyl3hzhQli6SRZ4DgYg==
+"@graphql-tools/executor-graphql-ws@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.9.tgz#ba709b38ec7e83d7a0d4c2b5b9d6bc925907a030"
+  integrity sha512-S323OGzc8TQHOw8n7pFSl1+oG5pzhQhXRmgW6sAvA1F79FLjQ95TltEa6jSH7Jqw+tZobMyylJ13CQ1zFDjBPg==
   dependencies:
     "@graphql-tools/utils" "9.2.0"
     "@repeaterjs/repeater" "3.0.4"
     "@types/ws" "^8.0.0"
-    graphql-ws "5.11.2"
+    graphql-ws "5.11.3"
     isomorphic-ws "5.0.0"
     tslib "^2.4.0"
     ws "8.12.0"
@@ -5165,10 +5165,10 @@ graphql-subscriptions@^2.0.0:
   dependencies:
     iterall "^1.3.0"
 
-graphql-ws@5.11.2, graphql-ws@^5.11.2:
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.11.2.tgz#d5e0acae8b4d4a4cf7be410a24135cfcefd7ddc0"
-  integrity sha512-4EiZ3/UXYcjm+xFGP544/yW1+DVI8ZpKASFbzrV5EDTFWJp0ZvLl4Dy2fSZAzz9imKp5pZMIcjB0x/H69Pv/6w==
+graphql-ws@5.11.3, graphql-ws@^5.11.2:
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.11.3.tgz#eaf8e6baf669d167975cff13ad86abca4ecfe82f"
+  integrity sha512-fU8zwSgAX2noXAsuFiCZ8BtXeXZOzXyK5u1LloCdacsVth4skdBMPO74EG51lBoWSIZ8beUocdpV8+cQHBODnQ==
 
 graphql-yoga@^3.3.0:
   version "3.3.0"
