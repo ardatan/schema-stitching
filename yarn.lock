@@ -1428,12 +1428,12 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-graphql-ws@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.7.tgz#5e7b0e6d02d3b64727bfb37c0f2c1e13badcb829"
-  integrity sha512-C6EExKoukn4vu3BbvlqsqtC91F4pTLPDZvRceYjpFzTCQSGFSjfrxQGP/haGlemXVRpIDxBy7wpXoQlsF8UmFA==
+"@graphql-tools/executor-graphql-ws@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.8.tgz#e39d3cedd4266637fb830e34291447317bc15673"
+  integrity sha512-96Eac8M8gg0ABApoVIbsMp1BI9TDhz0uJnMqgEIMODzEx0Y41VsLl0aG2PXQuZQvFfowyl3hzhQli6SRZ4DgYg==
   dependencies:
-    "@graphql-tools/utils" "9.1.4"
+    "@graphql-tools/utils" "9.2.0"
     "@repeaterjs/repeater" "3.0.4"
     "@types/ws" "^8.0.0"
     graphql-ws "5.11.2"
@@ -1535,11 +1535,19 @@
   dependencies:
     tslib "^2.4.0"
 
-"@graphql-tools/utils@9.1.4", "@graphql-tools/utils@^9.0.1", "@graphql-tools/utils@^9.1.4":
+"@graphql-tools/utils@9.1.4":
   version "9.1.4"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.1.4.tgz#2c9e0aefc9655dd73247667befe3c850ec014f3f"
   integrity sha512-hgIeLt95h9nQgQuzbbdhuZmh+8WV7RZ/6GbTj6t3IU4Zd2zs9yYJ2jgW/krO587GMOY8zCwrjNOMzD40u3l7Vg==
   dependencies:
+    tslib "^2.4.0"
+
+"@graphql-tools/utils@9.2.0", "@graphql-tools/utils@^9.0.1", "@graphql-tools/utils@^9.1.4":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.2.0.tgz#d74d0376231c0e8bf897a715fafaf53d0f6bf06c"
+  integrity sha512-s3lEG1iYkyYEnKCWrIFECX3XH2wmZvbg6Ir3udCvIDynq+ydaO7JQXobclpPtwSJtjlS353haF//6V7mnBQ4bg==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.1"
     tslib "^2.4.0"
 
 "@graphql-tools/wrap@9.3.1", "@graphql-tools/wrap@^9.3.0", "@graphql-tools/wrap@^9.3.1":
@@ -1553,7 +1561,7 @@
     tslib "^2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-typed-document-node/core@3.1.1":
+"@graphql-typed-document-node/core@3.1.1", "@graphql-typed-document-node/core@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
