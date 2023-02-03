@@ -10,7 +10,7 @@
     "@graphql-tools/stitch": "^8.7.35",
     "@graphql-tools/stitching-directives": "^2.3.25",
     "@graphql-tools/utils": "^9.1.4",
-    "@whatwg-node/router": "^0.1.7",
+    "@whatwg-node/router": "^0.2.0",
     "graphql": "^16.6.0",
     "graphql-yoga": "^3.3.0",
     "ts-node": "^10.9.1",
