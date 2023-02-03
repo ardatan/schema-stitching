@@ -3,7 +3,7 @@
 This example demonstrates setting up test coverage for a stitched schema. Like all application code,
 sitched schemas are subject to development errors and therefore should also be tested rigorously
 through a continuous integration pipeline while
-[versioning schema releases](../versioning-schema-releases).
+[versioning schema releases](/handbook/architecture/versioning-schema-releases).
 
 Effective test coverage happens at two levels:
 
@@ -26,8 +26,8 @@ Effective test coverage happens at two levels:
 
 **Related examples:**
 
-- See [versioning schema releases](../versioning-schema-releases) for ideas on versioning strategies
-  that accompany testing.
+- See [versioning schema releases](/handbook/architecture/versioning-schema-releases) for ideas on
+  versioning strategies that accompany testing.
 
 ## Sandbox
 
@@ -52,9 +52,9 @@ provided for context.
 This example builds a test suite around some organization strategies:
 
 1. Versioned copies of subservice schemas are available in the stitched gateway's repo. As discussed
-   in [versioning schema releases](../versioning-schema-releases), there are numerous advantages to
-   versioning published subservice schemas with the gateway application&mdash;among them being the
-   ability to test subschemas and stitching code together.
+   in [versioning schema releases](/handbook/architecture/versioning-schema-releases), there are
+   numerous advantages to versioning published subservice schemas with the gateway
+   application&mdash;among them being the ability to test subschemas and stitching code together.
 2. The `schema_builder.ts` code builds a stitched schema used by the production server _and the test
    suite_. In this example, subschema configs are built separately from the stitched schema; this
    allows tests to build subschema configs, adjust them for testing, and then build them into the

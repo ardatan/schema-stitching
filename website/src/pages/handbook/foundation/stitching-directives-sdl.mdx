@@ -80,7 +80,7 @@ throughout previous chapters.
 ### Single picked key
 
 Open the Accounts schema and see the expression of a
-[single-record merge query](../type-merging-single-records):
+[single-record merge query](/handbook/foundation/type-merging-single-records):
 
 ```graphql
 type User {
@@ -112,7 +112,7 @@ acts as a selectionSet to be fetched with the original object and picked as the 
 ### Picked keys with additional arguments
 
 Next, open the Products schema and see the expression of an
-[array-batched merge query](../type-merging-arrays):
+[array-batched merge query](/handbook/foundation/type-merging-arrays):
 
 ```graphql
 type Product {
@@ -153,7 +153,7 @@ argument array. The `keyArg` argument specifies which query argument receives th
 
 Now open the Inventory schema and see the expression of an object key, denoted by a generic scalar
 (here called `_Key`). In the absence of `keyField`, a generated key assumes the shape of a typed
-object like those sent to [federation services](../federation-services):
+object like those sent to [federation services](/handbook/other-integrations/federation-services):
 
 ```graphql
 type Product @key(selectionSet: "{ upc }") {
