@@ -314,8 +314,8 @@ Post: {
 Resolvers use the `delegateToSchema` function to forward parts of queries (or even whole new
 queries) to any other schema&mdash;inside _or outside_ of the stitched schema. When delegating to a
 stitched subschema, always provide the complete
-[subschema config](/docs/getting-started/remote-subschemas#configuring-subschemas) object as the `schema`
-option.
+[subschema config](/docs/getting-started/remote-subschemas#configuring-subschemas) object as the
+`schema` option.
 
 By default, `delegateToSchema` assumes that the delegated operation will return the same GraphQL
 type as the resolved field (ex: a `User` field would delegate to a `User` query). If this is not the
