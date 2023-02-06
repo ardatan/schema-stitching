@@ -1428,12 +1428,12 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-graphql-ws@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.9.tgz#ba709b38ec7e83d7a0d4c2b5b9d6bc925907a030"
-  integrity sha512-S323OGzc8TQHOw8n7pFSl1+oG5pzhQhXRmgW6sAvA1F79FLjQ95TltEa6jSH7Jqw+tZobMyylJ13CQ1zFDjBPg==
+"@graphql-tools/executor-graphql-ws@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.10.tgz#c4775ac3730a0017392373f84aa21bfc4de4495b"
+  integrity sha512-5SxFvupyWe6+Egq8Zws0+mJZMKV18rTAwxHwhrx+KhRfGpilqkqS4I+qwVL94LNktWL2uy95cU5b5CQFyVaVEg==
   dependencies:
-    "@graphql-tools/utils" "9.2.0"
+    "@graphql-tools/utils" "9.2.1"
     "@repeaterjs/repeater" "3.0.4"
     "@types/ws" "^8.0.0"
     graphql-ws "5.11.3"
@@ -1542,10 +1542,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@graphql-tools/utils@9.2.0", "@graphql-tools/utils@^9.0.1", "@graphql-tools/utils@^9.1.4":
-  version "9.2.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.2.0.tgz#d74d0376231c0e8bf897a715fafaf53d0f6bf06c"
-  integrity sha512-s3lEG1iYkyYEnKCWrIFECX3XH2wmZvbg6Ir3udCvIDynq+ydaO7JQXobclpPtwSJtjlS353haF//6V7mnBQ4bg==
+"@graphql-tools/utils@9.2.1", "@graphql-tools/utils@^9.0.1", "@graphql-tools/utils@^9.1.4":
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-9.2.1.tgz#1b3df0ef166cfa3eae706e3518b17d5922721c57"
+  integrity sha512-WUw506Ql6xzmOORlriNrD6Ugx+HjVgYxt9KCXD9mHAak+eaXSwuGGPyE60hy9xaDEoXKBsG7SkG69ybitaVl6A==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     tslib "^2.4.0"
