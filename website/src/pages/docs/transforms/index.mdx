@@ -2,7 +2,8 @@
 
 `Transform` is a technique that creates a new transformed non-executable schema together with the
 new execution pipeline based on the given executor. This technique is particularly useful when the
-original schema cannot be changed, such as with [remote schemas](/docs/remote-subschemas).
+original schema cannot be changed, such as with
+[remote schemas](/docs/getting-started/remote-subschemas).
 
 `Transforms` work by creating a new "gateway" schema that simply delegates all operations to the
 original subschema using the executor. A series of transforms are applied that may modify the shape
@@ -118,4 +119,5 @@ execution also includes the result of the first one within the `transformedSchem
 an executable version with any new proxying resolvers can be created.
 
 Remote schemas can also be wrapped! In fact, this is the primary use case. See documentation
-regarding [remote schemas](/docs/remote-subschemas) for further details about remote schemas.
+regarding [remote schemas](/docs/getting-started/remote-subschemas) for further details about remote
+schemas.

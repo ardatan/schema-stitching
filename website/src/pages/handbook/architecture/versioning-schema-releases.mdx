@@ -12,9 +12,10 @@ Using a Git repo actually offers several distinct advantages:
 - Multiple subservice schemas may be composed on a branch together and released at once, affording
   the opportunity for hard schema cutovers across multiple services.
 - Comprehensive test suites may be written to assure the integrity of the composed gateway schema,
-  and can easily run using [continuous integration services](../continuous-integration-testing). In
-  fact, versioning subschemas _in your gateway app's repo_ allows CI to run tests using both your
-  release candidate schemas and your actual gateway server code.
+  and can easily run using
+  [continuous integration services](/handbook/architecture/continuous-integration-testing). In fact,
+  versioning subschemas _in your gateway app's repo_ allows CI to run tests using both your release
+  candidate schemas and your actual gateway server code.
 - Git is a defacto-standard tool with numerous frontends available, and can be adapted to meet
   virtually any versioning and deployment need.
 
@@ -26,8 +27,8 @@ Using a Git repo actually offers several distinct advantages:
 
 **Related examples:**
 
-- See [continuous integration testing](../continuous-integration-testing) for ideas on testing your
-  versioned subschemas.
+- See [continuous integration testing](/handbook/architecture/continuous-integration-testing) for
+  ideas on testing your versioned subschemas.
 
 ## Local Setup
 
@@ -178,8 +179,8 @@ mutation {
 ```
 
 Of course, this sort of reload trigger **should not** be exposed in public APIs. You should
-[remove this sort of utility](../public-and-private-apis) from public-facing schemas, or use a
-separate non-GraphQL endpoint (such as a REST service) to trigger the action.
+[remove this sort of utility](/handbook/architecture/public-and-private-apis) from public-facing
+schemas, or use a separate non-GraphQL endpoint (such as a REST service) to trigger the action.
 
 ## Summary
 
@@ -219,8 +220,8 @@ Keeping your subschemas and gateway code versioned in proximity of one another u
 or submodules actually solves a lot of problems:
 
 - Test coverage can be tailored to your application design; subschemas are composed together and
-  [run integration tests](../continuous-integration-testing) using your real application code,
-  versus relying on a representational gateway test harness.
+  [run integration tests](/handbook/architecture/continuous-integration-testing) using your real
+  application code, versus relying on a representational gateway test harness.
 - The production gateway may start itself up using a local copy of subschemas, versus relying on the
   availablity of a remote registry. In the event of a registry outage, the gateway is only ever
   blocked from performing live updates. It can always be redeployed and restarted safely.

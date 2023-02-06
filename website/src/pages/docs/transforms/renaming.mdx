@@ -5,19 +5,20 @@ executes the renamer on each schema element within its scope and applies the rev
 gateway schema elements. If a renamer returns `undefined`, the name will be left unchanged.
 Additional options may control whether built-in types and scalars are renamed, see linked API docs.
 
-- [`RenameTypes`](/docs/api/classes/wrap_src.renametypes): renames all element types.
-- [`RenameRootTypes`](/docs/api/classes/wrap_src.renameroottypes): renames the root Query, Mutation,
-  and Subscription types.
-- [`RenameRootFields`](/docs/api/classes/wrap_src.renamerootfields): renames fields on the root
-  Query, Mutation, and Subscription objects.
-- [`RenameObjectFields`](/docs/api/classes/wrap_src.renameobjectfields): renames fields of Object
-  types.
-- [`RenameObjectFieldArguments`](/docs/api/classes/wrap_src.renameobjectfieldarguments): renames
-  field arguments of Object types.
-- [`RenameInterfaceFields`](/docs/api/classes/wrap_src.renameinterfacefields): renames fields of
-  Interface types.
-- [`RenameInputObjectFields`](/docs/api/classes/wrap_src.renameinputobjectfields): renames input
-  fields of InputObject types.
+- [`RenameTypes`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renametypes):
+  renames all element types.
+- [`RenameRootTypes`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renameroottypes):
+  renames the root Query, Mutation, and Subscription types.
+- [`RenameRootFields`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renamerootfields):
+  renames fields on the root Query, Mutation, and Subscription objects.
+- [`RenameObjectFields`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renameobjectfields):
+  renames fields of Object types.
+- [`RenameObjectFieldArguments`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renameobjectfieldarguments):
+  renames field arguments of Object types.
+- [`RenameInterfaceFields`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renameinterfacefields):
+  renames fields of Interface types.
+- [`RenameInputObjectFields`](https://the-guild.dev/graphql/tools/docs/api/classes/wrap_src.renameinputobjectfields):
+  renames input fields of InputObject types.
 
 ```js
 import { stitchSchemas } from '@graphql-tools/stitch'
