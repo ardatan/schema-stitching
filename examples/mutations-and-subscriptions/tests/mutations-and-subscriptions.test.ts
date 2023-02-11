@@ -27,7 +27,7 @@ describe('Mutations & Subscriptions', () => {
     expect.assertions(2);
     const executorForGateway = buildHTTPExecutor({
       endpoint: 'http://localhost:4000/graphql',
-      fetch: gatewayApp.fetch as AsyncFetchFn,
+      fetch: gatewayApp.fetch,
     });
     let expectedPost: any;
     setTimeout(async () => {

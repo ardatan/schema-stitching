@@ -5,7 +5,6 @@ import { delegateToSchema } from '@graphql-tools/delegate';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { schemaFromExecutor } from '@graphql-tools/wrap';
-import { File } from '@whatwg-node/fetch';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: ['tcp:4001', 'tcp:4002'] });
@@ -48,7 +47,7 @@ async function makeGatewaySchema() {
               throw new GraphQLError('File is not an image');
             }
             const buffer = Buffer.from(base64, 'base64');
-            const file = new File([buffer], name, { type });
+            const file = new gatewayApp.fetchAPI.File([buffer], name, { type });
             return delegateToSchema({
               schema: resizeImagesSubschema,
               fieldName: 'resizeImage',
