@@ -1428,10 +1428,10 @@
     tslib "~2.4.0"
     value-or-promise "1.0.12"
 
-"@graphql-tools/executor-graphql-ws@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.10.tgz#c4775ac3730a0017392373f84aa21bfc4de4495b"
-  integrity sha512-5SxFvupyWe6+Egq8Zws0+mJZMKV18rTAwxHwhrx+KhRfGpilqkqS4I+qwVL94LNktWL2uy95cU5b5CQFyVaVEg==
+"@graphql-tools/executor-graphql-ws@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-0.0.11.tgz#c6536aa862f76a9c7ac83e7e07fe8d5119e6de38"
+  integrity sha512-muRj6j897ks2iKqe3HchWFFzd+jFInSRuLPvHJ7e4WPrejFvaZx3BQ9gndfJvVkfYUZIFm13stCGXaJJTbVM0Q==
   dependencies:
     "@graphql-tools/utils" "9.2.1"
     "@repeaterjs/repeater" "3.0.4"
@@ -1439,7 +1439,7 @@
     graphql-ws "5.11.3"
     isomorphic-ws "5.0.0"
     tslib "^2.4.0"
-    ws "8.12.0"
+    ws "8.12.1"
 
 "@graphql-tools/executor-http@^0.1.0", "@graphql-tools/executor-http@^0.1.1":
   version "0.1.1"
@@ -9909,10 +9909,10 @@ write-file-atomic@^4.0.2:
     imurmurhash "^0.1.4"
     signal-exit "^3.0.7"
 
-ws@8.12.0, ws@^8.12.0:
-  version "8.12.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.12.0.tgz#485074cc392689da78e1828a9ff23585e06cddd8"
-  integrity sha512-kU62emKIdKVeEIOIKVegvqpXMSTAMLJozpHZaJNDYqBjzlSYXQGviYwN1osDLJ9av68qHd4a2oSjd7yD4pacig==
+ws@8.12.1, ws@^8.12.0:
+  version "8.12.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.12.1.tgz#c51e583d79140b5e42e39be48c934131942d4a8f"
+  integrity sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew==
 
 ws@^7.3.1:
   version "7.5.9"
