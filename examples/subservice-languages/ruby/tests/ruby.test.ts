@@ -18,7 +18,9 @@ describe('Ruby subservices', () => {
     servicesProcess.stdout.destroy();
     servicesProcess.stderr.destroy();
     servicesProcess.kill();
-    await killPortProcess([4001, 4002, 4003]);
+    await killPortProcess([4001, 4002, 4003]).catch(e => {
+      console.error(e);
+    });
   });
   it('should work', async () => {
     const result = await gatewayApp.fetch('/graphql', {
