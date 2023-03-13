@@ -31,7 +31,7 @@ Second, this accessor performs a _where_ query rather than a _map_; it will omit
 rather than representing them as null. To stitch around these complications, we have two general
 approaches:
 
-1. [Transform the schema](/docs/getting-started/dding-transforms) (and its returned data) into a
+1. [Transform the schema](/docs/getting-started/adding-transforms) (and its returned data) into a
    shape that stitching expects.
 2. Write a [custom merge resolver](/docs/approaches/type-merging#type-resolvers) that acts as an
    adaptor for this service.
@@ -72,7 +72,7 @@ The following service is available for interactive queries:
 
 For simplicity, all subservices in this example are run locally by the gateway server. You could
 easily break out any subservice into a standalone remote server following the
-[combining local and remote schemas](../combining-local-and-remote-schemas) example.
+[combining local and remote schemas](/handbook/foundation/combining-local-and-remote-schemas) example.
 
 ## Summary
 

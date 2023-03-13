@@ -8,7 +8,7 @@ This example focuses on
 [array batching](/handbook/appendices/batching-arrays-and-queries#what-is-array-batching)&mdash;meaning
 that all records accessed during a round of delegation are batched together and loaded as an array.
 This technique greatly reduces the execution overhead of
-[single-record merges](../02-single-record-type-merging), and can be further optimized by enabling
+[single-record merges](/handbook/foundation/type-merging-single-records), and can be further optimized by enabling
 [query batching](/handbook/appendices/batching-arrays-and-queries#what-is-query-batching). This
 array-batched strategy is prefereable to single-record merges and should be used whenever possible.
 
