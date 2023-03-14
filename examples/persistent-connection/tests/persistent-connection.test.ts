@@ -5,16 +5,16 @@ import { productsServer } from '../src/services/products/server';
 
 describe('Persistent connection', () => {
   const connectionSet = new Set<Socket>();
+  let productsConnections = 0;
+  let inventoryConnections = 0;
   beforeAll(async () => {
     productsServer.on('connection', connection => {
-      // Gateway should only open 1 connection to each service
-      expect(connectionSet.size).toBeLessThanOrEqual(2);
       connectionSet.add(connection);
+      productsConnections++;
     });
     inventoryServer.on('connection', connection => {
-      // Gateway should only open 1 connection to each service
-      expect(connectionSet.size).toBeLessThanOrEqual(2);
       connectionSet.add(connection);
+      inventoryConnections++;
     });
     await new Promise<void>(resolve => productsServer.listen(4001, resolve));
     await new Promise<void>(resolve => inventoryServer.listen(4002, resolve));
@@ -24,6 +24,8 @@ describe('Persistent connection', () => {
     clients.forEach(client => client.dispose());
     await new Promise(resolve => productsServer.close(resolve));
     await new Promise(resolve => inventoryServer.close(resolve));
+    productsConnections = 0;
+    inventoryConnections = 0;
   });
   it('should work', async () => {
     const response = await gatewayApp.fetch('/graphql', {
@@ -65,5 +67,8 @@ describe('Persistent connection', () => {
         },
       }
     `);
+    // Gateway should only open 1 connection to each service
+    expect(productsConnections).toBe(1);
+    expect(inventoryConnections).toBe(1);
   });
 });

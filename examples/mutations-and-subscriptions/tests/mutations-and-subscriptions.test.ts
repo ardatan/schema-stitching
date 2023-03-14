@@ -1,5 +1,6 @@
+import { Socket } from 'net';
 import { parse } from 'graphql';
-import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { gatewayApp } from '../src/gateway';
 import { server as postsServer } from '../src/services/posts/server';
 import { server as usersServer } from '../src/services/users/server';
@@ -15,11 +16,11 @@ describe('Mutations & Subscriptions', () => {
   beforeAll(async () => {
     postsServer.on('connection', socket => {
       sockets.add(socket);
-      socket.on('close', () => sockets.delete(socket));
+      socket.once('close', () => sockets.delete(socket));
     });
     usersServer.on('connection', socket => {
       sockets.add(socket);
-      socket.on('close', () => sockets.delete(socket));
+      socket.once('close', () => sockets.delete(socket));
     });
     await Promise.all([
       new Promise<void>(resolve => postsServer.listen(4001, resolve)),
@@ -78,15 +79,17 @@ describe('Mutations & Subscriptions', () => {
       `),
     });
     assertAsyncIterable(subscriptionResult);
+    let firstResult: any;
     // eslint-disable-next-line no-unreachable-loop
     for await (const result of subscriptionResult) {
-      expect(result).toMatchObject({
-        data: {
-          newPost: expectedPost,
-        },
-      });
+      firstResult = result;
       break;
     }
+    expect(firstResult).toMatchObject({
+      data: {
+        newPost: expectedPost,
+      },
+    });
     const queryResult = await executorForGateway({
       document: parse(/* GraphQL */ `
         query {
