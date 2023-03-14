@@ -1,5 +1,6 @@
+import { Socket } from 'net';
 import { parse } from 'graphql';
-import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { gatewayApp } from '../src/gateway';
 import { server as postsServer } from '../src/services/posts/server';
 import { server as usersServer } from '../src/services/users/server';
@@ -11,13 +12,25 @@ function assertAsyncIterable<T>(value: any): asserts value is AsyncIterable<T> {
 }
 
 describe('Mutations & Subscriptions', () => {
+  const sockets = new Set<Socket>();
   beforeAll(async () => {
+    postsServer.on('connection', socket => {
+      sockets.add(socket);
+      socket.once('close', () => sockets.delete(socket));
+    });
+    usersServer.on('connection', socket => {
+      sockets.add(socket);
+      socket.once('close', () => sockets.delete(socket));
+    });
     await Promise.all([
       new Promise<void>(resolve => postsServer.listen(4001, resolve)),
       new Promise<void>(resolve => usersServer.listen(4002, resolve)),
     ]);
   });
   afterAll(async () => {
+    for (const socket of sockets) {
+      socket.destroy();
+    }
     await Promise.all([
       new Promise<any>(resolve => postsServer.close(resolve)),
       new Promise<any>(resolve => usersServer.close(resolve)),
@@ -66,15 +79,17 @@ describe('Mutations & Subscriptions', () => {
       `),
     });
     assertAsyncIterable(subscriptionResult);
+    let firstResult: any;
     // eslint-disable-next-line no-unreachable-loop
     for await (const result of subscriptionResult) {
-      expect(result).toMatchObject({
-        data: {
-          newPost: expectedPost,
-        },
-      });
+      firstResult = result;
       break;
     }
+    expect(firstResult).toMatchObject({
+      data: {
+        newPost: expectedPost,
+      },
+    });
     const queryResult = await executorForGateway({
       document: parse(/* GraphQL */ `
         query {

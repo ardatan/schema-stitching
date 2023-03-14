@@ -1,8 +1,8 @@
+import { createRouter } from 'fets';
 import { createYoga } from 'graphql-yoga';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { filterSchema, pruneSchema } from '@graphql-tools/utils';
-import { createRouter } from '@whatwg-node/router';
 import { accountsSchema } from './services/accounts';
 import { productsSchema } from './services/products';
 import { reviewsSchema } from './services/reviews';
@@ -34,9 +34,9 @@ const publicSchema = pruneSchema(
 // while internal services can authenticate with the private API for all features.
 export const gatewayApp = createRouter();
 
-gatewayApp.all(
-  '/private/graphql',
-  createYoga({
+gatewayApp.route({
+  path: '/private/graphql',
+  handler: createYoga({
     schema: privateSchema,
     maskedErrors: false,
     graphqlEndpoint: '/private/graphql',
@@ -44,11 +44,11 @@ gatewayApp.all(
       title: 'Private API',
     },
   }),
-);
+});
 
-gatewayApp.all(
-  '/public/graphql',
-  createYoga({
+gatewayApp.route({
+  path: '/public/graphql',
+  handler: createYoga({
     schema: publicSchema,
     maskedErrors: false,
     graphqlEndpoint: '/public/graphql',
@@ -56,4 +56,4 @@ gatewayApp.all(
       title: 'Public API',
     },
   }),
-);
+});
