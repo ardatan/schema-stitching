@@ -65,7 +65,8 @@ The following service is available for interactive queries:
 
 For simplicity, all subservices in this example are run locally by the gateway server. You could
 easily break out any subservice into a standalone remote server following the
-[combining local and remote schemas](../combining-local-and-remote-schemas) example.
+[combining local and remote schemas](/handbook/foundation/combining-local-and-remote-schemas)
+example.
 
 ## Summary
 
@@ -104,7 +105,7 @@ query {
 
 The `category` and `metadata` associations come from the Metadata service, and are merged with
 Products service data using computed fields (this configuration can also be written using
-[schema directives](../stitching-directives-sdl)):
+[schema directives](/handbook/foundation/stitching-directives-sdl)):
 
 ```js
 merge: {
@@ -163,8 +164,8 @@ complexity.
 ### Resolving category
 
 The `catagory` association is needlessly complex using computed fields. It could just as easily use
-a [basic foreign key pattern](../type-merging-single-records) in the Products service, which would
-eliminate the unsightly `categoryId` field from its schema:
+a [basic foreign key pattern](/handbook/foundation/type-merging-single-records) in the Products
+service, which would eliminate the unsightly `categoryId` field from its schema:
 
 _products schema:_
 
