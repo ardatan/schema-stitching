@@ -21,13 +21,13 @@ export const inventorySchema = createSchema({
     }
 
     type Query {
-      productsInventory(ids: [ID!]!): ProductCollection
+      productsInventory(ids: [ID]): ProductCollection
     }
   `,
   resolvers: {
     Query: {
       productsInventory: (root, { ids }) => {
-        const items = ids.map(id => products.find(p => p.id === id) || null);
+        const items = ids ? ids.map(id => products.find(p => p.id === id) || null): products;
         return {
           total: items.length,
           items,

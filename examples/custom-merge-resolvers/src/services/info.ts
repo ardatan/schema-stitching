@@ -14,12 +14,12 @@ export const infoSchema = createSchema({
     }
 
     type Query {
-      productsInfo(whereIn: [ID!]!): [Product]!
+      productsInfo(whereIn: [ID]): [Product]!
     }
   `,
   resolvers: {
     Query: {
-      productsInfo: (root, { whereIn }) => products.filter(p => whereIn.includes(p.id)),
+      productsInfo: (root, { whereIn }) => products.filter(p => whereIn ? whereIn.includes(p.id): true),
     },
   },
 });
