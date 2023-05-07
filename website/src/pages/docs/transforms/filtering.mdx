@@ -22,7 +22,7 @@ import { FilterTypes } from '@graphql-tools/wrap'
 const subschema = {
   schema,
   executor,
-  transforms: [new FilterType(namedType => !namedType.endsWith('_Secret'))]
+  transforms: [new FilterTypes(namedType => !namedType.endsWith('_Secret'))]
 }
 ```
 
