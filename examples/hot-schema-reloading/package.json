@@ -10,11 +10,11 @@
     "start-products": "ts-node-dev src/services/products/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/delegate": "^9.0.22",
-    "@graphql-tools/executor-http": "^0.1.0",
-    "@graphql-tools/stitch": "^8.7.35",
-    "@graphql-tools/stitching-directives": "^2.3.25",
-    "@graphql-tools/utils": "^9.1.4",
+    "@graphql-tools/delegate": "^10.0.0",
+    "@graphql-tools/executor-http": "^1.0.0",
+    "@graphql-tools/stitch": "^9.0.0",
+    "@graphql-tools/stitching-directives": "^3.0.0",
+    "@graphql-tools/utils": "^10.0.0",
     "@types/node": "^18.11.18",
     "@types/wait-on": "^5.3.1",
     "concurrently": "^7.0.0",

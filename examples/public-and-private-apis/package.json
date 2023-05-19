@@ -7,9 +7,9 @@
     "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/stitch": "^8.7.35",
-    "@graphql-tools/stitching-directives": "^2.3.25",
-    "@graphql-tools/utils": "^9.1.4",
+    "@graphql-tools/stitch": "^9.0.0",
+    "@graphql-tools/stitching-directives": "^3.0.0",
+    "@graphql-tools/utils": "^10.0.0",
     "@whatwg-node/router": "^0.2.0",
     "graphql": "^16.6.0",
     "graphql-yoga": "^3.3.0",
