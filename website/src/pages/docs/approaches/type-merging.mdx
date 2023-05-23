@@ -600,7 +600,7 @@ const gatewaySchema = stitchSchemas({
 ```
 
 In the above, the `shippingEstimate` and `deliveryService` fields are marked with `@computed`
-directives (see [stitching directives SDL](/docs/approaches/directives-sdl)), which specify
+directives (see [stitching directives SDL](/docs/approaches/stitching-directives)), which specify
 additional _field-level dependencies_ required to resolve these specific fields beyond the `Product`
 type's base selection set. When a computed field appears in a query, the gateway will collect that
 field's dependencies from other subschemas, so they may be sent as input with the request for the
