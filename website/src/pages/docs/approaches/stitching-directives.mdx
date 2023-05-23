@@ -174,10 +174,10 @@ module.exports = stitchingDirectivesValidator(schema)
 When setting up the stitched gateway, you'll need to do two things:
 
 ```js
-import { stitchSchemas } from '@graphql-tools/stitch';
-import { stitchingDirectivesTransformer } from '@graphql-tools/stitching-directives';
-import { buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { parse } from 'graphql';
+import { parse } from 'graphql'
+import { buildHTTPExecutor } from '@graphql-tools/executor-http'
+import { stitchSchemas } from '@graphql-tools/stitch'
+import { stitchingDirectivesTransformer } from '@graphql-tools/stitching-directives'
 
 async function createGatewaySchema() {
   const usersExec = buildHTTPExecutor({ endpoint: 'http://localhost:4001/graphql' })
