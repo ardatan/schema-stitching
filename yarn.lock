@@ -2765,16 +2765,7 @@
     fast-url-parser "^1.1.3"
     tslib "^2.3.1"
 
-"@whatwg-node/router@^0.2.0":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@whatwg-node/router/-/router-0.2.7.tgz#5b47279167f5c03f2d2c1d5f113d2c035a8f7e3e"
-  integrity sha512-kZynz9z5kgBJ/mWowSNzoacRsP4iGPkM6MAVHUzaUxYcQR+crtUvsp7/P6H4X20ScRbs8sDRXi7XOU9mFT8Zhg==
-  dependencies:
-    "@whatwg-node/fetch" "^0.8.0"
-    "@whatwg-node/server" "^0.6.6"
-    tslib "^2.3.1"
-
-"@whatwg-node/server@^0.6.6", "@whatwg-node/server@^0.6.7":
+"@whatwg-node/server@^0.6.7":
   version "0.6.7"
   resolved "https://registry.yarnpkg.com/@whatwg-node/server/-/server-0.6.7.tgz#14f5d0aca49308759d64fc7faa3cbfc20162a1ee"
   integrity sha512-M4zHWdJ6M1IdcxnZBdDmiUh1bHQ4gPYRxzkH0gh8Qf6MpWJmX6I/MNftqem3GNn+qn1y47qqlGSed7T7nzsRFw==

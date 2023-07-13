@@ -1,3 +1,4 @@
+import { Socket } from 'net';
 import { parse } from 'graphql';
 import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { gatewayApp } from '../src/gateway';
@@ -11,6 +12,19 @@ function assertAsyncIterable<T>(value: any): asserts value is AsyncIterable<T> {
 }
 
 describe('Mutations & Subscriptions', () => {
+  const sockets = new Set<Socket>();
+  postsServer.on('connection', socket => {
+    sockets.add(socket);
+    socket.on('close', () => {
+      sockets.delete(socket);
+    });
+  });
+  usersServer.on('connection', socket => {
+    sockets.add(socket);
+    socket.on('close', () => {
+      sockets.delete(socket);
+    });
+  });
   beforeAll(async () => {
     await Promise.all([
       new Promise<void>(resolve => postsServer.listen(4001, resolve)),
@@ -18,6 +32,9 @@ describe('Mutations & Subscriptions', () => {
     ]);
   });
   afterAll(async () => {
+    for (const socket of sockets) {
+      socket.destroy();
+    }
     await Promise.all([
       new Promise<any>(resolve => postsServer.close(resolve)),
       new Promise<any>(resolve => usersServer.close(resolve)),
