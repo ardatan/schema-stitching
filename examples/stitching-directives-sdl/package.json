@@ -16,7 +16,7 @@
     "@graphql-tools/stitch": "^8.7.36",
     "@graphql-tools/stitching-directives": "^2.3.25",
     "@graphql-tools/utils": "^9.1.4",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.0",
     "graphql": "^16.6.0",
     "graphql-yoga": "^4.0.0",
     "ts-node": "^10.9.1",
