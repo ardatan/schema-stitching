@@ -13,7 +13,8 @@
         "typedoc*",
         "^@theguild/",
         "@graphql-inspector/core",
-        "next"
+        "next",
+        "graphql"
       ],
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
