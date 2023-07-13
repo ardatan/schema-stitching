@@ -8,31 +8,31 @@ const users = [
   { id: '3', username: 'yodamecrazy', email: 'yoda@theforce.net' },
 ];
 
-export const server = createServer(
-  createYoga({
-    schema: createSchema({
-      typeDefs: /* GraphQL */ `
-        type User {
-          id: ID!
-          username: String!
-          email: String!
-        }
+export const app = createYoga({
+  schema: createSchema({
+    typeDefs: /* GraphQL */ `
+      type User {
+        id: ID!
+        username: String!
+        email: String!
+      }
 
-        type Query {
-          user(id: ID!): User
-        }
-      `,
-      resolvers: {
-        Query: {
-          user: (root, { id }) =>
-            users.find(user => user.id === id) ||
-            new GraphQLError('Record not found', {
-              extensions: {
-                code: 'NOT_FOUND',
-              },
-            }),
-        },
+      type Query {
+        user(id: ID!): User
+      }
+    `,
+    resolvers: {
+      Query: {
+        user: (root, { id }) =>
+          users.find(user => user.id === id) ||
+          new GraphQLError('Record not found', {
+            extensions: {
+              code: 'NOT_FOUND',
+            },
+          }),
       },
-    }),
+    },
   }),
-);
+});
+
+export const server = createServer(app);

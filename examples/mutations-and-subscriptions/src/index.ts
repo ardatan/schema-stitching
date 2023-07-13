@@ -1,6 +1,8 @@
 import { createServer } from 'http';
-import { gatewayApp } from './gateway';
+import { makeGatewayApp } from './gateway';
 
-createServer(gatewayApp).listen(4000, () =>
-  console.log(`gateway running at http://localhost:4000/graphql`),
-);
+createServer(
+  makeGatewayApp({
+    waitForPorts: true,
+  }),
+).listen(4000, () => console.log(`gateway running at http://localhost:4000/graphql`));

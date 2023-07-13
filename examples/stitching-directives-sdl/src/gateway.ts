@@ -4,7 +4,7 @@ import waitOn from 'wait-on';
 import { buildHTTPExecutor } from '@graphql-tools/executor-http';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
-import { type Executor, isAsyncIterable } from '@graphql-tools/utils';
+import { isAsyncIterable, type Executor } from '@graphql-tools/utils';
 
 async function makeGatewaySchema() {
   await waitOn({ resources: [4001, 4002, 4003, 4004].map(p => `tcp:${p}`) });

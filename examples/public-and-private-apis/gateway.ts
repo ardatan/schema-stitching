@@ -2,7 +2,6 @@ import { createYoga } from 'graphql-yoga';
 import { stitchSchemas } from '@graphql-tools/stitch';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
 import { filterSchema, pruneSchema } from '@graphql-tools/utils';
-import { createRouter } from '@whatwg-node/router';
 import { accountsSchema } from './services/accounts';
 import { productsSchema } from './services/products';
 import { reviewsSchema } from './services/reviews';
@@ -32,28 +31,12 @@ const publicSchema = pruneSchema(
 // Serve the public and private schema versions at different locations.
 // This allows the public to access one API with reduced features,
 // while internal services can authenticate with the private API for all features.
-export const gatewayApp = createRouter();
-
-gatewayApp.all(
-  '/private/graphql',
-  createYoga({
-    schema: privateSchema,
-    maskedErrors: false,
-    graphqlEndpoint: '/private/graphql',
-    graphiql: {
-      title: 'Private API',
-    },
-  }),
-);
-
-gatewayApp.all(
-  '/public/graphql',
-  createYoga({
-    schema: publicSchema,
-    maskedErrors: false,
-    graphqlEndpoint: '/public/graphql',
-    graphiql: {
-      title: 'Public API',
-    },
-  }),
-);
+export const gatewayApp = createYoga({
+  schema({ request }) {
+    const url = new URL(request.url, 'http://localhost');
+    if (url.pathname === '/private/graphql') return privateSchema;
+    return publicSchema;
+  },
+  maskedErrors: false,
+  graphqlEndpoint: '/:scope/graphql',
+});
