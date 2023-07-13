@@ -5,8 +5,7 @@ import 'reflect-metadata';
 import {
   Arg,
   buildSchema,
-  Directive,
-  /* Extensions, */
+  Directive /* Extensions, */,
   Field,
   ID,
   Info,
