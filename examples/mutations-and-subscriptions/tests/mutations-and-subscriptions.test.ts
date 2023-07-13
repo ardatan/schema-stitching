@@ -1,9 +1,8 @@
-import { Socket } from 'net';
 import { parse } from 'graphql';
-import { AsyncFetchFn, buildHTTPExecutor } from '@graphql-tools/executor-http';
-import { gatewayApp } from '../src/gateway';
-import { server as postsServer } from '../src/services/posts/server';
-import { server as usersServer } from '../src/services/users/server';
+import { buildHTTPExecutor } from '@graphql-tools/executor-http';
+import { makeGatewayApp } from '../src/gateway';
+import { app as postsApp } from '../src/services/posts/server';
+import { app as usersApp } from '../src/services/users/server';
 
 function assertAsyncIterable<T>(value: any): asserts value is AsyncIterable<T> {
   if (!(Symbol.asyncIterator in value)) {
@@ -12,33 +11,10 @@ function assertAsyncIterable<T>(value: any): asserts value is AsyncIterable<T> {
 }
 
 describe('Mutations & Subscriptions', () => {
-  const sockets = new Set<Socket>();
-  postsServer.on('connection', socket => {
-    sockets.add(socket);
-    socket.on('close', () => {
-      sockets.delete(socket);
-    });
-  });
-  usersServer.on('connection', socket => {
-    sockets.add(socket);
-    socket.on('close', () => {
-      sockets.delete(socket);
-    });
-  });
-  beforeAll(async () => {
-    await Promise.all([
-      new Promise<void>(resolve => postsServer.listen(4001, resolve)),
-      new Promise<void>(resolve => usersServer.listen(4002, resolve)),
-    ]);
-  });
-  afterAll(async () => {
-    for (const socket of sockets) {
-      socket.destroy();
-    }
-    await Promise.all([
-      new Promise<any>(resolve => postsServer.close(resolve)),
-      new Promise<any>(resolve => usersServer.close(resolve)),
-    ]);
+  const gatewayApp = makeGatewayApp({
+    waitForPorts: false,
+    postsFetch: postsApp.fetch,
+    usersFetch: usersApp.fetch,
   });
   it('should have the consistent behavior', async () => {
     expect.assertions(2);
