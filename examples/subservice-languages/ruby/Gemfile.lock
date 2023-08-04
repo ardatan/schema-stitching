@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    graphql (1.11.6)
+    graphql (1.13.19)
     graphql-schema_directives (0.0.2)
       graphql (~> 1.9)
     rack (2.2.8)
