@@ -187,10 +187,10 @@
   resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.2.tgz#f42ed3563acc7f1f50617d65d208483977adc68e"
   integrity sha512-Por80co1eUm4ATsvjCOoS/tIR8PHxqVjsA6z76I6Vw0rFn4cgyVElQcmQDIZiYsy41k8e5xkrMRECkM2WR8pNw==
 
-"@apollo/federation-internals@2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.5.1.tgz#059f186bd21dbf8439c05ff214617db3484bb096"
-  integrity sha512-+TSt+GJWBeDiHRsLhaake2sYDni2yW3f4xRSq3+I6vsHs1GIcKgUbhq4fiDe61v6OXU1IckuI+TELRSMZNNh6A==
+"@apollo/federation-internals@2.4.12":
+  version "2.4.12"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.12.tgz#1d5e415ee4ea3a96c08ad448569eb3948c1b2914"
+  integrity sha512-kd9rGahXUWeRZuGcAJXVE57RRzlaxDy8r20u5z2g5gGwgfbcLXMTpNStyNHYIWUFPxtT3Ho2hQqnC7MjpX7GLw==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -198,12 +198,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.5.1.tgz#d3e78d3ba545741f036b28015c65ce88d37da527"
-  integrity sha512-q6L9pbGL+R9yZpX4sQlf9YPwe/skbQB2pgOLV+H0m83nEwAx0eKgjuzNGqokb9YBYU23dv3kkItR3nHBw5RMUw==
+  version "2.4.12"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.12.tgz#3c728c81b5e87ffcdc3f0eae8257b59b98373b69"
+  integrity sha512-ux7AjWdH6i+vZl4OLjNkEnnhlCo3F1APvbQ9TvU4GnYLvJim6fuMfPGoBp7VcMPBcPOxqDy7Fk0s/xUFl91f0w==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.5.1"
+    "@apollo/federation-internals" "2.4.12"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.22.5":
   version "7.22.5"
