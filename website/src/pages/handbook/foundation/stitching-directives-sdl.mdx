@@ -153,7 +153,8 @@ argument array. The `keyArg` argument specifies which query argument receives th
 
 Now open the Inventory schema and see the expression of an object key, denoted by a generic scalar
 (here called `_Key`). In the absence of `keyField`, a generated key assumes the shape of a typed
-object like those sent to [federation services](/handbook/other-integrations/federation-services):
+object like those sent to
+[federation services](/handbook/other-integrations/federation-to-stitching-sdl):
 
 ```graphql
 type Product @key(selectionSet: "{ upc }") {
