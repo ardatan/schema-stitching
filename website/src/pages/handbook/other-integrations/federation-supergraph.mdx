@@ -1,0 +1,82 @@
+# Federation Supergraph
+
+This example demonstrates how to consume the federation supergraph for a stitching gateway using
+`@graphql-tools/federation` package.
+
+Schema Stitching is a framework or set of libraries that allows you to create gateways with a
+specific programmatic configuration. So it is flexible enough to consume any spec like Federation or
+Stitching SDL to create a gateway.
+
+A federation supergraph SDL can be generated using Apollo Rover CLI. You can install Apollo Rover
+CLI [here](https://www.apollographql.com/docs/rover/getting-started). In our example, we create a
+`supergraph.yaml` file for Supergraph configuration, and use
+`rover supergraph compose --config ./supergraph.yaml > supergraph.graphql` to generate an SDL for
+our gateway;
+
+```yaml
+subgraphs:
+  accounts:
+    routing_url: http://localhost:4001/graphql
+    schema:
+      file: ./services/accounts.graphql
+  inventory:
+    routing_url: http://localhost:4002/graphql
+    schema:
+      file: ./services/inventory.graphql
+  products:
+    routing_url: http://localhost:4003/graphql
+    schema:
+      file: ./services/products.graphql
+  reviews:
+    routing_url: http://localhost:4004/graphql
+    schema:
+      file: ./services/reviews.graphql
+```
+
+## Sandbox
+
+_⬇️ Click ☰ to see the files_
+
+<iframe
+  src="https://codesandbox.io/embed/github/ardatan/schema-stitching/tree/master/examples/federation-supergraph?codemirror=1&fontsize=14&initialpath=/graphql&theme=dark"
+  className="mt-6 w-full h-[500px] rounded-md"
+  title="federation-supergraph"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
+
+> You can also see the project on GitHub
+> [here](https://github.com/ardatan/schema-stitching/tree/master/examples/federation-supergraph).
+
+The following services are available for interactive queries:
+
+- **Stitched gateway:** listening on 4000/graphql
+- _Accounts_ subservice\_: listening on 4001/graphql
+- _Inventory_ subservice\_: listening on 4002/GraphQL
+- _Products_ subservice\_: listening on 4003/graphql
+- _Reviews_ subservice\_: listening on 4004/graphql
+
+This example is based on the
+[Federation intro example](https://www.apollographql.com/docs/federation/#concern-based-separation).
+
+## Summary
+
+You can use `getStitchedSchemaFromSupergraphSdl` from `@graphql-tools/federation` to consume a
+supergraph and get an executable `GraphQLSchema` that you can use with any GraphQL server or execute
+it locally.
+
+```ts
+import { readFileSync } from 'fs'
+import { createServer } from 'node:http'
+import { createYoga } from 'graphql-yoga'
+import { getStitchedSchemaFromSupergraphSdl } from '@graphql-tools/federation'
+
+const supergraphSdl = readFileSync('./supergraph.graphql').toString()
+const schema = await getStitchedSchemaFromSupergraphSdl({ supergraphSdl })
+const yoga = createYoga({ schema })
+const server = createServer(yoga)
+
+server.listen(4000, () => {
+  console.log(`🚀 Server ready at http://localhost:4000/graphql`)
+})
+```
