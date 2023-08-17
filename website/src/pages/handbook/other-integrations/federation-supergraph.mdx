@@ -33,6 +33,8 @@ subgraphs:
       file: ./services/reviews.graphql
 ```
 
+Or you can get the supergraph sdl from a schema registry like GraphQL Hive
+
 ## Sandbox
 
 _⬇️ Click ☰ to see the files_
@@ -71,6 +73,7 @@ import { createServer } from 'node:http'
 import { createYoga } from 'graphql-yoga'
 import { getStitchedSchemaFromSupergraphSdl } from '@graphql-tools/federation'
 
+// This doesn't have to be from a file system, it can be fetched via HTTP from a schema registry
 const supergraphSdl = readFileSync('./supergraph.graphql').toString()
 const schema = await getStitchedSchemaFromSupergraphSdl({ supergraphSdl })
 const yoga = createYoga({ schema })
