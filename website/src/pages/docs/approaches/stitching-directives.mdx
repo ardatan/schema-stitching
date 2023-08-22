@@ -177,7 +177,9 @@ When setting up the stitched gateway, you'll need to do two things:
 import { parse } from 'graphql'
 import { buildHTTPExecutor } from '@graphql-tools/executor-http'
 import { stitchSchemas } from '@graphql-tools/stitch'
-import { stitchingDirectivesTransformer } from '@graphql-tools/stitching-directives'
+import { stitchingDirectives } from '@graphql-tools/stitching-directives'
+ 
+const { stitchingDirectivesTransformer } = stitchingDirectives()
 
 async function createGatewaySchema() {
   const usersExec = buildHTTPExecutor({ endpoint: 'http://localhost:4001/graphql' })
