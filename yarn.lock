@@ -2543,7 +2543,7 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.17.7.tgz#8be4a95467c4f2a94cae65f30ee1cf98760525cb"
   integrity sha512-WJj/p/cIg6zUsxv1n2leZHpvn8hr9TYuLQxAZxZcK/7+5t5ukmJGelOLGOy3L1MLhAO/sapTJGd1V7kvoIuzUg==
 
-"@types/node@^20.1.2":
+"@types/node@^20.4.9":
   version "20.5.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.2.tgz#02850ed821c8113fd6ed9ae5c744b7f7cd6d6f51"
   integrity sha512-5j/lXt7unfPOUlrKC34HIaedONleyLtwkKggiD/0uuMfT8gg2EOpg0dz4lCD15Ga7muC+1WzJZAjIB9simWd6Q==
@@ -9167,16 +9167,16 @@ type-fest@^1.0.2:
   integrity sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA==
 
 type-graphql@^2.0.0-beta.1:
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-beta.2.tgz#498e8dee56b8ea1f5c3a5ed99aab8105dcb8f050"
-  integrity sha512-MCGxRvNADu5Wp9QEudI/WQgiqHJfjanGcKRk/ErCow6IaG04NNI7o3bjjxQVWC+qDundSOhmaquNdjDiiTbcqQ==
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-beta.3.tgz#71a796845dbb3f3cca5dfb97a38ffe30ee5aa1ea"
+  integrity sha512-5HEiQaWHPYhPmbJuMmT+IZgjsnbNWsW37osUISwgr5EpcHZ4krLl8eBoOfjFya4mxAWYshlpSO1ahaucJQqM5g==
   dependencies:
-    "@types/node" "^20.1.2"
+    "@types/node" "^20.4.9"
     "@types/semver" "^7.5.0"
     graphql-query-complexity "^0.12.0"
     graphql-subscriptions "^2.0.0"
-    semver "^7.5.0"
-    tslib "^2.5.0"
+    semver "^7.5.4"
+    tslib "^2.6.0"
 
 typed-array-buffer@^1.0.0:
   version "1.0.0"
