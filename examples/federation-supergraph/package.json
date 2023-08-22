@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "build-supergraph": "rover supergraph compose --config ./supergraph.yaml > supergraph.graphql",
+    "build-supergraph": "rover supergraph compose --config ./src/supergraph.yaml > ./src/supergraph.graphql",
     "start": "concurrently \"yarn:start-*\"",
     "start-accounts": "ts-node-dev src/services/accounts.ts",
     "start-gateway": "ts-node-dev src/index.ts",

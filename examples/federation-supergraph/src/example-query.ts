@@ -1,4 +1,4 @@
-export const exampleQuery = /* GraphQL */ `
+export const fragments = /* GraphQL */ `
   fragment User on User {
     id
     username
@@ -18,6 +18,10 @@ export const exampleQuery = /* GraphQL */ `
     upc
     weight
   }
+`;
+
+export const exampleQuery = /* GraphQL */ `
+  ${fragments}
 
   query TestQuery {
     users {

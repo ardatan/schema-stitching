@@ -8,3 +8,7 @@ type Product @key(fields: "upc") {
   price: Int
   weight: Int
 }
+
+type Subscription {
+  newProduct: Product
+}

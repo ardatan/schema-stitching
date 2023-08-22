@@ -42,6 +42,16 @@ export const server = createServer(
               return args.first ? products.slice(0, args.first) : products;
             },
           },
+          Subscription: {
+            newProduct: {
+              async *subscribe() {
+                for (const product of products) {
+                  await new Promise(resolve => setTimeout(resolve, 1000));
+                  yield { newProduct: product };
+                }
+              },
+            },
+          },
         },
       },
     ]),

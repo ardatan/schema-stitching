@@ -2,6 +2,7 @@ schema
   @core(feature: "https://specs.apollo.dev/core/v0.2")
   @core(feature: "https://specs.apollo.dev/join/v0.1", for: EXECUTION) {
   query: Query
+  subscription: Subscription
 }
 
 directive @core(as: String, feature: String!, for: core__Purpose) repeatable on SCHEMA
@@ -36,6 +37,10 @@ type Query {
   me: User @join__field(graph: ACCOUNTS)
   topProducts(first: Int): [Product] @join__field(graph: PRODUCTS)
   users: [User] @join__field(graph: ACCOUNTS)
+}
+
+type Subscription @join__type(graph: PRODUCTS) {
+  newProduct: Product @join__field(graph: PRODUCTS)
 }
 
 type Review @join__owner(graph: REVIEWS) @join__type(graph: REVIEWS, key: "id") {
