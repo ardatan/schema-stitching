@@ -206,10 +206,10 @@
     tslib "^2.3.0"
     zen-observable-ts "^1.2.5"
 
-"@apollo/federation-internals@2.4.12":
-  version "2.4.12"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.12.tgz#1d5e415ee4ea3a96c08ad448569eb3948c1b2914"
-  integrity sha512-kd9rGahXUWeRZuGcAJXVE57RRzlaxDy8r20u5z2g5gGwgfbcLXMTpNStyNHYIWUFPxtT3Ho2hQqnC7MjpX7GLw==
+"@apollo/federation-internals@2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.5.3.tgz#22387df8e1492c9f887b0824c74fadde30167674"
+  integrity sha512-KHYpXa9XudQmbp5NX7wEEj0bxTkJIGtmKkZnOsKW9jDvHXurV/QTfzMDRqPVExMn+mdEVPTN3nySIp6vVhcs1Q==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -217,12 +217,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.4.12"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.12.tgz#3c728c81b5e87ffcdc3f0eae8257b59b98373b69"
-  integrity sha512-ux7AjWdH6i+vZl4OLjNkEnnhlCo3F1APvbQ9TvU4GnYLvJim6fuMfPGoBp7VcMPBcPOxqDy7Fk0s/xUFl91f0w==
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.5.3.tgz#d5cf4fde4cb6c952cefc34d59f18e76e04f35eb5"
+  integrity sha512-OaRyJmB4nI3JfAZs6RA5vd+AHMMEMRWBx5Ns0iDhkm/KEZqj5dcD0Vsyu9vCJm3zyAfYClHC3ZUlxSKYRDi/zQ==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.4.12"
+    "@apollo/federation-internals" "2.5.3"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.22.10", "@babel/code-frame@^7.22.5":
   version "7.22.10"
@@ -2538,10 +2538,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*", "@types/node@18.17.8", "@types/node@^18.0.0", "@types/node@^18.11.18":
-  version "18.17.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.17.8.tgz#fd69eb04c25d50374245e8bd69ba29dd0eb7ff5e"
-  integrity sha512-Av/7MqX/iNKwT9Tr60V85NqMnsmh8ilfJoBlIVibkXfitk9Q22D9Y5mSpm+FvG5DET7EbVfB40bOiLzKgYFgPw==
+"@types/node@*", "@types/node@18.17.9", "@types/node@^18.0.0", "@types/node@^18.11.18":
+  version "18.17.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.17.9.tgz#b219fa0da3c574399f4a44455ea4b388029afd56"
+  integrity sha512-fxaKquqYcPOGwE7tC1anJaPJ0GHyOVzfA2oUoXECjBjrtsIz4YJvtNYsq8LUcjEUehEF+jGpx8Z+lFrtT6z0tg==
 
 "@types/node@^20.1.2":
   version "20.5.3"
