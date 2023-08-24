@@ -22,6 +22,7 @@
     "class-validator": "^0.14.0",
     "concurrently": "^8.0.0",
     "graphql": "^16.6.0",
+    "graphql-scalars": "^1.22.2",
     "graphql-yoga": "^4.0.0",
     "nexus": "^1.0.0",
     "nodemon": "^3.0.0",
