@@ -1,6 +1,9 @@
+import * as fs from 'node:fs';
 import { gatewayApp } from '../src/gateway';
 import { resizeImagesServer } from '../src/services/resize-images/server';
 import { uploadFilesServer } from '../src/services/upload-files/server';
+
+const filesDir = __dirname + '/../src/services/upload-files/files/';
 
 describe('GraphQL Upload', () => {
   beforeAll(async () => {
@@ -14,6 +17,10 @@ describe('GraphQL Upload', () => {
       new Promise(resolve => uploadFilesServer.close(resolve)),
       new Promise(resolve => resizeImagesServer.close(resolve)),
     ]);
+    const regex = /.+\.clean\..+/;
+    fs.readdirSync(filesDir)
+      .filter(f => regex.test(f))
+      .map(f => fs.unlinkSync(filesDir + f));
   });
   it('should read the file and resize the image correctly', async () => {
     const response = await gatewayApp.fetch('/graphql', {
@@ -71,5 +78,50 @@ describe('GraphQL Upload', () => {
     });
     const result = await response.json();
     expect(result).toMatchSnapshot('uploadFile');
+  });
+  it('should store uploaded file with correct content', async () => {
+    const formData = new gatewayApp.fetchAPI.FormData();
+    formData.append(
+      'operations',
+      JSON.stringify({
+        query: /* GraphQL */ `
+          mutation ($file: File!) {
+            uploadFile(file: $file) {
+              name
+              type
+              text
+            }
+          }
+        `,
+        variables: {
+          file: null,
+        },
+      }),
+    );
+    formData.append(
+      'map',
+      JSON.stringify({
+        0: ['variables.file'],
+      }),
+    );
+    const data = [];
+    for (let i = 0; i < 100000; i++) {
+      data.push(i);
+    }
+    const expectedData = data.join('|');
+    const storedFilePath = filesDir + 'fileTestContent.clean.txt';
+    const file = new gatewayApp.fetchAPI.File([expectedData], 'fileTestContent.clean.txt', {
+      type: 'text/plain',
+    });
+    formData.append('0', file);
+    const response = await gatewayApp.fetch('/graphql', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+    expect(result.data.uploadFile.text).toBe(expectedData);
+    const actualData = fs.readFileSync(storedFilePath).toString();
+    expect(actualData).toBe(expectedData);
   });
 });
