@@ -18,7 +18,7 @@
   "devDependencies": {
     "@babel/core": "7.22.11",
     "@babel/plugin-proposal-class-properties": "7.18.6",
-    "@babel/preset-env": "7.22.10",
+    "@babel/preset-env": "7.22.14",
     "@babel/preset-typescript": "7.22.11",
     "@graphql-tools/mock": "^9.0.0",
     "@graphql-tools/utils": "^10.0.0",
