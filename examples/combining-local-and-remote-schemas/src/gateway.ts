@@ -13,15 +13,21 @@ async function makeGatewaySchema() {
   // these are simple functions that query a remote GraphQL API for JSON.
   const productsExec = buildHTTPExecutor({
     endpoint: 'http://localhost:4001/graphql',
-    headers: executorRequest => executorRequest?.context?.authHeader,
+    headers: executorRequest => ({
+      Authorization: executorRequest?.context?.authHeader,
+    }),
   });
   const storefrontsExec = buildHTTPExecutor({
     endpoint: 'http://localhost:4002/graphql',
-    headers: executorRequest => executorRequest?.context?.authHeader,
+    headers: executorRequest => ({
+      Authorization: executorRequest?.context?.authHeader,
+    }),
   });
   const rainforestApiExec = buildHTTPExecutor({
     endpoint: 'http://localhost:4001/graphql',
-    headers: executorRequest => executorRequest?.context?.authHeader,
+    headers: executorRequest => ({
+      Authorization: executorRequest?.context?.authHeader,
+    }),
   });
   const adminContext = { authHeader: 'Bearer my-app-to-app-token' };
 
