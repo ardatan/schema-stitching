@@ -1,9 +1,10 @@
 import * as fs from 'node:fs';
+import { join } from 'node:path';
 import { gatewayApp } from '../src/gateway';
 import { resizeImagesServer } from '../src/services/resize-images/server';
 import { uploadFilesServer } from '../src/services/upload-files/server';
 
-const filesDir = __dirname + '/../src/services/upload-files/files/';
+const filesDir = join(__dirname, './../src/services/upload-files/files/');
 
 describe('GraphQL Upload', () => {
   beforeAll(async () => {
