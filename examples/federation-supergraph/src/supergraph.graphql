@@ -29,7 +29,7 @@ type Product
   price: Int @join__field(graph: PRODUCTS)
   reviews: [Review] @join__field(graph: REVIEWS)
   shippingEstimate: Int @join__field(graph: INVENTORY, requires: "price weight")
-  upc: String! @join__field(graph: PRODUCTS)
+  upc: String!
   weight: Int @join__field(graph: PRODUCTS)
 }
 
@@ -46,7 +46,7 @@ type Subscription @join__type(graph: PRODUCTS) {
 type Review @join__owner(graph: REVIEWS) @join__type(graph: REVIEWS, key: "id") {
   author: User @join__field(graph: REVIEWS, provides: "username")
   body: String @join__field(graph: REVIEWS)
-  id: ID! @join__field(graph: REVIEWS)
+  id: ID!
   product: Product @join__field(graph: REVIEWS)
 }
 
@@ -55,7 +55,7 @@ type User
   @join__type(graph: ACCOUNTS, key: "id")
   @join__type(graph: REVIEWS, key: "id") {
   birthDate: String @join__field(graph: ACCOUNTS)
-  id: ID! @join__field(graph: ACCOUNTS)
+  id: ID!
   name: String @join__field(graph: ACCOUNTS)
   numberOfReviews: Int @join__field(graph: REVIEWS)
   reviews: [Review] @join__field(graph: REVIEWS)
