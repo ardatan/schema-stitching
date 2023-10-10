@@ -1,4 +1,4 @@
-{
+export default {
   "hot-schema-reloading": "Hot schema reloading",
   "versioning-schema-releases": "Versioning schema releases",
   "continuous-integration-testing": "Continuous Integration (CI) testing",

@@ -1,4 +1,4 @@
-{
+export default {
   "index": "Overview",
   "filtering": "Filtering",
   "renaming": "Renaming",

@@ -1,4 +1,4 @@
-{
+export default {
   "combining-local-and-remote-schemas": "Combining local and remote schemas",
   "mutations-and-subscriptions": "Mutations & subscriptions",
   "type-merging-single-records": "Single-record type merging",
