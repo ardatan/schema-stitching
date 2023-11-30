@@ -5212,9 +5212,9 @@ graphql-ws@^5.11.2, graphql-ws@^5.14.0:
   integrity sha512-LycmCwhZ+Op2GlHz4BZDsUYHKRiiUz+3r9wbhBATMETNlORQJAaFlAgTFoeRh6xQoQegwYwIylVD1Qns9/DA3w==
 
 graphql-yoga@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.0.0.tgz#446c9cc1d336b550394b6a17703d7fc1acdda18e"
-  integrity sha512-ZvZlO8MHMDWuLRoDhvJQnXg8SOJD0iDaCA+M/zWuD26AlhEugOEbpnhw/645oqXTYtvHsM91WyxtV7p5XJWYMg==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.0.1.tgz#255fb63a2398ce49c73d2c0feaef9d64bf835ff8"
+  integrity sha512-tcdJOjEv5am5TOGX6TcKDyLT5azrnZ38Y+WUgnbYSYeYX12AKuEju94Sr1ixACvruQo6EyogfKpUGwtb7LQYCw==
   dependencies:
     "@envelop/core" "^5.0.0"
     "@graphql-tools/executor" "^1.0.0"
