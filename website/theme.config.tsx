@@ -5,7 +5,7 @@ import { defineConfig, Giscus, PRODUCTS, useTheme } from '@theguild/components';
 export default defineConfig({
   description: PRODUCTS.STITCHING.title,
   docsRepositoryBase: 'https://github.com/ardatan/schema-stitching/tree/master/website',
-  logo: PRODUCTS.STITCHING.logo({ className: 'w-8' }),
+  logo: PRODUCTS.STITCHING.logo({ className: 'w-9' }),
   main({ children }) {
     const { resolvedTheme } = useTheme();
     const { route } = useRouter();
