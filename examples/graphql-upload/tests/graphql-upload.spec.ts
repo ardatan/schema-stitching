@@ -42,7 +42,15 @@ describe('GraphQL Upload', () => {
       }),
     });
     const result = await response.json();
-    expect(result).toMatchSnapshot('readFile');
+    expect(result).toMatchObject({
+      data: {
+        readFile: {
+          name: 'yoga.png',
+          type: 'image/png',
+          resizedBase64: expect.any(String),
+        },
+      },
+    });
   });
   it('should forward file uploads correctly', async () => {
     const formData = new gatewayApp.fetchAPI.FormData();
