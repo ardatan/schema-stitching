@@ -11,6 +11,7 @@ exports[`GraphQL Upload should forward file uploads correctly: uploadFile 1`] = 
   },
 }
 `;
+<<<<<<< HEAD
 
 exports[`GraphQL Upload should read the file and resize the image correctly: readFile 1`] = `
 {
@@ -23,3 +24,5 @@ exports[`GraphQL Upload should read the file and resize the image correctly: rea
   },
 }
 `;
+=======
+>>>>>>> 5a903f9 (Snapshot)
