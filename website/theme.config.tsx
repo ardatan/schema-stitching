@@ -29,5 +29,5 @@ export default defineConfig({
       </>
     );
   },
-  websiteName: 'STITCHING',
+  websiteName: 'Schema Stitching',
 });
