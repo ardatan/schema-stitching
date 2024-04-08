@@ -1487,9 +1487,9 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/stitch@^9.0.0", "@graphql-tools/stitch@^9.0.5":
-  version "9.0.5"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.0.5.tgz#5764cb37989458d7f0056d4797fcebb001e1b8e3"
-  integrity sha512-sgeeuOv76HqATbYcRBDLr2Y/rN1ojRFrDg2t+IBn6u7ZBQO9ujks7mVplhd9J7d7IyMrsqh581K9oclPqKanYg==
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.1.0.tgz#fa65d8ae85b21b0c80992d484a0db0cc1bfa64c0"
+  integrity sha512-EEZn2BcvuOX+7DOSROv+3Td0SvuC/YnJ5+ua2xjhThOU7q8QFqL+JxgT4BOdI829ZR+rQqaX6do3VEY4UNo1Yg==
   dependencies:
     "@graphql-tools/batch-delegate" "^9.0.1"
     "@graphql-tools/delegate" "^10.0.4"
@@ -1502,9 +1502,9 @@
     value-or-promise "^1.0.11"
 
 "@graphql-tools/stitching-directives@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.0.1.tgz#b5ec40170644b7959cd5982cfd9f3ca0da5e1bb3"
-  integrity sha512-2EJm04UH34C2w2UGq0xMYnS9QBSkMGu73cODLpp9xacSXJPBjpoSgoXtf0AxMDputOiS2yDeuEtgc1XwV/vYVw==
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.0.2.tgz#5e48d70c8f10575ba6ae8bc019b477db3788e8eb"
+  integrity sha512-xZ/gU+p3YKm/asvxiseuyDIS6NL1+LKMhoafqSadxxweDsskSpPrWZfOWGlblVq/w7iikxQhRF2b8+VVgF6Myg==
   dependencies:
     "@graphql-tools/delegate" "^10.0.4"
     "@graphql-tools/utils" "^10.0.13"
