@@ -25,14 +25,13 @@ jobs:
         with:
           nodeVersion: 18
           packageManager: yarn
-
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
         env:
           NEXT_BASE_PATH: ${{ github.ref == 'refs/heads/master' && '/graphql/stitching' || '' }}
           SITE_URL:
-            ${{ github.ref == 'refs/heads/master' && 'https://the-guild.dev/graphql/stitching' ||
-            ''}}
+            ${{ github.ref == 'refs/heads/master' && 'https://the-guild.dev/graphql/stitching' || ''
+            }}
         with:
           cloudflareApiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           cloudflareAccountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -40,5 +39,5 @@ jobs:
           projectName: schema-stitching
           prId: ${{ github.event.pull_request.number }}
           websiteDirectory: ./
-          buildScript: cd website && yarn build && yarn next build
+          buildScript: cd website && yarn build
           artifactDir: website/out
