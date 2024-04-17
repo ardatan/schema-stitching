@@ -665,8 +665,8 @@ provide:
 - a field's final nullability, arguments, and deprecation reason.
 - a root field's default delegation target.
 
-The following example uses [stitching directives](/docs/approaches/directives-sdl) to mark preferred
-subschema elements as `@canonical`:
+The following example uses [stitching directives](/docs/approaches/stitching-directives) to mark
+preferred subschema elements as `@canonical`:
 
 ```graphql filename="Users schema"
 "Represents an authenticated user"
@@ -774,7 +774,7 @@ const gatewaySchema = stitchSchemas({
   schema definition and defaulting root field targets; otherwise, they are given no special priority
   in runtime query planning (which always selects necessary fields from as few subschemas as
   possible). You may override the assembly of canonical definitions using
-  [`typeMergingOptions`](/docs/approaches/combining-schemas#automatic-merge).
+  [`typeMergingOptions`](/docs/getting-started/duplicate-types#automatic-merge).
 </Callout>
 
 ## Type Resolvers
