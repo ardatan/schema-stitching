@@ -2411,7 +2411,7 @@
   dependencies:
     "@types/unist" "^2"
 
-"@types/node@*", "@types/node@20.12.7", "@types/node@^20.0.0", "@types/node@^20.10.8":
+"@types/node@*", "@types/node@20.12.7", "@types/node@^20.0.0", "@types/node@^20.11.24":
   version "20.12.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.7.tgz#04080362fa3dd6c5822061aa3124f5c152cff384"
   integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
@@ -9352,12 +9352,12 @@ type-fest@^3.0.0:
   integrity sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==
 
 type-graphql@^2.0.0-beta.1:
-  version "2.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-beta.6.tgz#340d3703aa787e93bc7462bf2e89bb03a54209c8"
-  integrity sha512-uSp42MLWzuR0+wiQmHUdsmenSEs8O+vC+dSa1ZlYPBo1oRe6+EVPYTwm2iCnSxN4nxt2v4Qpt0+mBqnE92sVRw==
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-rc.1.tgz#8dcf5b430373dfe6d00acab5d86f0fde5b5ad286"
+  integrity sha512-HCu4j3jR0tZvAAoO7DMBT3MRmah0DFRe5APymm9lXUghXA0sbhiMf6SLRafRYfk0R0KiUQYRduuGP3ap1RnF1Q==
   dependencies:
     "@graphql-yoga/subscription" "^5.0.0"
-    "@types/node" "^20.10.8"
+    "@types/node" "^20.11.24"
     "@types/semver" "^7.5.6"
     graphql-query-complexity "^0.12.0"
     semver "^7.5.4"
