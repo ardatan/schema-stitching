@@ -1354,10 +1354,10 @@
   optionalDependencies:
     "@apollo/client" "~3.2.5 || ~3.3.0 || ~3.4.0 || ~3.5.0 || ~3.6.0 || ~3.7.0 || ~3.8.0 || ~3.9.0 || ~3.10.0"
 
-"@graphql-tools/merge@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.3.tgz#4d0b467132e6f788b69fab803d31480b8ce4b61a"
-  integrity sha512-FeKv9lKLMwqDu0pQjPpF59GY3HReUkWXKsMIuMuJQOKh9BETu7zPEFUELvcw8w+lwZkl4ileJsHXC9+AnsT2Lw==
+"@graphql-tools/merge@^9.0.3", "@graphql-tools/merge@^9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.0.4.tgz#66c34cbc2b9a99801c0efca7b8134b2c9aecdb06"
+  integrity sha512-MivbDLUQ+4Q8G/Hp/9V72hbn810IJDEZQ57F01sHnlrrijyadibfVhaQfW/pNH+9T/l8ySZpaR/DpL5i+ruZ+g==
   dependencies:
     "@graphql-tools/utils" "^10.0.13"
     tslib "^2.4.0"
@@ -1383,14 +1383,14 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/stitch@^9.0.0", "@graphql-tools/stitch@^9.2.3":
-  version "9.2.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.2.3.tgz#dec60419514c97223afe605e9b4987bf4f3e4a03"
-  integrity sha512-r0RcRU+TIuR8ihx4m2tLvecj+JqEQ0bOSPDx7A/Hl3jvZ+L2sSu+ZXMHXAdriSyGgKKHK8SlgovKPyt5I6p1wA==
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.2.4.tgz#1c65ef5c2135694ff4c5a0278803e5cfff3532e7"
+  integrity sha512-WGEhO5S+eVNKYxX2MItjPz8YC7NVC/3qGbyUvAuMRoZ4EbU0Nfd9U7juw7YFBm+LAeGTBHu5eKWVFp+SO64lhw==
   dependencies:
     "@graphql-tools/batch-delegate" "^9.0.1"
     "@graphql-tools/delegate" "^10.0.7"
     "@graphql-tools/executor" "^1.2.1"
-    "@graphql-tools/merge" "^9.0.3"
+    "@graphql-tools/merge" "^9.0.4"
     "@graphql-tools/schema" "^10.0.3"
     "@graphql-tools/utils" "^10.2.0"
     "@graphql-tools/wrap" "^10.0.2"
