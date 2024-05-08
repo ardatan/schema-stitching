@@ -1289,10 +1289,10 @@
     tslib "^2.4.0"
     value-or-promise "^1.0.12"
 
-"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.0.4", "@graphql-tools/delegate@^10.0.9":
-  version "10.0.9"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.9.tgz#3f70f59be5ea1e0b9e689382931c506934abaced"
-  integrity sha512-H+jGPLB0X23wlslw1JuB3y5j35NwZLUGhmjgaLYKkquAI/rtcs4+UwoW3hZ4SCN7h2LAKDa6HhsYYCRXyhdePA==
+"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.0.10", "@graphql-tools/delegate@^10.0.4":
+  version "10.0.10"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.10.tgz#ed92c089e077e97d4f6c05634151863cfa714638"
+  integrity sha512-OOqsPRfGatQG0qMKG3sxtxHiRg7cA6OWMTuETDvwZCoOuxqCc17K+nt8GvaqptNJi2/wBgeH7pi7wA5QzgiG1g==
   dependencies:
     "@graphql-tools/batch-execute" "^9.0.4"
     "@graphql-tools/executor" "^1.2.1"
@@ -1338,15 +1338,15 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/federation@^1.1.3":
-  version "1.1.34"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-1.1.34.tgz#0cd9a2b93891be101d17f816f70e2dd30a654c0d"
-  integrity sha512-7zByTKeOPSrJnnTb47PyVWUK4BQo0iXohD96j2NbS0LijQAGaMzsEk3tWCp5HRQB9odKNBw+SSTBt7m7THTKWg==
+  version "1.1.35"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-1.1.35.tgz#bf734a1f32f4986494c0abc5d2639a9a1c050c6a"
+  integrity sha512-40qvVaYI7Wf/pdv1GhznyXBW/3BS7ogJBPLbLaaz7mqmaHzSGCGpW3buOxUwnbvG3r0eMz/sOiCyw3JpP8BisQ==
   dependencies:
-    "@graphql-tools/delegate" "^10.0.9"
+    "@graphql-tools/delegate" "^10.0.10"
     "@graphql-tools/executor-http" "^1.0.9"
     "@graphql-tools/merge" "^9.0.3"
     "@graphql-tools/schema" "^10.0.3"
-    "@graphql-tools/stitch" "^9.2.7"
+    "@graphql-tools/stitch" "^9.2.8"
     "@graphql-tools/utils" "^10.1.1"
     "@graphql-tools/wrap" "^10.0.3"
     tslib "^2.4.0"
@@ -1382,13 +1382,13 @@
     tslib "^2.4.0"
     value-or-promise "^1.0.12"
 
-"@graphql-tools/stitch@^9.0.0", "@graphql-tools/stitch@^9.2.7":
-  version "9.2.7"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.2.7.tgz#e5e7d14f4e17a34401e64a71c250f1f991b9b568"
-  integrity sha512-FYF78kHUkdNp5lzjTr/tJHqQm/+ljxJ9b2KpSdjX3bwKNnIeYF4jViO9qxCrOKH7dXsJjB7bkINrH6PTDUoQAw==
+"@graphql-tools/stitch@^9.0.0", "@graphql-tools/stitch@^9.2.8":
+  version "9.2.8"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.2.8.tgz#4d4810dbae753077b77824c0fd63f929e3a81004"
+  integrity sha512-xIENcmTw8dfMTslcplxBDshWi2LjFWtih2dG3rfhMGaj3iaWMM8JMbBB8nND7Jhm+fxfnGG7MuxOO9nqWtTuow==
   dependencies:
     "@graphql-tools/batch-delegate" "^9.0.1"
-    "@graphql-tools/delegate" "^10.0.9"
+    "@graphql-tools/delegate" "^10.0.10"
     "@graphql-tools/executor" "^1.2.1"
     "@graphql-tools/merge" "^9.0.4"
     "@graphql-tools/schema" "^10.0.3"
