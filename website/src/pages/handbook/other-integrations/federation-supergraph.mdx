@@ -75,7 +75,7 @@ import { getStitchedSchemaFromSupergraphSdl } from '@graphql-tools/federation'
 
 // This doesn't have to be from a file system, it can be fetched via HTTP from a schema registry
 const supergraphSdl = readFileSync('./supergraph.graphql').toString()
-const schema = await getStitchedSchemaFromSupergraphSdl({ supergraphSdl })
+const schema = getStitchedSchemaFromSupergraphSdl({ supergraphSdl })
 const yoga = createYoga({ schema })
 const server = createServer(yoga)
 
@@ -85,3 +85,22 @@ server.listen(4000, () => {
 ```
 
 > Subscriptions are supported without the need of any additional configuration.
+
+## Authorization and Extra Headers
+
+If you need to pass extra headers to the subgraphs, you can use `httpExecutorOpts` option to
+configure the HTTP executor;
+
+```ts
+const schema = getStitchedSchemaFromSupergraphSdl({
+  supergraphSdl,
+  httpExecutorOpts: {
+    headers(executionRequest) {
+      // This will forward `Authorization Header` from the incoming request to the subgraphs
+      return {
+        authorization: executionRequest.context.request.headers.get('authorization')
+      }
+    }
+  }
+})
+```
