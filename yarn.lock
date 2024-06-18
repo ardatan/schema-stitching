@@ -1461,10 +1461,10 @@
   dependencies:
     tslib "^2.5.2"
 
-"@graphql-yoga/subscription@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-yoga/subscription/-/subscription-5.0.0.tgz#c0aedd3f7c0c0564a2fe687e9f45c16f70bdffc5"
-  integrity sha512-Ri7sK8hmxd/kwaEa0YT8uqQUb2wOLsmBMxI90QDyf96lzOMJRgBuNYoEkU1pSgsgmW2glceZ96sRYfaXqwVxUw==
+"@graphql-yoga/subscription@^5.0.0", "@graphql-yoga/subscription@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@graphql-yoga/subscription/-/subscription-5.0.1.tgz#affe9b4bca4303300cc9492d30dfbe9f089fe0e8"
+  integrity sha512-1wCB1DfAnaLzS+IdoOzELGGnx1ODEg9nzQXFh4u2j02vAnne6d+v4A7HIH9EqzVdPLoAaMKXCZUUdKs+j3z1fg==
   dependencies:
     "@graphql-yoga/typed-event-target" "^3.0.0"
     "@repeaterjs/repeater" "^3.0.4"
@@ -4972,16 +4972,16 @@ graphql-ws@^5.11.2, graphql-ws@^5.14.0:
   integrity sha512-Ju2RCU2dQMgSKtArPbEtsK5gNLnsQyTNIo/T7cZNp96niC1x0KdJNZV0TIoilceBPQwfb5itrGl8pkFeOUMl4A==
 
 graphql-yoga@^5.0.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.3.1.tgz#8d6385f97e4f1b1921f344653a6b57482cd7abdc"
-  integrity sha512-n918QV6TF7xTjb9ASnozgsr4ydMc08c+x4eRAWKxxWVwSnzdP2xeN2zw1ljIzRD0ccSCNoBajGDKwcZkJDitPA==
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.4.0.tgz#75873e21d47ca270da7923a5fd48785430af4105"
+  integrity sha512-o91DJjjAMwhb7PFJFA9yb/K55oCbT+0oFKqbwg5RHWAiy7YMgKMVgmbQFmtGPgkKdfbnJCVdYkX5OF30FTq46g==
   dependencies:
     "@envelop/core" "^5.0.0"
     "@graphql-tools/executor" "^1.2.5"
     "@graphql-tools/schema" "^10.0.0"
     "@graphql-tools/utils" "^10.1.0"
     "@graphql-yoga/logger" "^2.0.0"
-    "@graphql-yoga/subscription" "^5.0.0"
+    "@graphql-yoga/subscription" "^5.0.1"
     "@whatwg-node/fetch" "^0.9.17"
     "@whatwg-node/server" "^0.9.33"
     dset "^3.1.1"
