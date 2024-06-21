@@ -69,7 +69,7 @@
   },
   "resolutions": {
     "esbuild": "^0.21.0",
-    "graphql": "16.8.1"
+    "graphql": "16.9.0"
   },
   "lint-staged": {
     "examples/**/src/**/*.{ts,tsx}": [
