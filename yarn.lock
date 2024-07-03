@@ -1316,9 +1316,9 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.0.11", "@graphql-tools/delegate@^10.0.12", "@graphql-tools/delegate@^10.0.4":
-  version "10.0.12"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.12.tgz#9517787cb3321e8cdccd6ab2d815b7a0642c94c1"
-  integrity sha512-o4qCmxwKW0VlnPVALQ5WeLZnPkBQXsuOZmeWEMCU2lHVLsvVhLcDdo/wjoFpdVkyUd5FRKL82ntYSY9qHhVb6Q==
+  version "10.0.13"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.13.tgz#93a074d4397349109704e3c7792cf705fbe7ccce"
+  integrity sha512-9l7cwrHQFbvR6zhZOKYABa3ffqgyV51gNglammupXhptE3Z94p6A6hP0hLw7GHErkm6MiQINl3VBVpFJDlrZuQ==
   dependencies:
     "@graphql-tools/batch-execute" "^9.0.4"
     "@graphql-tools/executor" "^1.2.8"
