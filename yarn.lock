@@ -1345,11 +1345,11 @@
     ws "^8.17.1"
 
 "@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.0.9":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.1.2.tgz#8c488b60fbfb5a2a037f7b4b59c4582d1496c1d7"
-  integrity sha512-Yssoh2+GBcoPcL6Jf9X+G+cp8RhiKz6m5R/BLLN0mdg6t02TYANYZV76dMBRPX93xaoIpjl94JkttC6O6ejwWg==
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.1.4.tgz#2dc68c330cda21acfa0db454d29c899ae3b1f1d1"
+  integrity sha512-DpGF9pCHHimwxjxONnNTPQHsVVNEBEMK9RuLBWkMjPw4WSHFQo0zRHArdyEuNcLMUgl14j+Whn8Z1Pj07nkj2A==
   dependencies:
-    "@graphql-tools/utils" "^10.3.1"
+    "@graphql-tools/utils" "^10.3.2"
     "@repeaterjs/repeater" "^3.0.4"
     "@whatwg-node/fetch" "^0.9.0"
     extract-files "^11.0.0"
@@ -1438,10 +1438,10 @@
     "@graphql-tools/utils" "^10.0.13"
     tslib "^2.4.0"
 
-"@graphql-tools/utils@^10.0.0", "@graphql-tools/utils@^10.0.13", "@graphql-tools/utils@^10.1.0", "@graphql-tools/utils@^10.1.1", "@graphql-tools/utils@^10.2.1", "@graphql-tools/utils@^10.2.3", "@graphql-tools/utils@^10.3.0", "@graphql-tools/utils@^10.3.1":
-  version "10.3.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.3.1.tgz#d4ca59a3dae96d9ef9f9755e60552081a0843b95"
-  integrity sha512-Yhk1F0MNk4/ctgl3d0DKq++ZPovvZuh1ixWuUEVAxrFloYOAVwJ+rvGI1lsopArdJly8QXClT9lkvOxQszMw/w==
+"@graphql-tools/utils@^10.0.0", "@graphql-tools/utils@^10.0.13", "@graphql-tools/utils@^10.1.0", "@graphql-tools/utils@^10.1.1", "@graphql-tools/utils@^10.2.1", "@graphql-tools/utils@^10.2.3", "@graphql-tools/utils@^10.3.0", "@graphql-tools/utils@^10.3.2":
+  version "10.3.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.3.2.tgz#dfdddf10438ccdb08a5b2c814726a667ddae1596"
+  integrity sha512-iaqOHS4f90KNADBHqVsRBjKpM6iSvsUg1q5GhWMK03loYLaDzftrEwcsl0OkSSnRhJvAsT7q4q3r3YzRoV0v1g==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     cross-inspect "1.0.0"
