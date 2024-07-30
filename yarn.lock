@@ -1433,9 +1433,9 @@
     value-or-promise "^1.0.11"
 
 "@graphql-tools/stitching-directives@^3.0.0":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.0.2.tgz#5e48d70c8f10575ba6ae8bc019b477db3788e8eb"
-  integrity sha512-xZ/gU+p3YKm/asvxiseuyDIS6NL1+LKMhoafqSadxxweDsskSpPrWZfOWGlblVq/w7iikxQhRF2b8+VVgF6Myg==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.1.1.tgz#22f64d0d657cb82ca254968b371644cd2fad354d"
+  integrity sha512-PfKepkkItECm/jUACwlk0DBUD/dygs01uQhTrQf4gvNohxZS+j05yYJ5HjtKs2+B3Prg1UPis0DjoHOMt+jN5g==
   dependencies:
     "@graphql-tools/delegate" "^10.0.4"
     "@graphql-tools/utils" "^10.0.13"
