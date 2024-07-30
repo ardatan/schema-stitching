@@ -1372,9 +1372,9 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/federation@^2.0.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.1.tgz#49b5d8803839640b0e57bb84a6d5d73ebf09a4c0"
-  integrity sha512-b97stMDjAtNLlGaK9o40Wry1zRPOa1+e9RfbTIdR4/5970YR9Y2UaBic1fvqxpYljAuD9kUt4ieZ0x/x/j8KGA==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.2.tgz#3f7e848e4b768fb4fe50d3de954dea6b735247bf"
+  integrity sha512-66/B5mJE0bsDeKW8kYPUgLlN2bwaytrj1Yb4JBqJICPo1ql4Z6fcor0JWpyj95bwEyabvreENBg/qjSnPIubDQ==
   dependencies:
     "@graphql-tools/delegate" "^10.0.16"
     "@graphql-tools/executor-http" "^1.1.5"
@@ -1433,9 +1433,9 @@
     value-or-promise "^1.0.11"
 
 "@graphql-tools/stitching-directives@^3.0.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.1.1.tgz#22f64d0d657cb82ca254968b371644cd2fad354d"
-  integrity sha512-PfKepkkItECm/jUACwlk0DBUD/dygs01uQhTrQf4gvNohxZS+j05yYJ5HjtKs2+B3Prg1UPis0DjoHOMt+jN5g==
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.1.2.tgz#5b911f2991f49f0e21b99e6237b73ebcfaf86165"
+  integrity sha512-c+udtRV+9IROJhbanoWH15Esb65E9VK5/VTVkV7XbhTpK+Id2X9qAUMCYTxHjexAOnZ8H+hGQpfNAHKdZ4F1QQ==
   dependencies:
     "@graphql-tools/delegate" "^10.0.4"
     "@graphql-tools/utils" "^10.0.13"
