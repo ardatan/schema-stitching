@@ -1325,10 +1325,10 @@
     tslib "^2.4.0"
     value-or-promise "^1.0.12"
 
-"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.0.11", "@graphql-tools/delegate@^10.0.12", "@graphql-tools/delegate@^10.0.16", "@graphql-tools/delegate@^10.0.4":
-  version "10.0.16"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.16.tgz#c91ed4fcf5f7f1e19040e6ddca452d03f5117647"
-  integrity sha512-no4jIdHsTrHzR6Vv1YlwbxFeBnHBwPhBpemvLVnQ7CHhAviwIUWkCOHs4Uyzc5GYuHFyKJOZEXqhOz+da3hR3A==
+"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.0.11", "@graphql-tools/delegate@^10.0.12", "@graphql-tools/delegate@^10.0.17", "@graphql-tools/delegate@^10.0.4":
+  version "10.0.17"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.0.17.tgz#25f9177c54378c723078f363a83b0bde7ea4a814"
+  integrity sha512-YIJleGaSjYnqIcJ5uoBWVBBE3eP5h3CvEM9PiANHtRUBmoNBKdYstkrS3IqBSlgKLsboD5CTYfmXDVQAPfH+mw==
   dependencies:
     "@graphql-tools/batch-execute" "^9.0.4"
     "@graphql-tools/executor" "^1.3.0"
@@ -1374,11 +1374,11 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/federation@^2.0.0":
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.3.tgz#64d0f896ee2b19eddab1ee81219acdc316342c3a"
-  integrity sha512-dE0wO3huYDmNhA9ib1QTy77eDPvko44yEeDb4LpZ7+sZNnU8qCvWs0NT2lFkOya99LUokL13tx7lWDYP+yVk/w==
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.4.tgz#89f7839e4ad23bdf819798c5c7fa790fa3d4a6b6"
+  integrity sha512-u0Rso93VeeMd3SYL/ZL7RrrmBZfD1zC9n6E3RNAqNaTfYcT4JfWnec+sDjzSBv+8CRBsnyLfPu+kBaT5pjyxqg==
   dependencies:
-    "@graphql-tools/delegate" "^10.0.16"
+    "@graphql-tools/delegate" "^10.0.17"
     "@graphql-tools/executor-http" "^1.1.5"
     "@graphql-tools/merge" "^9.0.3"
     "@graphql-tools/schema" "^10.0.4"
