@@ -24,7 +24,7 @@
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.0",
-    "wait-on": "^7.0.1"
+    "wait-on": "^8.0.0"
   },
   "devDependencies": {
     "kill-port-process": "3.2.1"
