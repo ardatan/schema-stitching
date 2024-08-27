@@ -45,10 +45,10 @@
     tslib "^2.3.0"
     zen-observable-ts "^1.2.5"
 
-"@apollo/federation-internals@2.8.5":
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.8.5.tgz#bcb92a94c8c048125491cbf93134a928c794aaf5"
-  integrity sha512-rTDkJmNybJm5mkGKE31I54OjrE3FpocmsZns9Mb2SSJNuDkzv+uxHA4POW9RB6KsRLGFyEkJ/l5WzU1exxmHjA==
+"@apollo/federation-internals@2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.9.0.tgz#b655291e363c78a0400896ea5a1963d3e64e6932"
+  integrity sha512-zvz0nJpfblxAWzphlFtyqUswidIWOf7Vcj4YuPaUlXpOG7VZ0fWyTupPQsj0HeTkAAy3FzCItVHLzn4+I2H/YA==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -56,12 +56,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.8.5.tgz#565fda470bf43a1cefff0da2f95f737aff9de26b"
-  integrity sha512-JYe3qblmXsSOh0mZj6jSgnBDxLcugCoFPDkEGec0J3szGjvJ0ljKQPwH78DkeFaKoFlhVagtZHiLxxfMtwXAqw==
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.9.0.tgz#e4b3518341f529f1d8d1a4f839c6f3505286f7b1"
+  integrity sha512-FYAOMxMWbAQ/2U/+QYgznBdsyjPiH87wSSJqn6n1dQ80GWIWenZYd49iWy9/y/Z/RTYsA2o8ueAkgHH6AU4psA==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.8.5"
+    "@apollo/federation-internals" "2.9.0"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.24.7":
   version "7.24.7"
