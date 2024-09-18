@@ -45,10 +45,10 @@
     tslib "^2.3.0"
     zen-observable-ts "^1.2.5"
 
-"@apollo/federation-internals@2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.9.0.tgz#b655291e363c78a0400896ea5a1963d3e64e6932"
-  integrity sha512-zvz0nJpfblxAWzphlFtyqUswidIWOf7Vcj4YuPaUlXpOG7VZ0fWyTupPQsj0HeTkAAy3FzCItVHLzn4+I2H/YA==
+"@apollo/federation-internals@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.9.1.tgz#99111fa0b7a32cd1b8e002429c3050fda3447b53"
+  integrity sha512-UWTInasu/equZa95jJixeRgstK8cf+mh6MG23eoIpNHpekG26/HBGI+mMAYCWO8969k+IiyN0RPcRlhIVYy86A==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -56,12 +56,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.9.0.tgz#e4b3518341f529f1d8d1a4f839c6f3505286f7b1"
-  integrity sha512-FYAOMxMWbAQ/2U/+QYgznBdsyjPiH87wSSJqn6n1dQ80GWIWenZYd49iWy9/y/Z/RTYsA2o8ueAkgHH6AU4psA==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.9.1.tgz#8056bf5d99ca8cec5bdc6bb366c1d4b11963dea4"
+  integrity sha512-0LeRB/V0w+nd1OPH4If5dY8C7fi0yWz4GQghBnaoYXussEES9ciPASgJdlMfNflxFPli6RNONurABban9wDGvA==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.9.0"
+    "@apollo/federation-internals" "2.9.1"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.24.7":
   version "7.24.7"
@@ -7571,9 +7571,9 @@ node-releases@^2.0.18:
   integrity sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==
 
 nodemon@^3.0.0:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.4.tgz#c34dcd8eb46a05723ccde60cbdd25addcc8725e4"
-  integrity sha512-wjPBbFhtpJwmIeY2yP7QF+UKzPfltVGtfce1g/bB15/8vCGZj8uxD62b/b9M9/WVgme0NZudpownKN+c0plXlQ==
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.5.tgz#43d2a07d88a3778a3ba35b0dbdf505dcc5b3b5ad"
+  integrity sha512-V5UtfYc7hjFD4SI3EzD5TR8ChAHEZ+Ns7Z5fBk8fAbTVAj+q3G+w7sHJrHxXBkVn6ApLVTljau8wfHwqmGUjMw==
   dependencies:
     chokidar "^3.5.2"
     debug "^4"
