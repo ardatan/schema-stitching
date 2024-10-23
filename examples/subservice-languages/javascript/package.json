@@ -20,7 +20,7 @@
     "@graphql-tools/utils": "^10.0.0",
     "@types/node": "^20.0.0",
     "class-validator": "^0.14.0",
-    "concurrently": "^8.0.0",
+    "concurrently": "^9.0.0",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.22.2",
     "graphql-yoga": "^5.0.0",
