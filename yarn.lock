@@ -1367,14 +1367,14 @@
     tslib "^2.4.0"
     ws "^8.17.1"
 
-"@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.1.7.tgz#7cdb673590810e53581d31020e2fe71a8f7ce19c"
-  integrity sha512-iWTE1MtCW26jxs5DeXsUNPkIFmVWEhioJx0wcDSacJ0onXjyMalfae5SgsuwHMQCVuvvUtQUgb8a9hmPhQ0y+g==
+"@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.1.8.tgz#369519440682b973d0496b721b262e5392ce1ec7"
+  integrity sha512-kxWabyvzg2UMkti7hXXDfPKXCyJAKz+uQQrnOQxyDl5gOsnEDIsKo0pwWc6nIE/WFr72IeqqEkIdxUgoc57cog==
   dependencies:
     "@graphql-tools/utils" "^10.5.5"
     "@repeaterjs/repeater" "^3.0.4"
-    "@whatwg-node/fetch" "^0.9.0"
+    "@whatwg-node/fetch" "^0.10.0"
     extract-files "^11.0.0"
     meros "^1.2.1"
     tslib "^2.4.0"
@@ -1392,18 +1392,18 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/federation@^2.0.0":
-  version "2.2.25"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.25.tgz#cd5a2dafb8d3aa93db9a699326a7d91cd81c3f65"
-  integrity sha512-bhvl4rdSzs83MKnPwHRvNaRmp+TSCike8rj1CYOsliWLL/z5Ly32eiBPiug8a9+w2geNBMhvYiqX8YnHhLic7g==
+  version "2.2.26"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-2.2.26.tgz#b2c17c01a2398dca77d2f5082ebb0b2654923d3d"
+  integrity sha512-VpDVUIzmBh7jD/C+D7FR601NFPd3reLvCIk9pZaLdYYL9mikPfsMOKfAMMaSMesedC7H8q0mWRJFIlSvj1JFgA==
   dependencies:
     "@graphql-tools/delegate" "^10.1.1"
-    "@graphql-tools/executor-http" "^1.1.7"
+    "@graphql-tools/executor-http" "^1.1.8"
     "@graphql-tools/merge" "^9.0.8"
     "@graphql-tools/schema" "^10.0.7"
     "@graphql-tools/stitch" "^9.3.3"
     "@graphql-tools/utils" "^10.5.5"
     "@graphql-tools/wrap" "^10.0.15"
-    "@whatwg-node/fetch" "^0.9.17"
+    "@whatwg-node/fetch" "^0.10.0"
     tslib "^2.4.0"
     value-or-promise "^1.0.12"
   optionalDependencies:
@@ -2882,7 +2882,7 @@
     "@whatwg-node/node-fetch" "^0.7.0"
     urlpattern-polyfill "^10.0.0"
 
-"@whatwg-node/fetch@^0.9.0", "@whatwg-node/fetch@^0.9.17", "@whatwg-node/fetch@^0.9.22":
+"@whatwg-node/fetch@^0.9.22":
   version "0.9.23"
   resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.9.23.tgz#eeb953f5fbf6b83ba944cc71a0eef59d8164b01d"
   integrity sha512-7xlqWel9JsmxahJnYVUj/LLxWcnA93DR4c9xlw3U814jWTiYalryiH1qToik1hOxweKKRLi4haXHM5ycRksPBA==
