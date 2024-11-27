@@ -1339,7 +1339,7 @@
     dataloader "^2.2.2"
     tslib "^2.4.0"
 
-"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.2.0", "@graphql-tools/delegate@^10.2.1":
+"@graphql-tools/delegate@^10.0.0", "@graphql-tools/delegate@^10.2.1":
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-10.2.1.tgz#7685129bc6d4893a20edce0d48885ae848a203ef"
   integrity sha512-irwV4Zmmn09biiwbvm9bdKxuQMgpyt1bzJ0Jq9CaGPOVX+ZBTnIkdbdT64Vc++vbhvpCNlvTGK3EymO2wAw1QQ==
@@ -1450,12 +1450,12 @@
     tslib "^2.4.0"
 
 "@graphql-tools/stitching-directives@^3.0.0":
-  version "3.1.15"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.1.15.tgz#dd45511805111b9f3320e52e5ed66c18f35f19ed"
-  integrity sha512-iw0kdtABMK0yVYmadH+fgqCjN+g2SDrvZuzLjke7XMRjqoscYjOM50RABjNAgDf8MDLONMFvDsAF/q2ylZf/ww==
+  version "3.1.16"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitching-directives/-/stitching-directives-3.1.16.tgz#9a8fbc477096f934bac01e3c0966c8db58a6a1d1"
+  integrity sha512-MFY9mLLyVXSup+rywfz4wAT5dkb4S96nQ2i7VxCTdgzK1ClNxRykqZJ5GhYNYYxCRfvaxKkZ0jsvPYYHdmKKTw==
   dependencies:
-    "@graphql-tools/delegate" "^10.2.0"
-    "@graphql-tools/utils" "^10.5.6"
+    "@graphql-tools/delegate" "^10.2.1"
+    "@graphql-tools/utils" "^10.6.0"
     tslib "^2.4.0"
 
 "@graphql-tools/utils@^10.0.0", "@graphql-tools/utils@^10.3.2", "@graphql-tools/utils@^10.5.6", "@graphql-tools/utils@^10.6.0":
