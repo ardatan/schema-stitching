@@ -34,7 +34,6 @@
   "scripts": {
     "ci:lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts . --output-file eslint_report.json --format json",
     "lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts .",
-    "postinstall": "husky install",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
     "test": "jest --runInBand --forceExit"
