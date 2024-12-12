@@ -1345,10 +1345,10 @@
     tslib "^2.8.1"
     ws "^8.17.1"
 
-"@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.1.14":
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.1.14.tgz#268816cce1f9b2d2190935586e8eebd0ddc9f5b4"
-  integrity sha512-y/j+fOTgkYSEDzLQ7xMErSfg6kgejVhG4yieKy1PXBaiDNN8t9MOUxEJDDtRDr/pFnvjTtm78UFo04I7S+m7BA==
+"@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.2.0.tgz#5acea6637f31bbe94438a1f4346374ad84bb2214"
+  integrity sha512-/2GZ+MOSoIEhTMQNck4PCLkNWRpwMvum6fNVIaxhJw/HWrpoLwGVGWWShIlExzWrOGlC5mZdxYgm9uFugmv8Tg==
   dependencies:
     "@graphql-tools/utils" "^10.6.2"
     "@repeaterjs/repeater" "^3.0.4"
@@ -1371,12 +1371,12 @@
     value-or-promise "^1.0.12"
 
 "@graphql-tools/federation@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-3.0.0.tgz#cd00d0f6b670cc312c3eb5c04447d9441690c12e"
-  integrity sha512-MruqCgoJIMX3S8SrUkis0v92kWOM+1QnAl2BOYOSQvSiQ0mXiu4SX0DxRgvatIOC+bWN8fVAl7Vc1VJrzl411A==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-3.0.1.tgz#172129a96cc1ebe5fd23de0bc693cd0db3b54644"
+  integrity sha512-mBF7x3/k7w0kUg9TQ1h2l7dIs8Yj1dARVeWCbcuqXIKWT0SpMbSbPbPLWDfVXD6eTA/J8UAZxn2lnmBzFeAsFA==
   dependencies:
     "@graphql-tools/delegate" "^10.2.7"
-    "@graphql-tools/executor-http" "^1.1.14"
+    "@graphql-tools/executor-http" "^1.2.0"
     "@graphql-tools/merge" "^9.0.12"
     "@graphql-tools/schema" "^10.0.11"
     "@graphql-tools/stitch" "^9.4.9"
