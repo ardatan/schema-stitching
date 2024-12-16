@@ -4,5 +4,5 @@ source 'https://rubygems.org'
 
 gem 'graphql', '~> 1.10'
 gem 'graphql-schema_directives', '~> 0.0'
-gem 'rack', '~> 2.0'
+gem 'rack', '~> 3.0'
 gem 'webrick', '~> 1.9.1'
