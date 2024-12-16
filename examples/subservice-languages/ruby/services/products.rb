@@ -4,6 +4,8 @@ require_relative '../lib/graphql_server'
 
 schema = nil
 type_defs = %(
+  directive @key(selectionSet: String) on OBJECT
+  directive @merge(keyField: String) on FIELD_DEFINITION
   type Product @key(selectionSet: "{ upc }") {
     upc: String!
     name: String

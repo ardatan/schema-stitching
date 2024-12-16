@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-require 'webrick'
 require 'rack'
 require 'json'
 
 class GraphQLServer
   def self.run(schema, options = {})
-    Rack::Handler::WEBrick.run(GraphQLServer.new(schema), options)
+    Rack::Handler::WEBrick.run(GraphQLServer.new(schema), **options)
   end
 
   attr_reader :schema
