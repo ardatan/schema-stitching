@@ -7,6 +7,7 @@ GEM
     graphql-schema_directives (0.0.2)
       graphql (~> 1.9)
     rack (2.2.10)
+    webrick (1.9.1)
 
 PLATFORMS
   x86_64-darwin-19
@@ -16,6 +17,7 @@ DEPENDENCIES
   graphql (~> 1.10)
   graphql-schema_directives (~> 0.0)
   rack (~> 2.0)
+  webrick (~> 1.9.1)
 
 BUNDLED WITH
    2.2.3
