@@ -5,6 +5,7 @@ import { defineConfig, Giscus, PRODUCTS, useTheme } from '@theguild/components';
 export default defineConfig({
   description: PRODUCTS.STITCHING.title,
   docsRepositoryBase: 'https://github.com/ardatan/schema-stitching/tree/master/website',
+  // @ts-expect-error - Types don't match
   logo: PRODUCTS.STITCHING.logo({ className: 'w-9' }),
   main({ children }) {
     const { resolvedTheme } = useTheme();
