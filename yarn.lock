@@ -1416,9 +1416,9 @@
     tslib "^2.4.0"
 
 "@graphql-tools/mock@^9.0.0":
-  version "9.0.14"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-9.0.14.tgz#56c71311c5402a3d88a342ccc597e6a3e661ef13"
-  integrity sha512-7fceq7YwPhYCTKdezqnXyS/+0Pib+Qtj5utRI+8Iv377HNDlE80jDR/m0VQ2zQ5BDXWBa+Zv/xEAirosnfrp+A==
+  version "9.0.15"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-9.0.15.tgz#dbd4626cb18b57f4fd05852ca04bbc09d5a21d75"
+  integrity sha512-wLm6qsesHwY9rAKsg1WxVcMG8smMblwlGGmWSOL9Hfs39QHdkZ8Gsg0paclYVxSMuOkFT8npNU28QZ2B0l+prA==
   dependencies:
     "@graphql-tools/schema" "^10.0.16"
     "@graphql-tools/utils" "^10.7.2"
