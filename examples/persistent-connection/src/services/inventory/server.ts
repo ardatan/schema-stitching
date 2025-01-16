@@ -1,6 +1,6 @@
 import { createServer } from 'http';
 // yarn add ws
-import { useServer } from 'graphql-ws/lib/use/ws';
+import { useServer } from 'graphql-ws/use/ws';
 import { createSchema } from 'graphql-yoga';
 import { WebSocketServer } from 'ws';
 import { stitchingDirectives } from '@graphql-tools/stitching-directives';
