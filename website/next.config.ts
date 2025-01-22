@@ -2,7 +2,7 @@ import { withGuildDocs } from '@theguild/components/next.config';
 
 export default withGuildDocs({
   output: 'export',
-  redirects: () =>
+  redirects: async () =>
     Object.entries({
       '/handbook/other-integrations/federation-services':
         '/handbook/other-integrations/federation-to-stitching-sdl',
@@ -11,4 +11,7 @@ export default withGuildDocs({
       permanent: true,
       source: from,
     })),
+  env: {
+    SITE_URL: 'https://the-guild.dev/graphql/stitching',
+  },
 });
