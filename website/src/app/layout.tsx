@@ -57,7 +57,6 @@ const RootLayout: FC<{
       }}
       pageMap={await getPageMap()}
       navbarProps={{
-        navLinks: [{ href: '/changelog', children: 'Changelog' }],
         developerMenu: [
           {
             href: '/docs',
