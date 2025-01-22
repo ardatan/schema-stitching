@@ -3,8 +3,8 @@ import {
   generateStaticParamsFor,
   importPage,
 } from '@theguild/components/pages';
-import { Giscus } from '../../../giscus';
-import { useMDXComponents } from '../../../mdx-components';
+import { Giscus } from '../../giscus';
+import { useMDXComponents } from '../../mdx-components';
 
 export const generateStaticParams = generateStaticParamsFor('mdxPath');
 
