@@ -5364,9 +5364,9 @@ graphql-query-complexity@^0.12.0:
     lodash.get "^4.4.2"
 
 graphql-scalars@^1.22.2:
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.24.0.tgz#4153d310179f5cfd33c749ba4a77a1fb450d717d"
-  integrity sha512-olbFN39m0XsHHESACUdd7jWU/lGxMMS1B7NZ8XqpqhKZrjBxzeGYAnQ4Ax//huYds771wb7gCznA+65QDuUa+g==
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.24.1.tgz#fb9d1a900c6877b6de043700ed2e610211dc212f"
+  integrity sha512-3L553TMPh3YpHQM4x9G4tXcyD+AX8QQOYA6tUn1nrNiWEXE0JfAnWdjoe3WGxRuGjnZrzvHDz62q8S+sSGXXwA==
   dependencies:
     tslib "^2.5.0"
 
