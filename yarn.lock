@@ -5376,9 +5376,9 @@ graphql-ws@^5.14.0:
   integrity sha512-E1uccsZxt/96jH/OwmLPuXMACILs76pKF2i3W861LpKBCYtGIyPQGtWLuBLkND4ox1KHns70e83PS4te50nvPQ==
 
 graphql-ws@^6.0.0:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.0.2.tgz#5ea5b21cdb155cc40d1564b0d51568fccb9d90b2"
-  integrity sha512-9fzn1gacbVA2h8JWQhStEfHiGnrF0lJJJLdAJWvwBVEw8h6khOrQy/WO1cXopLGgnzls4gIeMj+csZVTnsDzrw==
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.0.3.tgz#8f20ee60f900650411be476f507bda5ff9b0844e"
+  integrity sha512-mvLRHihMg0llF74vo16063HufZHMGaiMxAjzyj0ARYueIikGzj1khlbPNl7vUc2h9rxbq9pGpQYbqypgq1fAXA==
 
 graphql-yoga@^5.0.0:
   version "5.10.11"
