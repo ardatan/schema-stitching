@@ -16,6 +16,9 @@ exports[`Public and private APIs public API should not allow to query internal f
 {
   "errors": [
     {
+      "extensions": {
+        "code": "GRAPHQL_VALIDATION_FAILED",
+      },
       "locations": [
         {
           "column": 13,
