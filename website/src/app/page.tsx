@@ -25,7 +25,7 @@ export default function IndexPage() {
       <Hero
         heading="Schema Stitching"
         text="Automatically stitch multiple schemas together into one larger API in a simple, fast and powerful way."
-        logo={<StitchingLogo />}
+        top={<StitchingLogo />}
         checkmarks={['Fully open source', 'No vendor lock']}
         // Original logo has some issues with overflowing <path> elements
         className="[&_.-z-10>svg]:fill-[#B0CBD1]"
