@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.2.0)
-    graphql (1.13.23)
+    graphql (1.13.24)
       base64
     graphql-schema_directives (0.0.2)
       graphql (~> 1.9)
@@ -14,7 +14,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  graphql (~> 1.10)
+  graphql (~> 1.13)
   graphql-schema_directives (~> 0.0)
   rack (~> 2.2)
   webrick (~> 1.9.1)
