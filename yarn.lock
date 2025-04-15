@@ -1431,7 +1431,7 @@
     tslib "^2.8.1"
     ws "^8.17.1"
 
-"@graphql-tools/executor-http@^1.0.0", "@graphql-tools/executor-http@^1.3.3":
+"@graphql-tools/executor-http@^1.0.0":
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-1.3.3.tgz#057de79ebc90edbd242259cccb1268d37ee6c579"
   integrity sha512-LIy+l08/Ivl8f8sMiHW2ebyck59JzyzO/yF9SFS4NH6MJZUezA1xThUXCDIKhHiD56h/gPojbkpcFvM2CbNE7A==
@@ -1442,6 +1442,21 @@
     "@repeaterjs/repeater" "^3.0.4"
     "@whatwg-node/disposablestack" "^0.0.6"
     "@whatwg-node/fetch" "^0.10.4"
+    "@whatwg-node/promise-helpers" "^1.3.0"
+    meros "^1.2.1"
+    tslib "^2.8.1"
+
+"@graphql-tools/executor-http@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-2.0.0.tgz#75104ea81606f6c54977ecccb044b54aab3d4c6e"
+  integrity sha512-g+BKap50eqVM3gRkgdnqfEathNmKHox7wgEeioM2FU0p0TvPQve6CFcXIlK6CPoBcPEXB01WbZ/sRL62WGYctg==
+  dependencies:
+    "@graphql-hive/signal" "^1.0.0"
+    "@graphql-tools/executor-common" "^0.0.4"
+    "@graphql-tools/utils" "^10.8.1"
+    "@repeaterjs/repeater" "^3.0.4"
+    "@whatwg-node/disposablestack" "^0.0.6"
+    "@whatwg-node/fetch" "^0.10.6"
     "@whatwg-node/promise-helpers" "^1.3.0"
     meros "^1.2.1"
     tslib "^2.8.1"
@@ -1459,13 +1474,13 @@
     tslib "^2.4.0"
 
 "@graphql-tools/federation@^3.0.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-3.2.0.tgz#727dd3b76bcf34b12cfd7af7c450ff90c2d568b4"
-  integrity sha512-UAJ4sME1+7AGkTuCiLTyezNCFmq/poSmvoAoDNbLKqRuSMfxzVnsbyRLOtfQyjo+6QLhz5KwdbOgCcEUYjc11Q==
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-3.2.1.tgz#69cc30d6741a96c324f2ab86cdf8425ab11f7f5b"
+  integrity sha512-ZXSvDCBXdp93h+nBx5UG+5KyXuzLcm0SOddI+bDdWkDR3QEfopjKU6hUhT0bs5kZlYP2eln4321dblCtiH0Ahw==
   dependencies:
     "@graphql-tools/delegate" "^10.2.17"
     "@graphql-tools/executor" "^1.4.7"
-    "@graphql-tools/executor-http" "^1.3.3"
+    "@graphql-tools/executor-http" "^2.0.0"
     "@graphql-tools/merge" "^9.0.12"
     "@graphql-tools/schema" "^10.0.11"
     "@graphql-tools/stitch" "^9.4.22"
@@ -1474,7 +1489,7 @@
     "@graphql-yoga/typed-event-target" "^3.0.1"
     "@whatwg-node/disposablestack" "^0.0.6"
     "@whatwg-node/events" "^0.1.2"
-    "@whatwg-node/fetch" "^0.10.4"
+    "@whatwg-node/fetch" "^0.10.6"
     "@whatwg-node/promise-helpers" "^1.3.0"
     tslib "^2.8.1"
 
@@ -3395,7 +3410,7 @@
   dependencies:
     tslib "^2.6.3"
 
-"@whatwg-node/fetch@^0.10.0", "@whatwg-node/fetch@^0.10.4", "@whatwg-node/fetch@^0.10.5":
+"@whatwg-node/fetch@^0.10.0", "@whatwg-node/fetch@^0.10.4", "@whatwg-node/fetch@^0.10.5", "@whatwg-node/fetch@^0.10.6":
   version "0.10.6"
   resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.10.6.tgz#ce2fc35e45558874ad2488160fc8102481c935e4"
   integrity sha512-6uzhO2aQ757p3bSHcemA8C4pqEXuyBqyGAM7cYpO0c6/igRMV9As9XL0W12h5EPYMclgr7FgjmbVQBoWEdJ/yA==
