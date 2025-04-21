@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@graphql-tools/delegate": "^10.0.0",
-    "@graphql-tools/executor-http": "^1.0.0",
+    "@graphql-tools/executor-http": "^2.0.0",
     "@graphql-tools/stitch": "^9.0.0",
     "@graphql-tools/wrap": "^10.0.0",
     "@types/mime-types": "^2.1.1",
