@@ -30,13 +30,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Dependencies
+        run: npm install --include=optional --force --no-audit
+
       - name: Prettier Check
         run: npm run prettier:check
   lint:
     name: lint
     uses: the-guild-org/shared-config/.github/workflows/lint.yml@main
     with:
-      script: npm run ci:lint
+      script: npm i --force && npm run ci:lint
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
   unit:
@@ -55,6 +58,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Install Dependencies
+        run: npm install --include=optional --force --no-audit
 
       - name: Cache Jest
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
