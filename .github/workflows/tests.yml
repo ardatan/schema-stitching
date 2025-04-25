@@ -29,7 +29,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Prettier Check
         run: npm run prettier:check
@@ -56,7 +55,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Cache Jest
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4

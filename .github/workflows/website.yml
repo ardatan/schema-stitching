@@ -28,7 +28,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
