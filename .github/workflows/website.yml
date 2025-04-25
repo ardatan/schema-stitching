@@ -30,6 +30,9 @@ jobs:
       - name: add libvips for sharp
         run: sudo apt-get install libvips libvips-dev
 
+      - name: delete lock file
+        run: rm -rf yarn.lock
+
       - name: install dependencies
         run: yarn install --force
 
