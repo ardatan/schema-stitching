@@ -51,11 +51,8 @@ jobs:
         with:
           ruby-version: 2.7
 
-      - name: Setup apt-get
-        run: sudo apt-get update --fix-missing
-
-      - name: add libvips for sharp
-        run: sudo apt-get install libvips libvips-dev
+      - name: Install dependencies
+        run: yarn install --force
 
       - name: Setup env
         uses: the-guild-org/shared-config/setup@main
