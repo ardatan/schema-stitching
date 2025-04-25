@@ -9,7 +9,7 @@ on:
       - master
 
 concurrency:
-  group: 'website-${{ github.ref }}'
+  group: 'test-${{ github.ref }}'
   cancel-in-progress: true
 
 jobs:
@@ -24,14 +24,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install dependencies
+      - name: Setup apt-get
+        run: sudo apt-get update --fix-missing
+
+      - name: add libvips for sharp
+        run: sudo apt-get install libvips libvips-dev
+
+      - name: install dependencies
         run: yarn install --force
 
-      - uses: the-guild-org/shared-config/setup@main
-        name: setup env
-        with:
-          nodeVersion: 18
-          packageManager: yarn
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
         env:

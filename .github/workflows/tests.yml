@@ -51,13 +51,14 @@ jobs:
         with:
           ruby-version: 2.7
 
-      - name: Install dependencies
-        run: yarn install --force
+      - name: Setup apt-get
+        run: sudo apt-get update --fix-missing
 
-      - name: Setup env
-        uses: the-guild-org/shared-config/setup@main
-        with:
-          nodeVersion: 18
+      - name: add libvips for sharp
+        run: sudo apt-get install libvips libvips-dev
+
+      - name: install dependencies
+        run: yarn install --force
 
       - name: Cache Jest
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
