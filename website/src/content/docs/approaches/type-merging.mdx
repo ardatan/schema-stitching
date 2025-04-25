@@ -184,10 +184,10 @@ that gets resolved as the local `User` type.
 ### Null Records
 
 The above example will always resolve a stubbed `User` record for _any_ requested ID. For example,
-requesting ID `7` (which has no associated posts) would return:
+requesting ID `8` (which has no associated posts) would return:
 
 ```json
-{ "id": "7", "posts": [] }
+{ "id": "8", "posts": [] }
 ```
 
 This fabricated record fulfills the not-null requirement of the `posts:[Post]!` field. However, it
