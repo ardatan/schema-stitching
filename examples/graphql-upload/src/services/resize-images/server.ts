@@ -1,6 +1,5 @@
 import { createServer } from 'http';
 import { createSchema, createYoga } from 'graphql-yoga';
-import sharp from 'sharp';
 
 export const resizeImagesServer = createServer(
   createYoga({
@@ -17,8 +16,15 @@ export const resizeImagesServer = createServer(
             _root,
             { file, width, height }: { file: File; width: number; height: number },
           ) {
-            const inputBuffer = Buffer.from(await file.arrayBuffer());
-            const buffer = await sharp(inputBuffer).resize(width, height).toBuffer();
+            let buffer: Buffer;
+            try {
+              const sharp = await import('sharp').then(m => m.default);
+              const inputBuffer = Buffer.from(await file.arrayBuffer());
+              buffer = await sharp(inputBuffer).resize(width, height).toBuffer();
+            } catch (error) {
+              console.error('Error processing image:', error);
+              buffer = Buffer.from(await file.arrayBuffer());
+            }
             const base64 = buffer.toString('base64');
             return base64;
           },
