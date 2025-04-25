@@ -6,7 +6,12 @@ env:
   CI: true
 
 on:
-  pull_request: {}
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   prettier-check:
@@ -41,6 +46,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
+
+      - name: Setup apt-get
+        run: sudo apt-get update --fix-missing
 
       - name: add libvips for sharp
         run: sudo apt-get install libvips libvips-dev
