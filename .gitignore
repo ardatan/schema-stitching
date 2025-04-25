@@ -72,6 +72,7 @@ test-results/
 junit.xml
 
 package-lock.json
+yarn.lock
 website/public/_redirects
 website/public/sitemap.xml
 website/out/

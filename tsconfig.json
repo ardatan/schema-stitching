@@ -16,8 +16,6 @@
     "declaration": true,
     "downlevelIteration": true,
 
-    "suppressImplicitAnyIndexErrors": true,
-
     "skipLibCheck": true,
 
     "strict": true,

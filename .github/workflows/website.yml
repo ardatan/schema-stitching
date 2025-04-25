@@ -24,17 +24,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup apt-get
-        run: sudo apt-get update --fix-missing
-
-      - name: add libvips for sharp
-        run: sudo apt-get install libvips libvips-dev
-
-      - name: delete lock file
-        run: rm -rf yarn.lock
-
-      - name: install dependencies
-        run: yarn install --force
+      - name: Setup env
+        uses: the-guild-org/shared-config/setup@main
+        with:
+          nodeVersion: 20
 
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
