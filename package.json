@@ -71,6 +71,7 @@
     "cookie": "1.0.2",
     "cross-spawn": "7.0.6",
     "esbuild": "^0.25.0",
+    "estree-util-value-to-estree": "^3.3.3",
     "graphql": "16.10.0"
   },
   "lint-staged": {
