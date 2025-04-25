@@ -9,7 +9,7 @@ on:
       - master
 
 concurrency:
-  group: 'test-${{ github.ref }}'
+  group: 'website-${{ github.ref }}'
   cancel-in-progress: true
 
 jobs:
