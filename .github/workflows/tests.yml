@@ -13,6 +13,10 @@ on:
     branches:
       - master
 
+concurrency:
+  group: 'test-${{ github.ref }}'
+  cancel-in-progress: true
+
 jobs:
   prettier-check:
     name: prettier
