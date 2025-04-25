@@ -24,10 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup env
-        uses: the-guild-org/shared-config/setup@main
+      - name: Setup Node
+        uses: actions/setup-node@a0f1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8g9 # v4
         with:
-          nodeVersion: 20
+          node-version: 20
+          cache: 'npm'
 
       - uses: the-guild-org/shared-config/website-cf@main
         name: build and deploy website
