@@ -20,6 +20,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup apt-get
+        run: sudo apt-get update --fix-missing
+
       - name: add libvips for sharp
         run: sudo apt-get install libvips libvips-dev
 
