@@ -31,12 +31,12 @@ jobs:
           nodeVersion: 20
 
       - name: Prettier Check
-        run: yarn prettier:check
+        run: npm run prettier:check
   lint:
     name: lint
     uses: the-guild-org/shared-config/.github/workflows/lint.yml@main
     with:
-      script: yarn ci:lint
+      script: npm run ci:lint
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
   unit:
@@ -60,9 +60,9 @@ jobs:
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
         with:
           path: .cache/jest
-          key: ${{ runner.os }}-jest-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-jest-${{ hashFiles('package.json') }}
           restore-keys: |
             ${{ runner.os }}-jest-
 
       - name: Test
-        run: yarn test --ci
+        run: npm run test --ci

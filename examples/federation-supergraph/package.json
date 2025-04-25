@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-supergraph": "rover supergraph compose --config ./src/supergraph.yaml > ./src/supergraph.graphql",
-    "start": "concurrently \"yarn:start-*\"",
+    "start": "concurrently \"npm run start-*\"",
     "start-accounts": "ts-node-dev src/services/accounts.ts",
     "start-gateway": "ts-node-dev src/index.ts",
     "start-inventory": "ts-node-dev src/services/inventory.ts",

@@ -2,7 +2,7 @@
   "name": "persistent-connection",
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"yarn:start-*\"",
+    "start": "concurrently \"npm run start-*\"",
     "start-gateway": "ts-node-dev src/index.ts",
     "start-inventory": "ts-node-dev src/services/inventory/index.ts",
     "start-products": "ts-node-dev src/services/products/index.ts"

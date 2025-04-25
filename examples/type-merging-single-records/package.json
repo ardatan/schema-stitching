@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": "true",
   "scripts": {
-    "start": "concurrently \"yarn:start-*\"",
+    "start": "concurrently \"npm run start-*\"",
     "start-gateway": "ts-node-dev src/index.ts",
     "start-manufacturers": "ts-node-dev services/manufacturers/index.ts",
     "start-products": "ts-node-dev services/products/index.ts",

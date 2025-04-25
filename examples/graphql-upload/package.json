@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"yarn:start-*\"",
+    "start": "concurrently \"npm run start-*\"",
     "start-gateway": "ts-node-dev src/index.ts",
     "start-resize-images": "ts-node-dev src/services/resize-images/index.ts",
     "start-upload-files": "ts-node-dev src/services/upload-files/index.ts"

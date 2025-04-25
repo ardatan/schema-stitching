@@ -43,5 +43,5 @@ jobs:
           projectName: schema-stitching
           prId: ${{ github.event.pull_request.number }}
           websiteDirectory: ./
-          buildScript: cd website && yarn build
+          buildScript: cd website && npm run build
           artifactDir: website/out
