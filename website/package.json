@@ -8,14 +8,15 @@
     "dev": "next --turbopack",
     "pagefind": "pagefind --site .next/server/app --output-path out/_pagefind",
     "postbuild": "next-sitemap && yarn pagefind",
-    "start": "next start"
+    "start": "echo 'this should not be ran in production' && serve out"
   },
   "dependencies": {
     "@theguild/components": "^9.2.0",
     "next": "^15.1.6",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@theguild/tailwind-config": "0.6.3",
