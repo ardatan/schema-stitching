@@ -72,7 +72,8 @@
     "cross-spawn": "7.0.6",
     "esbuild": "^0.25.0",
     "estree-util-value-to-estree": "^3.3.3",
-    "graphql": "16.11.0"
+    "graphql": "16.11.0",
+    "sharp": "^0.34.1"
   },
   "lint-staged": {
     "examples/**/src/**/*.{ts,tsx}": [
