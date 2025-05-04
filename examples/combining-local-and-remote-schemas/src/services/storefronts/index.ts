@@ -8,4 +8,4 @@ const yoga = createYoga({
 
 const server = createServer(yoga);
 
-server.listen(4002, () => console.log('storefronts  running at http://localhost:4001/graphql'));
+server.listen(4002, () => console.log('storefronts  running at http://localhost:4002/graphql'));
