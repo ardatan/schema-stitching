@@ -6,7 +6,7 @@ GEM
       base64
     graphql-schema_directives (0.0.2)
       graphql (~> 1.9)
-    rack (2.2.13)
+    rack (2.2.14)
     webrick (1.9.1)
 
 PLATFORMS
