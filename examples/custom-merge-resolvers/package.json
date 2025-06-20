@@ -10,7 +10,7 @@
     "@graphql-tools/batch-delegate": "^9.0.0",
     "@graphql-tools/delegate": "^10.0.0",
     "@graphql-tools/stitch": "^9.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.3",
     "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
     "graphql-yoga": "^5.0.0",
