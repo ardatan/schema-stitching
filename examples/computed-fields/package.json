@@ -7,7 +7,7 @@
     "start": "ts-node-dev src/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/stitch": "^9.0.0",
+    "@graphql-tools/stitch": "^9.4.26",
     "@graphql-tools/wrap": "^10.0.0",
     "@types/node": "^24.0.10",
     "graphql": "^16.6.0",
