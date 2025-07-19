@@ -55,7 +55,7 @@
     "babel-plugin-transform-typescript-metadata": "0.3.2",
     "cross-env": "7.0.3",
     "eslint": "9.31.0",
-    "eslint-config-prettier": "10.1.5",
+    "eslint-config-prettier": "10.1.8",
     "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-n": "17.21.0",
