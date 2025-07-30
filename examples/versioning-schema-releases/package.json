@@ -17,7 +17,7 @@
     "@graphql-tools/utils": "^10.0.0",
     "@whatwg-node/fetch": "^0.10.0",
     "concurrently": "^9.0.0",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "graphql": "^16.6.0",
     "graphql-yoga": "^5.0.0",
     "ts-node": "^10.9.1",
