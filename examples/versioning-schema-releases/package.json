@@ -15,7 +15,7 @@
     "@graphql-tools/stitch": "^9.0.0",
     "@graphql-tools/stitching-directives": "^3.0.0",
     "@graphql-tools/utils": "^10.0.0",
-    "@whatwg-node/fetch": "^0.10.0",
+    "@whatwg-node/fetch": "^0.10.10",
     "concurrently": "^9.0.0",
     "cross-env": "^10.0.0",
     "graphql": "^16.6.0",
