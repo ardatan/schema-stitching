@@ -40,10 +40,10 @@
     "test": "jest --runInBand --forceExit"
   },
   "devDependencies": {
-    "@babel/core": "7.28.0",
+    "@babel/core": "7.28.3",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-proposal-decorators": "7.28.0",
-    "@babel/preset-env": "7.28.0",
+    "@babel/preset-env": "7.28.3",
     "@babel/preset-typescript": "7.27.1",
     "@theguild/prettier-config": "3.0.1",
     "@types/jest": "30.0.0",
