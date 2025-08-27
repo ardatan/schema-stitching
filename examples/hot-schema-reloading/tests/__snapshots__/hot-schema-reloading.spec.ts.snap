@@ -41,25 +41,6 @@ directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [Strin
 directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
   type Product {
     upc: ID!
-    inStock: Boolean
-  }
-
-  type Query {
-    mostStockedProduct: Product
-    _products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
-    _sdl: String!
-  }
-",
-        "url": "http://localhost:4002/graphql",
-      },
-      {
-        "sdl": "
-  directive @key(selectionSet: String!) on OBJECT
-directive @computed(selectionSet: String!) on FIELD_DEFINITION
-directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
-directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
-  type Product {
-    upc: ID!
     name: String!
     price: Int!
     weight: Int!
@@ -72,6 +53,25 @@ directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALA
   }
 ",
         "url": "http://localhost:4001/graphql",
+      },
+      {
+        "sdl": "
+  directive @key(selectionSet: String!) on OBJECT
+directive @computed(selectionSet: String!) on FIELD_DEFINITION
+directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
+directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALAR | FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+  type Product {
+    upc: ID!
+    inStock: Boolean
+  }
+
+  type Query {
+    mostStockedProduct: Product
+    _products(upcs: [ID!]!): [Product]! @merge(keyField: "upc")
+    _sdl: String!
+  }
+",
+        "url": "http://localhost:4002/graphql",
       },
     ],
   },
@@ -167,18 +167,6 @@ directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALA
       },
       {
         "sdl": "
-                    type Query {
-                        """
-                        Count: 1
-                        """
-                        foo: String!
-                        _sdl: String!
-                    }
-                ",
-        "url": "http://localhost:4003/graphql",
-      },
-      {
-        "sdl": "
   directive @key(selectionSet: String!) on OBJECT
 directive @computed(selectionSet: String!) on FIELD_DEFINITION
 directive @merge(argsExpr: String, keyArg: String, keyField: String, key: [String!], additionalArgs: String) on FIELD_DEFINITION
@@ -195,6 +183,18 @@ directive @canonical on OBJECT | INTERFACE | INPUT_OBJECT | UNION | ENUM | SCALA
   }
 ",
         "url": "http://localhost:4002/graphql",
+      },
+      {
+        "sdl": "
+                    type Query {
+                        """
+                        Count: 1
+                        """
+                        foo: String!
+                        _sdl: String!
+                    }
+                ",
+        "url": "http://localhost:4003/graphql",
       },
     ],
   },
