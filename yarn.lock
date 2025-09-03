@@ -1528,9 +1528,9 @@
     tslib "^2.4.0"
 
 "@graphql-tools/stitch@^9.0.0", "@graphql-tools/stitch@^9.4.28":
-  version "9.4.28"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.4.28.tgz#56d2cf37b70a75b5bc88f34f4bd08f1e022b51de"
-  integrity sha512-an9j0x5C1bV6OgHcrLtKCFsNDKeiaX9BNUzJpOaVlUzmEEpiLaSTLOen+MBEMaNZ49ZA688UQtOMa2JJHusNsA==
+  version "9.4.29"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/stitch/-/stitch-9.4.29.tgz#9b06c9b7146b5269bb69324c16dc643d4549ef32"
+  integrity sha512-rx7GvUlDQLm7SdWURdtBhxOdjAlqtvbK8PiAFx5J+WmFAN3x9H4uP2B/Wwo3Oqj04f3yiEPRAdrOowdlgPEOlQ==
   dependencies:
     "@graphql-tools/batch-delegate" "^9.0.41"
     "@graphql-tools/delegate" "^10.2.23"
