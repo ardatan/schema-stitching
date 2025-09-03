@@ -10,7 +10,7 @@
     "start-users": "ts-node-dev src/services/users/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/executor-http": "^2.0.0",
+    "@graphql-tools/executor-http": "^2.1.2",
     "@graphql-tools/stitch": "^9.0.0",
     "@graphql-tools/wrap": "^10.0.0",
     "@types/node": "^24.0.10",
