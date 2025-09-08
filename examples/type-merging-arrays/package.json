@@ -11,7 +11,7 @@
     "start-storefronts": "ts-node-dev services/storefronts/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/executor-http": "^2.0.0",
+    "@graphql-tools/executor-http": "^3.0.1",
     "@graphql-tools/stitch": "^9.0.0",
     "@graphql-tools/wrap": "^10.0.0",
     "concurrently": "^9.0.0",

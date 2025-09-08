@@ -14,7 +14,7 @@
     "start-services": "concurrently \"yarn:start-service-*\""
   },
   "dependencies": {
-    "@graphql-tools/executor-http": "^2.0.0",
+    "@graphql-tools/executor-http": "^3.0.1",
     "@graphql-tools/stitch": "^9.0.0",
     "@graphql-tools/stitching-directives": "^3.0.0",
     "@graphql-tools/utils": "^10.0.0",
