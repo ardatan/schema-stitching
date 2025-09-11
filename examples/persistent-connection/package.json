@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@graphql-tools/executor-graphql-ws": "^2.0.0",
-    "@graphql-tools/stitch": "^9.0.0",
+    "@graphql-tools/stitch": "^10.0.0",
     "@graphql-tools/stitching-directives": "^3.0.0",
     "@graphql-tools/utils": "^10.0.0",
     "@types/ws": "^8.5.4",
