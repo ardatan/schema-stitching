@@ -10,7 +10,7 @@
     "start-upload-files": "ts-node-dev src/services/upload-files/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/delegate": "^10.0.0",
+    "@graphql-tools/delegate": "^11.0.1",
     "@graphql-tools/executor-http": "^3.0.2",
     "@graphql-tools/stitch": "^10.0.1",
     "@graphql-tools/wrap": "^11.0.1",
