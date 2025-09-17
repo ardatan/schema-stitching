@@ -1101,17 +1101,7 @@
   dependencies:
     tslib "^2.4.0"
 
-"@envelop/core@^5.3.0":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-5.3.1.tgz#f75e5c19d4a4d876ce49ca5a9a072a9e5db3b89a"
-  integrity sha512-n29V3vRqXvPcG76C8zE482LQykk0P66zv1mjpk7aHeGe9qnh8AzB/RvoX5SVFwApJQPp0ixob8NoYXg4FHKMGA==
-  dependencies:
-    "@envelop/instrumentation" "^1.0.0"
-    "@envelop/types" "^5.2.1"
-    "@whatwg-node/promise-helpers" "^1.2.4"
-    tslib "^2.5.0"
-
-"@envelop/core@^5.3.1":
+"@envelop/core@^5.3.0", "@envelop/core@^5.3.1":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@envelop/core/-/core-5.3.1.tgz#f75e5c19d4a4d876ce49ca5a9a072a9e5db3b89a"
   integrity sha512-n29V3vRqXvPcG76C8zE482LQykk0P66zv1mjpk7aHeGe9qnh8AzB/RvoX5SVFwApJQPp0ixob8NoYXg4FHKMGA==
@@ -1409,7 +1399,7 @@
     dataloader "^2.2.3"
     tslib "^2.8.1"
 
-"@graphql-tools/batch-delegate@^9.0.0", "@graphql-tools/batch-delegate@^9.0.41":
+"@graphql-tools/batch-delegate@^9.0.41":
   version "9.0.41"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-9.0.41.tgz#1355d6687979606be3424a30aca202802d913fe0"
   integrity sha512-ypPT32Ba4imLoXuDYbmCzU7E7i6y9TzJW/JYgt1CQZZy5BJUNnIQ2SE4AnttnyzSfGbYd3aMiVVSK9Ta3E3dKA==
