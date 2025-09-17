@@ -30,6 +30,6 @@
     "ts-node": "^10.9.1",
     "type-graphql": "^2.0.0-beta.1",
     "typescript": "^5.0.0",
-    "wait-on": "^8.0.0"
+    "wait-on": "^9.0.0"
   }
 }
