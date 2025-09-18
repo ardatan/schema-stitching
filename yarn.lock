@@ -2869,9 +2869,9 @@
   integrity sha512-1YBOJfRHV4sXUmWsFSf5rQor4Ss82G8dQWLRbnk3GA4jeP8hQt1hxXh0tmflpC0dz3VgEv/1+qwPyLeWkQuPFA==
 
 "@theguild/components@^9.2.0":
-  version "9.8.0"
-  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-9.8.0.tgz#4fef865e2355e6347747f26b297ffef2d7933436"
-  integrity sha512-0oNquz+TSR00d38BB9oEavlhmAu4tSK3IZjt8h6FXs/v3d2J+pxBaA0eInCM6nGtXcRzQ5D43mObW1aQBktpSA==
+  version "9.9.0"
+  resolved "https://registry.yarnpkg.com/@theguild/components/-/components-9.9.0.tgz#6396754edba44ed6b8b97b712a37d0d43ce46020"
+  integrity sha512-SAva/u+Fm1vDOoPXvM9M/yFHIB+4iItHl3ccMZOIg8ItLvgwX0pLDBs2OuiUhtf5JiYosrNHHp/KvyEdPdKJnA==
   dependencies:
     "@giscus/react" "3.1.0"
     "@next/bundle-analyzer" "15.1.5"
