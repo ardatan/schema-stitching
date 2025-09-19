@@ -1101,10 +1101,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@envelop/core@^5.3.0", "@envelop/core@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-5.3.1.tgz#f75e5c19d4a4d876ce49ca5a9a072a9e5db3b89a"
-  integrity sha512-n29V3vRqXvPcG76C8zE482LQykk0P66zv1mjpk7aHeGe9qnh8AzB/RvoX5SVFwApJQPp0ixob8NoYXg4FHKMGA==
+"@envelop/core@^5.3.0", "@envelop/core@^5.3.2":
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-5.3.2.tgz#82c0f7bea98e230e345a1f2c44cc9a1769898f2b"
+  integrity sha512-06Mu7fmyKzk09P2i2kHpGfItqLLgCq7uO5/nX4fc/iHMplWPNuAx4iYR+WXUQoFHDnP6EUbceQNQ5iyeMz9f3g==
   dependencies:
     "@envelop/instrumentation" "^1.0.0"
     "@envelop/types" "^5.2.1"
@@ -1473,24 +1473,24 @@
     "@envelop/core" "^5.3.0"
     "@graphql-tools/utils" "^10.9.1"
 
-"@graphql-tools/executor-common@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-common/-/executor-common-1.0.1.tgz#b161ce779e5abaab3e05fe51fdc78ee27f0f9b1b"
-  integrity sha512-YzDOoPaijIL2aEUR58DPTIZEJ/es0IV0nRCnoQcIyc1l2lTNo+k1L1rsFMBUOsyI6Y/pMxZ8ssJlQXwdGT78YA==
+"@graphql-tools/executor-common@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-common/-/executor-common-1.0.2.tgz#df0acca601b7f2846f7366b41694306a86c40ae6"
+  integrity sha512-CQGDXczd4x7v40axa/RyHPjgkMqodGbi94eBxeewuMdT1WPYop+efR4sW0BXv6AKT4e7pPABBn9LrAXj8TIlAg==
   dependencies:
-    "@envelop/core" "^5.3.1"
+    "@envelop/core" "^5.3.2"
     "@graphql-tools/utils" "^10.9.1"
 
 "@graphql-tools/executor-graphql-ws@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-3.0.1.tgz#6d107acd59f7813bcfb67610be4a05a5543b8028"
-  integrity sha512-o4FyImVq8vxtg45yRMdUEmQ9AFvnZjyqdsjeAcPytCedxKDbV6SZWSr0BIyHhMr74GFP2VOucVLaqOWxRih20w==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-3.1.0.tgz#71ba04f7ee312c7772867b4b6cfc96a579e3ad9d"
+  integrity sha512-2qoHWtBRsWcIalTRD4xic5Xn3G4NxwBmRIAZRSjW/+icZcIHPWtilBZEFnabnKvgpvOMMtiXLVxHBPeItsNK7Q==
   dependencies:
-    "@graphql-tools/executor-common" "^1.0.1"
+    "@graphql-tools/executor-common" "^1.0.2"
     "@graphql-tools/utils" "^10.9.1"
     "@whatwg-node/disposablestack" "^0.0.6"
     graphql-ws "^6.0.6"
-    isomorphic-ws "^5.0.0"
+    isows "^1.0.7"
     tslib "^2.8.1"
     ws "^8.18.3"
 
@@ -1510,12 +1510,12 @@
     tslib "^2.8.1"
 
 "@graphql-tools/executor-http@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-3.0.2.tgz#f8b7e2cd2be65a76a77f9662c1c15d4cb981cc21"
-  integrity sha512-i/Tz3BGyrO5faci8V7oEjp2mvXmFDyNXHVGELQ0DFL/gJAp2diOE830a0yL0u4xAOYMNoyoBW6QiWv+lSLfJSw==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-http/-/executor-http-3.0.3.tgz#3447e1f53f47369782fb44007fd2937ad80cd5ad"
+  integrity sha512-FUwrgI8zyDQ031N5f6izgggfQUxY0HY0z30RUKiCfJbtPu1h3ZK4C4CN/I+iTffiVCznwJd+qi9iErvvgUWzYw==
   dependencies:
     "@graphql-hive/signal" "^2.0.0"
-    "@graphql-tools/executor-common" "^1.0.1"
+    "@graphql-tools/executor-common" "^1.0.2"
     "@graphql-tools/utils" "^10.9.1"
     "@repeaterjs/repeater" "^3.0.4"
     "@whatwg-node/disposablestack" "^0.0.6"
@@ -6631,10 +6631,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isomorphic-ws@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/isomorphic-ws/-/isomorphic-ws-5.0.0.tgz#e5529148912ecb9b451b46ed44d53dae1ce04bbf"
-  integrity sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==
+isows@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/isows/-/isows-1.0.7.tgz#1c06400b7eed216fbba3bcbd68f12490fc342915"
+  integrity sha512-I1fSfDCZL5P0v33sVqeTDSpcstAg/N+wF5HS033mogOVIp4B+oHC7oOCsA3axAbBSGTJ8QubbNmnIRN/h8U7hg==
 
 istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
   version "3.2.2"
