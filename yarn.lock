@@ -1310,10 +1310,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@9.35.0":
-  version "9.35.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.35.0.tgz#ffbc7e13cf1204db18552e9cd9d4a8e17c692d07"
-  integrity sha512-30iXE9whjlILfWobBkNerJo+TXYsgVM5ERQwMcMKCHckHflCmf7wXDAHlARoWnh0s1U72WqlbeyE7iAcCzuCPw==
+"@eslint/js@9.36.0":
+  version "9.36.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-9.36.0.tgz#b1a3893dd6ce2defed5fd49de805ba40368e8fef"
+  integrity sha512-uhCbYtYynH30iZErszX78U+nR3pJU3RHGQ57NXy5QupD4SBVwDeU8TNBy+MjMngc1UyIW9noKqsRqfjQTBU2dw==
 
 "@eslint/object-schema@^2.1.6":
   version "2.1.6"
@@ -3524,17 +3524,17 @@
     tslib "^2.6.3"
 
 "@whatwg-node/fetch@^0.10.0", "@whatwg-node/fetch@^0.10.10", "@whatwg-node/fetch@^0.10.6":
-  version "0.10.10"
-  resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.10.10.tgz#2b3397bc114b3f6dbda34bd1f205e45216abd10f"
-  integrity sha512-watz4i/Vv4HpoJ+GranJ7HH75Pf+OkPQ63NoVmru6Srgc8VezTArB00i/oQlnn0KWh14gM42F22Qcc9SU9mo/w==
+  version "0.10.11"
+  resolved "https://registry.yarnpkg.com/@whatwg-node/fetch/-/fetch-0.10.11.tgz#a09a0306f4a2b9653610f17983eace14a5a67f2c"
+  integrity sha512-eR8SYtf9Nem1Tnl0IWrY33qJ5wCtIWlt3Fs3c6V4aAaTFLtkEQErXu3SSZg/XCHrj9hXSJ8/8t+CdMk5Qec/ZA==
   dependencies:
-    "@whatwg-node/node-fetch" "^0.7.25"
+    "@whatwg-node/node-fetch" "^0.8.0"
     urlpattern-polyfill "^10.0.0"
 
-"@whatwg-node/node-fetch@^0.7.25":
-  version "0.7.25"
-  resolved "https://registry.yarnpkg.com/@whatwg-node/node-fetch/-/node-fetch-0.7.25.tgz#8da0af32f389eeeebf935af5fbcce7bbd2bbc774"
-  integrity sha512-szCTESNJV+Xd56zU6ShOi/JWROxE9IwCic8o5D9z5QECZloas6Ez5tUuKqXTAdu6fHFx1t6C+5gwj8smzOLjtg==
+"@whatwg-node/node-fetch@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@whatwg-node/node-fetch/-/node-fetch-0.8.0.tgz#45628d26817f077b164d3cac927f88e06f09b755"
+  integrity sha512-+z00GpWxKV/q8eMETwbdi80TcOoVEVZ4xSRkxYOZpn3kbV3nej5iViNzXVke/j3v4y1YpO5zMS/CVDIASvJnZQ==
   dependencies:
     "@fastify/busboy" "^3.1.1"
     "@whatwg-node/disposablestack" "^0.0.6"
@@ -5269,10 +5269,10 @@ eslint-visitor-keys@^4.2.1:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-4.2.1.tgz#4cfea60fe7dd0ad8e816e1ed026c1d5251b512c1"
   integrity sha512-Uhdk5sfqcee/9H/rCOJikYz67o0a2Tw2hGRPOG2Y1R2dg7brRe1uG0yaNQDHu+TO/uQPF/5eCapvYSmHUjt7JQ==
 
-eslint@9.35.0:
-  version "9.35.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-9.35.0.tgz#7a89054b7b9ee1dfd1b62035d8ce75547773f47e"
-  integrity sha512-QePbBFMJFjgmlE+cXAlbHZbHpdFVS2E/6vzCy7aKlebddvl1vadiC4JFV5u/wqTkNUwEV8WrQi257jf5f06hrg==
+eslint@9.36.0:
+  version "9.36.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-9.36.0.tgz#9cc5cbbfb9c01070425d9bfed81b4e79a1c09088"
+  integrity sha512-hB4FIzXovouYzwzECDcUkJ4OcfOEkXTv2zRY6B9bkwjx/cprAq0uvm1nl7zvQ0/TsUk0zQiN4uPfJpB9m+rPMQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.8.0"
     "@eslint-community/regexpp" "^4.12.1"
@@ -5280,7 +5280,7 @@ eslint@9.35.0:
     "@eslint/config-helpers" "^0.3.1"
     "@eslint/core" "^0.15.2"
     "@eslint/eslintrc" "^3.3.1"
-    "@eslint/js" "9.35.0"
+    "@eslint/js" "9.36.0"
     "@eslint/plugin-kit" "^0.3.5"
     "@humanfs/node" "^0.16.6"
     "@humanwhocodes/module-importer" "^1.0.1"
