@@ -1473,9 +1473,9 @@
     tslib "^2.4.0"
 
 "@graphql-tools/federation@^4.0.0":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-4.0.3.tgz#ed84ae75ad1bd02b6b641fd68844c5dcf2bcc9dc"
-  integrity sha512-eUPTCKYRprMGEHQj40FlidJ1seIBOuJSG+M674gh8k87edrlXJR321eaEy2UcXUmKc61oDWxgx+RADjtVOm/YQ==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-4.0.4.tgz#69dc70b36ba4afb5ccd88800556f33e8e729feb3"
+  integrity sha512-l25kK0rAbCWzlcExY+A6oKsHHnTxQjQXM9uupF84mcIE7/b6SP0Y2oetQL21y9GeqA8aCkCq0AmN0po7bUSaCw==
   dependencies:
     "@graphql-tools/delegate" "^11.0.1"
     "@graphql-tools/executor" "^1.4.9"
