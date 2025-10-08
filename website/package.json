@@ -20,7 +20,7 @@
     "zod": "^4.0.5"
   },
   "devDependencies": {
-    "@theguild/tailwind-config": "0.6.3",
+    "@theguild/tailwind-config": "0.6.4",
     "@types/node": "24.7.0",
     "@types/react": "19.2.2",
     "pagefind": "1.4.0",
