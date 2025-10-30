@@ -1475,9 +1475,9 @@
     tslib "^2.4.0"
 
 "@graphql-tools/federation@^4.0.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-4.1.0.tgz#e0736b579387635e3d7311851a2add4339b2d094"
-  integrity sha512-fFEgobojt4R1zcwUOSnMJ/c/sqC0AyTC+SLEnHrMD6BckzxwGyr6UYG/y/LbCWFsKrsiDjmDen5kJgi+ORnQxw==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/federation/-/federation-4.2.0.tgz#3c58495244dcbc31627d14839cc13ba37c2d2e82"
+  integrity sha512-vVc9LLv885aoM5vjTLy2rQsXHW6pqWpfOG5NsZw6VbEeFP3HBQm4DfsmIRrWrcIxcuROSk7cfNDcmgvvZTrIGQ==
   dependencies:
     "@graphql-tools/delegate" "^11.1.0"
     "@graphql-tools/executor" "^1.4.9"
@@ -1494,31 +1494,31 @@
     "@whatwg-node/promise-helpers" "^1.3.2"
     tslib "^2.8.1"
 
-"@graphql-tools/merge@^9.1.1":
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.1.1.tgz#6a51775f5ba6bdef213def1fd277536f9468b44c"
-  integrity sha512-BJ5/7Y7GOhTuvzzO5tSBFL4NGr7PVqTJY3KeIDlVTT8YLcTXtBR+hlrC3uyEym7Ragn+zyWdHeJ9ev+nRX1X2w==
+"@graphql-tools/merge@^9.1.1", "@graphql-tools/merge@^9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-9.1.2.tgz#87df125621c207e0dbcb05d206757d921cd1c314"
+  integrity sha512-Ny9YhWKv+KxZFdXYt+wlyEW55GzhFiq4daV4wYgpP0aRbwQaczNJd1L3VjjBsPKjmW8lctZXUoqYTqU5QPcBGw==
   dependencies:
-    "@graphql-tools/utils" "^10.9.1"
+    "@graphql-tools/utils" "^10.10.0"
     tslib "^2.4.0"
 
 "@graphql-tools/mock@^9.0.0":
-  version "9.0.25"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-9.0.25.tgz#46a34599dcd8ce770371a48f082601441e8c2a8f"
-  integrity sha512-rarXnRw8oDraR8kR8GekwmOO5tbOlJcoe9CFGgCjRehfDxA3qxnTpJTtS5pwhBNvRdrEQXKtt6UGevbMRB0XSw==
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/mock/-/mock-9.1.0.tgz#b4e2dd6a0300629e4bb58042249ddfe6a3746f54"
+  integrity sha512-z/HEvgsJNcls42l1sKl8SiqpPyIZcVTw5GnxAttb+jmu/hAyuAYfQ+z5G8aPrnmQv7sHbjE63SqUpRl3z8tmow==
   dependencies:
-    "@graphql-tools/schema" "^10.0.25"
-    "@graphql-tools/utils" "^10.9.1"
+    "@graphql-tools/schema" "^10.0.26"
+    "@graphql-tools/utils" "^10.10.0"
     fast-json-stable-stringify "^2.1.0"
     tslib "^2.4.0"
 
-"@graphql-tools/schema@^10.0.11", "@graphql-tools/schema@^10.0.25":
-  version "10.0.25"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.25.tgz#73de08bc765f482cde334562a1bebe95a2e5a3c4"
-  integrity sha512-/PqE8US8kdQ7lB9M5+jlW8AyVjRGCKU7TSktuW3WNKSKmDO0MK1wakvb5gGdyT49MjAIb4a3LWxIpwo5VygZuw==
+"@graphql-tools/schema@^10.0.11", "@graphql-tools/schema@^10.0.25", "@graphql-tools/schema@^10.0.26":
+  version "10.0.26"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.0.26.tgz#ecc29b0d31a6a53c8c4ec7ecffbc56602e5fe2f4"
+  integrity sha512-KOmjuiWa9poP/Lza4HV0ZBPYGJI3VE3QzXA/8e0+wjcsRuEmxMLP82re1PUg0QRzp2UzifAB/gd7DoXmVGG9Fg==
   dependencies:
-    "@graphql-tools/merge" "^9.1.1"
-    "@graphql-tools/utils" "^10.9.1"
+    "@graphql-tools/merge" "^9.1.2"
+    "@graphql-tools/utils" "^10.10.0"
     tslib "^2.4.0"
 
 "@graphql-tools/stitch@^10.0.1", "@graphql-tools/stitch@^10.1.0":
@@ -1545,10 +1545,10 @@
     "@graphql-tools/utils" "^10.9.1"
     tslib "^2.8.1"
 
-"@graphql-tools/utils@^10.0.0", "@graphql-tools/utils@^10.6.2", "@graphql-tools/utils@^10.9.1":
-  version "10.9.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.9.1.tgz#ff4067256f2080db0c66f4475858f29a8da65ecf"
-  integrity sha512-B1wwkXk9UvU7LCBkPs8513WxOQ2H8Fo5p8HR1+Id9WmYE5+bd51vqN+MbrqvWczHCH2gwkREgHJN88tE0n1FCw==
+"@graphql-tools/utils@^10.0.0", "@graphql-tools/utils@^10.10.0", "@graphql-tools/utils@^10.6.2", "@graphql-tools/utils@^10.9.1":
+  version "10.10.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.10.0.tgz#9b8eb5cb9bb101442c1145ee35beddda87ae40d3"
+  integrity sha512-OOeab5Y9qeKq0zfoJCSScMcDfGcIxp05+LW2xYVCS2l3su+K3lYcg5+cAAx9n0SFxpJl8zF5denq2QDsfM7NnQ==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
     "@whatwg-node/promise-helpers" "^1.0.0"
