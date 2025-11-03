@@ -18,7 +18,7 @@
     "@graphql-tools/stitch": "^10.0.1",
     "@graphql-tools/stitching-directives": "^4.0.1",
     "@graphql-tools/utils": "^10.0.0",
-    "@types/node": "^24.0.10",
+    "@types/node": "^24.10.0",
     "class-validator": "^0.14.0",
     "concurrently": "^9.0.0",
     "graphql": "^16.6.0",
