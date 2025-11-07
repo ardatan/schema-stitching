@@ -23,7 +23,7 @@
     "concurrently": "^9.0.0",
     "graphql": "^16.6.0",
     "graphql-scalars": "^1.22.2",
-    "graphql-yoga": "^5.0.0",
+    "graphql-yoga": "^5.16.2",
     "nexus": "^1.0.0",
     "nodemon": "^3.0.0",
     "reflect-metadata": "^0.2.0",
