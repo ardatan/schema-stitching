@@ -5805,9 +5805,9 @@ graphql-ws@^6.0.0, graphql-ws@^6.0.6:
   integrity sha512-zgfER9s+ftkGKUZgc0xbx8T7/HMO4AV5/YuYiFc+AtgcO5T0v8AxYYNQ+ltzuzDZgNkYJaFspm5MMYLjQzrkmw==
 
 graphql-yoga@^5.16.2:
-  version "5.17.0"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.17.0.tgz#fb3fbc9b66fab201ac62cd3ee4289fd1fdcbe959"
-  integrity sha512-Ta2EmITlGzAJTffSA/BvMA5q2THRWeQrP8+Uc4WnSVTBafnQ2vpXdiNZ7Zsj57cxSw4+WEW2PTgEKGtJ4GcS3A==
+  version "5.17.1"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.17.1.tgz#eea6d6cc178b9b47d147781279d48c8a1b315c26"
+  integrity sha512-Izb2uVWfdoWm+tF4bi39KE6F4uml3r700/EwULPZYOciY8inmy4hw+98c6agy3C+xceXvTkP7Li6mY/EI8XliA==
   dependencies:
     "@envelop/core" "^5.3.0"
     "@envelop/instrumentation" "^1.0.0"
@@ -5817,7 +5817,7 @@ graphql-yoga@^5.16.2:
     "@graphql-yoga/logger" "^2.0.1"
     "@graphql-yoga/subscription" "^5.0.5"
     "@whatwg-node/fetch" "^0.10.6"
-    "@whatwg-node/promise-helpers" "^1.2.4"
+    "@whatwg-node/promise-helpers" "^1.3.2"
     "@whatwg-node/server" "^0.10.14"
     lru-cache "^10.0.0"
     tslib "^2.8.1"
