@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "@theguild/components": "^9.2.0",
-    "next": "^16.0.0",
+    "next": "^16.0.10",
     "next-sitemap": "^4.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "serve": "^14.2.4",
     "zod": "^4.0.5"
   },
