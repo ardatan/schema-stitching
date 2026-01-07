@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@apollo/subgraph": "^2.2.3",
-    "@graphql-tools/federation": "^4.0.0",
+    "@graphql-tools/federation": "^4.2.7",
     "@types/node": "^25.0.1",
     "concurrently": "^9.0.0",
     "graphql": "^16.6.0",
