@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^3.0.2",
-    "@graphql-tools/stitch": "^10.1.7",
+    "@graphql-tools/stitch": "^10.1.9",
     "@graphql-tools/utils": "^11.0.0",
     "@graphql-tools/wrap": "^11.0.1",
     "@types/node": "^25.0.1",
