@@ -1580,7 +1580,7 @@
   dependencies:
     tslib "^2.8.1"
 
-"@graphql-yoga/subscription@^5.0.0", "@graphql-yoga/subscription@^5.0.5":
+"@graphql-yoga/subscription@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@graphql-yoga/subscription/-/subscription-5.0.5.tgz#55e1dc472de866185d7c122e2c534023a331f65c"
   integrity sha512-oCMWOqFs6QV96/NZRt/ZhTQvzjkGB4YohBOpKM4jH/lDT4qb7Lex/aGCxpi/JD9njw3zBBtMqxbaC22+tFHVvw==
@@ -3207,19 +3207,12 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/node@*", "@types/node@25.2.2", "@types/node@^25.0.1":
+"@types/node@*", "@types/node@25.2.2", "@types/node@^25.0.1", "@types/node@^25.0.3":
   version "25.2.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-25.2.2.tgz#0ddfe326c326afcb3422d32bfe5eb2938e1cb5db"
   integrity sha512-BkmoP5/FhRYek5izySdkOneRyXYN35I860MFAGupTdebyE66uZaR+bXLHq8k4DirE5DwQi3NuhvRU1jqTVwUrQ==
   dependencies:
     undici-types "~7.16.0"
-
-"@types/node@^20.14.0":
-  version "20.19.30"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.19.30.tgz#84fa87498ade5cd2b6ba8f8eec01d3b138ca60d0"
-  integrity sha512-WJtwWJu7UdlvzEAUm484QNg5eAoq5QR08KDNx7g45Usrs2NtOPiX8ugDqmKdXkyL03rBqU5dYNYVQetEpBHq2g==
-  dependencies:
-    undici-types "~6.21.0"
 
 "@types/react@19.2.13":
   version "19.2.13"
@@ -3228,7 +3221,7 @@
   dependencies:
     csstype "^3.2.2"
 
-"@types/semver@^7.5.6":
+"@types/semver@^7.7.1":
   version "7.7.1"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.7.1.tgz#3ce3af1a5524ef327d2da9e4fd8b6d95c8d70528"
   integrity sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==
@@ -5774,10 +5767,10 @@ graceful-fs@^4.2.11, graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-graphql-query-complexity@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-0.12.0.tgz#5f636ccc54da82225f31e898e7f27192fe074b4c"
-  integrity sha512-fWEyuSL6g/+nSiIRgIipfI6UXTI7bAxrpPlCY1c0+V3pAEUo1ybaKmSBgNr1ed2r+agm1plJww8Loig9y6s2dw==
+graphql-query-complexity@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-1.1.0.tgz#aaf73ac9dd0c5c2eeddf892e8f428a681d809827"
+  integrity sha512-6sfAX+9CgkcPeZ7UiuBwgTGA+M1FYgHrQOXvORhQGd6SiaXbNVkLDcJ9ZSvNgzyChIfH0uPFFOY3Jm4wFZ4qEA==
   dependencies:
     lodash.get "^4.4.2"
 
@@ -10105,16 +10098,16 @@ type-fest@^2.13.0:
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 type-graphql@^2.0.0-beta.1:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-rc.2.tgz#1086ef889737bd21a9f0ed0fb1041dce2d918e92"
-  integrity sha512-DJ8erG1cmjteMrOhFIkBHOqRM+L+wCJxvNjbbj1Y+q2r4HZkB1qOSS4ZD4AaoAfRPAp1yU23gMtmzf0jen/FFA==
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/type-graphql/-/type-graphql-2.0.0-rc.3.tgz#73e1ec4d17cf74398545e8a6176e12195782e335"
+  integrity sha512-o01aQg5/PWvd6nmZ55H1C74ROc9q0uNIAU2o65sbBailLmeG20LvkUuuYYA/E6fNoGABYFQlCVrIzlZlrSRDgQ==
   dependencies:
-    "@graphql-yoga/subscription" "^5.0.0"
-    "@types/node" "^20.14.0"
-    "@types/semver" "^7.5.6"
-    graphql-query-complexity "^0.12.0"
-    semver "^7.5.4"
-    tslib "^2.6.2"
+    "@graphql-yoga/subscription" "^5.0.5"
+    "@types/node" "^25.0.3"
+    "@types/semver" "^7.7.1"
+    graphql-query-complexity "^1.1.0"
+    semver "^7.7.3"
+    tslib "^2.8.1"
 
 typed-array-buffer@^1.0.3:
   version "1.0.3"
@@ -10185,11 +10178,6 @@ undefsafe@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/undefsafe/-/undefsafe-2.0.5.tgz#38733b9327bdcd226db889fb723a6efd162e6e2c"
   integrity sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==
-
-undici-types@~6.21.0:
-  version "6.21.0"
-  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.21.0.tgz#691d00af3909be93a7faa13be61b3a5b50ef12cb"
-  integrity sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==
 
 undici-types@~7.16.0:
   version "7.16.0"
