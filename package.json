@@ -37,7 +37,7 @@
     "lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts .",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
-    "test": "jest --runInBand --forceExit"
+    "test": "cross-env \"NODE_OPTIONS=--no-experimental-webstorage\" jest --runInBand --forceExit"
   },
   "devDependencies": {
     "@babel/core": "7.29.0",
