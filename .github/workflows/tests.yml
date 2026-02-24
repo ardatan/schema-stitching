@@ -28,7 +28,7 @@ jobs:
       - name: Setup env
         uses: the-guild-org/shared-config/setup@main
         with:
-          nodeVersion: 18
+          nodeVersion: 25
 
       - name: Prettier Check
         run: yarn prettier:check
@@ -54,7 +54,7 @@ jobs:
       - name: Setup env
         uses: the-guild-org/shared-config/setup@main
         with:
-          nodeVersion: 18
+          nodeVersion: 25
 
       - name: Cache Jest
         uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5
