@@ -27,6 +27,6 @@
     "wait-on": "^9.0.0"
   },
   "devDependencies": {
-    "kill-port-process": "3.2.1"
+    "kill-port-process": "4.0.0"
   }
 }
