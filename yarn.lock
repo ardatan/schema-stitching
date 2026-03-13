@@ -31,9 +31,7 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.13.1.tgz#950af730d9546622e79ba4f7144d6cd277cf7769"
-  integrity sha512-SmFYNd/0uzVt9OyyofSMydgYpzDRPF2gyVY0a32xb2RTCtnNpGnCMaOd9kN9V5Tm31Zspcbqycj1l64zMu0egQ==
+  version "2.13.2"
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
     "@apollo/federation-internals" "2.13.1"
