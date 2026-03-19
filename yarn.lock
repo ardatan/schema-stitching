@@ -20,10 +20,10 @@
   resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.3.tgz#5da62cf64c3b4419dabfef4536b57a40c8ff0b47"
   integrity sha512-F17/vCp7QVwom9eG7ToauIKdAxpSoadsJnqIfyryLFSkLSOEqu+eC5Z3N8OXcUVStuOMcNHlyraRsA6rRICu4g==
 
-"@apollo/federation-internals@2.13.2":
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.13.2.tgz#2963baa811ddb47e999b5cd5202c579e2aea4942"
-  integrity sha512-m9waen8iZhrzn23qkemlytqBCPoKU6AMv5k3eFYnu6yzoJ5/ONh6SMGE7CvrWsECcpnOLYOinxD19igEHm6Azw==
+"@apollo/federation-internals@2.13.3":
+  version "2.13.3"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.13.3.tgz#5de4babdfc7f83c6dfb95ca5c45ee871cee4d0a0"
+  integrity sha512-4zHgqznZza5Qx2CZy1qlrh83BB/3Yd8BqD/dmhGzLCvHJQ1LBTyZbWN7xwKs5z5FbxdSPkL5TvPoLm5Rek8/4g==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -31,12 +31,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.13.2":
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.13.2.tgz#21e7ddf1034b7fa92fc7d811202507c42c77d46b"
-  integrity sha512-hNJv6kcGhtWdBfGWnSZwgfmSm4ZAJ3AoPmDFOXaloSE1wKmKz0NmPsef4nkC2/AUD9/FrQMKm5xzyBYTDrpNSw==
+  version "2.13.3"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.13.3.tgz#50d834c375c1548f67a79f4ddb448cd2c3d9b16e"
+  integrity sha512-nmdACpdTe+kgmNF0Yow3MoDkE0SMfvK6tTsEs3h3M9GLYCgBWZWBoDWQfNdr7kWRW6aan2SylU0K0ktF643h3g==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.13.2"
+    "@apollo/federation-internals" "2.13.3"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.27.1", "@babel/code-frame@^7.28.6", "@babel/code-frame@^7.29.0":
   version "7.29.0"
