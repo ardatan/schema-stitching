@@ -74,7 +74,7 @@
     "estree-util-value-to-estree": "^3.3.3",
     "form-data": "4.0.5",
     "glob": "13.0.6",
-    "graphql": "16.13.1",
+    "graphql": "16.13.2",
     "on-headers": "1.1.0",
     "sharp": "^0.34.1"
   },
