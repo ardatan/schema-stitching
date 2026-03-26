@@ -24,12 +24,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: the-guild-org/shared-config/setup@main
+      - uses: the-guild-org/shared-config/setup@efca92ebf0309a89e2e1bb69b1f52115ff8ee7d6 # main
         name: setup env
         with:
           nodeVersion: 25
           packageManager: yarn
-      - uses: the-guild-org/shared-config/website-cf@main
+      - uses: the-guild-org/shared-config/website-cf@efca92ebf0309a89e2e1bb69b1f52115ff8ee7d6 # main
         name: build and deploy website
         env:
           NEXT_BASE_PATH: ${{ github.ref == 'refs/heads/master' && '/graphql/stitching' || '' }}
