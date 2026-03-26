@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup env
-        uses: the-guild-org/shared-config/setup@main
+        uses: the-guild-org/shared-config/setup@efca92ebf0309a89e2e1bb69b1f52115ff8ee7d6 # main
         with:
           nodeVersion: 25
 
@@ -34,7 +34,7 @@ jobs:
         run: yarn prettier:check
   lint:
     name: lint
-    uses: the-guild-org/shared-config/.github/workflows/lint.yml@main
+    uses: the-guild-org/shared-config/.github/workflows/lint.yml@efca92ebf0309a89e2e1bb69b1f52115ff8ee7d6 # main
     with:
       script: yarn ci:lint
     secrets:
@@ -52,7 +52,7 @@ jobs:
           ruby-version: 2.7.8
 
       - name: Setup env
-        uses: the-guild-org/shared-config/setup@main
+        uses: the-guild-org/shared-config/setup@efca92ebf0309a89e2e1bb69b1f52115ff8ee7d6 # main
         with:
           nodeVersion: 25
 
