@@ -7117,7 +7117,7 @@ lightningcss-win32-x64-msvc@1.32.0:
   resolved "https://registry.yarnpkg.com/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.32.0.tgz#141aa5605645064928902bb4af045fa7d9f4220a"
   integrity sha512-Amq9B/SoZYdDi1kFrojnoqPLxYhQ4Wo5XiL8EVJrVsB8ARoC1PWW6VGtT0WKCemjy8aC+louJnjS7U18x3b06Q==
 
-lightningcss@^1.22.0:
+lightningcss@^1.32.0:
   version "1.32.0"
   resolved "https://registry.yarnpkg.com/lightningcss/-/lightningcss-1.32.0.tgz#b85aae96486dcb1bf49a7c8571221273f4f1e4a9"
   integrity sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==
@@ -8685,13 +8685,13 @@ postcss-js@^4.0.1:
   dependencies:
     camelcase-css "^2.0.1"
 
-postcss-lightningcss@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/postcss-lightningcss/-/postcss-lightningcss-1.0.2.tgz#457ea5244417dc553cef2d77d9e5fc9c1a951bde"
-  integrity sha512-jI9gBe/2/ZEDYGDAHEHKbGLA3Dfn2uUTUCVsP3mDxpvmX6ifDdFqYB00GNRdny676gTcfo7XUCQoc4OYz20/TA==
+postcss-lightningcss@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-lightningcss/-/postcss-lightningcss-1.1.0.tgz#b3e9f90197a5df3d7aa8dfc0805da2901693b8e0"
+  integrity sha512-DlxT3lLE4PK5v2JN0WV0r7wod8LGAuj20ZjJ9cnEwOWv9osgoajRqavaFoxinyZ8jeg4JYJi9M1qtkjHyqulKA==
   dependencies:
     browserslist "^4.19.1"
-    lightningcss "^1.22.0"
+    lightningcss "^1.32.0"
 
 "postcss-load-config@^4.0.2 || ^5.0 || ^6.0":
   version "6.0.1"
