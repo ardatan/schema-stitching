@@ -76,6 +76,7 @@
     "glob": "13.0.6",
     "graphql": "16.13.2",
     "on-headers": "1.1.0",
+    "react-medium-image-zoom": "5.4.1",
     "sharp": "^0.34.1"
   },
   "lint-staged": {
