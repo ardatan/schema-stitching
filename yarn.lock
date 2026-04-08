@@ -7219,10 +7219,10 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@4.17.23, lodash-es@^4.17.21, lodash-es@^4.17.23:
-  version "4.17.23"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
-  integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==
+lodash-es@4.17.23, lodash-es@4.18.0, lodash-es@^4.17.21, lodash-es@^4.17.23:
+  version "4.18.0"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.18.0.tgz#553d0eca832a8d8702aefa2d1ffd19e115efe52d"
+  integrity sha512-koAgswPPA+UTaPN64Etp+PGP+WT6oqOS2NMi5yDkMaiGw9qY4VxQbQF0mtKMyr4BlTznWyzePV5UpECTJQmSUA==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -8884,10 +8884,10 @@ react-is@^18.3.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-medium-image-zoom@^5.2.12:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.2.tgz#b373a718dc365c7b7b239b7e8a06bbf39d7db04d"
-  integrity sha512-LAYqv5j28jWJIlbScaCH9FXTW+TS5LScq/wtJ7woUPo68YBhbumfCkTCbjnPf8/jHyViAflmqbUXidWyTIZsWg==
+react-medium-image-zoom@5.4.1, react-medium-image-zoom@^5.2.12:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.1.tgz#3cffb3fb44d769085562419683dad405d141afbd"
+  integrity sha512-DD2iZYaCfAwiQGR8AN62r/cDJYoXhezlYJc5HY4TzBUGuGge43CptG0f7m0PEIM72aN6GfpjohvY1yYdtCJB7g==
 
 react-paginate@8.2.0:
   version "8.2.0"
