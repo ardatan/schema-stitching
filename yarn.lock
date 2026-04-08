@@ -7273,9 +7273,9 @@ lru-cache@^10.0.0:
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
 
 lru-cache@^11.0.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.3.0.tgz#c1fb0c77eae4962f326d6118c73471010a6f4f95"
-  integrity sha512-sr8xPKE25m6vJVcrdn6NxtC0fVfuPowbscLypegRgOm0yXSqr5JNHCAY3hnusdJ7HRBW04j6Ip4khvHU778DuQ==
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.3.2.tgz#349669d2a9eeb10cc706a9edb10d93bc7080a892"
+  integrity sha512-wgWa6FWQ3QRRJbIjbsldRJZxdxYngT/dO0I5Ynmlnin8qy7tC6xYzbcJjtN4wHLXtkbVwHzk0C+OejVw1XM+DQ==
 
 lru-cache@^5.1.1:
   version "5.1.1"
