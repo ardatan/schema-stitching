@@ -23,7 +23,7 @@
     "@graphql-tools/mock": "^9.0.0",
     "@graphql-tools/utils": "^11.0.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.6.0",
     "jest": "^30.0.0",
     "typescript": "6.0.2"
   }
