@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@graphql-tools/executor-http": "^3.0.2",
-    "@graphql-tools/stitch": "^10.1.13",
-    "@graphql-tools/stitching-directives": "^4.0.15",
+    "@graphql-tools/stitch": "^10.1.18",
+    "@graphql-tools/stitching-directives": "^4.0.20",
     "@graphql-tools/utils": "^11.0.0",
     "@whatwg-node/fetch": "^0.10.0",
     "concurrently": "^9.0.0",
