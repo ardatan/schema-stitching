@@ -1391,11 +1391,11 @@
   integrity sha512-Pz8wB3K0iU6ae9S1fWfsmJX24CcGeTo6hE7T44ucmV/ALKRj+bxClmqrYcDT7v3f0d12Rh4FAXBb6gon+WkDpQ==
 
 "@graphql-tools/batch-delegate@^10.0.1", "@graphql-tools/batch-delegate@^10.0.20":
-  version "10.0.20"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-10.0.20.tgz#2abe7575b692dcb85713ba16372951cee7bf2122"
-  integrity sha512-KN0TxzULbQwZbLQN4UXkPnkvr64VVYhn0YgIQYeVFzDlQYaFSzr8WwkWVkd8Zm41ecDygo51ygBTfP3fEHnJmw==
+  version "10.0.21"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-10.0.21.tgz#f771bf0073dbd81a997b4a49fc7a3259b800de91"
+  integrity sha512-oV56ClTQi2HO7+mAjUPFrQLvMo+hpjB54nbgStHaTIe55+1tFiRCFmRwi7PJCdCR5+LaUXA3XggNKPZlnM37bg==
   dependencies:
-    "@graphql-tools/delegate" "^12.0.14"
+    "@graphql-tools/delegate" "^12.0.15"
     "@graphql-tools/utils" "^11.0.0"
     "@whatwg-node/promise-helpers" "^1.3.2"
     dataloader "^2.2.3"
@@ -1411,10 +1411,10 @@
     dataloader "^2.2.3"
     tslib "^2.8.1"
 
-"@graphql-tools/delegate@^12.0.0", "@graphql-tools/delegate@^12.0.14":
-  version "12.0.14"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-12.0.14.tgz#982f209aa582fd3ed9dfd54fec562812785eeb33"
-  integrity sha512-/xCDM8zlCk1Lccww9asOIpxna9IFpIlol4yGsBD9Y2+3/Zu5k4/HzDC8LKJtw5MxdG+uJN1l9nRepr4GeBC4kA==
+"@graphql-tools/delegate@^12.0.0", "@graphql-tools/delegate@^12.0.14", "@graphql-tools/delegate@^12.0.15":
+  version "12.0.15"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/delegate/-/delegate-12.0.15.tgz#0b3366ab9d81c6227964747a1208b0fb9462a0e2"
+  integrity sha512-5931VfQ3Ze6rQLPmdw3UlR16g+z1iMyGlxvTMMHCT+P+mDd4v7bsDuE8L17/s46K5HAz3h0hX3MSc4jZbSy86A==
   dependencies:
     "@graphql-tools/batch-execute" "^10.0.8"
     "@graphql-tools/executor" "^1.4.13"
