@@ -11,7 +11,7 @@
     "start-users": "ts-node-dev src/services/users/index.ts"
   },
   "dependencies": {
-    "@apollo/subgraph": "^2.13.2",
+    "@apollo/subgraph": "^2.14.0",
     "@graphql-tools/executor-http": "^3.0.2",
     "@graphql-tools/stitch": "^10.1.13",
     "@graphql-tools/stitching-directives": "^4.0.15",
