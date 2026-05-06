@@ -33,8 +33,8 @@
     "Microservices"
   ],
   "scripts": {
-    "ci:lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts . --output-file eslint_report.json --format json",
-    "lint": "cross-env \"ESLINT_USE_FLAT_CONFIG=false\" eslint --ext .ts .",
+    "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
+    "lint": "eslint --ext .ts .",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
     "test": "cross-env \"NODE_OPTIONS=--no-experimental-webstorage\" jest --runInBand --forceExit"
