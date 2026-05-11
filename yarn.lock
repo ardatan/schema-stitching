@@ -10557,9 +10557,9 @@ vscode-uri@~3.1.0:
   integrity sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==
 
 wait-on@^9.0.0:
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/wait-on/-/wait-on-9.0.6.tgz#21ede653d9cb41a6283c4f0b46de1cbbdb342d5e"
-  integrity sha512-KR+Te+NBg6DmPVil4anyIO72mpt/QDHjRo3nVFkwRgb26oweUp3DDW2szO3EeUY4cqafWy4rQuOOeEk4n+7Oeg==
+  version "9.0.10"
+  resolved "https://registry.yarnpkg.com/wait-on/-/wait-on-9.0.10.tgz#9c73ad1908b8e46e853e1271b2c9563f2c2d8e02"
+  integrity sha512-rCoJEhvMr0X6alHmwc9abbrA5ZrLZFKpFQVKPNFwl2h7DapXOGdmimIHDtLOWhT4PjhZhxFEtZoQgEXbkDWdZw==
   dependencies:
     axios "^1.16.0"
     joi "^18.2.1"
