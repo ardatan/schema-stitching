@@ -44,6 +44,7 @@ typings/
 
 # Optional eslint cache
 .eslintcache
+eslint_report.json
 
 # Optional REPL history
 .node_repl_history
