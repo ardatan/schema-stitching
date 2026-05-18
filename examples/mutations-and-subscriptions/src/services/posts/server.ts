@@ -1,4 +1,5 @@
 import { createServer } from 'http';
+import { randomInt } from 'crypto';
 import { createPubSub, createSchema, createYoga } from 'graphql-yoga';
 
 const pubsub = createPubSub();
@@ -41,7 +42,7 @@ export const app = createYoga({
         createPost: (root, { message }) => {
           const newPost = {
             id: posts.length + 1,
-            userId: String(Math.round(Math.random() * 2) + 1),
+            userId: String(randomInt(1, 4)),
             message,
           };
 
