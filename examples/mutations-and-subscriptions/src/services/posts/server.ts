@@ -1,5 +1,5 @@
-import { createServer } from 'http';
 import { randomInt } from 'crypto';
+import { createServer } from 'http';
 import { createPubSub, createSchema, createYoga } from 'graphql-yoga';
 
 const pubsub = createPubSub();
