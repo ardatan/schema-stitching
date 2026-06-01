@@ -79,7 +79,8 @@
     "on-headers": "1.1.0",
     "postcss": "^8.5.14",
     "react-medium-image-zoom": "5.4.5",
-    "sharp": "^0.34.1"
+    "sharp": "^0.34.1",
+    "uuid": "11.1.1"
   },
   "lint-staged": {
     "examples/**/src/**/*.{ts,tsx}": [
