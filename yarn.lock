@@ -5826,10 +5826,10 @@ graphql-yoga@^5.16.2:
     lru-cache "^10.0.0"
     tslib "^2.8.1"
 
-graphql@16.14.0, graphql@^16.6.0:
-  version "16.14.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.14.0.tgz#f1128a74b16a34d1245c8436bb07b488d87b83e1"
-  integrity sha512-BBvQ/406p+4CZbTpCbVPSxfzrZrbnuWSP1ELYgyS6B+hNeKzgrdB4JczCa5VZUBQrDa9hUngm0KnexY6pJRN5Q==
+graphql@16.14.1, graphql@^16.6.0:
+  version "16.14.1"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.14.1.tgz#e692888b5103480a71e48cd9c3ed1dd8b0c5af7f"
+  integrity sha512-cQOsSMS/IrDz82PVyRDvf/Q1F/bRbBVjJlh+xYOkI1qw2bWRvWGiWc+m2O0d6l4Bt1fyY+8kzJ8JFWGJqNeDBg==
 
 gzip-size@^6.0.0:
   version "6.0.0"
