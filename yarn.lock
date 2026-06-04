@@ -8867,10 +8867,10 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-medium-image-zoom@5.4.5, react-medium-image-zoom@^5.2.12:
-  version "5.4.5"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.5.tgz#dc3e5fc18761ef38f85e0c35637033bf5cfb7485"
-  integrity sha512-58QSIRK6X3uw2fSTejJRnH0JuKTZl7ZJYX+sAMaYx4YTEm33gsNdnP5RuQSCnBiAvisQeErqZWAT31bR89WB6g==
+react-medium-image-zoom@5.4.6, react-medium-image-zoom@^5.2.12:
+  version "5.4.6"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.6.tgz#5d280a3af925fa751cf1c6f1ab585b0ccedad1c1"
+  integrity sha512-5lHF6zNS5cTgSCLpPmeHH+lm+yPtLpS16gi4yhyQ9Rqa+xk0X2QPLHqv89zP+OsLUr9ijEALlz/8u/9C7iGVmQ==
 
 react-paginate@8.2.0:
   version "8.2.0"
