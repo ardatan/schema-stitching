@@ -74,7 +74,7 @@
     "estree-util-value-to-estree": "^3.3.3",
     "form-data": "4.0.5",
     "glob": "13.0.6",
-    "graphql": "16.14.1",
+    "graphql": "16.14.2",
     "lodash-es": "4.18.1",
     "on-headers": "1.1.0",
     "postcss": "^8.5.14",
