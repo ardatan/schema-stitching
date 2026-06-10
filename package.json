@@ -64,7 +64,7 @@
     "husky": "9.1.7",
     "jest": "30.4.2",
     "lint-staged": "17.0.7",
-    "prettier": "3.8.3",
+    "prettier": "3.8.4",
     "typescript": "6.0.3"
   },
   "resolutions": {
@@ -78,7 +78,7 @@
     "lodash-es": "4.18.1",
     "on-headers": "1.1.0",
     "postcss": "^8.5.14",
-    "react-medium-image-zoom": "5.4.6",
+    "react-medium-image-zoom": "5.4.7",
     "sharp": "^0.34.1"
   },
   "lint-staged": {
