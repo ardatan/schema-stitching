@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@theguild/components": "^9.2.0",
-    "next": "^16.0.0",
+    "next": "^16.2.10",
     "next-sitemap": "^4.2.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -28,6 +28,6 @@
     "postcss-lightningcss": "1.1.0",
     "tailwindcss": "3.4.19",
     "typescript": "6.0.3",
-    "wrangler": "4.99.0"
+    "wrangler": "4.106.0"
   }
 }
