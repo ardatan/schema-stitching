@@ -35,6 +35,7 @@
   "scripts": {
     "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
     "lint": "eslint --ext .ts .",
+    "postinstall": "patch-package",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
     "test": "cross-env \"NODE_OPTIONS=--no-experimental-webstorage\" jest --runInBand --forceExit"
@@ -64,6 +65,7 @@
     "husky": "9.1.7",
     "jest": "30.4.2",
     "lint-staged": "17.0.8",
+    "patch-package": "8.0.1",
     "prettier": "3.9.4",
     "typescript": "6.0.3"
   },

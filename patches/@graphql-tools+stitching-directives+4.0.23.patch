@@ -1,0 +1,16 @@
+diff --git a/node_modules/@graphql-tools/stitching-directives/dist/index.cjs b/node_modules/@graphql-tools/stitching-directives/dist/index.cjs
+index bb89f4d..7e9d0a1 100644
+--- a/node_modules/@graphql-tools/stitching-directives/dist/index.cjs
++++ b/node_modules/@graphql-tools/stitching-directives/dist/index.cjs
+@@ -1156,9 +1156,9 @@ function federationToStitchingSDL(federationSDL, stitchingConfig = stitchingDire
+       return keyFields.includes(fieldDef.name.value) || !fieldDef.directives?.find((dir) => dir.name.value === "external");
+     });
+     typeDef.fields?.forEach((fieldDef) => {
+-      fieldDef.directives = fieldDef.directives.filter(
++      fieldDef.directives = fieldDef.directives?.filter(
+         (dir) => !/^(external|provides)$/.test(dir.name.value)
+-      );
++      ) ?? [];
+       fieldDef.directives.forEach((dir) => {
+         if (dir.name.value === "requires") {
+           dir.name.value = stitchingConfig.computedDirective.name;
