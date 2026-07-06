@@ -17,8 +17,7 @@
         "!/^@theguild//",
         "!/@graphql-inspector/core/",
         "!/next/",
-        "!/graphql/",
-        "*"
+        "!/graphql/"
       ]
     }
   ]
