@@ -11,11 +11,11 @@
     "start-users": "ts-node-dev src/services/users/index.ts"
   },
   "dependencies": {
-    "@apollo/subgraph": "^2.13.2",
+    "@apollo/subgraph": "^2.14.2",
     "@graphql-tools/executor-http": "^3.0.2",
-    "@graphql-tools/stitch": "^10.1.13",
-    "@graphql-tools/stitching-directives": "^4.0.15",
-    "@graphql-tools/utils": "^11.0.0",
+    "@graphql-tools/stitch": "^10.1.23",
+    "@graphql-tools/stitching-directives": "^4.0.23",
+    "@graphql-tools/utils": "^11.1.1",
     "@types/node": "^25.5.0",
     "@types/wait-on": "^5.3.1",
     "concurrently": "^10.0.0",

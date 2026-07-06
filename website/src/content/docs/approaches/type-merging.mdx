@@ -806,9 +806,7 @@ look like this:
 import { SDC } from 'statsd-client'
 import { createMergedTypeResolver, stitchSchemas } from '@graphql-tools/stitch'
 
-const statsd = new SDC({
-  /* ... */
-})
+const statsd = new SDC({/* ... */})
 
 function createInstrumentedMergedTypeResolver(resolverOptions) {
   const defaultResolve = createMergedTypeResolver(resolverOptions)

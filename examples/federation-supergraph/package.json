@@ -13,8 +13,8 @@
     "start-reviews": "ts-node-dev src/services/reviews.ts"
   },
   "dependencies": {
-    "@apollo/subgraph": "^2.13.2",
-    "@graphql-tools/federation": "^4.2.13",
+    "@apollo/subgraph": "^2.14.2",
+    "@graphql-tools/federation": "^4.4.7",
     "@types/node": "^25.5.0",
     "concurrently": "^10.0.0",
     "graphql": "^16.6.0",
