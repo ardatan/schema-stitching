@@ -3200,10 +3200,10 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/node@*", "@types/node@25.9.3", "@types/node@^25.0.3", "@types/node@^25.5.0":
-  version "25.9.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.9.3.tgz#11dfe7a33e68fa5c560f0aa76cc5595621ef26b9"
-  integrity sha512-603BddQMv3pUcr4U2dhujk83N2tTDVr/34wII2B6bJy6g+8WD6yUb11jszNs0gdi4PesVWl7ABt8nYMVpnLUcg==
+"@types/node@*", "@types/node@25.9.4", "@types/node@^25.0.3", "@types/node@^25.5.0":
+  version "25.9.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-25.9.4.tgz#18b63c47f88c1fbbed9d55ea2b66ffd494a47001"
+  integrity sha512-dszCsrKb5U7ZsVZBWiHFklTloVl0mSEnWH/iZXfZUlI4rzCUnsvGmgqfuVRHL54ugE7/wRuxEIXRa2iMZ+BG6g==
   dependencies:
     undici-types ">=7.24.0 <7.24.7"
 
@@ -8887,10 +8887,10 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-medium-image-zoom@5.4.7, react-medium-image-zoom@^5.2.12:
-  version "5.4.7"
-  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.7.tgz#7e27f1a861a16e79cecaee9565ff70b17ce2ef9b"
-  integrity sha512-VPEz3uSLkD+M8VmZCI9tTf6M6DfCOhuFAAmr/vgcTJRRSJq0axe47BpigXv5kw100fMrA6aG6Nm8N7mGfDZJAQ==
+react-medium-image-zoom@5.4.8, react-medium-image-zoom@^5.2.12:
+  version "5.4.8"
+  resolved "https://registry.yarnpkg.com/react-medium-image-zoom/-/react-medium-image-zoom-5.4.8.tgz#e9e4cc274ffafd4ccb7013bba48cd66ac87b5dc1"
+  integrity sha512-72CIldEUaPejjcaDOYIeDsGlWzNKpmxyKgiPi1LBCkWCIGHDLlA2KTeo2uNtmN/m72Y3k/2uWDfon9SDiPbHaA==
 
 react-paginate@8.2.0:
   version "8.2.0"
