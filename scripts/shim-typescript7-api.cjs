@@ -3,8 +3,9 @@
  * typescript-eslint, and twoslash still import from `typescript`.
  *
  * After install:
- * 1. Point the package `exports` at `@typescript/typescript6` for tooling
- * 2. Add the `lib/typescript.js` file Next.js probes for on disk
+ * 1. Point package `exports` at `@typescript/typescript6` (CJS) for normal imports
+ * 2. Add `lib/typescript.js` with a full ESM namespace re-export so Next's
+ *    `require(absolutePath)` still sees `ts.sys` (not only `ts.default.sys`)
  *
  * The installed package remains `typescript@7` and `tsc` stays native TS7.
  *
@@ -30,20 +31,27 @@ if (!String(packageJson.version).startsWith('7.')) {
   process.exit(0);
 }
 
-require.resolve('@typescript/typescript6/package.json');
+const typescript6 = require('@typescript/typescript6');
 
-// typescript@7 sets "type": "module", so the CJS entry must use .cjs.
 const cjsShimPath = path.join(typescriptDir, 'lib', 'typescript.cjs');
 fs.writeFileSync(
   cjsShimPath,
   `'use strict';\nmodule.exports = require('@typescript/typescript6');\n`,
 );
 
-// Next.js checks for this exact path with fs.existsSync (not package exports).
+// Next.js resolves this path with fs.existsSync + require(absolutePath). Because
+// typescript@7 uses "type":"module", that require loads ESM and only sees named
+// exports on the module namespace — a lone `export default` leaves ts.sys undefined.
+const exportNames = Object.keys(typescript6).filter(name => /^[A-Za-z_$][\w$]*$/.test(name));
 const esmShimPath = path.join(typescriptDir, 'lib', 'typescript.js');
 fs.writeFileSync(
   esmShimPath,
-  `import { createRequire } from 'node:module';\nconst require = createRequire(import.meta.url);\nexport default require('@typescript/typescript6');\n`,
+  `import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const ts = require('@typescript/typescript6');
+export default ts;
+${exportNames.map(name => `export const ${name} = ts[${JSON.stringify(name)}];`).join('\n')}
+`,
 );
 
 packageJson.exports = {
