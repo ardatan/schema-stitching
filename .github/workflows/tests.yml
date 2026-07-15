@@ -35,7 +35,7 @@ jobs:
           nodeVersion: 25
 
       - name: Prettier Check
-        run: yarn prettier:check
+        run: yarn prettier
 
       # Commit all changed files back to the repository
       - name: Commit changed files
