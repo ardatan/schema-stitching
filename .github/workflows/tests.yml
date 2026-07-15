@@ -24,6 +24,10 @@ jobs:
     steps:
       - name: Checkout Master
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.head_ref }}
+          # Value already defaults to true, but `persist-credentials` is required to push new commits to the repository.
+          persist-credentials: true
 
       - name: Setup env
         uses: the-guild-org/shared-config/setup@1c4632ccc198d4c9b34d9e6b3d556c6f245b4e69 # main
@@ -31,7 +35,11 @@ jobs:
           nodeVersion: 25
 
       - name: Prettier Check
-        run: yarn prettier:check
+        run: yarn prettier
+
+      # Commit all changed files back to the repository
+      - name: Commit changed files
+        uses: stefanzweifel/git-auto-commit-action@v7
   lint:
     name: lint
     uses: the-guild-org/shared-config/.github/workflows/lint.yml@1c4632ccc198d4c9b34d9e6b3d556c6f245b4e69 # main
