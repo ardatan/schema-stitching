@@ -21,7 +21,7 @@
     "@types/node": "^26.1.0",
     "class-validator": "^0.15.0",
     "concurrently": "^10.0.0",
-    "graphql": "^16.6.0",
+    "graphql": "^17.0.0",
     "graphql-scalars": "^1.22.2",
     "graphql-yoga": "^5.16.2",
     "nexus": "^1.0.0",
