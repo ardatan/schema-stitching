@@ -20,10 +20,10 @@
   resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.3.tgz#5da62cf64c3b4419dabfef4536b57a40c8ff0b47"
   integrity sha512-F17/vCp7QVwom9eG7ToauIKdAxpSoadsJnqIfyryLFSkLSOEqu+eC5Z3N8OXcUVStuOMcNHlyraRsA6rRICu4g==
 
-"@apollo/federation-internals@2.14.2":
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.14.2.tgz#ca51002a2e8124c9642eefb88c3518c67a0f7448"
-  integrity sha512-6+de7KrV53x3I+RNjTaFzjT6INmI1dJ1uLbgPhVBcBEk9lbJ9BwyOWwBYpMuVFAgEuqMHb0/2qy/gme93j/ciA==
+"@apollo/federation-internals@2.14.3":
+  version "2.14.3"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.14.3.tgz#e77f75fcc64d033648618ea1e8b1876d3dd572bc"
+  integrity sha512-Qwtx6ayTkRP9U4I/LXYrBmX1WJ9qDVDrGuXT4PWfz4sI2EnKSxbgn/n+iG6+5S1VUdFAaNGpgLhMpFPak2Uirw==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -31,12 +31,12 @@
     uuid "^9.0.0"
 
 "@apollo/subgraph@^2.14.2":
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.14.2.tgz#e66fbcf66dcc46e78c06f9c89e5f9e66fd978538"
-  integrity sha512-myBXcjP0tGJbd4q6JZjFfyoZnM+Pz7jXjkLMpG2WvWE4Q/9c+K1yRkqlUoX5Ls4gUyRP8xYqnDLFziBz1whtFg==
+  version "2.14.3"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.14.3.tgz#c3d4178ae2c4cc57752b53be0a0c7c280c6a8207"
+  integrity sha512-ElfvdJJFKUQn32d7zUkBaqWhco5nSknlZKp2u0Z1FdDb5PGWfXUxuVQRpCv9zfqXXwKfCWithN6uchkDzy+khQ==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.14.2"
+    "@apollo/federation-internals" "2.14.3"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.27.1", "@babel/code-frame@^7.29.7":
   version "7.29.7"
@@ -7259,10 +7259,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-lint-staged@17.1.0:
-  version "17.1.0"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-17.1.0.tgz#2673a96468ae907d29e74977f3a382666d87df11"
-  integrity sha512-d7UQRu/9ZPgfu4+hu/k0wny5GEaIxo+2jb2LJqQDkE7cHRTm1HGqNUDq5UOwsGPpjpaNAFmgAsYo3TR+i9cSJw==
+lint-staged@17.1.1:
+  version "17.1.1"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-17.1.1.tgz#1cf041f138e10a4fe0356e2f30a013f17d5f1fb2"
+  integrity sha512-FnHWpSe5cPRtrDG+soOuNdBxb4XQb2gN5EqpEWKdweyqyOfpl4QSjbrz3ilcIf0WXmkiNQGZZRQ23R5YtB3TEw==
   dependencies:
     picomatch "^4.0.5"
     string-argv "^0.3.2"
@@ -8812,9 +8812,9 @@ postcss-value-parser@^4.0.0:
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
 postcss@8.4.31, postcss@^8.4.47, postcss@^8.5.14:
-  version "8.5.21"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.21.tgz#47a779bd831733ff620e608d233b195ee1e7d66c"
-  integrity sha512-v4sDNP3fdNiWMfabO7OwOQdOX8TiQSztKyT1Wj0w+j7LDallJThJRBBBmzVGyYj0crMh7jlV4zepPkiNu9UwDQ==
+  version "8.5.22"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.22.tgz#086a0d5685a715acf5950ebbcb1538faf3051697"
+  integrity sha512-KBDEIpLrvpv16pp3K0Fw+UCoZfopFjjgeB+0tA/aaThfEE74kKDLrgg603YvOWJyg3+WYtyq3xYsQWsIyZlPqQ==
   dependencies:
     nanoid "^3.3.16"
     picocolors "^1.1.1"
