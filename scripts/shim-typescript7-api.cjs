@@ -31,7 +31,12 @@ if (!String(packageJson.version).startsWith('7.')) {
   process.exit(0);
 }
 
-const typescript6 = require('@typescript/typescript6');
+let typescript6;
+try {
+  typescript6 = require('@typescript/typescript6');
+} catch {
+  process.exit(0);
+}
 
 const cjsShimPath = path.join(typescriptDir, 'lib', 'typescript.cjs');
 fs.writeFileSync(
