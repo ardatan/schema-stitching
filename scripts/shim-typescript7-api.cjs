@@ -34,8 +34,16 @@ if (!String(packageJson.version).startsWith('7.')) {
 let typescript6;
 try {
   typescript6 = require('@typescript/typescript6');
-} catch {
-  process.exit(0);
+} catch (error) {
+  if (
+    error &&
+    error.code === 'MODULE_NOT_FOUND' &&
+    typeof error.message === 'string' &&
+    error.message.includes("'@typescript/typescript6'")
+  ) {
+    process.exit(0);
+  }
+  throw error;
 }
 
 const cjsShimPath = path.join(typescriptDir, 'lib', 'typescript.cjs');
