@@ -3,6 +3,8 @@ const CI = !!process.env.CI;
 
 const ROOT_DIR = __dirname;
 
+const ESM_PACKAGES = ['uuid'];
+
 module.exports = {
   testEnvironment: 'node',
   rootDir: ROOT_DIR,
@@ -16,4 +18,5 @@ module.exports = {
     '^.+\\.ts?$': 'babel-jest',
     '^.+\\.js$': 'babel-jest',
   },
+  transformIgnorePatterns: [`node_modules/(?!(${ESM_PACKAGES.join('|')})/)`],
 };
