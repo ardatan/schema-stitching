@@ -1,3 +1,4 @@
+import waitOn from 'wait-on';
 import { exampleQuery } from '../src/example-query';
 import { exampleSubscription } from '../src/example-subscription';
 import { yoga } from '../src/gateway';
@@ -7,6 +8,10 @@ import { server as productsServer } from '../src/services/products';
 import { server as reviewsServer } from '../src/services/reviews';
 
 describe('federation-supergraph', () => {
+  beforeAll(async () => {
+    await waitOn({ resources: [4001, 4002, 4003, 4004].map(port => `tcp:${port}`) });
+  });
+
   afterAll(() => {
     accountsServer.close();
     inventoryServer.close();

@@ -35,7 +35,7 @@
   "scripts": {
     "ci:lint": "eslint --ext .ts . --output-file eslint_report.json --format json",
     "lint": "eslint --ext .ts .",
-    "postinstall": "node ./scripts/shim-typescript7-api.cjs",
+    "postinstall": "node ./scripts/shim-typescript7-api.cjs && patch-package",
     "prettier": "prettier --cache --write --list-different .",
     "prettier:check": "prettier --cache --check .",
     "test": "cross-env \"NODE_OPTIONS=--no-experimental-webstorage\" jest --runInBand --forceExit"
@@ -66,6 +66,7 @@
     "husky": "9.1.7",
     "jest": "30.4.2",
     "lint-staged": "17.3.0",
+    "patch-package": "8.0.1",
     "prettier": "3.9.6",
     "typescript": "7.0.2"
   },
@@ -76,7 +77,7 @@
     "estree-util-value-to-estree": "^3.3.3",
     "form-data": "4.0.6",
     "glob": "13.0.6",
-    "graphql": "16.14.2",
+    "graphql": "17.0.2",
     "lodash-es": "4.18.1",
     "on-headers": "1.1.0",
     "postcss": "^8.5.14",

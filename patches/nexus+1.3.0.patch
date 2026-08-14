@@ -1,0 +1,117 @@
+diff --git a/node_modules/nexus/dist/builder.js b/node_modules/nexus/dist/builder.js
+index 656750b..4f306d1 100644
+--- a/node_modules/nexus/dist/builder.js
++++ b/node_modules/nexus/dist/builder.js
+@@ -626,7 +626,7 @@ class SchemaBuilder {
+                 // See: https://www.typescriptlang.org/docs/handbook/enums.html
+                 .filter((key) => isNaN(+key))
+                 .forEach((key) => {
+-                (0, graphql_1.assertValidName)(key);
++                (0, (graphql_1.assertValidName || graphql_1.assertName))( key);
+                 values[key] = {
+                     value: members[key],
+                 };
+diff --git a/node_modules/nexus/dist/definitions/enumType.js b/node_modules/nexus/dist/definitions/enumType.js
+index 13acbbe..a749913 100644
+--- a/node_modules/nexus/dist/definitions/enumType.js
++++ b/node_modules/nexus/dist/definitions/enumType.js
+@@ -8,7 +8,7 @@ class NexusEnumTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/extendInputType.js b/node_modules/nexus/dist/definitions/extendInputType.js
+index f40e993..a73deae 100644
+--- a/node_modules/nexus/dist/definitions/extendInputType.js
++++ b/node_modules/nexus/dist/definitions/extendInputType.js
+@@ -7,7 +7,7 @@ class NexusExtendInputTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/extendType.js b/node_modules/nexus/dist/definitions/extendType.js
+index 5e80e1a..24e4979 100644
+--- a/node_modules/nexus/dist/definitions/extendType.js
++++ b/node_modules/nexus/dist/definitions/extendType.js
+@@ -7,7 +7,7 @@ class NexusExtendTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/inputObjectType.js b/node_modules/nexus/dist/definitions/inputObjectType.js
+index dbe23ed..256dacf 100644
+--- a/node_modules/nexus/dist/definitions/inputObjectType.js
++++ b/node_modules/nexus/dist/definitions/inputObjectType.js
+@@ -8,7 +8,7 @@ class NexusInputObjectTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/interfaceType.js b/node_modules/nexus/dist/definitions/interfaceType.js
+index 0e946a1..748ca67 100644
+--- a/node_modules/nexus/dist/definitions/interfaceType.js
++++ b/node_modules/nexus/dist/definitions/interfaceType.js
+@@ -23,7 +23,7 @@ class NexusInterfaceTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/objectType.js b/node_modules/nexus/dist/definitions/objectType.js
+index f2272df..81ab837 100644
+--- a/node_modules/nexus/dist/definitions/objectType.js
++++ b/node_modules/nexus/dist/definitions/objectType.js
+@@ -23,7 +23,7 @@ class NexusObjectTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/scalarType.js b/node_modules/nexus/dist/definitions/scalarType.js
+index 77a5834..243abe8 100644
+--- a/node_modules/nexus/dist/definitions/scalarType.js
++++ b/node_modules/nexus/dist/definitions/scalarType.js
+@@ -8,7 +8,7 @@ class NexusScalarTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
+diff --git a/node_modules/nexus/dist/definitions/unionType.js b/node_modules/nexus/dist/definitions/unionType.js
+index 648d8c0..1680533 100644
+--- a/node_modules/nexus/dist/definitions/unionType.js
++++ b/node_modules/nexus/dist/definitions/unionType.js
+@@ -20,7 +20,7 @@ class NexusUnionTypeDef {
+     constructor(name, config) {
+         this.name = name;
+         this.config = config;
+-        (0, graphql_1.assertValidName)(name);
++        (0, (graphql_1.assertValidName || graphql_1.assertName))( name);
+     }
+     get value() {
+         return this.config;
