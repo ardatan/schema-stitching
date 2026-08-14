@@ -1,0 +1,26 @@
+diff --git a/node_modules/type-graphql/build/cjs/utils/graphql-version.js b/node_modules/type-graphql/build/cjs/utils/graphql-version.js
+index a296cf3..f8eb775 100644
+--- a/node_modules/type-graphql/build/cjs/utils/graphql-version.js
++++ b/node_modules/type-graphql/build/cjs/utils/graphql-version.js
+@@ -6,7 +6,7 @@ const tslib_1 = require("tslib");
+ const graphql = tslib_1.__importStar(require("graphql"));
+ const semver_1 = tslib_1.__importDefault(require("semver"));
+ const errors_1 = require("../errors");
+-exports.graphQLPeerDependencyVersion = "^16.12.0";
++exports.graphQLPeerDependencyVersion = "^16.12.0 || ^17.0.0";
+ function ensureInstalledCorrectGraphQLPackage() {
+     if (!semver_1.default.satisfies(graphql.version, exports.graphQLPeerDependencyVersion)) {
+         throw new errors_1.UnmetGraphQLPeerDependencyError(graphql.version, exports.graphQLPeerDependencyVersion);
+diff --git a/node_modules/type-graphql/build/esm/utils/graphql-version.js b/node_modules/type-graphql/build/esm/utils/graphql-version.js
+index 498b910..28dbeff 100644
+--- a/node_modules/type-graphql/build/esm/utils/graphql-version.js
++++ b/node_modules/type-graphql/build/esm/utils/graphql-version.js
+@@ -1,7 +1,7 @@
+ import * as graphql from "graphql";
+ import semVer from "semver";
+ import { UnmetGraphQLPeerDependencyError } from "../errors/index.js";
+-export const graphQLPeerDependencyVersion = "^16.12.0";
++export const graphQLPeerDependencyVersion = "^16.12.0 || ^17.0.0";
+ export function ensureInstalledCorrectGraphQLPackage() {
+     if (!semVer.satisfies(graphql.version, graphQLPeerDependencyVersion)) {
+         throw new UnmetGraphQLPeerDependencyError(graphql.version, graphQLPeerDependencyVersion);
