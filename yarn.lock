@@ -131,13 +131,6 @@
     "@types/jsesc" "^2.5.0"
     jsesc "^3.0.2"
 
-"@babel/helper-annotate-as-pure@^7.29.7":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.29.7.tgz#c70fe3c6ecbdc3fd2dd1b0f498428b88b82ce47f"
-  integrity sha512-OoK6239jHPuSQOoS0kfTVKn0b/rVTk0seKq4Gd2UMLtmOVLjDC0ki3e+c90Trqv2gMfvJFqkiljrr568+qddiw==
-  dependencies:
-    "@babel/types" "^7.29.7"
-
 "@babel/helper-annotate-as-pure@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-8.0.0.tgz#e094d0ea95f319cdc399fe25ec82e4b3dddb8461"
@@ -166,19 +159,6 @@
     browserslist "^4.24.0"
     lru-cache "^11.0.0"
     semver "^7.7.3"
-
-"@babel/helper-create-class-features-plugin@^7.18.6":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-create-class-features-plugin/-/helper-create-class-features-plugin-7.29.7.tgz#6eddf286f2ec418f740c91d60a83347c55838ddd"
-  integrity sha512-IY3ZD9Tmooqr3TUhc3DUWxiuo8xx1DWLhd5M7hQ+ZWJamqM2BbalrBJb2MisSLoYorOj75U03qULCxQTY9r3hg==
-  dependencies:
-    "@babel/helper-annotate-as-pure" "^7.29.7"
-    "@babel/helper-member-expression-to-functions" "^7.29.7"
-    "@babel/helper-optimise-call-expression" "^7.29.7"
-    "@babel/helper-replace-supers" "^7.29.7"
-    "@babel/helper-skip-transparent-expression-wrappers" "^7.29.7"
-    "@babel/traverse" "^7.29.7"
-    semver "^6.3.1"
 
 "@babel/helper-create-class-features-plugin@^8.0.1":
   version "8.0.1"
@@ -220,14 +200,6 @@
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-globals/-/helper-globals-8.0.0.tgz#c93789d6c1c2f1b65a97a07515c471a049559bf1"
   integrity sha512-lLozHOM6sWWlxNo8CYqHy4MBZeTvHXNgVPBfPOGsjPKUzHC2Az9QwB6gxdQmpwHl6GlQtbGgS+lj5887guDiLw==
-
-"@babel/helper-member-expression-to-functions@^7.29.7":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-member-expression-to-functions/-/helper-member-expression-to-functions-7.29.7.tgz#8dbdb3ce0b5c487e1aec10e13c9a43a500814df8"
-  integrity sha512-j+7JYmk1JYDtACIGj0QJqqWZjoUpMoEikQGADMaHgCMCSDqd2+P32rfcibUNrGOMWrlzK1WJBdxrB3JJQZwWtg==
-  dependencies:
-    "@babel/traverse" "^7.29.7"
-    "@babel/types" "^7.29.7"
 
 "@babel/helper-member-expression-to-functions@^8.0.0":
   version "8.0.0"
@@ -271,13 +243,6 @@
     "@babel/helper-validator-identifier" "^8.0.0"
     "@babel/traverse" "^8.0.0"
 
-"@babel/helper-optimise-call-expression@^7.29.7":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-7.29.7.tgz#77b0b5b94f1997fa9d6e3125f445227b1faf9d85"
-  integrity sha512-+kmGVjcT9RGYzoDwdwEqEvGgKe3BYq+O1iGzjFubaNgZHwYHP6lsF2Yghf4kEuv9BV7tYDZ913aBW9am6YKong==
-  dependencies:
-    "@babel/types" "^7.29.7"
-
 "@babel/helper-optimise-call-expression@^8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-optimise-call-expression/-/helper-optimise-call-expression-8.0.0.tgz#dc1118493494fbfc3bb24b490550673908a99b6c"
@@ -285,7 +250,7 @@
   dependencies:
     "@babel/types" "^8.0.0"
 
-"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.12.13", "@babel/helper-plugin-utils@^7.14.5", "@babel/helper-plugin-utils@^7.18.6", "@babel/helper-plugin-utils@^7.29.7", "@babel/helper-plugin-utils@^7.8.0":
+"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.12.13", "@babel/helper-plugin-utils@^7.14.5", "@babel/helper-plugin-utils@^7.29.7", "@babel/helper-plugin-utils@^7.8.0":
   version "7.29.7"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.29.7.tgz#c0a0766f1a13617d8a17407d7ab8f9d486225ea4"
   integrity sha512-G7sHYigPY17oO5SYWnfD/0MTBwVR781S/JI643e/JhUYgVgWE/61SoW3NH9KWUKyKq5LVh3npif99Wkt6j86Jw==
@@ -304,15 +269,6 @@
     "@babel/helper-wrap-function" "^8.0.0"
     "@babel/traverse" "^8.0.0"
 
-"@babel/helper-replace-supers@^7.29.7":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.29.7.tgz#bc3c3964329043c79112e513c1b198f16589ac21"
-  integrity sha512-atfGXWSeCiF4DnKZIfmJfQRkSw9b9gNNXR1kqKjbhG4pGYCOnkp8OcTB8E3NXjBu8NpheSnOeNKz8KT7UNFTmQ==
-  dependencies:
-    "@babel/helper-member-expression-to-functions" "^7.29.7"
-    "@babel/helper-optimise-call-expression" "^7.29.7"
-    "@babel/traverse" "^7.29.7"
-
 "@babel/helper-replace-supers@^8.0.1":
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-8.0.1.tgz#c9b23aba6b9aff16cacac135052e790cde8d7d5b"
@@ -321,14 +277,6 @@
     "@babel/helper-member-expression-to-functions" "^8.0.0"
     "@babel/helper-optimise-call-expression" "^8.0.0"
     "@babel/traverse" "^8.0.0"
-
-"@babel/helper-skip-transparent-expression-wrappers@^7.29.7":
-  version "7.29.7"
-  resolved "https://registry.yarnpkg.com/@babel/helper-skip-transparent-expression-wrappers/-/helper-skip-transparent-expression-wrappers-7.29.7.tgz#50c95c7e4c4f54936cfa0116428edc559862d551"
-  integrity sha512-brcMGQaVzIeUb+6/bs1Av0f8YuNNjKY2JyvfRCsFuFsdKccEQ5Ges2y74D74NZ1Rz8lKJ9ksJkfqwQFJ/iNEyQ==
-  dependencies:
-    "@babel/traverse" "^7.29.7"
-    "@babel/types" "^7.29.7"
 
 "@babel/helper-skip-transparent-expression-wrappers@^8.0.0":
   version "8.0.0"
@@ -451,14 +399,6 @@
   integrity sha512-P8+RN2n7ts2s1vnE+lXdHYf+dhnmcGSen/kWzBsVluT9Sey5AqmcRXYWlHqgQxaNlKTD5YMa1tf5z4d1v8W88w==
   dependencies:
     "@babel/helper-plugin-utils" "^8.0.1"
-
-"@babel/plugin-proposal-class-properties@7.18.6":
-  version "7.18.6"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.18.6.tgz#b110f59741895f7ec21a6fff696ec46265c446a3"
-  integrity sha512-cumfXOF0+nzZrrN8Rf0t7M+tF6sZc7vhQwYQck9q1/5w2OExlD+b4v4RpMJFaV1Z7WcDRgO6FqvxqxGlwo+RHQ==
-  dependencies:
-    "@babel/helper-create-class-features-plugin" "^7.18.6"
-    "@babel/helper-plugin-utils" "^7.18.6"
 
 "@babel/plugin-proposal-decorators@8.0.2":
   version "8.0.2"

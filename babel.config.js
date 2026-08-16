@@ -5,7 +5,7 @@ module.exports = {
   ],
   plugins: [
     'babel-plugin-transform-typescript-metadata',
-    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    ['@babel/plugin-proposal-decorators', { version: 'legacy' }],
     'babel-plugin-parameter-decorator',
     '@babel/plugin-transform-class-properties',
   ],
