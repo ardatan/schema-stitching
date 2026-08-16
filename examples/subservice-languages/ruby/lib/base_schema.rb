@@ -1,43 +1,35 @@
-require 'graphql'
-require 'graphql-schema_directives'
+# frozen_string_literal: true
 
-# Stitching directive definitions
+require 'graphql'
+
+# Stitching directive definitions (native GraphQL-Ruby schema directives)
 
 class MergeDirective < GraphQL::Schema::Directive
   graphql_name 'merge'
-  add_argument GraphQL::Schema::Argument.new('keyField', String, required: false, owner: GraphQL::Schema)
-  add_argument GraphQL::Schema::Argument.new('keyArg', String, required: false, owner: GraphQL::Schema)
-  add_argument GraphQL::Schema::Argument.new('additionalArgs', String, required: false, owner: GraphQL::Schema)
-  add_argument GraphQL::Schema::Argument.new('key', [String], required: false, owner: GraphQL::Schema)
-  add_argument GraphQL::Schema::Argument.new('argsExpr', String, required: false, owner: GraphQL::Schema)
-  locations 'FIELD_DEFINITION'
+  argument :keyField, String, required: false
+  argument :keyArg, String, required: false
+  argument :additionalArgs, String, required: false
+  argument :key, [String], required: false
+  argument :argsExpr, String, required: false
+  locations FIELD_DEFINITION
 end
 
 class KeyDirective < GraphQL::Schema::Directive
   graphql_name 'key'
-  add_argument GraphQL::Schema::Argument.new('selectionSet', String, required: true, owner: GraphQL::Schema)
-  locations 'OBJECT'
+  argument :selectionSet, String, required: true
+  locations OBJECT
 end
 
 class ComputedDirective < GraphQL::Schema::Directive
   graphql_name 'computed'
-  add_argument GraphQL::Schema::Argument.new('selectionSet', String, required: true, owner: GraphQL::Schema)
-  locations 'FIELD_DEFINITION'
-end
-
-# GraphQL base types with schema directives
-
-class BaseField < GraphQL::Schema::Field
-  include GraphQL::SchemaDirectives::Field
+  argument :selectionSet, String, required: true
+  locations FIELD_DEFINITION
 end
 
 class BaseObject < GraphQL::Schema::Object
-  include GraphQL::SchemaDirectives::Object
-  field_class BaseField
 end
 
 class BaseSchema < GraphQL::Schema
-  include GraphQL::SchemaDirectives::Schema
   directive(MergeDirective)
   directive(KeyDirective)
   directive(ComputedDirective)
