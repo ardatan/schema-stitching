@@ -30,7 +30,7 @@ REVIEWS = [
 ].freeze
 
 class Review < BaseObject
-  add_directive :key, { selectionSet: '{ id }' }
+  directive KeyDirective, selectionSet: '{ id }'
 
   field :id, ID, null: false
   field :body, String, null: true
@@ -47,7 +47,7 @@ class Review < BaseObject
 end
 
 class User < BaseObject
-  add_directive :key, { selectionSet: '{ id }' }
+  directive KeyDirective, selectionSet: '{ id }'
 
   field :id, ID, null: false
   field :reviews, [Review], null: true
@@ -58,7 +58,7 @@ class User < BaseObject
 end
 
 class Product < BaseObject
-  add_directive :key, { selectionSet: '{ upc }' }
+  directive KeyDirective, selectionSet: '{ upc }'
 
   field :upc, String, null: false
   field :reviews, [Review], null: true
@@ -69,10 +69,10 @@ class Product < BaseObject
 end
 
 class Query < BaseObject
-  field :_users, [User, null: true], null: false, directives: { merge: { keyField: 'id' } } do
+  field :_users, [User, null: true], null: false, directives: { MergeDirective => { keyField: 'id' } } do
     argument :ids, [ID], required: true
   end
-  field :_products, [Product, null: true], null: false, directives: { merge: { keyField: 'upc' } } do
+  field :_products, [Product, null: true], null: false, directives: { MergeDirective => { keyField: 'upc' } } do
     argument :upcs, [ID], required: true
   end
   field :_sdl, String, null: false
@@ -86,7 +86,7 @@ class Query < BaseObject
   end
 
   def _sdl
-    ReviewSchema.print_schema_with_directives
+    ReviewSchema.to_definition
   end
 end
 

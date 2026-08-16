@@ -41,15 +41,15 @@ PRODUCTS = [
 
 RESOLVERS = {
   Query: {
-    products: ->(obj, args, ctx) { args[:upcs].map { |upc| PRODUCTS.find { |p| p[:upc] == upc } } },
-    _sdl: ->(obj, args, ctx) { schema.print_schema_with_directives }
+    products: ->(_obj, args, _ctx) { args[:upcs].map { |upc| PRODUCTS.find { |p| p[:upc] == upc } } },
+    _sdl: ->(_obj, _args, _ctx) { schema.to_definition }
   }
 }.freeze
 
 module DefaultResolver
   def self.call(type, field, obj, args, ctx)
     type_name = type.graphql_name
-    field_name = field.name
+    field_name = field.graphql_name
     resolver = RESOLVERS.dig(type_name.to_sym, field_name.to_sym)
 
     if resolver
@@ -60,9 +60,6 @@ module DefaultResolver
   end
 end
 
-schema = GraphQL::SchemaDirectives.from_definition(type_defs, default_resolve: DefaultResolver)
-schema.directive(MergeDirective)
-schema.directive(KeyDirective)
-schema.directive(ComputedDirective)
+schema = GraphQL::Schema.from_definition(type_defs, default_resolve: DefaultResolver)
 
 GraphQLServer.run(schema, Port: 4002)

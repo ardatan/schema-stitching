@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 require 'rack'
+require 'rackup'
 require 'json'
+require 'webrick'
 
 class GraphQLServer
   def self.run(schema, options = {})
-    Rack::Handler::WEBrick.run(GraphQLServer.new(schema), **options)
+    Rackup::Handler::WEBrick.run(GraphQLServer.new(schema), **options)
   end
 
   attr_reader :schema
@@ -16,12 +18,13 @@ class GraphQLServer
 
   def call(env)
     req = Rack::Request.new(env)
-    req_vars = JSON.parse(req.body.read)
+    body = req.body.read
+    req_vars = body.empty? ? {} : JSON.parse(body)
     result = schema.execute(
       req_vars['query'],
       operation_name: req_vars['operationName'],
       variables: req_vars['variables'] || {},
     )
-    ['200', { 'Content-Type' => 'application/json' }, [JSON.dump(result.to_h)]]
+    [200, { 'content-type' => 'application/json' }, [JSON.dump(result.to_h)]]
   end
 end

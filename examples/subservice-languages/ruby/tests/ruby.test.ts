@@ -9,19 +9,20 @@ describe('Ruby subservices', () => {
   beforeAll(async () => {
     execSync('bundle install', {
       cwd: baseDir,
+      stdio: 'inherit',
     });
     servicesProcess = spawn('npm', ['run', 'start-services'], {
       cwd: baseDir,
+      stdio: ['ignore', 'pipe', 'pipe'],
     });
-  });
+    servicesProcess.stderr?.on('data', (chunk: Buffer) => {
+      process.stderr.write(chunk);
+    });
+  }, 120_000);
   afterAll(async () => {
-    servicesProcess.stdout.destroy();
-    servicesProcess.stderr.destroy();
-    servicesProcess.kill();
-    await killPortProcess([4001, 4002, 4003]).catch(e => {
-      console.error(e);
-    });
-  });
+    servicesProcess?.kill('SIGTERM');
+    await killPortProcess([4001, 4002, 4003]).catch(() => undefined);
+  }, 30_000);
   it('should work', async () => {
     const result = await gatewayApp.fetch('/graphql', {
       method: 'POST',
@@ -48,5 +49,5 @@ describe('Ruby subservices', () => {
     });
     const json = await result.json();
     expect(json).toMatchSnapshot('result');
-  });
+  }, 60_000);
 });

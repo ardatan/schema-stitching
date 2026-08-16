@@ -16,14 +16,14 @@ USERS = [
 ].freeze
 
 class User < BaseObject
-  add_directive :key, { selectionSet: '{ id }' }
+  directive KeyDirective, selectionSet: '{ id }'
   field :id, ID, null: false
   field :name, String, null: true
   field :username, String, null: true
 end
 
 class Query < BaseObject
-  field :users, [User, null: true], null: false, directives: { merge: { keyField: 'id' } } do
+  field :users, [User, null: true], null: false, directives: { MergeDirective => { keyField: 'id' } } do
     argument :ids, [ID], required: true
   end
   field :_sdl, String, null: false
@@ -33,7 +33,7 @@ class Query < BaseObject
   end
 
   def _sdl
-    AccountSchema.print_schema_with_directives
+    AccountSchema.to_definition
   end
 end
 
