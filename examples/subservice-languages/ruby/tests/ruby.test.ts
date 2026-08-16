@@ -15,6 +15,9 @@ describe('Ruby subservices', () => {
       cwd: baseDir,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
+    servicesProcess.stdout?.on('data', (chunk: Buffer) => {
+      process.stdout.write(chunk);
+    });
     servicesProcess.stderr?.on('data', (chunk: Buffer) => {
       process.stderr.write(chunk);
     });

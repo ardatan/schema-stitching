@@ -19,12 +19,27 @@ class GraphQLServer
   def call(env)
     req = Rack::Request.new(env)
     body = req.body.read
-    req_vars = body.empty? ? {} : JSON.parse(body)
+
+    begin
+      req_vars = body.empty? ? {} : JSON.parse(body)
+    rescue JSON::ParserError
+      return error_response(400, 'Request body must be valid JSON')
+    end
+
+    query = req_vars['query']
+    return error_response(400, 'GraphQL query is required') if query.nil? || query.empty?
+
     result = schema.execute(
-      req_vars['query'],
+      query,
       operation_name: req_vars['operationName'],
       variables: req_vars['variables'] || {},
     )
     [200, { 'content-type' => 'application/json' }, [JSON.dump(result.to_h)]]
+  end
+
+  private
+
+  def error_response(status, message)
+    [status, { 'content-type' => 'application/json' }, [JSON.dump({ errors: [{ message: message }] })]]
   end
 end
