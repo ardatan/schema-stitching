@@ -2,7 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'graphql', '~> 1.13'
-gem 'graphql-schema_directives', '~> 0.0'
-gem 'rack', '~> 2.2'
-gem 'webrick', '~> 1.9.1'
+ruby '>= 3.2.0'
+
+gem 'graphql', '~> 1.13.25'
+gem 'graphql-schema_directives', '~> 0.0.2'
+gem 'rack', '~> 2.2.24'
+gem 'webrick', '~> 1.9.2'
