@@ -27,7 +27,9 @@ class GraphQLServer
     end
 
     query = req_vars['query']
-    return error_response(400, 'GraphQL query is required') if query.nil? || query.empty?
+    unless query.is_a?(String) && !query.strip.empty?
+      return error_response(400, 'GraphQL query is required')
+    end
 
     result = schema.execute(
       query,
