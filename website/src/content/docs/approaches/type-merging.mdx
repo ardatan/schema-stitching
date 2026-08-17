@@ -1,5 +1,4 @@
 import { Callout } from '@theguild/components'
-import { MergingFlow } from '../../../components/merging-flow'
 
 # Type Merging
 
@@ -203,7 +202,7 @@ fields it fulfills are nullable. See the related
 To better understand the flow of merged object calls, let's break down the
 [basic example](/docs/getting-started/basic-example) above:
 
-<MergingFlow />
+![Schema Stitching flow](/assets/stitching-flow.svg)
 
 1. A request is submitted to the gateway schema that selects fields from multiple subschemas.
 2. The gateway fetches the resource that was **explicitly** requested (`userById`), known as the
