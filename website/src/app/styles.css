@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+/* Nextra 4 styles for Tailwind CSS v4 projects (not style-prefixed). */
+@import 'nextra-theme-docs/style.css';
+
+/* Guild component styles (patched to drop Tailwind v3-only imports). */
+@import '@theguild/components/style.css';
+
+@custom-variant dark (&:where(.dark *));

@@ -1,9 +1,22 @@
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import baseConfig from '@theguild/tailwind-config';
 
 const config: Config = {
   ...baseConfig,
+  // Built into Tailwind CSS v4; the v3 plugin is incompatible.
+  plugins: [],
+  content: [
+    './{src,app}/**/*.{tsx,mdx}',
+    './mdx-components.{js,jsx,ts,tsx}',
+    './content/**/*.{md,mdx}',
+    join(
+      dirname(fileURLToPath(import.meta.url)),
+      '../node_modules/@theguild/components/dist/**/*.js',
+    ),
+  ],
   theme: {
     ...baseConfig.theme,
     extend: {
