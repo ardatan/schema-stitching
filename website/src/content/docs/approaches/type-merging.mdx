@@ -202,7 +202,11 @@ fields it fulfills are nullable. See the related
 To better understand the flow of merged object calls, let's break down the
 [basic example](/docs/getting-started/basic-example) above:
 
-![Schema Stitching flow](/assets/stitching-flow.svg)
+<img
+  src="/assets/stitching-flow.png"
+  alt="Schema Stitching flow"
+  className="mx-auto my-6 w-full dark:invert dark:hue-rotate-180"
+/>
 
 1. A request is submitted to the gateway schema that selects fields from multiple subschemas.
 2. The gateway fetches the resource that was **explicitly** requested (`userById`), known as the
