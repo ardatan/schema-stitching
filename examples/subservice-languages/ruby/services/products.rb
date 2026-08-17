@@ -61,5 +61,8 @@ module DefaultResolver
 end
 
 schema = GraphQL::Schema.from_definition(type_defs, default_resolve: DefaultResolver)
+schema.directive(MergeDirective)
+schema.directive(KeyDirective)
+schema.directive(ComputedDirective)
 
 GraphQLServer.run(schema, Port: 4002)
