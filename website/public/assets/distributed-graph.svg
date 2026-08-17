@@ -1,0 +1,121 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 720 460"
+  role="img"
+  aria-labelledby="distributed-graph-title"
+>
+  <title id="distributed-graph-title">Client talking to a gateway proxy schema that delegates to subschemas</title>
+  <rect width="720" height="460" fill="#fff" />
+
+  <defs>
+    <marker
+      id="dg-arrow"
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="8"
+      markerHeight="8"
+      orient="auto-start-reverse"
+    >
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111" />
+    </marker>
+  </defs>
+
+  <g transform="translate(322 18)" fill="#111">
+    <rect x="22" y="0" width="54" height="36" rx="3.5" />
+    <rect x="26" y="4" width="46" height="28" rx="1.5" fill="#fff" />
+    <rect x="44" y="33" width="10" height="3.5" rx="0.5" />
+    <path d="M8 40h82l9 12H-1z" />
+  </g>
+
+  <line
+    x1="360"
+    y1="72"
+    x2="360"
+    y2="112"
+    stroke="#111"
+    stroke-width="2.25"
+    marker-end="url(#dg-arrow)"
+  />
+
+  <rect
+    x="198"
+    y="122"
+    width="324"
+    height="78"
+    rx="14"
+    fill="#fff"
+    stroke="#c9c9c9"
+    stroke-width="1.75"
+  />
+  <text
+    x="360"
+    y="154"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, Helvetica, Arial, sans-serif"
+    font-size="18"
+    font-weight="700"
+    fill="#111"
+    letter-spacing="0.4"
+  >
+    GATEWAY (PROXY)
+  </text>
+  <text
+    x="360"
+    y="178"
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, Helvetica, Arial, sans-serif"
+    font-size="18"
+    font-weight="700"
+    fill="#111"
+    letter-spacing="0.4"
+  >
+    SCHEMA
+  </text>
+
+  <line
+    x1="250"
+    y1="200"
+    x2="128"
+    y2="268"
+    stroke="#111"
+    stroke-width="2.25"
+    marker-end="url(#dg-arrow)"
+  />
+  <line
+    x1="360"
+    y1="200"
+    x2="360"
+    y2="268"
+    stroke="#111"
+    stroke-width="2.25"
+    marker-end="url(#dg-arrow)"
+  />
+  <line
+    x1="470"
+    y1="200"
+    x2="592"
+    y2="268"
+    stroke="#111"
+    stroke-width="2.25"
+    marker-end="url(#dg-arrow)"
+  />
+
+  <g fill="#fff" stroke="#c9c9c9" stroke-width="1.75">
+    <rect x="40" y="278" width="176" height="58" rx="12" />
+    <rect x="272" y="278" width="176" height="58" rx="12" />
+    <rect x="504" y="278" width="176" height="58" rx="12" />
+  </g>
+  <g
+    text-anchor="middle"
+    font-family="ui-sans-serif, system-ui, Helvetica, Arial, sans-serif"
+    font-size="16"
+    font-weight="700"
+    fill="#111"
+    letter-spacing="0.5"
+  >
+    <text x="128" y="313">SUBSCHEMA</text>
+    <text x="360" y="313">SUBSCHEMA</text>
+    <text x="592" y="313">SUBSCHEMA</text>
+  </g>
+</svg>

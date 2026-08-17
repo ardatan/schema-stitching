@@ -1,0 +1,244 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1700 980"
+  role="img"
+  aria-labelledby="stitching-flow-title"
+>
+  <title id="stitching-flow-title">Type merging flow through a gateway schema and two subschemas</title>
+  <rect width="1700" height="980" fill="#fff" />
+
+  <defs>
+    <marker id="head-blue" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#3b75ac" />
+    </marker>
+    <marker id="head-teal" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#6eb8c4" />
+    </marker>
+    <marker id="head-teal-dk" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#89c1cb" />
+    </marker>
+    <marker id="head-purple" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#af8aa1" />
+    </marker>
+    <marker id="head-purple-lt" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto">
+      <path d="M0 0 L5 2.5 L0 5 z" fill="#c4adc0" />
+    </marker>
+    <style>
+      .box { fill:#fff; stroke:#d0d0d0; stroke-width:1.75; }
+      .title { font:700 16px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif; fill:#222; }
+      .sdl { font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+      .k { fill:#1f61a0; }
+      .t { fill:#397d13; }
+      .s { fill:#b62813; }
+      .p { fill:#333; }
+      .lbl { font:700 12px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif; fill:#3a3a3a; }
+      .code { font:12px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; fill:#222; }
+      .phase { font:700 11px ui-sans-serif,system-ui,Helvetica,Arial,sans-serif; letter-spacing:0.6px; }
+    </style>
+  </defs>
+
+  <g fill="#9a9a9a">
+    <circle cx="850" cy="42" r="18" />
+    <path d="M818 88c6-24 58-24 64 0v8H818z" />
+  </g>
+
+  <path
+    d="M828 102v168"
+    fill="none"
+    stroke="#3b75ac"
+    stroke-width="26"
+    marker-end="url(#head-blue)"
+  />
+  <path
+    d="M872 270v-168"
+    fill="none"
+    stroke="#af8aa1"
+    stroke-width="26"
+    marker-end="url(#head-purple)"
+  />
+  <text class="phase" fill="#6492bd" text-anchor="middle" x="850" y="195">USER REQUEST</text>
+
+  <text class="lbl" text-anchor="end" x="800" y="128">1. requested query</text>
+  <text class="code" text-anchor="end" x="800" y="148">
+    <tspan class="k">userById</tspan><tspan class="p">(id: </tspan><tspan class="s">"1"</tspan><tspan class="p">) {</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="800" y="164"><tspan class="k">  email</tspan></text>
+  <text class="code" text-anchor="end" x="800" y="180">
+    <tspan class="k">  posts</tspan><tspan class="p"> { </tspan><tspan class="k">id</tspan><tspan class="p"> }</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="800" y="196"><tspan class="p">}</tspan></text>
+
+  <text class="lbl" x="900" y="128">8. respond with requested fields</text>
+  <text class="code" x="900" y="148"><tspan class="p">{</tspan></text>
+  <text class="code" x="900" y="164">
+    <tspan class="k">  "email"</tspan><tspan class="p">: </tspan><tspan class="s">"me@app.co"</tspan><tspan class="p">,</tspan>
+  </text>
+  <text class="code" x="900" y="180">
+    <tspan class="k">  "posts"</tspan><tspan class="p">: [{ </tspan><tspan class="k">"id"</tspan><tspan class="p">: </tspan><tspan class="s">"1"</tspan><tspan class="p"> }]</tspan>
+  </text>
+  <text class="code" x="900" y="196"><tspan class="p">}</tspan></text>
+
+  <rect class="box" x="610" y="290" width="480" height="318" rx="12" />
+  <text class="title" text-anchor="middle" x="850" y="318">gateway schema</text>
+  <text class="sdl" x="640" y="348">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">User</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="640" y="366">
+    <tspan class="k">  id</tspan><tspan class="p">: </tspan><tspan class="t">ID!</tspan>
+  </text>
+  <text class="sdl" x="640" y="384">
+    <tspan class="k">  email</tspan><tspan class="p">: </tspan><tspan class="t">String!</tspan>
+  </text>
+  <text class="sdl" x="640" y="402">
+    <tspan class="k">  posts</tspan><tspan class="p">: [</tspan><tspan class="t">Post</tspan><tspan class="p">]!</tspan>
+  </text>
+  <text class="sdl" x="640" y="420"><tspan class="p">}</tspan></text>
+  <text class="sdl" x="640" y="446">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">Query</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="640" y="464">
+    <tspan class="k">  userById</tspan><tspan class="p">(id: </tspan><tspan class="t">ID!</tspan><tspan class="p">): </tspan><tspan class="t">User</tspan>
+  </text>
+  <text class="sdl" x="640" y="482">
+    <tspan class="k">  postUserById</tspan><tspan class="p">(id: </tspan><tspan class="t">ID!</tspan><tspan class="p">): </tspan><tspan class="t">User</tspan>
+  </text>
+  <text class="sdl" x="640" y="500"><tspan class="p">}</tspan></text>
+
+  <path
+    d="M640 560h70"
+    fill="none"
+    stroke="#af8aa1"
+    stroke-width="16"
+    marker-end="url(#head-purple)"
+  />
+  <text class="lbl" x="724" y="556">4. merge config builds merger query(s)</text>
+  <text class="code" x="724" y="574">
+    <tspan class="k">fieldName</tspan><tspan class="p">: </tspan><tspan class="s">"postUserById"</tspan><tspan class="p">,</tspan>
+  </text>
+  <text class="code" x="724" y="590">
+    <tspan class="k">args</tspan><tspan class="p">: (origObj) =&gt; ({ id: origObj.id })</tspan>
+  </text>
+
+  <path
+    d="M640 608 L300 730"
+    fill="none"
+    stroke="#6eb8c4"
+    stroke-width="26"
+    marker-end="url(#head-teal)"
+  />
+  <path
+    d="M360 730 L700 608"
+    fill="none"
+    stroke="#9acad2"
+    stroke-width="26"
+    marker-end="url(#head-teal-dk)"
+  />
+  <text class="phase" fill="#3a8a96" transform="rotate(-38 460 640)" x="348" y="644">
+    RESOLVE ORIGINAL OBJECT
+  </text>
+
+  <text class="lbl" x="120" y="430">2. filtered request + selectionSet(s)</text>
+  <text class="code" x="120" y="450">
+    <tspan class="k">userById</tspan><tspan class="p">(id: </tspan><tspan class="s">"1"</tspan><tspan class="p">) {</tspan>
+  </text>
+  <text class="code" x="120" y="466"><tspan class="k">  email</tspan></text>
+  <text class="code" x="120" y="482"><tspan class="k">  id</tspan></text>
+  <text class="code" x="120" y="498"><tspan class="p">}</tspan></text>
+
+  <text class="lbl" x="40" y="640">3. original object response</text>
+  <text class="code" x="40" y="658"><tspan class="p">{</tspan></text>
+  <text class="code" x="40" y="674">
+    <tspan class="k">  "email"</tspan><tspan class="p">: </tspan><tspan class="s">"me@app.co"</tspan><tspan class="p">,</tspan>
+  </text>
+  <text class="code" x="40" y="690">
+    <tspan class="k">  "id"</tspan><tspan class="p">: </tspan><tspan class="s">"1"</tspan>
+  </text>
+  <text class="code" x="40" y="706"><tspan class="p">}</tspan></text>
+
+  <path
+    d="M1060 608 L1400 730"
+    fill="none"
+    stroke="#af8aa1"
+    stroke-width="26"
+    marker-end="url(#head-purple)"
+  />
+  <path
+    d="M1340 730 L1000 608"
+    fill="none"
+    stroke="#c4adc0"
+    stroke-width="26"
+    marker-end="url(#head-purple-lt)"
+  />
+  <text class="phase" fill="#8a6a80" transform="rotate(38 1240 640)" x="1118" y="644">
+    RESOLVE MERGER OBJECT(S)
+  </text>
+
+  <text class="lbl" text-anchor="end" x="1580" y="430">5. filtered request + selectionSet(s)</text>
+  <text class="code" text-anchor="end" x="1580" y="450">
+    <tspan class="k">postUserById</tspan><tspan class="p">(id: </tspan><tspan class="s">"1"</tspan><tspan class="p">) {</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="1580" y="466">
+    <tspan class="k">  posts</tspan><tspan class="p"> { </tspan><tspan class="k">id</tspan><tspan class="p"> }</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="1580" y="482"><tspan class="k">  id</tspan></text>
+  <text class="code" text-anchor="end" x="1580" y="498"><tspan class="p">}</tspan></text>
+
+  <text class="lbl" text-anchor="end" x="1660" y="640">6. merger object response</text>
+  <text class="code" text-anchor="end" x="1660" y="658"><tspan class="p">{</tspan></text>
+  <text class="code" text-anchor="end" x="1660" y="674">
+    <tspan class="k">  "posts"</tspan><tspan class="p">: [{ </tspan><tspan class="k">"id"</tspan><tspan class="p">: </tspan><tspan class="s">"1"</tspan><tspan class="p"> }],</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="1660" y="690">
+    <tspan class="k">  "id"</tspan><tspan class="p">: </tspan><tspan class="s">"1"</tspan>
+  </text>
+  <text class="code" text-anchor="end" x="1660" y="706"><tspan class="p">}</tspan></text>
+
+  <text class="lbl" x="1110" y="430">7. merge all objects for type</text>
+  <text class="code" x="1110" y="448"><tspan class="p">{...origObj, ...mergerObj}</tspan></text>
+
+  <rect class="box" x="80" y="760" width="460" height="175" rx="12" />
+  <text class="title" text-anchor="middle" x="310" y="788">users subschema</text>
+  <text class="sdl" x="110" y="816">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">User</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="110" y="834">
+    <tspan class="k">  id</tspan><tspan class="p">: </tspan><tspan class="t">ID!</tspan>
+  </text>
+  <text class="sdl" x="110" y="852">
+    <tspan class="k">  email</tspan><tspan class="p">: </tspan><tspan class="t">String!</tspan>
+  </text>
+  <text class="sdl" x="110" y="870"><tspan class="p">}</tspan></text>
+  <text class="sdl" x="310" y="816">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">Query</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="310" y="834">
+    <tspan class="k">  userById</tspan><tspan class="p">(id: </tspan><tspan class="t">ID!</tspan><tspan class="p">):</tspan>
+  </text>
+  <text class="sdl" x="310" y="852">
+    <tspan class="t">    User</tspan>
+  </text>
+  <text class="sdl" x="310" y="870"><tspan class="p">}</tspan></text>
+
+  <rect class="box" x="1160" y="760" width="460" height="175" rx="12" />
+  <text class="title" text-anchor="middle" x="1390" y="788">posts subschema</text>
+  <text class="sdl" x="1190" y="816">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">User</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="1190" y="834">
+    <tspan class="k">  id</tspan><tspan class="p">: </tspan><tspan class="t">ID!</tspan>
+  </text>
+  <text class="sdl" x="1190" y="852">
+    <tspan class="k">  posts</tspan><tspan class="p">: [</tspan><tspan class="t">Post</tspan><tspan class="p">]!</tspan>
+  </text>
+  <text class="sdl" x="1190" y="870"><tspan class="p">}</tspan></text>
+  <text class="sdl" x="1390" y="816">
+    <tspan class="k">type</tspan><tspan class="p"> </tspan><tspan class="t">Query</tspan><tspan class="p"> {</tspan>
+  </text>
+  <text class="sdl" x="1390" y="834">
+    <tspan class="k">  postUserById</tspan><tspan class="p">(id: </tspan><tspan class="t">ID!</tspan><tspan class="p">):</tspan>
+  </text>
+  <text class="sdl" x="1390" y="852">
+    <tspan class="t">    User</tspan>
+  </text>
+  <text class="sdl" x="1390" y="870"><tspan class="p">}</tspan></text>
+</svg>

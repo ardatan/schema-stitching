@@ -202,28 +202,7 @@ fields it fulfills are nullable. See the related
 To better understand the flow of merged object calls, let's break down the
 [basic example](/docs/getting-started/basic-example) above:
 
-```mermaid
-sequenceDiagram
-  actor User
-  participant Gateway as Gateway Schema
-  participant Users as users subschema
-  participant Posts as posts subschema
-
-  User->>Gateway: 1. requested query<br/>userById(id: '1') { email posts { id } }
-
-  Note over Gateway,Users: RESOLVE ORIGINAL OBJECT
-  Gateway->>Users: 2. filtered request + selectionSet(s)<br/>userById(id: '1') { email id }
-  Users-->>Gateway: 3. original object response<br/>{ email: 'me@app.co', id: '1' }
-
-  Note over Gateway: 4. merge config builds merger query(s)<br/>fieldName: postUserById<br/>args: origObj => ({ id: origObj.id })
-
-  Note over Gateway,Posts: RESOLVE MERGER OBJECT(S)
-  Gateway->>Posts: 5. filtered request + selectionSet(s)<br/>postUserById(id: '1') { posts { id } id }
-  Posts-->>Gateway: 6. merger object response<br/>{ posts: [{ id: '1' }], id: '1' }
-
-  Note over Gateway: 7. merge all objects for type<br/>{...origObj, ...mergerObj}
-  Gateway-->>User: 8. respond with requested fields<br/>{ email: 'me@app.co', posts: [{ id: '1' }] }
-```
+![Schema Stitching flow](/assets/stitching-flow.svg)
 
 1. A request is submitted to the gateway schema that selects fields from multiple subschemas.
 2. The gateway fetches the resource that was **explicitly** requested (`userById`), known as the
