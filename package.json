@@ -84,7 +84,7 @@
     "postcss": "^8.5.14",
     "react-medium-image-zoom": "5.4.9",
     "sharp": "^0.35.0",
-    "uuid": "14.0.1"
+    "uuid": "14.0.2"
   },
   "lint-staged": {
     "examples/**/src/**/*.{ts,tsx}": [
