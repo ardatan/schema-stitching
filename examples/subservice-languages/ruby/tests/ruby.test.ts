@@ -15,9 +15,8 @@ describe('Ruby subservices', () => {
       cwd: baseDir,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
-    servicesProcess.stderr?.on('data', (chunk: Buffer) => {
-      process.stderr.write(chunk);
-    });
+    servicesProcess.stdout?.pipe(process.stdout, { end: false });
+    servicesProcess.stderr?.pipe(process.stderr, { end: false });
   }, 120_000);
   afterAll(async () => {
     servicesProcess?.kill('SIGTERM');

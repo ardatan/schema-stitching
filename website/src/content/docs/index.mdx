@@ -1,6 +1,23 @@
 # Introduction
 
-![distributed service graph](/assets/distributed-graph.png)
+```mermaid
+flowchart TD
+  client["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 66' width='64' height='36' aria-hidden='true'><path fill='currentColor' fill-rule='evenodd' d='M26 2h68a4 4 0 0 1 4 4v34a4 4 0 0 1-4 4H26a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4zM32 8h56a2 2 0 0 1 2 2v26a2 2 0 0 1-2 2H32a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2zM8 46h104l6 14H2z'/></svg>"]
+  gateway("GATEWAY (PROXY)<br/>SCHEMA")
+  subA("SUBSCHEMA")
+  subB("SUBSCHEMA")
+  subC("SUBSCHEMA")
+
+  client --> gateway
+  gateway --> subA
+  gateway --> subB
+  gateway --> subC
+
+  classDef box font-weight:700
+  classDef icon fill:none,stroke:none
+  class gateway,subA,subB,subC box
+  class client icon
+```
 
 Schema stitching (`@graphql-tools/stitch`) creates a single GraphQL gateway schema from multiple
 underlying GraphQL services. Unlike
