@@ -1,0 +1,42 @@
+diff --git a/node_modules/@theguild/components/style.css b/node_modules/@theguild/components/style.css
+index aa25cfc..a463621 100644
+--- a/node_modules/@theguild/components/style.css
++++ b/node_modules/@theguild/components/style.css
+@@ -1,9 +1,4 @@
+-@layer l-base, l-nextra;
+-
+-@import 'tailwindcss/base' layer(l-base);
+-@import 'nextra-theme-docs/dist/style-prefixed.css' layer(l-nextra);
+-@import 'tailwindcss/utilities';
+-@import 'tailwindcss/components';
++/* Tailwind CSS v4 + Nextra theme styles are loaded from the website's styles.css. */
+ 
+ /* #region hamburger mobile menu */
+ 
+@@ -97,21 +92,21 @@
+   }
+ 
+   .MarketplaceSearch {
+-    --fg: theme(colors.white);
++    --fg: #fff;
+     --fg-80: rgb(from var(--fg) r g b / 0.8);
+     --fg-70: rgb(from var(--fg) r g b / 0.7);
+     --fg-60: rgb(from var(--fg) r g b / 0.6);
+ 
+     &.green {
+-      --bg: theme(colors.green.1000);
++      --bg: #00342c;
+     }
+ 
+     &.neutral {
+-      --bg: theme(colors.neutral.900);
++      --bg: #171717;
+ 
+       .light & {
+-        --bg: theme(colors.white);
+-        --fg: theme(colors.neutral.900);
++        --bg: #fff;
++        --fg: #171717;
+       }
+     }
+   }

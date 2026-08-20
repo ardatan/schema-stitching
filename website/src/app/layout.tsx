@@ -8,7 +8,7 @@ import {
   StitchingLogo,
 } from '@theguild/components';
 import { getDefaultMetadata, getPageMap, GuildLayout } from '@theguild/components/server';
-import '@theguild/components/style.css';
+import './styles.css';
 
 const description = PRODUCTS.STITCHING.title;
 const websiteName = 'Schema Stitching';

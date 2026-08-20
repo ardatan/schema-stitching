@@ -1,3 +1,6 @@
-import postcssConfig from '@theguild/tailwind-config/postcss.config';
-
-export default postcssConfig;
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    'postcss-lightningcss': { browsers: '>= .25% and not dead' },
+  },
+};

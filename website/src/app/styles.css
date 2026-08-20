@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+/*
+ * Match @theguild/tailwind-config v3 darkMode:
+ * dark utilities apply unless the node is inside `.light`
+ * (homepage is html.dark + body.light).
+ */
+@custom-variant dark (&:not(.light *));
+
+/* Nextra 4 styles for Tailwind CSS v4 projects (not style-prefixed). */
+@import 'nextra-theme-docs/style.css';
+
+/* Guild component styles (patched to drop Tailwind v3-only imports). */
+@import '@theguild/components/style.css';
