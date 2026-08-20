@@ -6067,10 +6067,10 @@ graphql-query-complexity@^1.1.0:
   dependencies:
     lodash.get "^4.4.2"
 
-graphql-scalars@^1.22.2:
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-1.26.0.tgz#a84a516689e8b259bddad3c5c40539a485032a84"
-  integrity sha512-o7BnU5yxAFUWTMKpC5yshB12DjzzoxLgEBO9OpOAcxodWrL3sPldD/fqVQoIfcqPH8OclyQilLtg3/7ZRqQUVQ==
+graphql-scalars@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-scalars/-/graphql-scalars-2.0.0.tgz#96de418e8861368a954a2391110d28a0fe032eda"
+  integrity sha512-tCd2ddcxlbz5rG7xsfDbjvIssR9c/5EauDYt272pxfxpUNBjFMpnDwukuA3rm1O/9michQDxFfPPAeoQjZtJVQ==
   dependencies:
     tslib "^2.5.0"
 
