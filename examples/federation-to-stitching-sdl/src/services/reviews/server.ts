@@ -12,8 +12,9 @@ const reviews = [
 
 export const reviewsServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
         type Review @key(fields: "id") {
           id: ID!
           body: String!
@@ -47,6 +48,7 @@ export const reviewsServer = createServer(
           reviews: user => reviews.filter(review => review.userId === user.id),
         },
       },
-    }),
+      },
+    ]),
   }),
 );

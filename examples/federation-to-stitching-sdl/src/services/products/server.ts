@@ -20,8 +20,9 @@ const productPurchases = [
 
 export const productsServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
         type Product @key(fields: "upc") {
           upc: ID!
           name: String!
@@ -68,6 +69,7 @@ export const productsServer = createServer(
             }),
         },
       },
-    }),
+      },
+    ]),
   }),
 );

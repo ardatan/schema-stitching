@@ -11,8 +11,9 @@ const users = [
 
 export const usersServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
         type User @key(fields: "id") {
           id: ID!
           email: String!
@@ -37,6 +38,7 @@ export const usersServer = createServer(
             }),
         },
       },
-    }),
+      },
+    ]),
   }),
 );
