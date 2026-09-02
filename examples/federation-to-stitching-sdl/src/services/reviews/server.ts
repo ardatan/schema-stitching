@@ -12,41 +12,43 @@ const reviews = [
 
 export const reviewsServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
-        type Review @key(fields: "id") {
-          id: ID!
-          body: String!
-          author: User
-          product: Product
-        }
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
+          type Review @key(fields: "id") {
+            id: ID!
+            body: String!
+            author: User
+            product: Product
+          }
 
-        extend type User @key(fields: "id") {
-          id: ID! @external
-          reviews: [Review]
-        }
+          extend type User @key(fields: "id") {
+            id: ID! @external
+            reviews: [Review]
+          }
 
-        extend type Product @key(fields: "upc") {
-          acceptsNewReviews: Boolean @requires(fields: "unitsInStock")
-          reviews: [Review]
-          unitsInStock: Int @external
-          upc: ID! @external
-        }
-      `),
-      resolvers: {
-        Review: {
-          __resolveReference: ({ id }) => reviews.find(review => review.id === id),
-          author: review => ({ id: review.userId }),
-          product: review => ({ upc: review.productUpc }),
-        },
-        Product: {
-          reviews: product => reviews.filter(review => review.productUpc === product.upc),
-          acceptsNewReviews: product => product.unitsInStock > 0,
-        },
-        User: {
-          reviews: user => reviews.filter(review => review.userId === user.id),
+          extend type Product @key(fields: "upc") {
+            acceptsNewReviews: Boolean @requires(fields: "unitsInStock")
+            reviews: [Review]
+            unitsInStock: Int @external
+            upc: ID! @external
+          }
+        `),
+        resolvers: {
+          Review: {
+            __resolveReference: ({ id }) => reviews.find(review => review.id === id),
+            author: review => ({ id: review.userId }),
+            product: review => ({ upc: review.productUpc }),
+          },
+          Product: {
+            reviews: product => reviews.filter(review => review.productUpc === product.upc),
+            acceptsNewReviews: product => product.unitsInStock > 0,
+          },
+          User: {
+            reviews: user => reviews.filter(review => review.userId === user.id),
+          },
         },
       },
-    }),
+    ]),
   }),
 );

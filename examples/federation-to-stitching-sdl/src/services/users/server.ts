@@ -11,32 +11,34 @@ const users = [
 
 export const usersServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
-        type User @key(fields: "id") {
-          id: ID!
-          email: String!
-          username: String!
-        }
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
+          type User @key(fields: "id") {
+            id: ID!
+            email: String!
+            username: String!
+          }
 
-        type Query {
-          user(id: ID!): User
-        }
-      `),
-      resolvers: {
-        User: {
-          __resolveReference: ({ id }) => users.find(user => user.id === id),
-        },
-        Query: {
-          user: (_root, { id }) =>
-            users.find(user => user.id === id) ||
-            new GraphQLError('Record not found', {
-              extensions: {
-                code: 'NOT_FOUND',
-              },
-            }),
+          type Query {
+            user(id: ID!): User
+          }
+        `),
+        resolvers: {
+          User: {
+            __resolveReference: ({ id }) => users.find(user => user.id === id),
+          },
+          Query: {
+            user: (_root, { id }) =>
+              users.find(user => user.id === id) ||
+              new GraphQLError('Record not found', {
+                extensions: {
+                  code: 'NOT_FOUND',
+                },
+              }),
+          },
         },
       },
-    }),
+    ]),
   }),
 );

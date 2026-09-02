@@ -20,54 +20,56 @@ const productPurchases = [
 
 export const productsServer = createServer(
   createYoga({
-    schema: buildSubgraphSchema({
-      typeDefs: parse(/* GraphQL */ `
-        type Product @key(fields: "upc") {
-          upc: ID!
-          name: String!
-          price: Float!
-          unitsInStock: Int!
-        }
+    schema: buildSubgraphSchema([
+      {
+        typeDefs: parse(/* GraphQL */ `
+          type Product @key(fields: "upc") {
+            upc: ID!
+            name: String!
+            price: Float!
+            unitsInStock: Int!
+          }
 
-        extend type User @key(fields: "id") {
-          id: ID! @external
-          recentPurchases: [Product]
-        }
+          extend type User @key(fields: "id") {
+            id: ID! @external
+            recentPurchases: [Product]
+          }
 
-        type Query {
-          product(upc: ID!): Product
-        }
-      `),
-      resolvers: {
-        Product: {
-          __resolveReference: ({ upc }) => products.find(product => product.upc === upc),
-        },
-        User: {
-          recentPurchases(user) {
-            const upcs = productPurchases
-              .filter(({ userId }) => userId === user.id)
-              .map(({ productUpc }) => productUpc);
-            return upcs.map(
-              upc =>
-                products.find(p => p.upc === upc) ||
-                new GraphQLError('Record not found', {
-                  extensions: {
-                    code: 'NOT_FOUND',
-                  },
-                }),
-            );
+          type Query {
+            product(upc: ID!): Product
+          }
+        `),
+        resolvers: {
+          Product: {
+            __resolveReference: ({ upc }) => products.find(product => product.upc === upc),
+          },
+          User: {
+            recentPurchases(user) {
+              const upcs = productPurchases
+                .filter(({ userId }) => userId === user.id)
+                .map(({ productUpc }) => productUpc);
+              return upcs.map(
+                upc =>
+                  products.find(p => p.upc === upc) ||
+                  new GraphQLError('Record not found', {
+                    extensions: {
+                      code: 'NOT_FOUND',
+                    },
+                  }),
+              );
+            },
+          },
+          Query: {
+            product: (_root, { upc }) =>
+              products.find(p => p.upc === upc) ||
+              new GraphQLError('Record not found', {
+                extensions: {
+                  code: 'NOT_FOUND',
+                },
+              }),
           },
         },
-        Query: {
-          product: (_root, { upc }) =>
-            products.find(p => p.upc === upc) ||
-            new GraphQLError('Record not found', {
-              extensions: {
-                code: 'NOT_FOUND',
-              },
-            }),
-        },
       },
-    }),
+    ]),
   }),
 );
