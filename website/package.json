@@ -22,12 +22,12 @@
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
     "@theguild/tailwind-config": "0.6.4",
-    "@types/node": "26.4.0",
+    "@types/node": "26.4.1",
     "@types/react": "19.2.18",
     "pagefind": "1.5.2",
     "postcss-lightningcss": "1.1.1",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
-    "wrangler": "4.127.1"
+    "wrangler": "4.128.0"
   }
 }
