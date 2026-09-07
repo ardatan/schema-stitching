@@ -72,6 +72,7 @@
     "typescript": "7.0.2"
   },
   "resolutions": {
+    "@xmldom/xmldom": "0.9.12",
     "cookie": "2.0.1",
     "cross-spawn": "7.0.6",
     "esbuild": "^0.28.0",
