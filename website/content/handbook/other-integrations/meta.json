@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "subservice-languages",
+    "graphql-upload",
+    "federation-supergraph",
+    "federation-to-stitching-sdl"
+  ],
+  "title": "Other integrations"
+}

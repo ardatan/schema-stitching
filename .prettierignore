@@ -2,7 +2,4 @@
 .changeset/*-dependencies.md
 .dist/
 .bob/
-website/.next/
-website/out/
-website/public/
 .husky/
