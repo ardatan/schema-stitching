@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "combining-local-and-remote-schemas",
+    "mutations-and-subscriptions",
+    "type-merging-single-records",
+    "type-merging-arrays",
+    "type-merging-multiple-keys",
+    "type-merging-nullables",
+    "custom-merge-resolvers",
+    "type-merging-interfaces",
+    "computed-fields",
+    "stitching-directives-sdl"
+  ],
+  "title": "Foundation"
+}

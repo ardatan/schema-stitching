@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "basic-example",
+    "remote-subschemas",
+    "duplicate-types",
+    "adding-transforms",
+    "error-handling"
+  ],
+  "title": "Getting Started"
+}
