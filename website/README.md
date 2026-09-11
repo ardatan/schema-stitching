@@ -8,7 +8,7 @@ which fetches this folder at build time. Nothing in this folder is built or depl
 
 | Path       | What it is                                                                                                               |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `content/` | The documentation, one folder per section (docs handbook ). Folder order and titles come from each folder's `meta.json`. |
+| `content/` | The documentation, one folder per section: `docs` and `handbook`. Folder order and titles come from each folder's `meta.json`. |
 | `assets/`  | Images referenced from pages as `/assets/...`.                                                                           |
 
 ## Writing pages
