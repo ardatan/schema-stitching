@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "hot-schema-reloading",
+    "versioning-schema-releases",
+    "continuous-integration-testing",
+    "public-and-private-apis",
+    "persistent-connection"
+  ],
+  "title": "Architecture"
+}
