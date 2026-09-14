@@ -21,9 +21,9 @@
   integrity sha512-F17/vCp7QVwom9eG7ToauIKdAxpSoadsJnqIfyryLFSkLSOEqu+eC5Z3N8OXcUVStuOMcNHlyraRsA6rRICu4g==
 
 "@apollo/subgraph@^2.14.2":
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.15.0.tgz#3d5a052bd39e880a7cd9b32c851afd3632e4ce8b"
-  integrity sha512-LgWwvCUMR6/W7TGly+KjqJaarYzuMp2vRgT5I+98oH3866uROqa72g/8Xu5VTZzMFlTvayDjahaFm/XjL/3+zg==
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.15.1.tgz#37c9c9d15224fee4c705673e3374b829ac7818ee"
+  integrity sha512-y9G5Mw5Pn/kW7u4IoyrmdFfDUe1A7s4vXYKvsqlXLO1xSYRANmVnHTRY90qGqR5Vohe79BZ/lMWDDXGsiiX+AQ==
   dependencies:
     "@apollo/cache-control-types" "^1.0.3"
     "@graphql-tools/utils" "^12.0.0"
