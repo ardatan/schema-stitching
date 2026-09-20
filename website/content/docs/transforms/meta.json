@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "index",
+    "filtering",
+    "renaming",
+    "modifying",
+    "cleanup",
+    "operational",
+    "custom-transforms"
+  ],
+  "title": "Transforms"
+}
