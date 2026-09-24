@@ -9260,10 +9260,10 @@ prettier-plugin-sh@^0.15.0:
     mvdan-sh "^0.10.1"
     sh-syntax "^0.4.2"
 
-prettier@3.9.8:
-  version "3.9.8"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.9.8.tgz#54e81128584538c81d85fce9d5fd77a410c385c5"
-  integrity sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A==
+prettier@3.9.9:
+  version "3.9.9"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.9.9.tgz#09b826918c91cd4cbc80e0cbd1d2a922ff04f233"
+  integrity sha512-Z/CJHIkdujO/OtN7nXUii0Rf3VT5SRuhjBA82Xvu2XhBUgX3nhP67T0LHceBdQLex7OOFGTox+Q5Yg8Jk2Qivg==
 
 pretty-format@30.5.1, pretty-format@^30.0.0:
   version "30.5.1"
@@ -11076,10 +11076,10 @@ workerd@1.20260921.1:
     "@cloudflare/workerd-linux-arm64" "1.20260921.1"
     "@cloudflare/workerd-windows-64" "1.20260921.1"
 
-wrangler@4.136.3:
-  version "4.136.3"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.136.3.tgz#baf733066c6f2d0b46a8de3711fc66a02c143dde"
-  integrity sha512-L1bS8BI9xoEk3RRr5XoZn5q5k1jCRo8+37ZEEab/jsUFzE1Ea2sIBAbmP1CdwSeD6mZYmnUtR6xpi9esHIl6GA==
+wrangler@4.137.0:
+  version "4.137.0"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.137.0.tgz#3a3c37709473d258de1dab3dc76a0ad6dc210265"
+  integrity sha512-vq2JmxkvwOjnsMUejQwd89/EK6u1d20OMlGUVVmb55gVi2zSBKp2rvmxUiPqrSEntK8NwzpTF3DQ/S2I9/TLsg==
   dependencies:
     "@cloudflare/kv-asset-handler" "0.5.0"
     "@cloudflare/unenv-preset" "2.16.2"
