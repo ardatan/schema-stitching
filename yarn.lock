@@ -893,7 +893,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^8.0.1"
 
-"@babel/plugin-transform-typescript@^8.0.1":
+"@babel/plugin-transform-typescript@^8.0.6":
   version "8.0.6"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-8.0.6.tgz#6dcc92a06e9f6304297b930a81d6ae7e5eb78a3a"
   integrity sha512-WF3yRlQtClzScvQbWct00ix63+w3DPiyU0WmCBU4YqK539n3VvJFElElpevoD8wfu6953CbiNoUZBi2B7/5jXw==
@@ -1017,15 +1017,15 @@
     "@babel/types" "^8.0.0"
     esutils "^2.0.2"
 
-"@babel/preset-typescript@8.0.1":
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-8.0.1.tgz#603e709db117e5fafef296de087e8a0a7679a543"
-  integrity sha512-qrPhQIN1NLrPmzgazF9XKQqXrOcp/WJly+K+6ReFonn24FZqRJO7clxOJo6Ni75L+2vAqI3cHVU2OJLBxoPp5A==
+"@babel/preset-typescript@8.0.7":
+  version "8.0.7"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-8.0.7.tgz#c31c9b7d3c976872775c72b96b9c8dea98a70bba"
+  integrity sha512-sUFLFphAG6YNjCnJpSKpyoNxkfyeM2KNuUjJJN0R6dZusMcK2V3Fg11MVHPFvb37AZeDNocc+xM748vdh9z82Q==
   dependencies:
     "@babel/helper-plugin-utils" "^8.0.1"
     "@babel/helper-validator-option" "^8.0.0"
     "@babel/plugin-transform-modules-commonjs" "^8.0.1"
-    "@babel/plugin-transform-typescript" "^8.0.1"
+    "@babel/plugin-transform-typescript" "^8.0.6"
 
 "@babel/template@^7.29.7":
   version "7.29.7"
