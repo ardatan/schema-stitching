@@ -1576,7 +1576,7 @@
     meros "^1.3.2"
     tslib "^2.8.1"
 
-"@graphql-tools/executor@^2.0.0", "@graphql-tools/executor@^2.0.1":
+"@graphql-tools/executor@^2.0.1", "@graphql-tools/executor@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/executor/-/executor-2.0.3.tgz#607677580661630a885a86ca6ca3d8bf20eeb1eb"
   integrity sha512-0qUCtalTDdanDuvW4EiHnNMct8QHYKTuGjI2lXU388LrpoV+5tlqp/xPqdYbrDtl3OBpZHToOEBcQunWz1UDig==
@@ -1626,7 +1626,7 @@
     fast-json-stable-stringify "^2.1.0"
     tslib "^2.4.0"
 
-"@graphql-tools/schema@^10.0.11", "@graphql-tools/schema@^10.1.1", "@graphql-tools/schema@^10.1.3":
+"@graphql-tools/schema@^10.1.1", "@graphql-tools/schema@^10.1.3":
   version "10.1.3"
   resolved "https://registry.yarnpkg.com/@graphql-tools/schema/-/schema-10.1.3.tgz#1dbbb63e7c82054f62371f9d818bc0d1bb226f3b"
   integrity sha512-N1ZpzguxzqTy5fpurqWQ5BXyjirlrtvVLeSafsu+SCDNjDeRnVxf9n5PVbdgzwFPAmP/7NK9sq9UB/kyR8oFiw==
@@ -1658,16 +1658,6 @@
     "@graphql-tools/delegate" "^12.2.1"
     "@graphql-tools/utils" "^12.0.1"
     tslib "^2.8.1"
-
-"@graphql-tools/utils@^11.2.0":
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-11.2.2.tgz#5e2c8458dc31d856c94cab0a02aabfd9a5e6e616"
-  integrity sha512-Do2A/t6ayqOma8m7PvpYMsCBswL+NB35BQSng4GWSBqafL2/BnfAZy/NSENPwV721Rm2fG0BHETFC0+FJJZmLw==
-  dependencies:
-    "@graphql-typed-document-node/core" "^3.1.1"
-    "@whatwg-node/promise-helpers" "^1.0.0"
-    cross-inspect "1.0.1"
-    tslib "^2.4.0"
 
 "@graphql-tools/utils@^12.0.0", "@graphql-tools/utils@^12.0.1", "@graphql-tools/utils@^12.0.3":
   version "12.0.3"
@@ -6348,15 +6338,15 @@ graphql-ws@^6.0.0, graphql-ws@^6.0.6:
   integrity sha512-qBAXPtFjWHF3QypDyNcBp8Rycd+rmofxUSJsu3bGI9QMMq7pImKBSLSg9hZ2ojIMbJ54T/LPjKBIeOUoJbNBnQ==
 
 graphql-yoga@^5.16.2:
-  version "5.24.2"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.24.2.tgz#fb26ef410205238571c9ff2d0db6d59bd2ebcc2f"
-  integrity sha512-pQoCb4BjDF3ZccHugxm84EQcG4d0qK+r11hFylB4AncvIp1r6PZ450mLRwCv+5c7884/ppPJQPWdnIAIXSCQUA==
+  version "5.24.4"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-5.24.4.tgz#cebab8d644e398896e3ff1912b83a8b4f75b8acc"
+  integrity sha512-jnpLm2g9BfnP18VKL+Yao8YRQYgDjXdAkFgZso/tnKFcRcAtOeUKLDVc1XnYiE3uooXzfIQzsvpKR+fC3we4QA==
   dependencies:
     "@envelop/core" "^5.6.1"
     "@envelop/instrumentation" "^1.0.1"
-    "@graphql-tools/executor" "^2.0.0"
-    "@graphql-tools/schema" "^10.0.11"
-    "@graphql-tools/utils" "^11.2.0"
+    "@graphql-tools/executor" "^2.0.3"
+    "@graphql-tools/schema" "^10.1.3"
+    "@graphql-tools/utils" "^12.0.3"
     "@graphql-yoga/logger" "^2.0.2"
     "@graphql-yoga/subscription" "^5.1.1"
     "@whatwg-node/fetch" "^0.10.6"
