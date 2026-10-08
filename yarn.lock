@@ -5568,7 +5568,7 @@ esast-util-from-js@^2.0.0:
     esast-util-from-estree "^2.0.0"
     vfile-message "^4.0.0"
 
-esbuild@0.28.1, esbuild@^0.28.0:
+esbuild@0.28.2, esbuild@^0.28.0:
   version "0.28.2"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.28.2.tgz#0f43bd1bad955b72d24e2261e3abe5957ccf0816"
   integrity sha512-HKVLS8dvII+xoKW9kmqxbRKrnWEXfJJr/FZhhJmiqIB0e053QNYFqOBouTMO/k5sID4MvCiUCvv8b9M4h32wIA==
@@ -8524,13 +8524,13 @@ mimic-fn@^4.0.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-4.0.0.tgz#60a90550d5cb0b239cca65d893b1a53b29871ecc"
   integrity sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==
 
-miniflare@5.20261006.0-alpha:
-  version "5.20261006.0-alpha"
-  resolved "https://registry.yarnpkg.com/miniflare/-/miniflare-5.20261006.0-alpha.tgz#22c704479e993e4d08a2d48b9da6f182fee0dfe5"
-  integrity sha512-UP3qIeQKHba59GHxBqD8H2GateacluT4vrjIpqEgH78kCSUxdu8jA0f7MH7ftRSAnnB1oOvEsDtav3xevQDbpQ==
+miniflare@5.20261006.1-alpha:
+  version "5.20261006.1-alpha"
+  resolved "https://registry.yarnpkg.com/miniflare/-/miniflare-5.20261006.1-alpha.tgz#88f259b55a6ff0750f19f38c8c1477bb3347a38f"
+  integrity sha512-6ylv8tamkrspDI2R/cAYfv+YWmfGNdXe76Pi9TauEUWsFVXn3LNF9Yk8oduzf1a+TYsSRYTqlOE7+nGGRsMHdw==
   dependencies:
     "@cspotcode/source-map-support" "0.8.1"
-    sharp "0.35.4"
+    sharp "0.35.5"
     undici "7.29.1"
     workerd "1.20261006.1"
     ws "8.21.0"
@@ -9897,7 +9897,7 @@ sh-syntax@^0.4.2:
   dependencies:
     tslib "^2.6.2"
 
-sharp@*, sharp@0.35.4, sharp@^0.35.0, sharp@^0.35.3, sharp@^0.35.4:
+sharp@*, sharp@0.35.5, sharp@^0.35.0, sharp@^0.35.3, sharp@^0.35.4:
   version "0.35.5"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.35.5.tgz#43fb539872ec5f53cc7162eb850dbf6514692fbf"
   integrity sha512-Ywn4OnzGukp7CDMrp08RQ50YKmuwG47brZgIVPTvBaaAfQlRlygrRqSrxdCiL9M+LlzLBiJ68IR1QqvzHyjC7g==
@@ -10986,16 +10986,16 @@ workerd@1.20261006.1:
     "@cloudflare/workerd-linux-arm64" "1.20261006.1"
     "@cloudflare/workerd-windows-64" "1.20261006.1"
 
-wrangler@4.148.0:
-  version "4.148.0"
-  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.148.0.tgz#e2ccfb91dc49a55253ac18b1edcb4f1a78afd6da"
-  integrity sha512-wgbll8cA/7qOMJSoYQuJrw9M9lmedGzYtg6wvUK2p/7G1KaE88jFmQ/CvtQzVUF9C8PQtC4Y5p9vbpAsJGAlpA==
+wrangler@4.149.0:
+  version "4.149.0"
+  resolved "https://registry.yarnpkg.com/wrangler/-/wrangler-4.149.0.tgz#2fdfd812faee929bc1a0045ae7830f174fcf7603"
+  integrity sha512-OzK7xmB5r5iLKb3cIT3783g13fe6T7xyeKu9LEdUyl+DKAM2KP/jkjnE0OUhyw+mB/XJM9ycjgF3MWm8PR9amg==
   dependencies:
     "@cloudflare/kv-asset-handler" "0.5.0"
     "@cloudflare/unenv-preset" "2.16.2"
     blake3-wasm "2.1.5"
-    esbuild "0.28.1"
-    miniflare "5.20261006.0-alpha"
+    esbuild "0.28.2"
+    miniflare "5.20261006.1-alpha"
     path-to-regexp "6.3.0"
     unenv "2.0.0-rc.24"
     workerd "1.20261006.1"
