@@ -16,7 +16,7 @@
     "graphql-yoga": "^6.0.0"
   },
   "devDependencies": {
-    "@babel/core": "8.0.7",
+    "@babel/core": "8.0.9",
     "@babel/plugin-transform-class-properties": "8.0.1",
     "@babel/preset-env": "8.0.7",
     "@babel/preset-typescript": "8.0.7",
