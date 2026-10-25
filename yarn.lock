@@ -9238,10 +9238,10 @@ possible-typed-array-names@^1.0.0, possible-typed-array-names@^1.1.0:
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.1.0.tgz#93e3582bc0e5426586d9d07b79ee40fc841de4ae"
   integrity sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==
 
-postcss-lightningcss@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/postcss-lightningcss/-/postcss-lightningcss-1.1.1.tgz#a1055c34c8a2d8198e20a206e30507de30c682f5"
-  integrity sha512-1Vyuj7SF3SuaBhRmXh+VeBj1FBQyDlaNJPNBLcZ1YkNOLTuTZAjykcHPOBMdSKJvc3ZX76Gm5m+gd65r0HsJKA==
+postcss-lightningcss@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/postcss-lightningcss/-/postcss-lightningcss-1.1.2.tgz#7e6e4e5db3babe9a24662dc65105251e77e8f11b"
+  integrity sha512-Qgjqr8Hlpmrk9y3BVkfUOnSKQf+XzOvmfCMijUsrqC0awPzh+8DYd0mKNbT+7OWjM00CRtsBLZkfnKE0OBmpeg==
   dependencies:
     browserslist "^4.19.1"
     lightningcss "^1.32.0"
