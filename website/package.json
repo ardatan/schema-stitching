@@ -24,7 +24,7 @@
     "@theguild/tailwind-config": "0.6.4",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
-    "pagefind": "1.5.2",
+    "pagefind": "1.6.0",
     "postcss-lightningcss": "1.1.2",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
