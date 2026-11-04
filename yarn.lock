@@ -6371,10 +6371,10 @@ graphql-yoga@^6.0.0:
     lru-cache "^10.0.0"
     tslib "^2.8.1"
 
-graphql@17.0.2, graphql@^17.0.0:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-17.0.2.tgz#05ff6f18e0801e8d040d46957eba712c1459d5d7"
-  integrity sha512-FRWbddMxfkjiB7z+aQDWIR+E34xo9I8c9mtK2RPv8PmMzKRvrdsreHL/Ui/TmwHJfhHChEtsFPyMHKI+xuarQQ==
+graphql@17.1.0, graphql@^17.0.0:
+  version "17.1.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-17.1.0.tgz#8ae1d3ad214fd99d59cb7a67b9c96419701191c8"
+  integrity sha512-JKCOa7rSQNrket/JFhuua86hljUO+IIpyUHfKxlKD6FEfbrLX8jc1FDrA0KPKI+s8OspBCF/5npYccAICHXPpQ==
 
 gzip-size@^6.0.0:
   version "6.0.0"
