@@ -20,13 +20,13 @@
     "zod": "^4.0.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "4.3.4",
+    "@tailwindcss/postcss": "4.3.5",
     "@theguild/tailwind-config": "0.6.4",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "pagefind": "1.6.0",
     "postcss-lightningcss": "1.1.2",
-    "tailwindcss": "4.3.4",
+    "tailwindcss": "4.3.5",
     "typescript": "7.0.2",
     "wrangler": "4.158.0"
   }
