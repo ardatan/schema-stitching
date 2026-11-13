@@ -1204,14 +1204,14 @@
     "@whatwg-node/promise-helpers" "^1.2.4"
     tslib "^2.5.0"
 
-"@envelop/core@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-6.0.0.tgz#f5d88232dadd5ac7cc8b6e08ab8c86a7ad950042"
-  integrity sha512-r/FPut3JaDJnH64Hn6umeqxlZNMJsFf2IJmZzmv6F1m+Mxfez1zKmKIOOFFO4DRc6ghqqzZMvIH9r2/LVLWxuw==
+"@envelop/core@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@envelop/core/-/core-6.0.1.tgz#9d3c29071f9d49f8b9fa2a7c98eec5d0ce5aa143"
+  integrity sha512-wFH1atHzCeK+iFOpWOdbpybDh9SIujMsLMDxH4WvVGa/SIMZ4ktLxH4/7Zqr9d4pT7O1r6eDQd3j981OfusZtQ==
   dependencies:
-    "@envelop/instrumentation" "^2.0.0"
-    "@envelop/types" "^6.0.0"
-    "@whatwg-node/promise-helpers" "^2.0.0"
+    "@envelop/instrumentation" "^2.0.1"
+    "@envelop/types" "^6.0.1"
+    "@whatwg-node/promise-helpers" "^2.0.2"
     tslib "^2.5.0"
 
 "@envelop/instrumentation@^1.0.1":
@@ -1222,12 +1222,12 @@
     "@whatwg-node/promise-helpers" "^1.2.1"
     tslib "^2.5.0"
 
-"@envelop/instrumentation@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@envelop/instrumentation/-/instrumentation-2.0.0.tgz#893a07fa13089482e456489edbe7c4dff37cd22e"
-  integrity sha512-nXW9DAHfJ7Fh5nTnvr0uDUvCvMw017Agvk3MiE58u8Eby6mTwuiCFp16as2sPVODLLeCBs6rmKs0F1tkpbAXYQ==
+"@envelop/instrumentation@^2.0.0", "@envelop/instrumentation@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@envelop/instrumentation/-/instrumentation-2.0.1.tgz#95976f9c4dbc9968ca970344b5366ae54cf3b0a6"
+  integrity sha512-BnHXPcYTGl6bskFwaeOwt7G2KwHhATOMfc2ojMno7QMFKBSxkmPs6o092LDJ+PTNHk7wv4pTIWhP4LsJkvHIew==
   dependencies:
-    "@whatwg-node/promise-helpers" "^2.0.0"
+    "@whatwg-node/promise-helpers" "^2.0.2"
     tslib "^2.5.0"
 
 "@envelop/types@^5.2.2":
@@ -1238,12 +1238,12 @@
     "@whatwg-node/promise-helpers" "^1.0.0"
     tslib "^2.5.0"
 
-"@envelop/types@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@envelop/types/-/types-6.0.0.tgz#2a38650468d281883705047cd720022490c9c864"
-  integrity sha512-og5ZFJtIvmQwa0Yb/5JarUT4XnpxxcPTpPi+5+cYnJaLT4qYvCVxNIkW+r6/JpTcbG++DuCQHSvt9fsTDRNNOA==
+"@envelop/types@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@envelop/types/-/types-6.0.1.tgz#5dffdb48fa030ac849ecade0e3aeafabcfb993f4"
+  integrity sha512-3XOc8X4FRZdKFMmSVDlHJSBIK4jKtzBpnnoKwI7Qoq1k8aqpYHJg2IXnNKpdOubB9xKsWZvIlqSCOWtAg4td+A==
   dependencies:
-    "@whatwg-node/promise-helpers" "^2.0.0"
+    "@whatwg-node/promise-helpers" "^2.0.2"
     tslib "^2.5.0"
 
 "@epic-web/invariant@^1.0.0":
@@ -4107,23 +4107,23 @@
   dependencies:
     tslib "^2.6.3"
 
-"@whatwg-node/promise-helpers@^2.0.0", "@whatwg-node/promise-helpers@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@whatwg-node/promise-helpers/-/promise-helpers-2.0.1.tgz#4b60e75270d80fc9b8a994c3cfc3a7004e8f6626"
-  integrity sha512-ziVgm01A9irPLVBaUFei64qp771BrDXldbv5pY6kgFgNtA+7zq8ux6nj/6w8bELGH/+Ttnc76ox04HIjU8nqvg==
+"@whatwg-node/promise-helpers@^2.0.0", "@whatwg-node/promise-helpers@^2.0.1", "@whatwg-node/promise-helpers@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@whatwg-node/promise-helpers/-/promise-helpers-2.0.2.tgz#b571a9c35e27ed3293b905f05df245b4b4a156cf"
+  integrity sha512-RKVGTBAuYfObHxUFjlTFmlDndmuXBxkN56yj3z6EQpNpT55R/xaMhTi4+9yXZ5UoDXbKLAsZHCP8ycoWHM/Vdg==
   dependencies:
-    tslib "^2.6.3"
+    tslib "^2.9.1"
 
-"@whatwg-node/server@^0.13.1":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@whatwg-node/server/-/server-0.13.2.tgz#7811f8685b8d09dc66b31b85facbf1dd18bf1d1f"
-  integrity sha512-Ujh+gD274sDqs3s8JbxdMMl8x7dhexFbuxoBAJgPZZMWP/uITAW4IqJuK8D83Yg93yQ5Kgq6jrpuhZqUV+bTlg==
+"@whatwg-node/server@^0.13.3":
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/@whatwg-node/server/-/server-0.13.3.tgz#e91108065138fe1b3bec671a282de932259489cd"
+  integrity sha512-Q5rweDuJ+ExmykRqnAFXv+V/hC6Rk4lQUsgaiYdmxrxBJqAv6isQtq7GgQyzbcS2VL09Ab4hwHyg8yI7QYrM3Q==
   dependencies:
     "@envelop/instrumentation" "^2.0.0"
     "@whatwg-node/disposablestack" "^0.1.0"
     "@whatwg-node/fetch" "^0.12.0"
-    "@whatwg-node/promise-helpers" "^2.0.0"
-    tslib "^2.6.3"
+    "@whatwg-node/promise-helpers" "^2.0.2"
+    tslib "^2.9.1"
 
 "@xmldom/xmldom@0.9.12", "@xmldom/xmldom@^0.9.12":
   version "0.9.12"
@@ -6341,20 +6341,20 @@ graphql-ws@^6.0.0, graphql-ws@^6.0.6:
   integrity sha512-wxhPhhOGJo8PbGDkBYVE76sZLDrS+GkyrR4bZECSLVbo0pZZNKs0HtBh2Ip/uaUuiVUxwO9ssI9R92buQfNSqQ==
 
 graphql-yoga@^6.0.0:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-6.0.1.tgz#9f0462233eff8e9ec6991ee7cf304e512e7138c5"
-  integrity sha512-uGfyZNivj4HaNvFi25ce9YLoywWLwxzlt9lM9dYETep00qsPOyGr5jR2Jeg/KxTCqOKMiyqS3oWuM0uhL8QgaQ==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-6.1.0.tgz#85f352ab431a72ce38e94ab297483ab36b0812a0"
+  integrity sha512-YID0cgrgx3oyh5fJA98414kU3x9cx88ZXGascBGrBkpibQkKRkkb4okMMCLx9n5HCMLiBdaWaFbi31D/7JvqPw==
   dependencies:
-    "@envelop/core" "^6.0.0"
-    "@envelop/instrumentation" "^2.0.0"
+    "@envelop/core" "^6.0.1"
+    "@envelop/instrumentation" "^2.0.1"
     "@graphql-hive/logger" "^1.1.1"
     "@graphql-tools/executor" "^4.1.2"
     "@graphql-tools/schema" "^11.0.0"
     "@graphql-tools/utils" "^13.1.1"
     "@graphql-yoga/subscription" "^6.0.0"
     "@whatwg-node/fetch" "^0.12.0"
-    "@whatwg-node/promise-helpers" "^2.0.0"
-    "@whatwg-node/server" "^0.13.1"
+    "@whatwg-node/promise-helpers" "^2.0.2"
+    "@whatwg-node/server" "^0.13.3"
     lru-cache "^10.0.0"
     tslib "^2.8.1"
 
@@ -10521,7 +10521,7 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@2, tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.2, tslib@^2.6.3, tslib@^2.8.0, tslib@^2.8.1:
+tslib@2, tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.2, tslib@^2.6.3, tslib@^2.8.0, tslib@^2.8.1, tslib@^2.9.1:
   version "2.9.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.9.1.tgz#8986213ba2f17f38ba39a7c43d0e565a9134ff5f"
   integrity sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==
