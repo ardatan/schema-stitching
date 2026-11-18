@@ -1561,9 +1561,9 @@
     "@graphql-tools/utils" "^12.1.0"
 
 "@graphql-tools/executor-graphql-ws@^3.0.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-3.2.1.tgz#a31f40a9051abcd911244660f5e577289d6802ee"
-  integrity sha512-3QjtckvvmpYyv2v79O4GnWX94qFolh7psUrV9iwxBs0r56fFrjK6oxBoelu2EILpclEj7JviegrnHyZ4/4cNzQ==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-3.2.2.tgz#9691516742448a797bdc071d199eca18dad044e7"
+  integrity sha512-GTj8pWKiqxSSQf83PTBRMqqfudksOe3FbwMWC1TTCxeMLrd9nMwyLhTn2O8MlbCo5zeSJoa0L1IYDhGVgaKaUA==
   dependencies:
     "@graphql-tools/executor-common" "^1.1.1"
     "@graphql-tools/utils" "^12.1.0"
