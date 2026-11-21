@@ -1,0 +1,68 @@
+name: Cleanup Actions Storage
+
+on:
+  schedule:
+    # Weekly on Sunday at 03:00 UTC
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    name: Delete non-master Actions caches
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Actions caches not on refs/heads/master
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const keepRef = 'refs/heads/master';
+
+            // github-script normalizes response.data to the actions_caches
+            // array; do not map .actions_caches again.
+            const caches = await github.paginate(
+              github.rest.actions.getActionsCacheList,
+              {
+                owner,
+                repo,
+                per_page: 100,
+              },
+            );
+
+            let kept = 0;
+            let deleted = 0;
+            let failed = 0;
+
+            core.info(`Found ${caches.length} total cache(s)`);
+
+            for (const cache of caches) {
+              const ref = cache.ref || '(none)';
+              const label = `id=${cache.id} key=${cache.key} ref=${ref} size=${cache.size_in_bytes ?? '?'}`;
+
+              if (cache.ref === keepRef) {
+                kept++;
+                core.info(`Keeping ${label}`);
+                continue;
+              }
+
+              try {
+                await github.rest.actions.deleteActionsCacheById({
+                  owner,
+                  repo,
+                  cache_id: cache.id,
+                });
+                deleted++;
+                core.info(`Deleted ${label}`);
+              } catch (err) {
+                failed++;
+                core.warning(`Failed to delete ${label}: ${err.message}`);
+              }
+            }
+
+            core.info(
+              `Summary: total=${caches.length} kept=${kept} deleted=${deleted} failed=${failed}`,
+            );
