@@ -22,6 +22,8 @@ jobs:
             const repo = context.repo.repo;
             const keepRef = 'refs/heads/master';
 
+            // github-script normalizes response.data to the actions_caches
+            // array; do not map .actions_caches again.
             const caches = await github.paginate(
               github.rest.actions.getActionsCacheList,
               {
@@ -29,7 +31,6 @@ jobs:
                 repo,
                 per_page: 100,
               },
-              (response) => response.data.actions_caches,
             );
 
             let kept = 0;
