@@ -12,9 +12,9 @@
     "start-reviews": "ts-node-dev src/services/reviews/index.ts"
   },
   "dependencies": {
-    "@graphql-tools/executor-http": "^3.0.2",
-    "@graphql-tools/stitch": "^10.1.23",
-    "@graphql-tools/stitching-directives": "^4.0.23",
+    "@graphql-tools/executor-http": "^4.0.0",
+    "@graphql-tools/stitch": "^11.0.0",
+    "@graphql-tools/stitching-directives": "^5.0.0",
     "@graphql-tools/utils": "^13.0.0",
     "concurrently": "^10.0.0",
     "graphql": "^17.0.0",
