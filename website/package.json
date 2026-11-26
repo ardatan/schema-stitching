@@ -22,8 +22,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.5",
     "@theguild/tailwind-config": "0.6.4",
-    "@types/node": "26.6.7",
-    "@types/react": "19.3.1",
+    "@types/node": "26.6.11",
+    "@types/react": "19.3.3",
     "pagefind": "1.6.0",
     "postcss-lightningcss": "1.1.2",
     "tailwindcss": "4.3.5",
