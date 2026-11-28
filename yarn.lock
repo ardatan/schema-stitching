@@ -1560,18 +1560,26 @@
     "@envelop/core" "^5.4.0"
     "@graphql-tools/utils" "^12.1.0"
 
-"@graphql-tools/executor-graphql-ws@^3.0.1":
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-3.2.2.tgz#9691516742448a797bdc071d199eca18dad044e7"
-  integrity sha512-GTj8pWKiqxSSQf83PTBRMqqfudksOe3FbwMWC1TTCxeMLrd9nMwyLhTn2O8MlbCo5zeSJoa0L1IYDhGVgaKaUA==
+"@graphql-tools/executor-common@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-common/-/executor-common-2.0.0.tgz#bb4af3ca0d9372c727799e105cddb884e85bc020"
+  integrity sha512-ZRicbrytnBKNYERp+d4nlxojlfB0aijMxXjlOPYTTokojUx8HKS9dCi+O4AuFHqx69cwfxzbjjeu051rBoD/iA==
   dependencies:
-    "@graphql-tools/executor-common" "^1.1.1"
-    "@graphql-tools/utils" "^12.1.0"
-    "@whatwg-node/disposablestack" "^0.0.6"
-    graphql-ws "^6.0.6"
-    isows "^1.0.7"
-    tslib "^2.8.1"
-    ws "^8.21.0"
+    "@envelop/core" "^6.0.1"
+    "@graphql-tools/utils" "^13.2.2"
+
+"@graphql-tools/executor-graphql-ws@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/executor-graphql-ws/-/executor-graphql-ws-4.0.0.tgz#0804b5e4e8955cc634c88774279d6d8afff0893e"
+  integrity sha512-mci9xe5NerWMsDu3Ral0DVIuMQYauWef8jX2rXrn9YQn+GAjx1DNpbulwP68rVCCGN6Ln2lDcxPDCYY+kv4DJg==
+  dependencies:
+    "@graphql-tools/executor-common" "^2.0.0"
+    "@graphql-tools/utils" "^13.2.2"
+    "@whatwg-node/disposablestack" "^0.1.0"
+    graphql-ws "^6.4.3"
+    isows "^1.0.8"
+    tslib "^2.9.1"
+    ws "^8.23.0"
 
 "@graphql-tools/executor-http@^3.0.2", "@graphql-tools/executor-http@^3.6.2":
   version "3.6.2"
@@ -6411,7 +6419,7 @@ graphql-scalars@^2.0.0:
   dependencies:
     tslib "^2.5.0"
 
-graphql-ws@^6.0.0, graphql-ws@^6.0.6:
+graphql-ws@^6.0.0, graphql-ws@^6.4.3:
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-6.4.3.tgz#a879456f6df5350fd70cfe6394fcafded8ed06a3"
   integrity sha512-wdnv6+iQF0U3rPeaoCALqyFHLE7zansTAqBnsrbwyzgj/Iu0kaglAsA8k3nGDHu9AmeGOQI3uH6C+ojz3DO9AA==
@@ -7117,7 +7125,7 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-isows@^1.0.7:
+isows@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/isows/-/isows-1.0.8.tgz#acbb835de742d8bc894787e00a81db0f193f3485"
   integrity sha512-as4gJW0jnuVyp0jZWq+w9n7LawMPRMb2Hd7m5lSuzDgJYYUFBRBrcR6L3q5bl/B2aSXFEZJq+hdylE8J9aji5Q==
@@ -11224,7 +11232,7 @@ ws@^7.3.1:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.14.tgz#b98527f7f986756dc9507b293e3be8ac2309c356"
   integrity sha512-u9Oi2nQ8SZnTUAf6spLLKF5TyqoG3Nbbrd4ai6Sjo4P24bycDewhQqtNMIg4bFpnpH/TD4qk4IuAVhT0HIIqug==
 
-ws@^8.21.0, ws@^8.21.1:
+ws@^8.21.1, ws@^8.23.0:
   version "8.23.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.23.1.tgz#7e32c1948f0a77872fa2fd0580970683986b5fdc"
   integrity sha512-1rzWDSN0NOi3tpwgHsQExjWRoKUGtjCkJ2gZRaaRtzhYLboMytOI9pj9PU7yCgY37auqdd4OyLofZDbkeuZmPA==
